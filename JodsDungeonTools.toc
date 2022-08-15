@@ -1,0 +1,8 @@
+## Interface: 90205
+## Version: 1.0.0
+## Title: Jods Dungeon Tools
+## Notes: Compact Addon to Manage all my Stuff for Dungeons
+## Author: Jods
+## SavedVariables: HelloWorldDB
+
+JodsDungeonToolsMain.lua
