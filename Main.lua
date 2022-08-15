@@ -1,0 +1,3 @@
+local _, JDT = ...
+print("Jods Dungeon Tools")
+
