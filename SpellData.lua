@@ -8,8 +8,8 @@ JDT.SpellList = {
            enabled = false
         },
         DebuffName2 = {
-            spellId = 5678,
-            enabled = false
+            spellId = 12345,
+            enabled = true
          }
     },
     Aoe = {
@@ -18,7 +18,7 @@ JDT.SpellList = {
             enabled = false
          },
         AoeName2 = {
-            spellId = 5678,
+            spellId = 12345,
             enabled = false
          }
     },

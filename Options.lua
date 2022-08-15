@@ -28,23 +28,42 @@ JDT.options = {
                 Debuffs={
                     name = "Debuffs",
                     type = "group",
+                    inline = true,
                     args={
                       -- more options go here
                     }
               }
-            }
+                Casts={
+                  name = "Casts",
+                  type = "group",
+                  inline = true,
+                  args={
+                    -- more options go here
+                  }
+              }
+                Frontals={
+                  name = "Frontals",
+                  type = "group",
+                  inline = true,
+                  args={
+                    -- more options go here
+                  }
+              }
       }
     }
   }
 
   for k,v in pairs(JDT.SpellList.Debuffs) do 
-    JDT.options.args.spelloptions.Debuffs.args[k]= {
-        name = k,
-        desc = "Enables / disables the Debuff "..k,
-        type = "toggle",
-        set = function(info,val)  JDT.options.args.spelloptions.Debuffs.args[k].enabled = val end,
-        get = function(info) return  JDT.options.args.spelloptions.Debuffs.args[k].enabled end
+    local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellspellID = GetSpellInfo(v.spellId)
+    JDT.options.args.spelloptions.args.Debuffs.args[k]= {
+          name = k,
+          desc = "Enables / disables the Debuff "..k.." spellid: ".. v.spellId.." icon: "..Spellicon,
+          type = "toggle",
+          image = Spellicon,
+          set = function(info,val)  JDT.options.args.spelloptions.args.Debuffs.args[k].enabled = val end,
+          get = function(info) return  JDT.options.args.spelloptions.args.Debuffs.args[k].enabled end
     }
+    JDT.options.args.spelloptions.args.Debuffs.args[k].set=tostring(v.enabled)
   end
 
   AceConfig:RegisterOptionsTable(appName, JDT.options)
