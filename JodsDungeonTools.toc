@@ -6,7 +6,15 @@
 ## SavedVariables: JodsDungeonTools
 ## OptionalDeps: Ace3
 
+# Locales
+Locales\ENgb.lua
+Locales\DEde.lua
+Locales.lua
+
+# Core
+
 SpellData.lua
 Export.lua
 Main.lua
 Options.lua
+

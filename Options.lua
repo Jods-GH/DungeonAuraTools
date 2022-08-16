@@ -5,21 +5,21 @@ JDT.options = {
     type = "group",
     args = {
       enable = {
-        name = "Enable",
-        desc = "Enables / disables the addon",
+        name = JDT.getLocalisation("Enable"),
+        desc = JDT.getLocalisation("EnableDescription"),
         type = "toggle",
         set = function(info,val) JDT.enabled = val end,
         get = function(info) return JDT.enabled end
     },
       generaloptions={
-        name = "General Options",
+        name = JDT.getLocalisation("GeneralOptions"),
         type = "group",
         args={
           -- more options go here
         }
     },
       spelloptions={
-            name = "Spell Options",
+            name = JDT.getLocalisation("SpellOptions"),
             type = "group",
             args={
               -- more options go here  
@@ -30,7 +30,7 @@ JDT.options = {
 JDT.createOptionsData = function()
   for SpellTypeKey,SpellTypeValue in pairs (JDT.SpellList) do -- Generates Type Groups depending on SPellData.lua
     JDT.options.args.spelloptions.args[SpellTypeKey] = {
-        name = SpellTypeKey,
+        name = JDT.getLocalisation(SpellTypeKey),
         type = "group",
         args={
         -- more options go here
