@@ -5,11 +5,13 @@ JDT.SpellList = {
     Debuffs= {
         DebuffName1 = {
            spellId = 1234,
-           enabled = false
+           enabled = false,
+           type = "Magic"
         },
         DebuffName2 = {
             spellId = 12345,
-            enabled = true
+            enabled = true,
+            type = "Magic"
          }
     },
     Aoe = {

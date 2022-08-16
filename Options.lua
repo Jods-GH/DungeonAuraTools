@@ -1,10 +1,7 @@
 local appName, JDT = ...
-local AceGUI = LibStub("AceGUI-3.0")
-local AceConfig = LibStub("AceConfig-3.0")
-local AceConfigDialog = LibStub("AceConfigDialog-3.0")
-print("Jods Dungeon Tools")
 
 JDT.options = {
+  name = "Addon Options",
     type = "group",
     args = {
       enable = {
@@ -25,59 +22,37 @@ JDT.options = {
             name = "Spell Options",
             type = "group",
             args={
-                Debuffs={
-                    name = "Debuffs",
-                    type = "group",
-                    inline = true,
-                    args={
-                      -- more options go here
-                    }
-              }
-                Casts={
-                  name = "Casts",
-                  type = "group",
-                  inline = true,
-                  args={
-                    -- more options go here
-                  }
-              }
-                Frontals={
-                  name = "Frontals",
-                  type = "group",
-                  inline = true,
-                  args={
-                    -- more options go here
-                  }
-              }
+              -- more options go here  
       }
     }
   }
-
-  for k,v in pairs(JDT.SpellList.Debuffs) do 
-    local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellspellID = GetSpellInfo(v.spellId)
-    JDT.options.args.spelloptions.args.Debuffs.args[k]= {
-          name = k,
-          desc = "Enables / disables the Debuff "..k.." spellid: ".. v.spellId.." icon: "..Spellicon,
-          type = "toggle",
-          image = Spellicon,
-          set = function(info,val)  JDT.options.args.spelloptions.args.Debuffs.args[k].enabled = val end,
-          get = function(info) return  JDT.options.args.spelloptions.args.Debuffs.args[k].enabled end
+}
+JDT.createOptionsData = function()
+  for SpellTypeKey,SpellTypeValue in pairs (JDT.SpellList) do -- Generates Type Groups depending on SPellData.lua
+    JDT.options.args.spelloptions.args[SpellTypeKey] = {
+        name = SpellTypeKey,
+        type = "group",
+        args={
+        -- more options go here
+        }
     }
-    JDT.options.args.spelloptions.args.Debuffs.args[k].set=tostring(v.enabled)
+    for k,v in pairs(SpellTypeValue) do 
+      local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) -- Generates Spell toggles depending on SPellData.lua
+      JDT.options.args.spelloptions.args[SpellTypeKey].args[k]= {
+            name = Spellname,
+            desc = GetSpellDescription(SpellID),
+            type = "toggle",
+            image = Spellicon,
+            icon =  Spellicon,
+            set = function(info,val)  JDT.db.profile[SpellTypeKey][k].enabled = val end,
+            get = function(info) 
+              if JDT.db.profile[SpellTypeKey][k].enabled then
+              return  JDT.db.profile[SpellTypeKey][k].enabled 
+              else return v.enabled 
+              end
+            end
+
+      }
+    end
   end
-
-  AceConfig:RegisterOptionsTable(appName, JDT.options)
-
-
-function JDT.CreateOptionsFrame () 
-    AceConfigDialog:Open(appName)
-end
-
-SLASH_JODSDUNGEON1 = "/jdt"
-SLASH_JODSDUNGEON2 = "/Jdt"
-SLASH_JODSDUNGEON3 = "/JodsDungeonTools"
-
-
-SlashCmdList.JODSDUNGEON = function(msg, editBox)
-	JDT.CreateOptionsFrame() 
 end

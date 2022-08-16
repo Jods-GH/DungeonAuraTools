@@ -1,0 +1,9 @@
+package-as: JodsDungeonTools
+
+externals:
+  Libs/LibStub:
+    url: https://repos.wowace.com/wow/libstub/trunk
+    tag: latest
+  Libs/Ace3:
+    url: https://www.wowace.com/projects/ace3/
+    tag: latest
