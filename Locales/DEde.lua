@@ -1,13 +1,19 @@
-local _, JDT = ...
-JDT.localisation = JDT.localisation or {}
+local appName, JDT = ...
+local AceLocale = LibStub ('AceLocale-3.0')
+local LocalisationData = AceLocale:NewLocale(appName, "deDE")
 
-JDT.localisation.de = {
-    Enable = "Aktivieren",
-    EnableDescription = "Aktiviert / Deaktiviert das Addon",
-    GeneralOptions = "Allgemeine Optionen",
-    SpellOptions = "Zauber Configuration",
-    Debuffs = "Debuffs",
-    Aoe = "Aoe",
+if LocalisationData then
+
+LocalisationData["Enable"] = "Aktivieren"
+LocalisationData["EnableDescription"] = "Aktiviert / Deaktiviert das Addon"
+LocalisationData["GeneralOptions"] = "Allgemeine Optionen"
+LocalisationData["SpellOptions"] = "Zauber Configuration"
+LocalisationData["Debuffs"] = "Debuffs"
+LocalisationData["Aoe"] = "Aoe"
+
+-- LocalisationData[""] =
 
 
-}
+
+JDT.localisation = LocalisationData
+end
