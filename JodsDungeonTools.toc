@@ -4,7 +4,7 @@
 ## Notes: Compact Addon to Manage all my Stuff for Dungeons
 ## Author: Jods
 ## SavedVariables: JodsDungeonTools
-## OptionalDeps: Ace3
+## OptionalDeps: Ace3, WeakAuras, Plater
 
 # Locales
 Locales\enUS.lua
