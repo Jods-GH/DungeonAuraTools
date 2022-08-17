@@ -11,9 +11,13 @@ Locales\enUS.lua
 Locales\deDE.lua
 Locales.lua
 
-# Core
+#Templates
+Templates/AuraIcon.lua
+Templates/DynamicGroup.lua
 
+# Core
 SpellData.lua
+ExportData.lua
 Export.lua
 Main.lua
 Options.lua

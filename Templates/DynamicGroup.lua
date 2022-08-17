@@ -1,4 +1,6 @@
-
+		local _, JDT = ...
+		JDT.Templates = JDT.Templates  or {}
+		JDT.Templates.DynamicGroup = {
 		["JODS DUNGEON TOOLS TEMPLATE GROUP"] = { -- Group Name
 			["grow"] = "DOWN",
 			["controlledChildren"] = {
@@ -124,3 +126,4 @@
 			},
 			["uid"] = "4Ihows6tWX5",
 		},
+	}

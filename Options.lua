@@ -15,6 +15,11 @@ JDT.options = {
         name = JDT.getLocalisation("GeneralOptions"),
         type = "group",
         args={
+          ExportButton = {
+            name = "Export",
+            type = "execute",
+            func = function() JDT.exportAuras() end
+          }
           -- more options go here
         }
     },
