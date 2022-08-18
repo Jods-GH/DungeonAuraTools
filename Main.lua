@@ -8,6 +8,7 @@ JodsDungeonTools = LibStub("AceAddon-3.0"):NewAddon("JodsDungeonTools", "AceCons
 
 function JodsDungeonTools:OnInitialize()
 	-- Called when the addon is loaded
+    JDT.print = self:Print()
 	self:Print("Access the options via /jdt")
 
     local DatatoPersist = {

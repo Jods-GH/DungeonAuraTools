@@ -22,20 +22,20 @@ JDT.DataToExport = {
     tenorID = nil,
     xOffset = 0,
     yOffset = 0,
-    foregroundColor = {1, 1, 1, 1},
-    desaturateBackground = false,
-    animationType = "loop",
-    sameTexture = true,
-    startPercent = 0,
+    -- foregroundColor = {1, 1, 1, 1},
+    -- desaturateBackground = false,
+    -- animationType = "loop",
+    -- sameTexture = true,
+    -- startPercent = 0,
     actions = {
       start = {},
       init = {},
       finish = {}
     },
-    customForegroundRows = 16,
-    frameRate = 15,
+    -- customForegroundRows = 16,
+    -- frameRate = 15,
     internalVersion = 51,
-    animation = {
+    --[[ animation = {
       start = {
         type = "none",
         easeStrength = 3,
@@ -54,18 +54,18 @@ JDT.DataToExport = {
         duration_type = "seconds",
         easeType = "none"
       }
-    },
-    customForegroundFileHeight = 0,
-    customBackgroundRows = 16,
-    customForegroundFileWidth = 0,
-    rotation = 0,
+    }, ]]
+    -- customForegroundFileHeight = 0,
+    -- customBackgroundRows = 16,
+    -- customForegroundFileWidth = 0,
+    -- rotation = 0,
     subRegions = {
       {
         type = "subbackground"
       }
     },
-    height = 128,
-    rotate = true,
+    -- height = 128,
+    -- rotate = true,
     load = {
       size = {
         multi = {}
@@ -80,33 +80,33 @@ JDT.DataToExport = {
         multi = {}
       }
     },
-    endPercent = 1,
-    backgroundTexture = "placeholder",
-    customBackgroundColumns = 16,
-    foregroundTexture = "placeholder",
-    backgroundPercent = 1,
-    selfPoint = "CENTER",
-    mirror = false,
-    backgroundColor = {0.5, 0.5, 0.5, 0.5},
-    regionType = "stopmotion",
-    discrete_rotation = 0,
+    -- endPercent = 1, --
+    -- backgroundTexture = "placeholder", --
+    -- customBackgroundColumns = 16, --
+    -- foregroundTexture = "placeholder", --
+    -- backgroundPercent = 1, --
+    selfPoint = "CENTER", 
+    -- mirror = false, --
+    -- backgroundColor = {0.5, 0.5, 0.5, 0.5}, --
+    regionType = "icon", -- AuraType ["icon","aurabar","dynamicgroup"]
+    -- discrete_rotation = 0, --
     blendMode = "BLEND",
     anchorPoint = "CENTER",
     anchorFrameType = "SCREEN",
-    customForegroundColumns = 16,
+    -- customForegroundColumns = 16, --
     config = {},
-    customForegroundFrames = 0,
-    customForegroundFrameWidth = 0,
-    hideBackground = true,
-    customBackgroundFrames = 0,
-    id = "placeholder",
-    uid = "placeholder",
-    customForegroundFrameHeight = 0,
+    -- customForegroundFrames = 0, --
+    -- customForegroundFrameWidth = 0, --
+    -- hideBackground = true, -- 
+    -- customBackgroundFrames = 0, --
+    id = "THIS IS A TEST", -- AuraName
+    uid = "LETS EXPERIMENT 2", -- Unique identifier used for Updating Auras 
+   -- customForegroundFrameHeight = 0, --
     frameStrata = 1,
     width = 128,
     authorOptions = {},
-    inverse = false,
-    desaturateForeground = false,
+    -- inverse = false, --
+    -- desaturateForeground = false, --
     conditions = {},
     information = {},
     triggers = {
@@ -131,6 +131,6 @@ JDT.DataToExport = {
     }
   },
   m = "d",
-  s = "WA-Companion",
+  s = "JodsDungeonTools",
   v = 1421
 }
