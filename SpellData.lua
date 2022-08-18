@@ -10,7 +10,7 @@ JDT.SpellList = {
         },
         DebuffName2 = {
             spellId = 12345,
-            enabled = true,
+            enabled = false,
             type = "Magic"
          }
     },
