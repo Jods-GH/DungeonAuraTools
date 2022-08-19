@@ -4,8 +4,7 @@ JDT.exportAuras = function()
 
     if WeakAuras and WeakAuras.Import then
         local wassuccesful,msg = WeakAuras.Import(JDT.buildDataToExport(),targetAura) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import
-        print(wassuccesful)
-       if not wassuccesful  then
+       if msg  then
         print("Import failed: "..msg)
        end
     end
@@ -24,6 +23,36 @@ JDT.buildDataToExport = function()
             SpellTable.triggers[1].trigger.auranames = { --set spellid for trigger need reworking to allow for mor triggers via trigger template
                 v.spellId, -- [1]
             }
+            local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
+            SpellTable.displayIcon = Spellicon
+            if v.doSound then
+                SpellTable.actions.start.sound = SpellTable.actions.start.sound..v.doSound..".ogg"
+                SpellTable.actions.start.do_sound = true
+            end
+            if v.zoneId then
+                SpellTable.load.use_zoneIds = true
+                SpellTable.load.zoneIds = v.zoneId
+            end
+
+
+            if v.showStacks then
+                local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
+                table.insert(SpellTable.subRegions,StacksText)
+            end
+
+            if v.type then -- add border color and custom text
+                local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
+                table.insert(SpellTable.subRegions,CustomText)
+                
+                SpellTable.customText = JDT.Templates.CustomTextIcons[v.type]
+
+                local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+                BorderTable.border_color = JDT.Templates.Borders[v.type]
+                table.insert(SpellTable.subRegions,BorderTable)
+            end
+
+        
+
 
             -- generates uID's for Children and Links ParentGroup to Children and vice versa
             if v.uID then

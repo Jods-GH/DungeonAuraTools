@@ -11,7 +11,11 @@ JDT.SpellList = {
         DebuffName2 = {
             spellId = 12345,
             enabled = false,
-            type = "Magic"
+            type = "Magic",
+            doSound = "Debuff",
+            zoneId = "1234",
+            showStacks = true,
+            groupType = JDT.GroupTypes.dot
          }
     },
     Aoe = {

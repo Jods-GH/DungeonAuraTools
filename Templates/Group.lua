@@ -1,4 +1,5 @@
 local _, JDT = ...
+JDT.Templates = JDT.Templates  or {}
 
 ["BAR TEMPLATE"] = {
   ["sparkWidth"] = 10,
