@@ -1,7 +1,20 @@
 local _, JDT = ...
 JDT.Templates = JDT.Templates  or {}
 
-JDT.Templates.Borders = {}
+JDT.Templates.Borders = JDT.Templates.Borders or {}
+
+
+JDT.Templates.Borders.BorderTemplate = {
+						border_offset = 0,
+						type = "subborder",
+						border_color = { -------------- color of border in RGBA
+						},
+						border_visible = true,
+						border_edge = "Square Full White",
+						border_size = 2,
+					}
+
+
 JDT.Templates.Borders.magic = { 
 							0, -- [1]
 							0.5019607843137255, -- [2]

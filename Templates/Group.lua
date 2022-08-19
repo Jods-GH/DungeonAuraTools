@@ -1,79 +1,63 @@
 local _, JDT = ...
-JDT.Templates = JDT.Templates  or {}
 
-["BAR TEMPLATE"] = {
-  ["sparkWidth"] = 10,
-  ["sparkOffsetX"] = 0,
-  ["xOffset"] = 0,
-  ["yOffset"] = 0,
-  ["anchorPoint"] = "CENTER",
-  ["sparkRotation"] = 0,
-  ["sparkRotationMode"] = "AUTO",
-  ["backgroundColor"] = {
+JDT.Templates = JDT.Templates  or {}
+JDT.Templates.Group = {
+  sparkWidth = 10,
+  sparkOffsetX = 0,
+  xOffset = 0,
+  yOffset = 0,
+  anchorPoint = "CENTER",
+  sparkRotation = 0,
+  sparkRotationMode = "AUTO",
+  backgroundColor = {
     0, -- [1]
     0, -- [2]
     0, -- [3]
     0.5, -- [4]
   },
-  ["triggers"] = {
-    {
-      ["trigger"] = {
-        ["names"] = {
-        },
-        ["type"] = "aura2",
-        ["spellIds"] = {
-        },
-        ["subeventSuffix"] = "_CAST_START",
-        ["unit"] = "player",
-        ["subeventPrefix"] = "SPELL",
-        ["event"] = "Health",
-        ["debuffType"] = "HELPFUL",
-      },
-      ["untrigger"] = {
-      },
-    }, -- [1]
-    ["activeTriggerMode"] = -10,
+  triggers = {
+    activeTriggerMode = -10,
   },
-  ["icon_color"] = {
+  icon_color = {
     1, -- [1]
     1, -- [2]
     1, -- [3]
     1, -- [4]
   },
-  ["internalVersion"] = 53,
-  ["selfPoint"] = "CENTER",
-  ["barColor"] = {
+  internalVersion = 53,
+  selfPoint = "CENTER",
+  barColor = {
     1, -- [1]
     0, -- [2]
     0, -- [3]
     1, -- [4]
   },
-  ["desaturate"] = false,
-  ["sparkOffsetY"] = 0,
-  ["subRegions"] = {
+  desaturate = false,
+  sparkOffsetY = 0,
+  subRegions = {
     {
-      ["type"] = "subbackground",
+      type = "subbackground",
     }, -- [1]
     {
-      ["type"] = "subforeground",
+      type = "subforeground",
     }, -- [2]
     {
-      ["text_shadowXOffset"] = 1,
-      ["text_text"] = "%p",
-      ["text_shadowColor"] = {
+      text_shadowXOffset = 1,
+      text_text = "%p",
+      text_shadowColor = {
         0, -- [1]
         0, -- [2]
         0, -- [3]
         1, -- [4]
       },
-      ["text_selfPoint"] = "AUTO",
-      ["text_automaticWidth"] = "Auto",
-      ["text_fixedWidth"] = 64,
-      ["anchorYOffset"] = 0,
-      ["text_justify"] = "CENTER",
-      ["rotateText"] = "NONE",
-      ["text_text_format_p_time_legacy_floor"] = false,
-      ["type"] = "subtext",
+      text_selfPoint = "AUTO",
+      text_automaticWidth = "Auto",
+      text_fixedWidth = 64,
+      anchorYOffset = 0,
+      text_justify = "CENTER",
+      rotateText = "NONE",
+      text_text_format_p_time_legacy_floor = false,
+      type = "subtext",
       ["text_text_format_p_time_mod_rate"] = true,
       ["text_color"] = {
         1, -- [1]

@@ -19,28 +19,35 @@ JDT.buildDataToExport = function()
         for k,v in pairs(TypeValue) do 
             if v.enabled == true then
             local SpellTable = CopyTable(JDT.Templates.AuraIcon) --- copy from template
+
+            --- create trigger
             SpellTable.id = k
             SpellTable.triggers[1].trigger.auranames = { --set spellid for trigger need reworking to allow for mor triggers via trigger template
                 v.spellId, -- [1]
             }
+
+            -- set Fallback icon
             local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
             SpellTable.displayIcon = Spellicon
-            if v.doSound then
-                SpellTable.actions.start.sound = SpellTable.actions.start.sound..v.doSound..".ogg"
+
+            if v.doSound then -- set Sound
+                SpellTable.actions.start.sound = v.doSound
                 SpellTable.actions.start.do_sound = true
             end
-            if v.zoneId then
+            if v.zoneId then -- set ZoneIds
                 SpellTable.load.use_zoneIds = true
                 SpellTable.load.zoneIds = v.zoneId
             end
-
-
-            if v.showStacks then
+            if v.groupType then -- set Text to display below Aura (telling you what to do)
+                SpellTable.subRegions[3].text_text = v.groupType 
+            end
+            
+            if v.showStacks then -- add Text for Stacks display if needed
                 local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
                 table.insert(SpellTable.subRegions,StacksText)
             end
 
-            if v.type then -- add border color and custom text
+            if v.type then -- add border color and custom text if needed
                 local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
                 table.insert(SpellTable.subRegions,CustomText)
                 

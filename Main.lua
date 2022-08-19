@@ -13,20 +13,20 @@ function JodsDungeonTools:OnInitialize()
     local DatatoPersist = {
         profile = JDT.SpellList
     }
-    JDT.db = LibStub("AceDB-3.0"):New("JodsDungeonTools",DatatoPersist, true)
+    JDT.db = LibStub("AceDB-3.0"):New("JodsDungeonTools",DatatoPersist, true) -- Generates Saved Variables with default Values (if they don't already exist)
     local OptionTable = {
         type = "group",
         args = {
             profile = AceDBOptions:GetOptionsTable(JDT.db),
             rest = JDT.options
     }}
-    AceConfig:RegisterOptionsTable(appName,OptionTable)
+    AceConfig:RegisterOptionsTable(appName,OptionTable) -- 
     AceConfigDialog:AddToBlizOptions(appName, appName)
     self:RegisterChatCommand("jdt", "SlashCommand")
 	self:RegisterChatCommand("Jdt", "SlashCommand")
     self:RegisterChatCommand("JodsDungeonTools", "SlashCommand")
 
-    JDT.createOptionsData()   
+    JDT.createOptionsData()   -- generates Data for Options Table
 
     function JDT.CreateOptionsFrame () 
         AceConfigDialog:Open(appName)

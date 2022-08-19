@@ -40,7 +40,7 @@ JDT.Templates.TextRegions.CustomText = { ---------------------------------------
 						anchorXOffset = 0,
 						text_visible = true,
 					} 
- JDT.Templates.TextRegions.Stacks = { ------------------------------------------ TEXT %s
+JDT.Templates.TextRegions.Stacks = { ------------------------------------------ TEXT %s
 						text_shadowXOffset = 0,
 						text_text_format_s_format = "none",
 						text_text = "%s",

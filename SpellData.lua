@@ -6,16 +6,16 @@ JDT.SpellList = {
         DebuffName1 = {
            spellId = 1234,
            enabled = false,
-           type = "Magic"
+           type = JDT.AuraTypes.magic,
         },
         DebuffName2 = {
-            spellId = 12345,
+            spellId = 57723,
             enabled = false,
-            type = "Magic",
-            doSound = "Debuff",
+            type =  JDT.AuraTypes.magic,
+            doSound = JDT.SoundTypes.debuff,
             zoneId = "1234",
             showStacks = true,
-            groupType = JDT.GroupTypes.dot
+            groupType = JDT.GroupTypes.dot,
          }
     },
     Aoe = {
