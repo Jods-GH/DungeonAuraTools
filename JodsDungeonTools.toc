@@ -17,11 +17,12 @@ Templates/DynamicGroup.lua
 Templates/BorderColors.lua
 Templates/CustomTextIcons.lua
 Templates/TextRegions.lua
+Templates/Triggers.lua
 
 #SpellDataValues
 SpellDataValues/AuraTypes.lua
 SpellDataValues/SoundTypes.lua
-SpellDataValues/SpellGroupTypes.lua
+SpellDataValues/GroupTypes.lua
 
 
 # Core

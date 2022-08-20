@@ -10,6 +10,8 @@ JDT.exportAuras = function()
     end
 end
 
+
+
 JDT.buildDataToExport = function()
     local ExportTable = CopyTable(JDT.DataToExport)
     ExportTable.d.id = "JodsDungeonToolsGroup"-- AuraName
@@ -18,20 +20,25 @@ JDT.buildDataToExport = function()
     for TypeKey,TypeValue in pairs(JDT.db.profile) do -- iterate through all selected spells and generate table accordingly
         for k,v in pairs(TypeValue) do 
             if v.enabled == true then
-            local SpellTable = CopyTable(JDT.Templates.AuraIcon) --- copy from template
+          
+            local AuraTemplate = JDT.GroupTypes.Templates[v.groupType]
 
-            --- create trigger
+            local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
+
             SpellTable.id = k
-            SpellTable.triggers[1].trigger.auranames = { --set spellid for trigger need reworking to allow for mor triggers via trigger template
-                v.spellId, -- [1]
-            }
+            --- create trigger need addition value for other trigger types
+            local TriggerTable =  CopyTable(JDT.Templates.Triggers.ActivationTemplate) 
+            TriggerTable.disjunctive = AuraTemplate.activationType
+            local AuraTrigger = JDT.generateTriggerfromGroupType[AuraTemplate.triggerType](v.spellId,AuraTemplate)
+            tinsert(TriggerTable,1,AuraTrigger)
+            SpellTable.triggers = TriggerTable
 
             -- set Fallback icon
             local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
             SpellTable.displayIcon = Spellicon
 
-            if v.doSound then -- set Sound
-                SpellTable.actions.start.sound = v.doSound
+            if AuraTemplate.doSound then -- set Sound
+                SpellTable.actions.start.sound = AuraTemplate.doSound
                 SpellTable.actions.start.do_sound = true
             end
             if v.zoneId then -- set ZoneIds
@@ -77,4 +84,20 @@ JDT.buildDataToExport = function()
     end
 
     return ExportTable
+end
+
+JDT.generateTriggerfromGroupType = JDT.generateTriggerfromGroupType or {}
+JDT.generateTriggerfromGroupType.Buffs = function(spellId,AuraTemplate)
+    local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    AuraTrigger.trigger.debuffType = JDT.Templates.Triggers.BuffTypes[AuraTemplate.BuffTypes] -- sets harmful or helpful to define buff/debuff
+    AuraTrigger.trigger.auranames = { --set spellid for trigger
+    spellId, -- [1]
+    }
+    return AuraTrigger
+end
+
+JDT.generateTriggerfromGroupType.Cast = function(spellId,AuraTemplate)
+    local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    AuraTrigger.trigger.spellId = spellId --set spellid for trigger
+    return AuraTrigger
 end

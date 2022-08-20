@@ -7,6 +7,7 @@ JDT.SpellList = {
            spellId = 1234,
            enabled = false,
            type = JDT.AuraTypes.magic,
+           groupType = JDT.GroupTypes.dot,
         },
         DebuffName2 = {
             spellId = 57723,
@@ -21,11 +22,13 @@ JDT.SpellList = {
     Aoe = {
         AoeName1 = {
             spellId = 1234,
-            enabled = false
+            enabled = false,
+            groupType = JDT.GroupTypes.frontal,
          },
         AoeName2 = {
             spellId = 12345,
-            enabled = false
+            enabled = false,
+            groupType = JDT.GroupTypes.frontal,
          }
     },
 

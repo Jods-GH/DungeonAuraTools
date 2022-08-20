@@ -14,27 +14,7 @@
 				cooldownEdge = false,
 				icon = true,
 				triggers = {
-					{
-						trigger = {
-							type = "aura2",
-							subeventSuffix = "_CAST_START",
-							event = "Health",
-							unit = "player",
-							spellIds = {
-							},
-							names = {
-							},
-							subeventPrefix = "SPELL",
-							useName = true,
-							auranames = {
-								"12345", -- [1] Spellid of debuf
-							},
-							debuffType = "HARMFUL", -- if debuff is randomly not a debuff
-						},
-						untrigger = {
-						},
-					}, -- [1]
-					activeTriggerMode = -10,
+					
 				},
 				internalVersion = 53, -- version of weakauras addon on creation might need to be updated eventually
 				keepAspectRatio = false,
