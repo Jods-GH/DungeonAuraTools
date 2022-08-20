@@ -5,5 +5,5 @@ externals:
     url: https://repos.wowace.com/wow/libstub/trunk
     tag: latest
   Libs/Ace3:
-    url: https://www.wowace.com/projects/ace3/
+    url: https://repos.wowace.com/wow/ace3
     tag: latest
