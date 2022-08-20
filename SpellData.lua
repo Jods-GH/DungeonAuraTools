@@ -1,5 +1,5 @@
 local _, JDT = ...
-print("Jods Dungeon Tools")
+
 
 JDT.SpellList = {
     Debuffs= {
