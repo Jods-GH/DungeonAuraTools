@@ -6,39 +6,50 @@ JDT.SpellList.Shadowlands = JDT.SpellList.Shadowlands or {}
 JDT.SpellList.Shadowlands.Tazavesh = {
     groupName = "[TAZAVESH] ",
     zoneId = "g423", 
+    Bosses = {}
 }
 
-JDT.SpellList.Shadowlands.Tazavesh.boss1 = {
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional stuff thats alot more work keep only these for now
     EncounterId = 2425,
-    additionalName = "01 "
-    Debuffs= {
-        DebuffName1 = {
-           spellId = 1234,
-           enabled = false,
-           type = JDT.AuraTypes.magic,
-           groupType = JDT.GroupTypes.dot,
+    additionalName = "01 ",
+    Auras = {
+        
+        [JDT.GroupTypes.SpinToWin] = {
+            ArmedSecurity = {
+                spellId = 346204,
+                enabled = true,
+            },
+
         },
-        DebuffName2 = {
-            spellId = 57723,
-            enabled = false,
-            type =  JDT.AuraTypes.magic,
-            doSound = JDT.SoundTypes.debuff,
-            showStacks = true,
-            groupType = JDT.GroupTypes.dot,
-         }
-    },
-    Aoe = {
-        AoeName1 = {
-            spellId = 1234,
-            enabled = false,
-            groupType = JDT.GroupTypes.frontal,
-         },
-        AoeName2 = {
-            spellId = 12345,
-            enabled = false,
-            groupType = JDT.GroupTypes.frontal,
-         }
-    },
+        [JDT.GroupTypes.ShieldInc] = {
+            RotaryBodyArmor = {
+                spellId = 347992,
+                enabled = true,
+            },
 
+        },
 
+    }
 }
+
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
+    EncounterId = 2441,
+    additionalName = "02 ",
+    Auras = {
+        
+        [JDT.GroupTypes.SpinToWin] = {
+            ArmedSecurity = {
+                spellId = 346204,
+                enabled = true,
+            },
+
+        },
+        [JDT.GroupTypes.ShieldInc] = {
+            RotaryBodyArmor = {
+                spellId = 347992,
+                enabled = true,
+            },
+
+        },
+    }
+} 

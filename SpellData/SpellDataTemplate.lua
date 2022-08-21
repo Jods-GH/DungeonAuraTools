@@ -1,5 +1,6 @@
 local _, JDT = ...
 
+JDT.SpellList = JDT.SpellList or {}
 
 JDT.SpellList = {
     Debuffs= {

@@ -8,8 +8,16 @@ LocalisationData["Enable"] = "Enable"
 LocalisationData["EnableDescription"] = "enables / disables the Addon"
 LocalisationData["GeneralOptions"] = "General Options"
 LocalisationData["SpellOptions"] = "Spell Options"
-LocalisationData["Debuffs"] = "Debuffs"
-LocalisationData["Aoe"] = "Aoe"
+
+-- Aura Types
+LocalisationData["SpinToWin"] = "Spins"
+LocalisationData["PlayerGroupDebuffSpread"] = "Spreads"
+
+
+-- Dungeon Data
+LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
+LocalisationData["Tazavesh.boss1"] = "Zo'phex the Sentinel"
+LocalisationData["Tazavesh.boss2"] = "The Grand Menagerie"
 
 -- LocalisationData[""] =
 
