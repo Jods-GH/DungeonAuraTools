@@ -10,7 +10,7 @@ JDT.SpellList.Shadowlands.Tazavesh = {
 }
 
 JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional stuff thats alot more work keep only these for now
-    EncounterId = 2425,
+    EncounterId = "2425",
     additionalName = "01 ",
     Auras = {
         
@@ -33,23 +33,9 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
 }
 
 JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
-    EncounterId = 2441,
+    EncounterId = "2441",
     additionalName = "02 ",
     Auras = {
         
-        [JDT.GroupTypes.SpinToWin] = {
-            ArmedSecurity = {
-                spellId = 346204,
-                enabled = true,
-            },
-
-        },
-        [JDT.GroupTypes.ShieldInc] = {
-            RotaryBodyArmor = {
-                spellId = 347992,
-                enabled = true,
-            },
-
-        },
     }
 } 

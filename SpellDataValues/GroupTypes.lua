@@ -18,6 +18,7 @@ JDT.GroupTypes.Templates.Dot = {
             BuffTypes = "debuff",
         },
     },
+    text = "Dot",
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
@@ -28,6 +29,7 @@ JDT.GroupTypes.Templates.Frontal = {
             triggerType = "Cast", 
         },
     },
+    text = "Frontal",
     doSound = JDT.SoundTypes.frontal,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
@@ -39,6 +41,7 @@ JDT.GroupTypes.Templates.SpinToWin= {
             triggerType = "Cast", 
         },
     },
+    text = "Spin",
     doSound = JDT.SoundTypes.avoid,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
@@ -50,6 +53,7 @@ JDT.GroupTypes.Templates.ShieldInc =  {
             triggerType = "Cast", 
         },
     },
+    text = "Shield inc",
     doSound = JDT.SoundTypes.soon,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
@@ -68,6 +72,7 @@ JDT.GroupTypes.Templates.PlayerGroupDebuffSpread =  {
             unit = "SmartGroup"
         }
     },
+    text = "Spread",
     doSound = JDT.SoundTypes.soon,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

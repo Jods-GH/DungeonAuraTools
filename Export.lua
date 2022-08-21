@@ -14,9 +14,9 @@ end
 
 JDT.buildDataToExport = function()
     local ExportTable = CopyTable(JDT.DataToExport)
+    ExportTable.d = JDT.Templates.DynamicGroup
     ExportTable.d.id = "JodsDungeonToolsGroup"-- AuraName
     ExportTable.d.uid = "JodsDungeonToolsGroup" --AuraUniqueId
-    ExportTable.d = JDT.Templates.DynamicGroup
     
     for ExpansionKey,ExpansionValue in pairs(JDT.db.profile) do 
         for DungeonKey,DungeonValue in pairs(ExpansionValue) do 
@@ -32,7 +32,7 @@ JDT.buildDataToExport = function()
                             --- create trigger need addition value for other trigger types
                             local TriggerTable =  CopyTable(JDT.Templates.Triggers.ActivationTemplate) 
                             TriggerTable.disjunctive = AuraTemplate.activationType
-                            DevTools_Dump(AuraTemplate)
+                        
                             for trigger,triggervalue in pairs(AuraTemplate.triggers) do
                                 local AuraTrigger = JDT.generateTriggerfromGroupType[triggervalue.triggerType](v.spellId,triggervalue)
                                 tinsert(TriggerTable,1,AuraTrigger)
@@ -42,19 +42,24 @@ JDT.buildDataToExport = function()
                             -- set Fallback icon and display name
                             local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
                             SpellTable.displayIcon = Spellicon
-                            SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname
-
+                            SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname -- set AuraName
+                            SpellTable.subRegions[3].text_text = AuraTemplate.text -- set Text to display below Aura (telling you what to do)
                             if AuraTemplate.doSound then -- set Sound
                                 SpellTable.actions.start.sound = AuraTemplate.doSound
                                 SpellTable.actions.start.do_sound = true
                             end
-                            if v.zoneId then -- set ZoneIds
+
+                            -- set load conditions
+                            if DungeonValue.zoneId then 
                                 SpellTable.load.use_zoneIds = true
-                                SpellTable.load.zoneIds = v.zoneId
+                                SpellTable.load.zoneIds = DungeonValue.zoneId
                             end
-                            if v.groupType then -- set Text to display below Aura (telling you what to do)
-                                SpellTable.subRegions[3].text_text = v.groupType 
+                            if BossNameValue.EncounterId then
+                                SpellTable.load.use_encounterid = true
+                                SpellTable.load.encounterid = BossNameValue.EncounterId
                             end
+                                                   
+                            
                             
                             if v.showStacks then -- add Text for Stacks display if needed
                                 local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)

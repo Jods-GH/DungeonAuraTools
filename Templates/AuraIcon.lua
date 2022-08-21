@@ -124,7 +124,24 @@
 				},
 				height = 80,
 				load = { --------- load conditions
+
+				
+					use_encounterid = false, -- defines if encounter id's are to be used
+					encounterid = "", -- encounter id's to be set comma seperated "9999, g8888"
+				
 					use_zoneIds = false, ------------------------ defines if zone id's are to be used
+					zoneIds = "", ------------ zone id's to be set comma seperated "9999, g8888"
+
+					-- use_role = flase, -- false = multi , true = single , entry doesn't exist = none
+					role = {
+						single = "TANK", -- TANK/HEALER/DAMAGER
+						multi = {
+							HEALER = true,
+							TANK = true,
+							DAMAGER = true,
+						},
+					},
+
 					talent = {
 						multi = {
 						},
@@ -141,7 +158,6 @@
 						multi = {
 						},
 					},
-					zoneIds = "", ------------ zone id's to be set comma seperated "9999, g8888"
 				},
 				source = "import",
 				regionType = "icon",

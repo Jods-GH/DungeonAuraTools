@@ -1,7 +1,7 @@
 		local _, JDT = ...
 		JDT.Templates = JDT.Templates  or {}
 		JDT.Templates.DynamicGroup = {
-			grow = "DOWN",
+			grow = "RIGHT",
 			controlledChildren = {
 				-- "JDT Icon Template", -- [1]   -- Children Aura Names
 			},
