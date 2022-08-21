@@ -22,6 +22,10 @@ Templates/CustomTextIcons.lua
 Templates/TextRegions.lua
 Templates/Triggers.lua
 
+#SpellData
+SpellData/SpellData.lua
+SpellData/Shadowlands/Tazavesh.lua
+
 #SpellDataValues
 SpellDataValues/AuraTypes.lua
 SpellDataValues/SoundTypes.lua
