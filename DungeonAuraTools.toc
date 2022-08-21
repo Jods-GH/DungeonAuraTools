@@ -1,9 +1,9 @@
 ## Interface: 90207
 ## Version: 1.0.0
-## Title: Jods Dungeon Tools
+## Title: DungeonAuraTools
 ## Notes: Compact Addon to Manage all my Stuff for Dungeons
 ## Author: Jods
-## SavedVariables: JodsDungeonTools
+## SavedVariables: DungeonAuraTools
 ## OptionalDeps: Ace3, WeakAuras, Plater
 ## X-Curse-Project-ID: 662863
 ## X-WoWI-ID: 26384

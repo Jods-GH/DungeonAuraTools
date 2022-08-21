@@ -4,16 +4,16 @@ local AceConfig = LibStub("AceConfig-3.0")
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 local AceDBOptions = LibStub("AceDBOptions-3.0")
 
-JodsDungeonTools = LibStub("AceAddon-3.0"):NewAddon("JodsDungeonTools", "AceConsole-3.0")
+DungeonAuraTools = LibStub("AceAddon-3.0"):NewAddon("DungeonAuraTools", "AceConsole-3.0")
 
-function JodsDungeonTools:OnInitialize()
+function DungeonAuraTools:OnInitialize()
 	-- Called when the addon is loaded
 	self:Print("Access the options via /jdt")
 
     local DatatoPersist = {
         profile = JDT.SpellList
     }
-    JDT.db = LibStub("AceDB-3.0"):New("JodsDungeonTools",DatatoPersist, true) -- Generates Saved Variables with default Values (if they don't already exist)
+    JDT.db = LibStub("AceDB-3.0"):New("DungeonAuraTools",DatatoPersist, true) -- Generates Saved Variables with default Values (if they don't already exist)
     local OptionTable = {
         type = "group",
         args = {
@@ -24,7 +24,7 @@ function JodsDungeonTools:OnInitialize()
     AceConfigDialog:AddToBlizOptions(appName, appName)
     self:RegisterChatCommand("jdt", "SlashCommand")
 	self:RegisterChatCommand("Jdt", "SlashCommand")
-    self:RegisterChatCommand("JodsDungeonTools", "SlashCommand")
+    self:RegisterChatCommand("DungeonAuraTools", "SlashCommand")
 
     JDT.createOptionsData()   -- generates Data for Options Table
 
@@ -33,15 +33,15 @@ function JodsDungeonTools:OnInitialize()
     end
 end
 
-function JodsDungeonTools:OnEnable()
+function DungeonAuraTools:OnEnable()
 	-- Called when the addon is enabled
 end
 
-function JodsDungeonTools:OnDisable()
+function DungeonAuraTools:OnDisable()
 	-- Called when the addon is disabled
 end
 
 
-function JodsDungeonTools:SlashCommand(msg) -- called when slash command is used
+function DungeonAuraTools:SlashCommand(msg) -- called when slash command is used
     JDT.CreateOptionsFrame() 
 end
