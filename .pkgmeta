@@ -1,4 +1,4 @@
-package-as: JodsDungeonTools
+package-as: DungeonAuraTools
 
 externals:
   Libs/LibStub:                https://repos.wowace.com/wow/libstub/trunk
