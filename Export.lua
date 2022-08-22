@@ -26,16 +26,19 @@ JDT.buildDataToExport = function()
                             if v.enabled == true then
 
                             local AuraTemplate = JDT.GroupTypes.Templates[TypeKey]
-
                             local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
 
-                            --- create trigger need addition value for other trigger types
+                            --- create triggers 
                             local TriggerTable =  CopyTable(JDT.Templates.Triggers.ActivationTemplate) 
                             TriggerTable.disjunctive = AuraTemplate.activationType
+                            if AuraTemplate.activationType == JDT.Templates.Triggers.ActivationTypes.custom then
+                                TriggerTable.customTriggerLogic = AuraTemplate.customTriggerLogic
+                            end
+
                         
                             for trigger,triggervalue in pairs(AuraTemplate.triggers) do
-                                local AuraTrigger = JDT.generateTriggerfromGroupType[triggervalue.triggerType](v.spellId,triggervalue)
-                                tinsert(TriggerTable,1,AuraTrigger)
+                                local AuraTrigger = JDT.generateTriggerfromGroupType[triggervalue.triggerType](v.triggerData[trigger],triggervalue)
+                                tinsert(TriggerTable,AuraTrigger)
                             end
                             SpellTable.triggers = TriggerTable
                             
@@ -91,6 +94,7 @@ JDT.buildDataToExport = function()
                             SpellTable.parent = ExportTable.d.id
                             table.insert(ExportTable.d.controlledChildren,SpellTable.id)
                             table.insert(ExportTable.c,SpellTable)
+
                             end
                         end
                     end
@@ -102,21 +106,38 @@ JDT.buildDataToExport = function()
 end
 
 
--- Trigger generators
+-- Trigger generators need addition value for other trigger types
 
 JDT.generateTriggerfromGroupType = JDT.generateTriggerfromGroupType or {}
 
-JDT.generateTriggerfromGroupType.Buffs = function(spellId,AuraTemplate)
+JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.debuffType = JDT.Templates.Triggers.BuffTypes[AuraTemplate.BuffTypes] -- sets harmful or helpful to define buff/debuff
     AuraTrigger.trigger.auranames = { --set spellid for trigger
-    spellId, -- [1]
+    triggerData.spellId, -- [1]
     }
+    AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end
 
-JDT.generateTriggerfromGroupType.Cast = function(spellId,triggervalue)
-    local AuraTrigger = CopyTable(JDT.Templates.Triggers[triggervalue.triggerType])
-    AuraTrigger.trigger.spellId = spellId --set spellid for trigger
+JDT.generateTriggerfromGroupType.Cast = function(triggerData,AuraTemplate)
+    local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
+    AuraTrigger.trigger.unit = triggerData.unit
+    return AuraTrigger
+end
+
+JDT.generateTriggerfromGroupType.TSU= function(triggerData,AuraTemplate)
+    local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    local Trigger = JDT.Templates.CustomTriggers[AuraTemplate.customPreset](triggerData.spellIdList,triggerData.extraUnit)
+    AuraTrigger.trigger.custom = Trigger.customTrigger
+    AuraTrigger.trigger.events = Trigger.customEvents
+    return AuraTrigger
+end
+
+JDT.generateTriggerfromGroupType.UnitResource = function(triggerData,AuraTemplate)
+    local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    AuraTrigger.trigger.percentpower = AuraTemplate.percentpower--set power to check for trigger
+    AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end

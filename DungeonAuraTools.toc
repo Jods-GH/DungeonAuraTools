@@ -24,6 +24,9 @@ Templates/BorderColors.lua
 Templates/CustomTextIcons.lua
 Templates/TextRegions.lua
 Templates/Triggers.lua
+Templates/Actions.lua
+Templates/Glows.lua
+Templates/CustomTriggers.lua
 
 
 #SpellDataValues

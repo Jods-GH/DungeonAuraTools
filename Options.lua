@@ -61,6 +61,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
           JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey].args[SpellTypeKey] = {
               name = JDT.getLocalisation(SpellTypeKey),
               type = "group",
+              inline = true,
               args={
               -- more options go here
               }

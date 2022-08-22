@@ -16,19 +16,54 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
         
         [JDT.GroupTypes.SpinToWin] = {
             ArmedSecurity = {
-                spellId = 346204,
                 enabled = true,
+                spellId = 346204,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = 346204,
+                    }
+
+                }
             },
 
         },
         [JDT.GroupTypes.ShieldInc] = {
             RotaryBodyArmor = {
-                spellId = 347992,
                 enabled = true,
+                spellId = 347992, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = 347992,
+                    }
+
+                }
             },
 
         },
+        [JDT.GroupTypes.EnergyTrackSoonCast] ={
+            InterogationInc = {
+                enabled = true,
+                spellId = 348350, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        spellIdList = {347949,348350},
+                        extraUnit = "boss1"
 
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = 348350,
+                    },
+                    [3] ={
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        percentpower = 90
+                    }
+
+                }
+            }
+        }
     }
 }
 

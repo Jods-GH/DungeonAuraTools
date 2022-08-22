@@ -12,7 +12,8 @@ LocalisationData["SpellOptions"] = "Spell Options"
 -- Aura Types
 LocalisationData["SpinToWin"] = "Spins"
 LocalisationData["PlayerGroupDebuffSpread"] = "Spreads"
-
+LocalisationData["ShieldInc"] = "Shield inc"
+LocalisationData["EnergyTrackSoonCast"] = "Boss Energy Tracker"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
