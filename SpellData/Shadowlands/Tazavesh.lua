@@ -63,7 +63,30 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
 
                 }
             }
-        }
+        },
+        [JDT.GroupTypes.BossCastIntoBuff] ={
+            FullyArmed = {
+                enabled = true,
+                spellId = 348128, -- for spellname etc
+                RoleLoad = {
+                    HEALER = true,
+					TANK = true,
+					DAMAGER = false,
+                },
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = 348128,
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = 348128,
+                    },
+
+                }
+            }
+        },
     }
 }
 

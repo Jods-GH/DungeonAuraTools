@@ -46,7 +46,16 @@ JDT.buildDataToExport = function()
                             local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
                             SpellTable.displayIcon = Spellicon
                             SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname -- set AuraName
-                            SpellTable.subRegions[3].text_text = AuraTemplate.text -- set Text to display below Aura (telling you what to do)
+
+                            -- set Text to display below Aura (telling you what to do)
+                            for textkey,textvalue in pairs(AuraTemplate.text) do
+                                local TextTemplate = CopyTable(JDT.Templates.TextRegions.TextToDisplay)
+                                TextTemplate.text_text = textvalue.value
+                                TextTemplate.text_visible = textvalue.isactive
+                                tinsert(SpellTable.subRegions,TextTemplate)
+                        
+                            end
+
                             if AuraTemplate.doSound then -- set Sound
                                 SpellTable.actions.start.sound = AuraTemplate.doSound
                                 SpellTable.actions.start.do_sound = true
@@ -61,7 +70,16 @@ JDT.buildDataToExport = function()
                                 SpellTable.load.use_encounterid = true
                                 SpellTable.load.encounterid = BossNameValue.EncounterId
                             end
-                                                   
+                            
+                            if v.RoleLoad then
+                                if type(v.RoleLoad) == "table" then
+                                    SpellTable.load.use_role = false
+                                    SpellTable.load.role.multi =  v.RoleLoad
+                                else
+                                    SpellTable.load.use_role = true
+                                    SpellTable.load.role.single =  v.RoleLoad
+                                end
+                            end
                             
                             
                             if v.showStacks then -- add Text for Stacks display if needed
@@ -91,17 +109,17 @@ JDT.buildDataToExport = function()
                             SpellTable.uid = uId
                             v.uID = uId
                             end
+
                             SpellTable.parent = ExportTable.d.id
                             table.insert(ExportTable.d.controlledChildren,SpellTable.id)
                             table.insert(ExportTable.c,SpellTable)
-
+                            
                             end
                         end
                     end
                 end
             end
     end
-
     return ExportTable
 end
 

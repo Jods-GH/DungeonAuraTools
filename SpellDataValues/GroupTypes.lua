@@ -8,6 +8,7 @@ JDT.GroupTypes.SpinToWin = "SpinToWin"
 JDT.GroupTypes.ShieldInc = "ShieldInc"
 JDT.GroupTypes.PlayerGroupDebuffSpread = "PlayerGroupDebuffSpread"
 JDT.GroupTypes.EnergyTrackSoonCast = "EnergyTrackSoonCast"
+JDT.GroupTypes.BossCastIntoBuff = "BossCastIntoBuff"
 
 
 JDT.GroupTypes.Templates = JDT.GroupTypes.Templates or {}
@@ -20,7 +21,12 @@ JDT.GroupTypes.Templates.Dot = {
             BuffTypes = "debuff",
         },
     },
-    text = "Dot",
+    text = {
+        {   
+            value = JDT.getLocalisation("Dot"),
+            isactive = true,
+        }, 
+    },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
@@ -31,7 +37,12 @@ JDT.GroupTypes.Templates.Frontal = {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
         },
     },
-    text = "Frontal",
+    text = {
+        {   
+            value = JDT.getLocalisation("Frontal"),
+            isactive = true,
+        }, 
+    },
     doSound = JDT.SoundTypes.frontal,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
@@ -43,7 +54,12 @@ JDT.GroupTypes.Templates.SpinToWin= {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
         },
     },
-    text = "Spin",
+    text = {
+        {   
+            value = JDT.getLocalisation("Spin"),
+            isactive = true,
+        }, 
+    },
     doSound = JDT.SoundTypes.avoid,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
@@ -55,7 +71,12 @@ JDT.GroupTypes.Templates.ShieldInc =  {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
         },
     },
-    text = "Shield inc",
+    text = {
+        {   
+            value = JDT.getLocalisation("Shield inc"),
+            isactive = true,
+        }, 
+    },
     doSound = JDT.SoundTypes.soon,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
@@ -70,9 +91,14 @@ JDT.GroupTypes.Templates.PlayerGroupDebuffSpread =  {
         [2] ={
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
             BuffTypes = "debuff",
-        }
+        },
     },
-    text = "Spread",
+    text = {
+        {   
+            value = JDT.getLocalisation("Spread"),
+            isactive = true,
+        }, 
+    },
     doSound = JDT.SoundTypes.spread,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
@@ -91,10 +117,40 @@ JDT.GroupTypes.Templates.EnergyTrackSoonCast=  {
         [3] = {
             triggerType = JDT.Templates.Triggers.TriggerTypes.unitResource,
             percentpower = "90"
-        }
+        },
     },
-    text = "Soon",
+    text = {
+        {   
+            value = JDT.getLocalisation("Soon"),
+            isactive = true,
+        }, 
+    },
     doSound = JDT.SoundTypes.soon,
     activationType = JDT.Templates.Triggers.ActivationTypes.custom,
     customTriggerLogic = "function(t) \n  return t[1]  and not (t[2] or t[3]) \n end",
+}
+
+JDT.GroupTypes.Templates.BossCastIntoBuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+        [1] = {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        [2] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Buffing"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Buffed"),  
+            isactive = false,
+        },    
+    },
+    doSound = JDT.SoundTypes.spread,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }

@@ -12,13 +12,27 @@ LocalisationData["SpellOptions"] = "Spell Options"
 -- Aura Types
 LocalisationData["SpinToWin"] = "Spins"
 LocalisationData["PlayerGroupDebuffSpread"] = "Spreads"
-LocalisationData["ShieldInc"] = "Shield inc"
+LocalisationData["ShieldInc"] = "Shields"
 LocalisationData["EnergyTrackSoonCast"] = "Boss Energy Tracker"
+LocalisationData["BossCastIntoBuff"] = "Boss Buffs"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
 LocalisationData["Tazavesh.boss1"] = "Zo'phex the Sentinel"
 LocalisationData["Tazavesh.boss2"] = "The Grand Menagerie"
+
+
+-- TextBelowAura Data
+LocalisationData["Soon"] = "Soon"
+LocalisationData["Dot"] = "Dot"
+LocalisationData["Frontal"] = "Frontal"
+LocalisationData["Spin"] = "Spin"
+LocalisationData["Shield inc"] = "Shield inc"
+LocalisationData["Spread"] = "Spread"
+LocalisationData["Buffing"] = "Buffing"
+LocalisationData["Buffed"] = "Buffed"
+
+
 
 -- LocalisationData[""] =
 

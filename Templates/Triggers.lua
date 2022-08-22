@@ -53,6 +53,9 @@ JDT.Templates.Triggers.Buffs = {
                 "12345", -- [1]
             },
             debuffType = "HARMFUL", -- if buff or debuff
+            useMatch_count = true,
+            match_countOperator = ">",
+			match_count = "0",
         },
         untrigger = {
         },
