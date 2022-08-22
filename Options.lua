@@ -4,13 +4,6 @@ JDT.options = {
   name = "Addon Options",
     type = "group",
     args = {
-      enable = {
-        name = JDT.getLocalisation("Enable"),
-        desc = JDT.getLocalisation("EnableDescription"),
-        type = "toggle",
-        set = function(info,val) JDT.enabled = val end,
-        get = function(info) return JDT.enabled end
-    },
       generaloptions={
         name = JDT.getLocalisation("GeneralOptions"),
         type = "group",
@@ -19,7 +12,13 @@ JDT.options = {
             name = "Export",
             type = "execute",
             func = function() JDT.exportAuras() end
-          }
+        },
+          ComingSoon = {
+            name = "More options coming soon",
+            type = "description",
+            image = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga",
+          },
+          
           -- more options go here
         }
     },
