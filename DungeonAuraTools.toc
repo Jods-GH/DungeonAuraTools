@@ -9,6 +9,9 @@
 ## X-WoWI-ID: 26384
 ## X-Wago-ID: XrNkX86a
 
+#Libs
+embeds.xml
+
 # Locales
 Locales\enUS.lua
 Locales\deDE.lua
