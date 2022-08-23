@@ -21,7 +21,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = 346204,
+                        spellId = "346204",
                     }
 
                 }
@@ -35,7 +35,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = 347992,
+                        spellId = "347992",
                     }
 
                 }
@@ -48,13 +48,13 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
                 spellId = 348350, -- for spellname etc
                 triggerData = {
                     [1] = {
-                        spellIdList = {347949,348350},
+                        spellIdList = {"347949","348350"},
                         extraUnit = "boss1"
 
                     },
                     [2] = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = 348350,
+                        spellId = "348350",
                     },
                     [3] ={
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
@@ -76,12 +76,12 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
                 triggerData = {
                     [1] = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = 348128,
+                        spellId = "348128",
 
                     },
                     [2] = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = 348128,
+                        spellId = "348128",
                     },
 
                 }
@@ -94,12 +94,12 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
                 triggerData = {
                     [1] = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = 346006,
+                        spellId = "346006",
 
                     },
                     [2] = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = 345770,
+                        spellId = "345770",
                     },
 
                 }
@@ -112,19 +112,19 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
     EncounterId = "2441",
     additionalName = "02 ",
     Auras = {
-        [JDT.GroupTypes.BossCastIntoCollect] ={
+        [JDT.GroupTypes.CollectBuff] ={
             GluttonousFeast = {
                 enabled = true,
                 spellId = 349627, -- for spellname etc
                 triggerData = {
                     [1] = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = 349627,
+                        spellId = "349627",
 
                     },
                     [2] = {
                         unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
-                        spellId = 349627,
+                        spellId = "349627",
                     },
 
                 }

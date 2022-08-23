@@ -64,6 +64,13 @@ JDT.buildDataToExport = function()
                                 SpellTable.actions.start.sound = AuraTemplate.doSound
                                 SpellTable.actions.start.do_sound = true
                             end
+                            if AuraTemplate.glowtype then -- add glow
+                                local GlowTemplate = JDT.Templates.Glows[AuraTemplate.glowtype]
+                                if AuraTemplate.useGlowColor then
+                                    GlowTemplate.useGlowColor = true
+                                end
+                                tinsert(SpellTable.subRegions,GlowTemplate)
+                            end
 
                             -- set load conditions
                             if DungeonValue.zoneId then 

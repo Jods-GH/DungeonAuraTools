@@ -118,4 +118,9 @@ JDT.Templates.TextRegions.TextToDisplay = { ------------------------------------
 						text_fontSize = 17,
 						anchorXOffset = 0,
 						text_shadowXOffset = 0,
+						["text_text_format_1.unit_abbreviate_max"] = 8,
+						["text_text_format_1.unit_abbreviate"] = true,
+						["text_text_format_1.unit_realm_name"] = "never",
+						["text_text_format_1.unit_color"] = "class",
+						["text_text_format_1.unit_format"] = "Unit",
 					} 

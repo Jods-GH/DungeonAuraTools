@@ -34,7 +34,7 @@ JDT.Templates.Triggers.UnitTypes = {
     player= "player",
     boss = "boss",
     nameplate = "nameplate",
-    smartGroup = "SmartGroup",
+    smartGroup = "group",
 }
 
 JDT.Templates.Triggers.Buffs = {
@@ -56,6 +56,7 @@ JDT.Templates.Triggers.Buffs = {
             useMatch_count = true,
             match_countOperator = ">",
 			match_count = "0",
+            ignoreSelf = true,
         },
         untrigger = {
         },
