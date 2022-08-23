@@ -130,5 +130,75 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
                 }
             }
         },
+        [JDT.GroupTypes.RunOut] ={
+            GluttonousFeast = {
+                enabled = true,
+                spellId = 349663, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "349663",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Dance] ={
+            GluttonousFeast = {
+                enabled = true,
+                spellId = 349797, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "349797",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            GluttonousFeast = {
+                enabled = true,
+                spellId = 349954, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "349954",
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "349954",
+
+                    },
+                    [3] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "349954",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.BreakShieldIntoInterrupt] ={
+            GluttonousFeast = {
+                enabled = true,
+                spellId = 349934, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "349934",
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "349934",
+
+                    },
+
+                }
+            }
+        },
     }
 } 

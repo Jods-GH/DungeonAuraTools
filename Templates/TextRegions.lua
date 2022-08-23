@@ -80,8 +80,6 @@ JDT.Templates.TextRegions.Stacks = { ------------------------------------------ 
 					}
 
 
-
-
 JDT.Templates.TextRegions.TextToDisplay = { ------------------------------------ TEXT 2 TEXT TO DISPLAY
 						text_text_format_p_time_precision = 1,
 						text_text = "Tex to Display", --------------- actual text value
@@ -124,3 +122,42 @@ JDT.Templates.TextRegions.TextToDisplay = { ------------------------------------
 						["text_text_format_1.unit_color"] = "class",
 						["text_text_format_1.unit_format"] = "Unit",
 					} 
+
+JDT.Templates.TextRegions.TooltipDisplay =					{
+						text_shadowXOffset = 0,
+						text_text = "",
+						["text_text_format_2.tooltip1_format"] = "BigNumber",
+						["text_text_format_2.tooltip1_big_number_format"] = "AbbreviateNumbers",
+						["text_text_format_2.tooltip_format"] = "none",
+						text_shadowColor = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						text_selfPoint = "AUTO",
+						text_automaticWidth = "Auto",
+						text_fixedWidth = 64,
+						anchorYOffset = 0,
+						text_justify = "CENTER",
+						rotateText = "NONE",
+						text_text_format_p_time_precision = 1,
+						type = "subtext",
+						anchorXOffset = 0,
+						text_color = {
+							1, -- [1]
+							1, -- [2]
+							1, -- [3]
+							1, -- [4]
+						},
+						text_font = "Friz Quadrata TT",
+						text_text_format_p_format = "timed",
+						text_shadowYOffset = 0,
+						text_fontType = "OUTLINE",
+						text_wordWrap = "WordWrap",
+						text_visible = true,
+						text_anchorPoint = "INNER_BOTTOMRIGHT",
+						text_text_format_p_time_format = 0,
+						text_fontSize = 17,
+						text_text_format_p_time_dynamic_threshold = 60,
+					}					

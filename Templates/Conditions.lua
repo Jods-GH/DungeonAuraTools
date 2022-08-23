@@ -6,27 +6,42 @@ JDT.Templates.Conditions.changes = JDT.Templates.Conditions.changes or {}
 
 JDT.Templates.Conditions.ConditionsAdvancedGeneratorTemplate={
     {
-       condition={
-           type = "And",
-           checks = {
-               {
-                   type = "simplecheck",
-                   trigger= 1,
-                   value = true,
-               },
-           },
-       },
-       changes = {
-           {
-               type = "text2",
-               value = false
-           },
-           {
-               type = "text2",
-               value = true
-           },
-       },
-   },
+        {
+            condition={
+                type = "And",
+                checks = {
+                    {
+                        type = "simplecheck",
+                        trigger= 1,
+                        value = true,
+                    },
+                    {
+                        type = "simplecheck",
+                        trigger= 2,
+                        value = false,
+                    },
+                },
+        },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false,
+                },
+                {
+                    property = "sub.4.text_visible",
+                    value = true,
+                },
+                {
+                    property = "sub.6.text_visible",
+                    value = true,
+                },
+                {
+                    property = "sub.7.border_visible",
+                    value = true,
+                },
+            },
+    }
+}
 }
 
 

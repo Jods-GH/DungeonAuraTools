@@ -72,6 +72,16 @@ JDT.buildDataToExport = function()
                                 tinsert(SpellTable.subRegions,GlowTemplate)
                             end
 
+                            if AuraTemplate.useTooltip then
+                                local TextTemplate = CopyTable(JDT.Templates.TextRegions.TooltipDisplay)
+                                TextTemplate.text_text = "%"..AuraTemplate.useTooltip..".tooltip1"
+                                TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_format"] = "BigNumber"
+                                TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_big_number_format"] = "AbbreviateNumbers"
+
+                                tinsert(SpellTable.subRegions,TextTemplate)
+                            end
+
+
                             -- set load conditions
                             if DungeonValue.zoneId then 
                                 SpellTable.load.use_zoneIds = true
@@ -97,8 +107,16 @@ JDT.buildDataToExport = function()
                                 local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
                                 table.insert(SpellTable.subRegions,StacksText)
                             end
+                            if AuraTemplate.type then
+                                local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
+                                table.insert(SpellTable.subRegions,CustomText)
+                                
+                                SpellTable.customText = JDT.Templates.CustomTextIcons[AuraTemplate.type]
 
-                            if v.type then -- add border color and custom text if needed
+                                local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+                                BorderTable.border_color = JDT.Templates.Borders[AuraTemplate.type]
+                                table.insert(SpellTable.subRegions,BorderTable)
+                            elseif v.type then -- add border color and custom text if needed
                                 local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
                                 table.insert(SpellTable.subRegions,CustomText)
                                 
