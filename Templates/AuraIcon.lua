@@ -7,7 +7,7 @@
 				authorOptions = {
 				},
 				preferToUpdate = false,
-				customText = "function(TEMPLATE)\n   return TEMPLATE \nend",  -- Custom Text function to display debuff type
+				customText = "",  -- Custom Text function to display debuff type
 				yOffset = 0,
 				anchorPoint = "CENTER",
 				cooldownSwipe = true,
@@ -84,7 +84,6 @@
 					
 					
 				},
-				height = 80,
 				load = { --------- load conditions
 
 				
@@ -150,7 +149,8 @@
 				id = "ICON TEMPLATE", -- Aura Name
 				frameStrata = 1,
 				useCooldownModRate = true,
-				width = 80,
+				width = 80, -- width of icon
+				height = 80, -- height of icon
 				anchorFrameType = "SCREEN",
 				uid = "", -- Aura Unique Identifier
 				inverse = false,

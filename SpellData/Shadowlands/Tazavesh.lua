@@ -87,6 +87,24 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
                 }
             }
         },
+        [JDT.GroupTypes.BossCastIntoCollect] = {
+            ImpoundContraband = {
+                enabled = true,
+                spellId = 345770, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = 346006,
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = 345770,
+                    },
+
+                }
+            }
+        }
     }
 }
 
@@ -94,6 +112,23 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
     EncounterId = "2441",
     additionalName = "02 ",
     Auras = {
-        
+        [JDT.GroupTypes.BossCastIntoCollect] ={
+            GluttonousFeast = {
+                enabled = true,
+                spellId = 349627, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = 349627,
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = 349627,
+                    },
+
+                }
+            }
+        },
     }
 } 

@@ -31,7 +31,7 @@ JDT.Templates.Triggers.BuffTypes= {
 }
 
 JDT.Templates.Triggers.UnitTypes = {
-    player= "Player",
+    player= "player",
     boss = "boss",
     nameplate = "nameplate",
     smartGroup = "SmartGroup",

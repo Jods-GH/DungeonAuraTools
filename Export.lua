@@ -35,6 +35,10 @@ JDT.buildDataToExport = function()
                                 TriggerTable.customTriggerLogic = AuraTemplate.customTriggerLogic
                             end
 
+                            if AuraTemplate.conditions then
+                                SpellTable.conditions = AuraTemplate.conditions
+                            end
+
                         
                             for trigger,triggervalue in pairs(AuraTemplate.triggers) do
                                 local AuraTrigger = JDT.generateTriggerfromGroupType[triggervalue.triggerType](v.triggerData[trigger],triggervalue)
@@ -97,6 +101,7 @@ JDT.buildDataToExport = function()
                                 BorderTable.border_color = JDT.Templates.Borders[v.type]
                                 table.insert(SpellTable.subRegions,BorderTable)
                             end
+
 
                         
 

@@ -15,6 +15,7 @@ LocalisationData["PlayerGroupDebuffSpread"] = "Spreads"
 LocalisationData["ShieldInc"] = "Shields"
 LocalisationData["EnergyTrackSoonCast"] = "Boss Energy Tracker"
 LocalisationData["BossCastIntoBuff"] = "Boss Buffs"
+LocalisationData["BossCastIntoCollect"] = "Collect"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
@@ -31,7 +32,8 @@ LocalisationData["Shield inc"] = "Shield inc"
 LocalisationData["Spread"] = "Spread"
 LocalisationData["Buffing"] = "Buffing"
 LocalisationData["Buffed"] = "Buffed"
-
+LocalisationData["Collect inc"] = "Collect inc"
+LocalisationData["Collect"] = "Collect"
 
 
 -- LocalisationData[""] =

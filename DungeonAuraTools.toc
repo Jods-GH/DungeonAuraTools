@@ -27,6 +27,7 @@ Templates/Triggers.lua
 Templates/Actions.lua
 Templates/Glows.lua
 Templates/CustomTriggers.lua
+Templates/Conditions.lua
 
 
 #SpellDataValues
