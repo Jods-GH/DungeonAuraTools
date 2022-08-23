@@ -123,7 +123,7 @@ JDT.Templates.TextRegions.TextToDisplay = { ------------------------------------
 						["text_text_format_1.unit_format"] = "Unit",
 					} 
 
-JDT.Templates.TextRegions.TooltipDisplay =					{
+JDT.Templates.TextRegions.TooltipDisplay =	{
 						text_shadowXOffset = 0,
 						text_text = "",
 						["text_text_format_2.tooltip1_format"] = "BigNumber",

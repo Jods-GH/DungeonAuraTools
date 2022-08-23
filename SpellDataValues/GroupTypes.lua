@@ -248,7 +248,7 @@ JDT.GroupTypes.Templates.CollectBuff = {
             isactive = true,
         }, 
         {   
-            value = JDT.getLocalisation("on").. "%2.unit",  
+            value = JDT.getLocalisation("on").. " %2.unit",  
             isactive = false,
         },    
     },
@@ -361,11 +361,11 @@ JDT.GroupTypes.Templates.CastIntoPlayerGroupDebuffSpread =  {
         }, 
         {   
             value = JDT.getLocalisation("Spread"),
-            isactive = true,
+            isactive = false,
         }, 
         {   
-            value = JDT.getLocalisation("on").."%3.unit",
-            isactive = true,
+            value = JDT.getLocalisation("on").." %3.unit",
+            isactive = false,
         }, 
     },
     doSound = JDT.SoundTypes.spread,

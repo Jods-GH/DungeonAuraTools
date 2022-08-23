@@ -71,7 +71,6 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
                 RoleLoad = {
                     HEALER = true,
 					TANK = true,
-					DAMAGER = false,
                 },
                 triggerData = {
                     [1] = {

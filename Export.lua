@@ -56,6 +56,11 @@ JDT.buildDataToExport = function()
                                 local TextTemplate = CopyTable(JDT.Templates.TextRegions.TextToDisplay)
                                 TextTemplate.text_text = textvalue.value
                                 TextTemplate.text_visible = textvalue.isactive
+                                TextTemplate["text_text_format_"..textkey..".unit_abbreviate_max"] = 8
+						        TextTemplate["text_text_format_"..textkey..".unit_abbreviate"] = true
+						        TextTemplate["text_text_format_"..textkey..".unit_realm_name"] = "never"
+						        TextTemplate["text_text_format_"..textkey..".unit_color"] = "class"
+					        	TextTemplate["text_text_format_"..textkey..".unit_format"] = "Unit"
                                 tinsert(SpellTable.subRegions,TextTemplate)
                         
                             end
@@ -142,7 +147,7 @@ JDT.buildDataToExport = function()
 
                             SpellTable.parent = ExportTable.d.id
                             table.insert(ExportTable.d.controlledChildren,SpellTable.id)
-                            table.insert(ExportTable.c,SpellTable)
+                            table.insert(ExportTable.c,1,SpellTable)
                             
                             end
                         end
