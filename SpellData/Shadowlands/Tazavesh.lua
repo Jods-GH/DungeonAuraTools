@@ -130,7 +130,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
             }
         },
         [JDT.GroupTypes.RunOut] ={
-            GluttonousFeast = {
+            GripOfHunger = {
                 enabled = true,
                 spellId = 349663, -- for spellname etc
                 triggerData = {
@@ -141,10 +141,22 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
                     },
 
                 }
+            },
+            WhirlingAnnihilation = {
+                enabled = true,
+                spellId = 350090, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "350090",
+
+                    },
+
+                }
             }
         },
         [JDT.GroupTypes.Dance] ={
-            GluttonousFeast = {
+            GrandConsumption = {
                 enabled = true,
                 spellId = 349797, -- for spellname etc
                 triggerData = {
@@ -158,7 +170,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
             }
         },
         [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
-            GluttonousFeast = {
+            PurificationProtocol = {
                 enabled = true,
                 spellId = 349954, -- for spellname etc
                 triggerData = {
@@ -181,7 +193,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
             }
         },
         [JDT.GroupTypes.BreakShieldIntoInterrupt] ={
-            GluttonousFeast = {
+            FlagellationProtocol = {
                 enabled = true,
                 spellId = 349934, -- for spellname etc
                 triggerData = {
@@ -193,6 +205,25 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
                     [2] = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "349934",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.DanceOrSoakIfDebuff] ={
+            VentingProtocol = {
+                enabled = true,
+                spellId = 349987, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "349987",
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "349498",
 
                     },
 

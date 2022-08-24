@@ -15,6 +15,7 @@ JDT.GroupTypes.RunOut = "RunOut"
 JDT.GroupTypes.Dance = "Dance"
 JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread = "CastIntoPlayerGroupDebuffSpread"
 JDT.GroupTypes.BreakShieldIntoInterrupt = "BreakShieldIntoInterrupt"
+JDT.GroupTypes.DanceOrSoakIfDebuff = "DanceOrSoakIfDebuff"
 
 
 JDT.GroupTypes.Templates = JDT.GroupTypes.Templates or {}
@@ -473,5 +474,58 @@ JDT.GroupTypes.Templates.BreakShieldIntoInterrupt = {
                 },
         }
     }
+), 
+}
+
+JDT.GroupTypes.Templates.DanceOrSoakIfDebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+        [1] = {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        [2] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dance"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Soak"),  
+            isactive = false,
+        }, 
+
+    },
+    glowtype = "Ants",
+    doSound = JDT.SoundTypes.dance,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1] \n end",
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+                {
+                    {
+                       condition={
+                          type = "simplecheck",
+                          trigger= 1,
+                          value = false,
+                           },
+                           changes = {
+                            {
+                                property = "sub.3.text_visible",
+                                value = false,
+                            },
+                            {
+                                property = "sub.4.text_visible",
+                                value = true,
+                            },
+                            {
+                                property = "sub.5.glow",
+                                value = true,
+                            },
+                           },
+                   },
+               }
 ), 
 }

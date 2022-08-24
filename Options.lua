@@ -1,5 +1,5 @@
 local appName, JDT = ...
-
+---@type AceConfigOptionsTable
 JDT.options = {
   name = "Addon Options",
     type = "group",

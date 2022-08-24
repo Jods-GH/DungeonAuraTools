@@ -1,5 +1,6 @@
 local appName, JDT = ...
 local AceLocale = LibStub ('AceLocale-3.0')
+---@class MyAddonLocale
 local LocalisationData = AceLocale:NewLocale(appName, "enUS",true)
 
 if LocalisationData then
@@ -21,6 +22,7 @@ LocalisationData["CollectBuff"] = "Collect Buffs"
 LocalisationData["RunOut"] = " Whirlwind AoEs"
 LocalisationData["Dance"] = "Dance"
 LocalisationData["BreakShieldIntoInterrupt"] = "Interupt after Shieldbreak"
+LocalisationData["DanceOrSoakIfDebuff"] = "Dance with Soak mechanic"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
@@ -44,6 +46,7 @@ LocalisationData["on"] = "On"
 LocalisationData["Run Out"] = "Run Out"
 LocalisationData["Break shield"] = "Break Shield"
 LocalisationData["Interrupt"] = "Interrupt"
+LocalisationData["Soak"] = "Soak"
 
 -- LocalisationData[""] =
 
