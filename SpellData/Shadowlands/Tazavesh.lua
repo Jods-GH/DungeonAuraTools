@@ -4,14 +4,14 @@ JDT.SpellList = JDT.SpellList or {}
 JDT.SpellList.Shadowlands = JDT.SpellList.Shadowlands or {}
 
 JDT.SpellList.Shadowlands.Tazavesh = {
-    groupName = "[TAZAVESH] ",
+    groupName = "[TAZAVESH",
     zoneId = "g423", 
     Bosses = {}
 }
 
 JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional stuff thats alot more work keep only these for now
     EncounterId = "2425",
-    additionalName = "01 ",
+    additionalName = "] 01 ",
     Auras = {
         
         [JDT.GroupTypes.SpinToWin] = {
@@ -109,7 +109,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
 
 JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
     EncounterId = "2441",
-    additionalName = "02 ",
+    additionalName = "] 02 ",
     Auras = {
         [JDT.GroupTypes.CollectBuff] ={
             GluttonousFeast = {
@@ -261,3 +261,140 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
         },
     }
 } 
+
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss3 = {
+    EncounterId = "2424",
+    additionalName = "] 03 ",
+    Auras = {
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            FanMail = {
+                enabled = true,
+                spellId = 346742, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "346742",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.BossCastIntoStack] ={
+            MoneyOrder = {
+                enabled = true,
+                spellId = 346962, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "346962",
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "346962",
+
+                    },
+                    [3] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "346962",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.VoidSoak] ={
+            MoneyOrder = {
+                enabled = true,
+                spellId = 346286, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "346286",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Dot] ={
+            GrandConsumption = {
+                enabled = true,
+                spellId = 346844, -- for spellname etc
+                showStacks = 1,
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "346844",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Dispose] ={
+            UnstableGoods = {
+                enabled = true,
+                spellId = 346947, -- for spellname etc
+                showStacks = 2,
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "346947",
+
+                    },
+                    [2] = {
+                        spellIdList = {},
+                        extraUnit = ""
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.EnergyTrackSoonCast] ={
+            UnstableGoodsInc = {
+                enabled = true,
+                spellId = 346947, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        spellIdList = {"346947"},
+                        extraUnit = "boss1"
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "346947",
+                    },
+                    [3] ={
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        percentpower = 90
+                    }
+
+                }
+            }
+        },
+    }
+}
+
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss4 = {
+    EncounterId = "2440",
+    additionalName = "] 04 ",
+    Auras = { 
+        [JDT.GroupTypes.Frontal] = {
+            CrowdControl = {
+                enabled = true,
+                spellId = 350919,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "350919",
+                    }
+
+                }
+            },
+
+        },
+    }
+}

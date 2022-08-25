@@ -73,6 +73,9 @@ JDT.buildDataToExport = function()
                                 if AuraTemplate.useGlowColor then
                                     GlowTemplate.useGlowColor = true
                                 end
+                                if AuraTemplate.showGlow then
+                                    GlowTemplate.glow = true
+                                end
                                 tinsert(SpellTable.subRegions,GlowTemplate)
                             end
 
@@ -117,6 +120,7 @@ JDT.buildDataToExport = function()
                             
                             if v.showStacks then -- add Text for Stacks display if needed
                                 local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
+                                StacksText.text_text = "%"..v.showStacks..".s"
                                 table.insert(SpellTable.subRegions,StacksText)
                             end
                             if AuraTemplate.type then
@@ -192,6 +196,10 @@ JDT.generateTriggerfromGroupType.TSU= function(triggerData,AuraTemplate)
     local Trigger = JDT.Templates.CustomTriggers[AuraTemplate.customPreset](triggerData.spellIdList,triggerData.extraUnit)
     AuraTrigger.trigger.custom = Trigger.customTrigger
     AuraTrigger.trigger.events = Trigger.customEvents
+    if Trigger.customVariables then
+        AuraTrigger.trigger.customVariables = Trigger.customVariables
+    end
+
     return AuraTrigger
 end
 
@@ -205,8 +213,8 @@ end
 JDT.generateTriggerfromGroupType.UnitHealth = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     if triggerData.npcID then
-        AuraTrigger.use_npcId = true -- if npc id should be used
-        AuraTrigger.npcId = triggerData.npcID -- npc id to use
+        AuraTrigger.trigger.use_npcId = true -- if npc id should be used
+        AuraTrigger.trigger.npcId = triggerData.npcID -- npc id to use
     end 
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger

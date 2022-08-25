@@ -2,8 +2,8 @@ local _, JDT = ...
 
 JDT.GroupTypes = JDT.GroupTypes  or {}
 
-JDT.GroupTypes.frontal = "Frontal"
-JDT.GroupTypes.dot = "Dot"
+JDT.GroupTypes.Frontal = "Frontal"
+JDT.GroupTypes.Dot = "Dot"
 JDT.GroupTypes.SpinToWin = "SpinToWin"
 JDT.GroupTypes.ShieldInc = "ShieldInc"
 JDT.GroupTypes.PlayerGroupDebuffSpread = "PlayerGroupDebuffSpread"
@@ -17,6 +17,10 @@ JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread = "CastIntoPlayerGroupDebuffSprea
 JDT.GroupTypes.BreakShieldIntoInterrupt = "BreakShieldIntoInterrupt"
 JDT.GroupTypes.DanceOrSoakIfDebuff = "DanceOrSoakIfDebuff"
 JDT.GroupTypes.ChainToKill = "ChainToKill"
+JDT.GroupTypes.UnavoidableAoe = "UnavoidableAoe"
+JDT.GroupTypes.BossCastIntoStack = "BossCastIntoStack"
+JDT.GroupTypes.VoidSoak = "VoidSoak"
+JDT.GroupTypes.Dispose = "Dispose"
 
 
 JDT.GroupTypes.Templates = JDT.GroupTypes.Templates or {}
@@ -137,8 +141,6 @@ JDT.GroupTypes.Templates.EnergyTrackSoonCast=  {
     activationType = JDT.Templates.Triggers.ActivationTypes.custom,
     customTriggerLogic = "function(t) \n  return t[1]  and not (t[2] or t[3]) \n end",
 }
-
-
 
 JDT.GroupTypes.Templates.BossCastIntoBuff = {
     AuraType = "AuraIcon",
@@ -615,5 +617,195 @@ JDT.GroupTypes.Templates.ChainToKill = {
                     },
                 },
     }
+), 
+}
+
+JDT.GroupTypes.Templates.UnavoidableAoe = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("AoE"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.selfcd,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+
+
+JDT.GroupTypes.Templates.BossCastIntoStack = {
+    AuraType = "AuraIcon",
+    triggers = {
+        [1] = {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        [2] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+        [3] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Stack"),  
+            isactive = false,
+        },    
+        {   
+            value = JDT.getLocalisation("on").." %3.unit",  
+            isactive = false,
+        },   
+    },
+    glowtype = "Ants",
+    showGlow = true,
+    doSound = JDT.SoundTypes.stack,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+               condition={
+                  type = "simplecheck",
+                  trigger= 2,
+                  value = true,
+                   },
+                   changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false,
+                    },
+                    {
+                        property = "sub.4.text_visible",
+                        value = true,
+                    },
+                   },
+           },
+           {
+            condition={
+                type = "And",
+                checks = {
+                    {
+                        type = "simplecheck",
+                        trigger= 2,
+                        value = false,
+                    },
+                    {
+                        type = "simplecheck",
+                        trigger= 3,
+                        value = true,
+                    },
+                },
+            },
+            changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false,
+                    },
+                    {
+                        property = "sub.5.text_visible",
+                        value = true,
+                    },
+            },
+        },
+}
+), 
+} 
+
+JDT.GroupTypes.Templates.VoidSoak= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak Void"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soak,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.GroupTypes.Templates.Dispose=  {
+    AuraType = "AuraIcon",
+    triggers = {
+        [1] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        [2] = {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
+            customPreset = "TazaveshDispose"
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dispose"),
+            isactive = true,
+        }, 
+    },
+    glowtype = "Ants",
+    doSound = JDT.SoundTypes.dance,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+               condition={
+                type = "NumberCheck",
+                trigger= 2,
+                op = "<",
+                variable = "expirationTime",
+                value = "5",
+                   },
+                   changes = {
+                    {
+                        property = "sub.4.glow",
+                        value = true,
+                    },
+                    {
+                        property = "sub.4.glowType",
+                        value = "buttonOverlay",
+                    },
+                   },
+           },
+           {
+            condition={
+                type = "And",
+                checks = {
+                    {
+                        type = "NumberCheck",
+                        trigger= 2,
+                        op = ">",
+                        variable = "expirationTime",
+                        value = "5",
+                    },
+                    {
+                        type = "NumberCheck",
+                        trigger= 2,
+                        op = "<",
+                        variable = "expirationTime",
+                        value = "10",
+                    },
+                },
+            },
+            changes = {
+                {
+                    property = "sub.4.glow",
+                    value = true
+                },
+            },
+        },
+}
 ), 
 }

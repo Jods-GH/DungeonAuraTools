@@ -24,11 +24,16 @@ LocalisationData["Dance"] = "Dance"
 LocalisationData["BreakShieldIntoInterrupt"] = "Interupt after Shieldbreak"
 LocalisationData["DanceOrSoakIfDebuff"] = "Dance with Soak mechanic"
 LocalisationData["ChainToKill"] = "Chain that roots until killed"
+LocalisationData["UnavoidableAoe"] = "Unavoidable AoE Damage"
+LocalisationData["BossCastIntoStack"] = "Stack Mechanic"
+LocalisationData["VoidSoak"] = "Void Soak"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
 LocalisationData["Tazavesh.boss1"] = "Zo'phex the Sentinel"
 LocalisationData["Tazavesh.boss2"] = "The Grand Menagerie"
+LocalisationData["Tazavesh.boss3"]= "Mailroom Mayhem" 
+LocalisationData["Tazavesh.boss4"]= "Myza's Oasis" 
 
 
 -- TextBelowAura Data
@@ -50,10 +55,14 @@ LocalisationData["Interrupt"] = "Interrupt"
 LocalisationData["Soak"] = "Soak"
 LocalisationData["Chain inc"] = "Chain inc"
 LocalisationData["kill Chain"] = "kill Chain"
+LocalisationData["AoE"] = "AoE"
+LocalisationData["Stack"] = "Stack"
+LocalisationData["Soak Void"] = "Soak Void"
+LocalisationData["Dispose"] = "Dispose"
 
--- LocalisationData[""] =
-
-
+--[[ 
+    LocalisationData[""] = ""
+]]
 
 JDT.localisation = LocalisationData
 end

@@ -38,7 +38,7 @@ JDT.Templates.Glows.Ants = 	{
 						1, -- [4]
 					},
 					glowXOffset = 0,
-					glow = true,
+					glow = false,
 					glowScale = 1,
 					glowThickness = 1,
 					glowLines = 8,
