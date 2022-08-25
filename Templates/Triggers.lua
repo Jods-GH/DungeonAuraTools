@@ -14,6 +14,7 @@ JDT.Templates.Triggers.TriggerTypes = {
     cast = "Cast",
     tsu = "TSU",
     unitResource = "UnitResource",
+    unitHealth = "UnitHealth",
 }
 
 JDT.Templates.Triggers.ActivationTemplate = {
@@ -114,6 +115,28 @@ JDT.Templates.Triggers.Buffs = {
             use_percentpower = true, -- if it should be checked for percentpower
             percentpower_operator = "<", -- what operator to use 
             percentpower = "", -- the percent to check against
+            debuffType = "HELPFUL",
+        },
+        untrigger = {
+        },
+    }
+
+    JDT.Templates.Triggers.UnitHealth = {
+        trigger = {
+            -- use_npcId = true, -- if npc id should be used
+            -- npcId = "", -- npc id to use
+            type = "unit",
+            use_absorbHealMode = true,
+            subeventSuffix = "_CAST_START",
+            use_absorbMode = true,
+            event = "Health",
+            subeventPrefix = "SPELL",
+            spellIds = {
+            },
+            names = {
+            },
+            use_unit = true, -- if it should check for unit type
+            unit = "", -- unit to check for
             debuffType = "HELPFUL",
         },
         untrigger = {

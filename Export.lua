@@ -38,10 +38,9 @@ JDT.buildDataToExport = function()
                             if AuraTemplate.conditions then
                                 SpellTable.conditions = AuraTemplate.conditions
                             end
-
-                        
-                            for trigger,triggervalue in pairs(AuraTemplate.triggers) do
-                                local AuraTrigger = JDT.generateTriggerfromGroupType[triggervalue.triggerType](v.triggerData[trigger],triggervalue)
+                            
+                            for trigger = 1,#AuraTemplate.triggers, 1 do
+                                local AuraTrigger = JDT.generateTriggerfromGroupType[AuraTemplate.triggers[trigger].triggerType](v.triggerData[trigger],AuraTemplate.triggers[trigger])
                                 tinsert(TriggerTable,AuraTrigger)
                             end
                             SpellTable.triggers = TriggerTable
@@ -83,6 +82,14 @@ JDT.buildDataToExport = function()
                                 TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_format"] = "BigNumber"
                                 TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_big_number_format"] = "AbbreviateNumbers"
 
+                                tinsert(SpellTable.subRegions,TextTemplate)
+                            end
+
+                            if AuraTemplate.useHealth then
+                                local TextTemplate = CopyTable(JDT.Templates.TextRegions.HealthDisplay)
+                                TextTemplate.text_text = "%"..AuraTemplate.useHealth..".health"
+                                TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_format"] = "BigNumber"
+                                TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_big_number_format"] = "AbbreviateNumbers"
                                 tinsert(SpellTable.subRegions,TextTemplate)
                             end
 
@@ -191,6 +198,16 @@ end
 JDT.generateTriggerfromGroupType.UnitResource = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.percentpower = AuraTemplate.percentpower--set power to check for trigger
+    AuraTrigger.trigger.unit = triggerData.unit
+    return AuraTrigger
+end
+
+JDT.generateTriggerfromGroupType.UnitHealth = function(triggerData,AuraTemplate)
+    local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    if triggerData.npcID then
+        AuraTrigger.use_npcId = true -- if npc id should be used
+        AuraTrigger.npcId = triggerData.npcID -- npc id to use
+    end 
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end

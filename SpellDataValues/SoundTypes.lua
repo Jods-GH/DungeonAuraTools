@@ -11,3 +11,4 @@ JDT.SoundTypes.highEnergy = "Interface\\Addons\\SharedMedia_Causese\\sound\\High
 JDT.SoundTypes.collect= "Interface\\Addons\\SharedMedia_Causese\\sound\\Collect.ogg"
 JDT.SoundTypes.move = "Interface\\Addons\\SharedMedia_Causese\\sound\\Move.ogg"
 JDT.SoundTypes.dance = "Interface\\Addons\\SharedMedia_Causese\\sound\\Dance.ogg"
+JDT.SoundTypes.switch = "Interface\\Addons\\SharedMedia_Causese\\sound\\Switch.ogg"

@@ -16,6 +16,7 @@ JDT.GroupTypes.Dance = "Dance"
 JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread = "CastIntoPlayerGroupDebuffSpread"
 JDT.GroupTypes.BreakShieldIntoInterrupt = "BreakShieldIntoInterrupt"
 JDT.GroupTypes.DanceOrSoakIfDebuff = "DanceOrSoakIfDebuff"
+JDT.GroupTypes.ChainToKill = "ChainToKill"
 
 
 JDT.GroupTypes.Templates = JDT.GroupTypes.Templates or {}
@@ -527,5 +528,92 @@ JDT.GroupTypes.Templates.DanceOrSoakIfDebuff = {
                            },
                    },
                }
+), 
+}
+
+JDT.GroupTypes.Templates.ChainToKill = {
+    AuraType = "AuraIcon",
+    triggers = {
+        [1] = {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        [2] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+        [3] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+        [4] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitHealth,
+        },
+
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Chain inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("kill Chain"),  
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("on").." %3.unit",
+            isactive = false,
+        }, 
+
+    },
+    useHealth = 4,
+    doSound = JDT.SoundTypes.switch,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+                {
+                    {
+                       condition={
+                          type = "simplecheck",
+                          trigger= 2,
+                          value = true,
+                           },
+                           changes = {
+                            {
+                                property = "sub.3.text_visible",
+                                value = false,
+                            },
+                            {
+                                property = "sub.4.text_visible",
+                                value = true,
+                            },
+                           },
+                   },
+                   {
+                    condition={
+                        type = "And",
+                        checks = {
+                            {
+                                type = "simplecheck",
+                                trigger= 2,
+                                value = false,
+                            },
+                            {
+                                type = "simplecheck",
+                                trigger= 3,
+                                value = true,
+                            },
+                        },
+                    },
+                    changes = {
+                            {
+                                property = "sub.3.text_visible",
+                                value = false,
+                            },
+                            {
+                                property = "sub.5.text_visible",
+                                value = true,
+                            },
+                    },
+                },
+    }
 ), 
 }

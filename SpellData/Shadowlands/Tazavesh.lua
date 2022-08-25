@@ -230,5 +230,34 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
                 }
             }
         },
+        [JDT.GroupTypes.ChainToKill] ={
+            ChainsOfDamnation = {
+                enabled = true,
+                spellId = 350101, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "350101",
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "350101",
+
+                    },
+                    [3] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "350101",
+
+                    },
+                    [4] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        npcID = "177237",
+
+                    },
+
+                }
+            }
+        },
     }
 } 

@@ -23,6 +23,7 @@ LocalisationData["RunOut"] = " Whirlwind AoEs"
 LocalisationData["Dance"] = "Dance"
 LocalisationData["BreakShieldIntoInterrupt"] = "Interupt after Shieldbreak"
 LocalisationData["DanceOrSoakIfDebuff"] = "Dance with Soak mechanic"
+LocalisationData["ChainToKill"] = "Chain that roots until killed"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
@@ -47,6 +48,8 @@ LocalisationData["Run Out"] = "Run Out"
 LocalisationData["Break shield"] = "Break Shield"
 LocalisationData["Interrupt"] = "Interrupt"
 LocalisationData["Soak"] = "Soak"
+LocalisationData["Chain inc"] = "Chain inc"
+LocalisationData["kill Chain"] = "kill Chain"
 
 -- LocalisationData[""] =
 
