@@ -27,6 +27,9 @@ JDT.GroupTypes.InterruptableTargetedCast = "InterruptableTargetedCast"
 JDT.GroupTypes.TargetedCast = "TargetedCast"
 JDT.GroupTypes.InterruptableSuppresion = "InterruptableSuppresion"
 JDT.GroupTypes.InterruptableKickStomp = "InterruptableKickStomp"
+JDT.GroupTypes.RoomSplit = "RoomSplit"
+JDT.GroupTypes.CastIntoCastSuccessDance = "CastIntoCastSuccessDance"
+JDT.GroupTypes.KickOrDie = "KickOrDie"
 
 
 JDT.GroupTypes.Templates = JDT.GroupTypes.Templates or {}
@@ -337,6 +340,26 @@ JDT.GroupTypes.Templates.Dance= {
     triggers = {
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dance"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.dance,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+
+JDT.GroupTypes.Templates.CastIntoCastSuccessDance= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
         },
     },
     text = {
@@ -935,5 +958,25 @@ JDT.GroupTypes.Templates.RoomSplit = {
         }, 
     },
     doSound = JDT.SoundTypes.soon,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.GroupTypes.Templates.KickOrDie =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Interrupt"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.interrupt,
+    type = "interrupt",
+    glowtype = "ActionButton",
+    showGlow = true,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

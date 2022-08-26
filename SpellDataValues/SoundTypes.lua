@@ -16,6 +16,7 @@ JDT.SoundTypes.selfcd = "Interface\\Addons\\SharedMedia_Causese\\sound\\Selfcd.o
 JDT.SoundTypes.stack = "Interface\\Addons\\SharedMedia_Causese\\sound\\Stack.ogg"
 JDT.SoundTypes.interrupt = "Interface\\Addons\\SharedMedia_Causese\\sound\\Interrupt.ogg"
 JDT.SoundTypes.soak = "Interface\\Addons\\SharedMedia_Causese\\sound\\Soak.ogg"
+JDT.SoundTypes.targeted = "Interface\\Addons\\SharedMedia_Causese\\sound\\Targeted.ogg"
 
 
 setmetatable(JDT.SoundTypes, {

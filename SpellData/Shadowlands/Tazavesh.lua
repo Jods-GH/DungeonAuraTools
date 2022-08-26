@@ -483,7 +483,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss5 = {
     additionalName = "] 05 ",
     Auras = { 
         [JDT.GroupTypes.Dot] ={
-            GrandConsumption = {
+            Quickblade = {
                 enabled = true,
                 spellId = 347744, -- for spellname etc
                 type = "bleed",
@@ -491,6 +491,53 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss5 = {
                     [1] = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "347744",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.RoomSplit] ={
+            Divide = {
+                enabled = true,
+                spellId = 347249, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "347249",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoCastSuccessDance] ={
+            Shuri = {
+                enabled = true,
+                spellId = 347610, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "347610",
+
+                    },
+                    [2] = {
+                        spellId = "347610",
+                        duration = "10"
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.KickOrDie] ={
+            DoubleTechnique = {
+                enabled = true,
+                spellId = 357188, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "357188",
 
                     },
 

@@ -15,6 +15,7 @@ JDT.Templates.Triggers.TriggerTypes = {
     tsu = "TSU",
     unitResource = "UnitResource",
     unitHealth = "UnitHealth",
+    combatlog = "CombatLog", 
 }
 
 JDT.Templates.Triggers.ActivationTemplate = {
@@ -138,6 +139,19 @@ JDT.Templates.Triggers.Buffs = {
             use_unit = true, -- if it should check for unit type
             unit = "", -- unit to check for
             debuffType = "HELPFUL",
+        },
+        untrigger = {
+        },
+    }
+    JDT.Templates.Triggers.CombatLog = {
+        trigger = {
+            type = "combatlog",
+            event = "Combat Log",
+            subeventPrefix = "SPELL", -- subevent1
+            subeventSuffix = "_CAST_SUCCESS", -- subevent2
+            use_spellId = true,
+            spellId = "", -- spellid
+            duration = "10",
         },
         untrigger = {
         },

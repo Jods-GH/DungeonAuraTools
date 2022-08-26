@@ -225,3 +225,10 @@ JDT.generateTriggerfromGroupType.UnitHealth = function(triggerData,AuraTemplate)
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end
+
+JDT.generateTriggerfromGroupType.CombatLog = function(triggerData,AuraTemplate)
+    local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
+    AuraTrigger.trigger.duration = triggerData.duration
+    return AuraTrigger
+end
