@@ -40,6 +40,7 @@ JDT.buildDataToExport = function()
                             end
                             
                             for trigger = 1,#AuraTemplate.triggers, 1 do
+                                DevTools_Dump(k)
                                 local AuraTrigger = JDT.generateTriggerfromGroupType[AuraTemplate.triggers[trigger].triggerType](v.triggerData[trigger],AuraTemplate.triggers[trigger])
                                 tinsert(TriggerTable,AuraTrigger)
                             end
@@ -230,5 +231,8 @@ JDT.generateTriggerfromGroupType.CombatLog = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
     AuraTrigger.trigger.duration = triggerData.duration
+    if AuraTemplate.subeventSuffix then
+        AuraTrigger.trigger.subeventSuffix = AuraTemplate.subeventSuffi
+    end
     return AuraTrigger
 end

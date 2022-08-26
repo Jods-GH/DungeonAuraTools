@@ -546,3 +546,142 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss5 = {
         },
     }
 }
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss6 = {
+    EncounterId = "2437",
+    additionalName = "] 05 ",
+    Auras = { 
+        [JDT.GroupTypes.Frontal] = {
+            ShearingSwings = {
+                enabled = true,
+                spellId = 346116,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "346116",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.CarryingDeBuff] = {
+            BypassCode = {
+                enabled = true,
+                spellId = 348451,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = {
+							"348451", -- [1]
+							"348447", -- [2]
+							"348450", -- [3]
+							"348437", -- [4]
+						},
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.ShockWave] = {
+            TitanicCrash = {
+                enabled = true,
+                spellId = 347094,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "347094",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.Orbs] = {
+            PurifyingBurst = {
+                enabled = true,
+                spellId = 353312,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "353312",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.LaserCombatlogSuccess ] = {
+            PurgedByFire = {
+                enabled = true,
+                spellId = 346957,
+                triggerData = {
+                    {
+                        duration = "3",
+                        spellId = "346957",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.MinusDmgTakenCCable] = {
+            EmpoweredDefense = {
+                enabled = true,
+                spellId = 346980,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "346980",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] = {
+            ValorousBolt = {
+                enabled = true,
+                spellId = 352347,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "352347",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.KillAddChanneling] = {
+            KeepersProtection = {
+                enabled = true,
+                spellId = 347958,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "347958",
+                    }
+
+                }
+            },
+
+        },
+
+        [JDT.GroupTypes.Consoles] = {
+            SanitizingCycle = {
+                enabled = true,
+                spellId = 346766,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "346766",
+                    }
+
+                }
+            },
+
+        },
+
+    }
+}

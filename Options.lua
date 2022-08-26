@@ -40,6 +40,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
       -- more options go here
       }
   }
+  JDT.db.profile[ExpansionKey] = JDT.db.profile[ExpansionKey] or {}
     for DungeonKey,DungeonValue in pairs(ExpansionValue) do 
       JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey] = {
         name = JDT.getLocalisation(DungeonKey),
@@ -48,6 +49,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
         -- more options go here
         }
     }
+    JDT.db.profile[ExpansionKey][DungeonKey] = JDT.db.profile[ExpansionKey][DungeonKey] or {}
       for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do 
         JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey] = {
           name = JDT.getLocalisation(DungeonKey.."."..BossNameKey),
@@ -56,6 +58,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
           -- more options go here
           }
       }
+      JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey] = JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey] or {}
         for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
           JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey].args[SpellTypeKey] = {
               name = JDT.getLocalisation(SpellTypeKey),
@@ -65,7 +68,9 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
               -- more options go here
               }
           }
+          JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey][SpellTypeKey] = JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey][SpellTypeKey] or {}
           for k,v in pairs(SpellTypeValue) do -- Generates Spell toggles depending on SPellData.lua
+            JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey][SpellTypeKey][k] = JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey][SpellTypeKey][k] or {}
             local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
             JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey].args[SpellTypeKey].args[k]= {
                   name = Spellname,
@@ -75,7 +80,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
                   icon =  Spellicon,
                   set = function(info,val)  JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey][SpellTypeKey][k].enabled = val end, --Sets value of SavedVariables depending on toggles
                   get = function(info) 
-                    if JDT.db.profile and JDT.db.profile[ExpansionKey] and JDT.db.profile[ExpansionKey][DungeonKey] and JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey] and JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey][SpellTypeKey] and JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey][SpellTypeKey][k].enabled then
+                    if JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey][SpellTypeKey][k].enabled then
                     return  JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey][SpellTypeKey][k].enabled --Sets value of toggles depending on SavedVariables
                     else return v.enabled 
                     end

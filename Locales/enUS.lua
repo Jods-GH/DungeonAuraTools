@@ -36,6 +36,11 @@ LocalisationData["InterruptableSuppresion"] = "Suppression (Interuptable)"
 LocalisationData["InterruptableKickStomp"] = "Aoe Stomp that kicks (Interuptable)"
 LocalisationData["RoomSplit"] = "Splitting the Room" 
 LocalisationData["KickOrDie"] = "Important Interupt (will kill you if missed)" 
+LocalisationData["LaserCombatlogSuccess"] = "Laser Mechanic"
+LocalisationData["MinusDmgTakenCCable"] = "Damage reduction channel (CCable)"
+LocalisationData["CarryingDeBuff"] = "Debuff that needs to be Carried"
+LocalisationData["KillAddChanneling"] = "Add that needs to be killed"
+LocalisationData["ShockWave"] = "Shockwave mechanics"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
@@ -44,6 +49,7 @@ LocalisationData["Tazavesh.boss2"] = "The Grand Menagerie"
 LocalisationData["Tazavesh.boss3"]= "Mailroom Mayhem" 
 LocalisationData["Tazavesh.boss4"]= "Myza's Oasis" 
 LocalisationData["Tazavesh.boss5"]= "So'azmi" 
+LocalisationData["Tazavesh.boss6"]= "Hylbrande"
 
 
 -- TextBelowAura Data
@@ -75,6 +81,14 @@ LocalisationData["targeted"] = "targeted"
 LocalisationData["Suppress"] = "Suppress"
 LocalisationData["AoE+Kick"] = "AoE+Kick"
 LocalisationData["Splitting"] = "Splitting"
+LocalisationData["Carrying"] = "Carrying"
+LocalisationData["Shockwave"] = "Shockwave"
+LocalisationData["Orbs"] = "Orbs"
+LocalisationData["Laser"] = "Laser"
+LocalisationData["- dmg"] = "- Dmg"
+LocalisationData["Kill add"] = "Kill Add"
+LocalisationData["Consoles"] = "Consoles"
+
 
 --[[ 
     LocalisationData[""] = ""

@@ -30,6 +30,13 @@ JDT.GroupTypes.InterruptableKickStomp = "InterruptableKickStomp"
 JDT.GroupTypes.RoomSplit = "RoomSplit"
 JDT.GroupTypes.CastIntoCastSuccessDance = "CastIntoCastSuccessDance"
 JDT.GroupTypes.KickOrDie = "KickOrDie"
+JDT.GroupTypes.CarryingDeBuff = "CarryingDeBuff"
+JDT.GroupTypes.ShockWave = "ShockWave"
+JDT.GroupTypes.Orbs = "Orbs"
+JDT.GroupTypes.LaserCombatlogSuccess = "LaserCombatlogSuccess"
+JDT.GroupTypes.MinusDmgTakenCCable = "MinusDmgTakenCCable"
+JDT.GroupTypes.KillAddChanneling = "KillAddChanneling"
+JDT.GroupTypes.Consoles = "Consoles"
 
 
 JDT.GroupTypes.Templates = JDT.GroupTypes.Templates or {}
@@ -978,5 +985,125 @@ JDT.GroupTypes.Templates.KickOrDie =  {
     type = "interrupt",
     glowtype = "ActionButton",
     showGlow = true,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.GroupTypes.Templates.CarryingDeBuff =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buff, 
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Carrying"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.GroupTypes.Templates.ShockWave = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Shockwave"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.frontal,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.GroupTypes.Templates.Orbs = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Orbs"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.orb,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.GroupTypes.Templates.LaserCombatlogSuccess = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_START",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Laser"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.GroupTypes.Templates.MinusDmgTakenCCable = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("- dmg"),
+            isactive = true,
+        }, 
+    },
+    type = "stun",
+    doSound = JDT.SoundTypes.cc,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.GroupTypes.Templates.KillAddChanneling= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Kill add"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.add,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.GroupTypes.Templates.Consoles= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Consoles"),
+            isactive = true,
+        }, 
+    },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
