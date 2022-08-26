@@ -124,4 +124,5 @@
 			information = {
 			},
 			uid = "WOOOHOOO",
+			desc = "This Group was auto generated please consult DungeonAuraTools by accessing /DungeonAuraTools to change anything",
 	}
