@@ -49,6 +49,9 @@ JDT.buildDataToExport = function()
                             local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
                             SpellTable.displayIcon = Spellicon
                             SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname -- set AuraName
+                            if v.extraName then -- add extra stuff if needed to not have duplicate id's
+                                SpellTable.id= SpellTable.id..v.extraName 
+                            end
 
                             -- set Text to display below Aura (telling you what to do)
                             for textkey,textvalue in pairs(AuraTemplate.text) do
@@ -155,7 +158,6 @@ JDT.buildDataToExport = function()
                             SpellTable.uid = uId
                             v.uID = uId
                             end
-
                             SpellTable.parent = ExportTable.d.id
                             table.insert(ExportTable.d.controlledChildren,SpellTable.id)
                             table.insert(ExportTable.c,1,SpellTable)
@@ -188,6 +190,10 @@ JDT.generateTriggerfromGroupType.Cast = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
     AuraTrigger.trigger.unit = triggerData.unit
+    if AuraTemplate.target then
+        AuraTrigger.trigger.destUnit = AuraTemplate.target
+        AuraTrigger.trigger.use_destUnit = true
+    end
     return AuraTrigger
 end
 

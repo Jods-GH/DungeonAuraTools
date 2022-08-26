@@ -26,7 +26,14 @@ LocalisationData["DanceOrSoakIfDebuff"] = "Dance with Soak mechanic"
 LocalisationData["ChainToKill"] = "Chain that roots until killed"
 LocalisationData["UnavoidableAoe"] = "Unavoidable AoE Damage"
 LocalisationData["BossCastIntoStack"] = "Stack Mechanic"
-LocalisationData["VoidSoak"] = "Void Soak"
+LocalisationData["VoidSoak"] = "Void Soaks"
+LocalisationData["InterruptableTargetedCast"] = "Targeted Casst (Interuptable)"
+LocalisationData["TargetedCast"] = "Targeted Casst (not Interuptable)"
+LocalisationData["DmgBuff"] = "Damage Buffs"
+LocalisationData["HasteBuff"] = "Haste Buffs"
+
+LocalisationData["InterruptableSuppresion"] = "Suppression (Interuptable)"
+LocalisationData["InterruptableKickStomp"] = "Aoe Stomp that kicks (Interuptable)"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
@@ -34,6 +41,7 @@ LocalisationData["Tazavesh.boss1"] = "Zo'phex the Sentinel"
 LocalisationData["Tazavesh.boss2"] = "The Grand Menagerie"
 LocalisationData["Tazavesh.boss3"]= "Mailroom Mayhem" 
 LocalisationData["Tazavesh.boss4"]= "Myza's Oasis" 
+LocalisationData["Tazavesh.boss5"]= "So'azmi" 
 
 
 -- TextBelowAura Data
@@ -59,6 +67,11 @@ LocalisationData["AoE"] = "AoE"
 LocalisationData["Stack"] = "Stack"
 LocalisationData["Soak Void"] = "Soak Void"
 LocalisationData["Dispose"] = "Dispose"
+LocalisationData["+ Haste"] = "+ Haste"
+LocalisationData["+ dmg"] = "+ dmg"
+LocalisationData["targeted"] = "targeted"
+LocalisationData["Suppress"] = "Suppress"
+LocalisationData["AoE+Kick"] = "AoE+Kick"
 
 --[[ 
     LocalisationData[""] = ""

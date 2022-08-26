@@ -21,6 +21,12 @@ JDT.GroupTypes.UnavoidableAoe = "UnavoidableAoe"
 JDT.GroupTypes.BossCastIntoStack = "BossCastIntoStack"
 JDT.GroupTypes.VoidSoak = "VoidSoak"
 JDT.GroupTypes.Dispose = "Dispose"
+JDT.GroupTypes.HasteBuff = "HasteBuff"
+JDT.GroupTypes.DmgBuff  = "DmgBuff"
+JDT.GroupTypes.InterruptableTargetedCast = "InterruptableTargetedCast"
+JDT.GroupTypes.TargetedCast = "TargetedCast"
+JDT.GroupTypes.InterruptableSuppresion = "InterruptableSuppresion"
+JDT.GroupTypes.InterruptableKickStomp = "InterruptableKickStomp"
 
 
 JDT.GroupTypes.Templates = JDT.GroupTypes.Templates or {}
@@ -808,4 +814,126 @@ JDT.GroupTypes.Templates.Dispose=  {
         },
 }
 ), 
+}
+
+JDT.GroupTypes.Templates.HasteBuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("+ Haste"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.GroupTypes.Templates.DmgBuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("+ dmg"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.GroupTypes.Templates.InterruptableTargetedCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+            target = JDT.Templates.Triggers.UnitTypes.player,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("targeted"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    doSound = JDT.SoundTypes.targeted,
+    type = "interrupt",
+}
+
+JDT.GroupTypes.Templates.TargetedCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+            target = JDT.Templates.Triggers.UnitTypes.player,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("targeted"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    doSound = JDT.SoundTypes.targeted,
+}
+
+JDT.GroupTypes.Templates.InterruptableSuppresion= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Suppress"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    doSound = JDT.SoundTypes.interrupt,
+    type = "interrupt",
+}
+JDT.GroupTypes.Templates.InterruptableKickStomp= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("AoE+Kick"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    doSound = JDT.SoundTypes.interrupt,
+    type = "interrupt",
+}
+JDT.GroupTypes.Templates.RoomSplit = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Splitting"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soon,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

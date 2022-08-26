@@ -14,3 +14,12 @@ JDT.SoundTypes.dance = "Interface\\Addons\\SharedMedia_Causese\\sound\\Dance.ogg
 JDT.SoundTypes.switch = "Interface\\Addons\\SharedMedia_Causese\\sound\\Switch.ogg"
 JDT.SoundTypes.selfcd = "Interface\\Addons\\SharedMedia_Causese\\sound\\Selfcd.ogg"
 JDT.SoundTypes.stack = "Interface\\Addons\\SharedMedia_Causese\\sound\\Stack.ogg"
+JDT.SoundTypes.interrupt = "Interface\\Addons\\SharedMedia_Causese\\sound\\Interrupt.ogg"
+JDT.SoundTypes.soak = "Interface\\Addons\\SharedMedia_Causese\\sound\\Soak.ogg"
+
+
+setmetatable(JDT.SoundTypes, {
+    __index = function(_, key)
+        error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
+    end,
+})

@@ -357,6 +357,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss3 = {
             UnstableGoodsInc = {
                 enabled = true,
                 spellId = 346947, -- for spellname etc
+                extraName = " inc",
                 triggerData = {
                     [1] = {
                         spellIdList = {"346947"},
@@ -395,6 +396,106 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss4 = {
                 }
             },
 
+        },
+        [JDT.GroupTypes.HasteBuff] = {
+            Jazzy = {
+                enabled = true,
+                spellId = 348567,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "348567",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.DmgBuff] = {
+            Accelerando = {
+                enabled = true,
+                spellId = 359019,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "359019",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] = {
+            HyperlightBolt = {
+                enabled = true,
+                spellId = 353836,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "353836",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            ThrowDrink = {
+                enabled = true,
+                spellId = 348566,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "348566",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableSuppresion] = {
+            Suppresion = {
+                enabled = true,
+                spellId = 353835,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "353835",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableKickStomp] = {
+            MenacingShout = {
+                enabled = true,
+                spellId = 350922,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "350922",
+                    }
+
+                }
+            },
+        },
+    }
+}
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss5 = {
+    EncounterId = "2437",
+    additionalName = "] 05 ",
+    Auras = { 
+        [JDT.GroupTypes.Dot] ={
+            GrandConsumption = {
+                enabled = true,
+                spellId = 347744, -- for spellname etc
+                type = "bleed",
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "347744",
+
+                    },
+
+                }
+            }
         },
     }
 }
