@@ -17,6 +17,11 @@ JDT.Templates.Triggers.TriggerTypes = {
     unitHealth = "UnitHealth",
     combatlog = "CombatLog", 
 }
+setmetatable(JDT.Templates.Triggers.TriggerTypes, {
+    __index = function(_, key)
+        error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
+    end,
+})
 
 JDT.Templates.Triggers.ActivationTemplate = {
     activeTriggerMode = -10, -- default value? idk what it does but needs to be included
@@ -31,6 +36,11 @@ JDT.Templates.Triggers.BuffTypes= {
     buff = "HELPFUL",
     debuff = "HARMFUL",
 }
+setmetatable(JDT.Templates.Triggers.BuffTypes, {
+    __index = function(_, key)
+        error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
+    end,
+})
 
 JDT.Templates.Triggers.UnitTypes = {
     player= "player",
@@ -38,6 +48,12 @@ JDT.Templates.Triggers.UnitTypes = {
     nameplate = "nameplate",
     smartGroup = "group",
 }
+
+setmetatable(JDT.Templates.Triggers.UnitTypes, {
+    __index = function(_, key)
+        error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
+    end,
+})
 
 JDT.Templates.Triggers.Buffs = {
         trigger = {

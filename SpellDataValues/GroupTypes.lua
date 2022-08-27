@@ -37,11 +37,18 @@ JDT.GroupTypes.LaserCombatlogSuccess = "LaserCombatlogSuccess"
 JDT.GroupTypes.MinusDmgTakenCCable = "MinusDmgTakenCCable"
 JDT.GroupTypes.KillAddChanneling = "KillAddChanneling"
 JDT.GroupTypes.Consoles = "Consoles"
+setmetatable(JDT.GroupTypes, {
+    __index = function(_, key)
+        error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
+    end,
+})
 
 
-JDT.GroupTypes.Templates = JDT.GroupTypes.Templates or {}
 
-JDT.GroupTypes.Templates.Dot = {
+
+JDT.Templates.GroupTypes = JDT.Templates.GroupTypes or {}
+
+JDT.Templates.GroupTypes.Dot = {
     AuraType = "AuraIcon",
     triggers = {
          {
@@ -58,7 +65,7 @@ JDT.GroupTypes.Templates.Dot = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.Frontal = {
+JDT.Templates.GroupTypes.Frontal = {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -75,7 +82,7 @@ JDT.GroupTypes.Templates.Frontal = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.SpinToWin= {
+JDT.Templates.GroupTypes.SpinToWin= {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -92,7 +99,7 @@ JDT.GroupTypes.Templates.SpinToWin= {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.ShieldInc =  {
+JDT.Templates.GroupTypes.ShieldInc =  {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -109,7 +116,7 @@ JDT.GroupTypes.Templates.ShieldInc =  {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.PlayerGroupDebuffSpread =  {
+JDT.Templates.GroupTypes.PlayerGroupDebuffSpread =  {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -131,7 +138,7 @@ JDT.GroupTypes.Templates.PlayerGroupDebuffSpread =  {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.EnergyTrackSoonCast=  {
+JDT.Templates.GroupTypes.EnergyTrackSoonCast=  {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -158,7 +165,7 @@ JDT.GroupTypes.Templates.EnergyTrackSoonCast=  {
     customTriggerLogic = "function(t) \n  return t[1]  and not (t[2] or t[3]) \n end",
 }
 
-JDT.GroupTypes.Templates.BossCastIntoBuff = {
+JDT.Templates.GroupTypes.BossCastIntoBuff = {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -204,7 +211,7 @@ JDT.GroupTypes.Templates.BossCastIntoBuff = {
 ), 
 }
 
-JDT.GroupTypes.Templates.BossCastIntoCollect = {
+JDT.Templates.GroupTypes.BossCastIntoCollect = {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -250,7 +257,7 @@ JDT.GroupTypes.Templates.BossCastIntoCollect = {
 ), 
 }
 
-JDT.GroupTypes.Templates.CollectBuff = {
+JDT.Templates.GroupTypes.CollectBuff = {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -325,7 +332,7 @@ JDT.GroupTypes.Templates.CollectBuff = {
 ), 
 }
 
-JDT.GroupTypes.Templates.RunOut = {
+JDT.Templates.GroupTypes.RunOut = {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -342,7 +349,7 @@ JDT.GroupTypes.Templates.RunOut = {
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 
-JDT.GroupTypes.Templates.Dance= {
+JDT.Templates.GroupTypes.Dance= {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -359,7 +366,7 @@ JDT.GroupTypes.Templates.Dance= {
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 
-JDT.GroupTypes.Templates.CastIntoCastSuccessDance= {
+JDT.Templates.GroupTypes.CastIntoCastSuccessDance= {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -379,7 +386,7 @@ JDT.GroupTypes.Templates.CastIntoCastSuccessDance= {
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 
-JDT.GroupTypes.Templates.CastIntoPlayerGroupDebuffSpread =  {
+JDT.Templates.GroupTypes.CastIntoPlayerGroupDebuffSpread =  {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -449,7 +456,7 @@ JDT.GroupTypes.Templates.CastIntoPlayerGroupDebuffSpread =  {
     }
 ), 
 }
-JDT.GroupTypes.Templates.BreakShieldIntoInterrupt = {
+JDT.Templates.GroupTypes.BreakShieldIntoInterrupt = {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -516,7 +523,7 @@ JDT.GroupTypes.Templates.BreakShieldIntoInterrupt = {
 ), 
 }
 
-JDT.GroupTypes.Templates.DanceOrSoakIfDebuff = {
+JDT.Templates.GroupTypes.DanceOrSoakIfDebuff = {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -569,7 +576,7 @@ JDT.GroupTypes.Templates.DanceOrSoakIfDebuff = {
 ), 
 }
 
-JDT.GroupTypes.Templates.ChainToKill = {
+JDT.Templates.GroupTypes.ChainToKill = {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -656,7 +663,7 @@ JDT.GroupTypes.Templates.ChainToKill = {
 ), 
 }
 
-JDT.GroupTypes.Templates.UnavoidableAoe = {
+JDT.Templates.GroupTypes.UnavoidableAoe = {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -674,7 +681,7 @@ JDT.GroupTypes.Templates.UnavoidableAoe = {
 }
 
 
-JDT.GroupTypes.Templates.BossCastIntoStack = {
+JDT.Templates.GroupTypes.BossCastIntoStack = {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -757,7 +764,7 @@ JDT.GroupTypes.Templates.BossCastIntoStack = {
 ), 
 } 
 
-JDT.GroupTypes.Templates.VoidSoak= {
+JDT.Templates.GroupTypes.VoidSoak= {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -774,7 +781,7 @@ JDT.GroupTypes.Templates.VoidSoak= {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.Dispose=  {
+JDT.Templates.GroupTypes.Dispose=  {
     AuraType = "AuraIcon",
     triggers = {
         [1] ={
@@ -846,7 +853,7 @@ JDT.GroupTypes.Templates.Dispose=  {
 ), 
 }
 
-JDT.GroupTypes.Templates.HasteBuff = {
+JDT.Templates.GroupTypes.HasteBuff = {
     AuraType = "AuraIcon",
     triggers = {
          {
@@ -863,7 +870,7 @@ JDT.GroupTypes.Templates.HasteBuff = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.DmgBuff = {
+JDT.Templates.GroupTypes.DmgBuff = {
     AuraType = "AuraIcon",
     triggers = {
          {
@@ -880,7 +887,7 @@ JDT.GroupTypes.Templates.DmgBuff = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.InterruptableTargetedCast= {
+JDT.Templates.GroupTypes.InterruptableTargetedCast= {
     AuraType = "AuraIcon",
     triggers = {
          {
@@ -899,7 +906,7 @@ JDT.GroupTypes.Templates.InterruptableTargetedCast= {
     type = "interrupt",
 }
 
-JDT.GroupTypes.Templates.TargetedCast= {
+JDT.Templates.GroupTypes.TargetedCast= {
     AuraType = "AuraIcon",
     triggers = {
          {
@@ -917,7 +924,7 @@ JDT.GroupTypes.Templates.TargetedCast= {
     doSound = JDT.SoundTypes.targeted,
 }
 
-JDT.GroupTypes.Templates.InterruptableSuppresion= {
+JDT.Templates.GroupTypes.InterruptableSuppresion= {
     AuraType = "AuraIcon",
     triggers = {
          {
@@ -934,7 +941,7 @@ JDT.GroupTypes.Templates.InterruptableSuppresion= {
     doSound = JDT.SoundTypes.interrupt,
     type = "interrupt",
 }
-JDT.GroupTypes.Templates.InterruptableKickStomp= {
+JDT.Templates.GroupTypes.InterruptableKickStomp= {
     AuraType = "AuraIcon",
     triggers = {
          {
@@ -951,7 +958,7 @@ JDT.GroupTypes.Templates.InterruptableKickStomp= {
     doSound = JDT.SoundTypes.interrupt,
     type = "interrupt",
 }
-JDT.GroupTypes.Templates.RoomSplit = {
+JDT.Templates.GroupTypes.RoomSplit = {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -968,7 +975,7 @@ JDT.GroupTypes.Templates.RoomSplit = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.KickOrDie =  {
+JDT.Templates.GroupTypes.KickOrDie =  {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -988,11 +995,11 @@ JDT.GroupTypes.Templates.KickOrDie =  {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.CarryingDeBuff =  {
+JDT.Templates.GroupTypes.CarryingDeBuff =  {
     AuraType = "AuraIcon",
     triggers = {
         {
-            triggerType = JDT.Templates.Triggers.TriggerTypes.buff, 
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
             BuffTypes = "debuff",
         },
     },
@@ -1005,7 +1012,7 @@ JDT.GroupTypes.Templates.CarryingDeBuff =  {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.ShockWave = {
+JDT.Templates.GroupTypes.ShockWave = {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -1022,7 +1029,7 @@ JDT.GroupTypes.Templates.ShockWave = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.Orbs = {
+JDT.Templates.GroupTypes.Orbs = {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -1039,7 +1046,7 @@ JDT.GroupTypes.Templates.Orbs = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.LaserCombatlogSuccess = {
+JDT.Templates.GroupTypes.LaserCombatlogSuccess = {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -1057,7 +1064,7 @@ JDT.GroupTypes.Templates.LaserCombatlogSuccess = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.MinusDmgTakenCCable = {
+JDT.Templates.GroupTypes.MinusDmgTakenCCable = {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -1075,7 +1082,7 @@ JDT.GroupTypes.Templates.MinusDmgTakenCCable = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.KillAddChanneling= {
+JDT.Templates.GroupTypes.KillAddChanneling= {
     AuraType = "AuraIcon",
     triggers = {
          {
@@ -1092,7 +1099,7 @@ JDT.GroupTypes.Templates.KillAddChanneling= {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
-JDT.GroupTypes.Templates.Consoles= {
+JDT.Templates.GroupTypes.Consoles= {
     AuraType = "AuraIcon",
     triggers = {
          {

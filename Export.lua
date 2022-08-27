@@ -25,7 +25,7 @@ JDT.buildDataToExport = function()
                         for k,v in pairs(TypeValue) do 
                             if v.enabled == true then
 
-                            local AuraTemplate = JDT.GroupTypes.Templates[TypeKey]
+                            local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]
                             local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
 
                             --- create triggers 
@@ -40,7 +40,6 @@ JDT.buildDataToExport = function()
                             end
                             
                             for trigger = 1,#AuraTemplate.triggers, 1 do
-                                DevTools_Dump(k)
                                 local AuraTrigger = JDT.generateTriggerfromGroupType[AuraTemplate.triggers[trigger].triggerType](v.triggerData[trigger],AuraTemplate.triggers[trigger])
                                 tinsert(TriggerTable,AuraTrigger)
                             end
@@ -180,9 +179,15 @@ JDT.generateTriggerfromGroupType = JDT.generateTriggerfromGroupType or {}
 JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.debuffType = JDT.Templates.Triggers.BuffTypes[AuraTemplate.BuffTypes] -- sets harmful or helpful to define buff/debuff
-    AuraTrigger.trigger.auranames = { --set spellid for trigger
-    triggerData.spellId, -- [1]
-    }
+    if type(triggerData.spellId) =="table" then
+        for index, value in ipairs(triggerData.spellId) do
+            tinsert(AuraTrigger.trigger.auranames,value)
+        end
+    else
+        AuraTrigger.trigger.auranames = { --set spellid for trigger
+        triggerData.spellId, -- [1]
+        }
+    end
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end
