@@ -77,7 +77,6 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
                   desc = GetSpellDescription(SpellID),
                   type = "toggle",
                   image = Spellicon,
-                  icon =  Spellicon,
                   set = function(info,val)  JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey][SpellTypeKey][k].enabled = val end, --Sets value of SavedVariables depending on toggles
                   get = function(info) 
                     if JDT.db.profile[ExpansionKey][DungeonKey][BossNameKey][SpellTypeKey][k].enabled then

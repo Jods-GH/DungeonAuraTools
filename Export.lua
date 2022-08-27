@@ -3,7 +3,7 @@ JDT.exportAuras = function()
     print("running export")
 
     if WeakAuras and WeakAuras.Import then
-        local wassuccesful,msg = WeakAuras.Import(JDT.buildDataToExport(),targetAura) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import
+        local wassuccesful,msg = WeakAuras.Import(JDT.buildDataToExport()) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import
        if msg  then
         print("Import failed: "..msg)
        end
