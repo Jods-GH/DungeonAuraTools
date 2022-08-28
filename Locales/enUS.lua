@@ -9,6 +9,8 @@ LocalisationData["Enable"] = "Enable"
 LocalisationData["EnableDescription"] = "enables / disables the Addon"
 LocalisationData["GeneralOptions"] = "General Options"
 LocalisationData["SpellOptions"] = "Spell Options"
+LocalisationData["Toggles all Auras for"] = "Toggles all Auras for" 
+LocalisationData["Warning will overwrite all currently selected values."] = "Warning will overwrite all currently selected values."
 
 -- Aura Types
 LocalisationData["SpinToWin"] = "Spin AoEs"
