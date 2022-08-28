@@ -56,7 +56,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
           args={
             BossToggle = {
               name = JDT.getLocalisation(DungeonKey.."."..BossNameKey),
-              desc = JDT.getLocalisation("Toggles all Auras for").." "..JDT.getLocalisation(DungeonKey.."."..BossNameKey)..JDT.getLocalisation("Warning will overwrite all currently selected values."),
+              desc = JDT.getLocalisation("Toggles all Auras for").." "..JDT.getLocalisation(DungeonKey.."."..BossNameKey).."\n"..JDT.getLocalisation("Warning will overwrite all currently selected values."),
               type = "toggle",
               image = iconImage,
               set = function(info,val)  
@@ -81,6 +81,11 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
               order = 0,
 
         },
+          emptySpace = {
+            name = "",
+            type = "description",
+            desc = ""
+          }
           -- more options go here
           }
       }
