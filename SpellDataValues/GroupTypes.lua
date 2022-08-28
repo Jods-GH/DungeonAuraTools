@@ -37,6 +37,9 @@ JDT.GroupTypes.LaserCombatlogSuccess = "LaserCombatlogSuccess"
 JDT.GroupTypes.MinusDmgTakenCCable = "MinusDmgTakenCCable"
 JDT.GroupTypes.KillAddChanneling = "KillAddChanneling"
 JDT.GroupTypes.Consoles = "Consoles"
+JDT.GroupTypes.Breath = "Breath"
+JDT.GroupTypes.Hooking = "Hooking"
+JDT.GroupTypes.AddSummonCombatlog = "AddSummonCombatlog"
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
@@ -1114,3 +1117,56 @@ JDT.Templates.GroupTypes.Consoles= {
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.Breath= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Breath"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.avoid,
+    glowtype = "ActionButton",
+    showGlow = true,
+}
+JDT.Templates.GroupTypes.Hooking= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Hooking"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.move,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.AddSummonCombatlog= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_SUMMON",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Adds"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.adds,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+

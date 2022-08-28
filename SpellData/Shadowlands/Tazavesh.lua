@@ -685,3 +685,86 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss6 = {
 
     }
 }
+
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss7 = {
+    EncounterId = "2419",
+    additionalName = "] 07 ",
+    Auras = {  
+            [JDT.GroupTypes.Breath] = {
+                InfiniteBreath = {
+                    enabled = true,
+                    spellId = 347149,
+                    triggerData = {
+                        {
+                            unit = JDT.Templates.Triggers.UnitTypes.boss,
+                            spellId = "347149",
+                        }
+
+                    }
+                },
+
+        },
+            [JDT.GroupTypes.Dot] = {
+                ["Hook'd!"] = {
+                    enabled = true,
+                    spellId = 354334,
+                    type = "bleed",
+                    triggerData = {
+                        {
+                            unit = JDT.Templates.Triggers.UnitTypes.player,
+                            spellId = "354334",
+                        }
+
+                    }
+                },
+
+        },
+            [JDT.GroupTypes.BossCastIntoBuff] = {
+                DoubleTime = {
+                    enabled = true,
+                    spellId = 350517,
+                    type = "bleed",
+                    triggerData = {
+                        {
+                            unit = JDT.Templates.Triggers.UnitTypes.boss,
+                            spellId = "350517",
+                        },
+                        {
+                            unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                            spellId = "350517",
+                        },
+
+                    }
+                },
+
+        },
+        [JDT.GroupTypes.Hooking] = {
+            DoubleTime = {
+                enabled = true,
+                spellId = 352345,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "352345",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCombatlog] = {
+            DoubleTime = {
+                enabled = true,
+                spellId = 352345,
+                triggerData = {
+                    {
+                        spellId = "355179",
+                        duration = "3",
+                    },
+
+                }
+            },
+        },
+
+
+    }
+}

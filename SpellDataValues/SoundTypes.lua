@@ -20,6 +20,7 @@ JDT.SoundTypes.targeted = "Interface\\Addons\\SharedMedia_Causese\\sound\\Target
 JDT.SoundTypes.orb = "Interface\\Addons\\SharedMedia_Causese\\sound\\Orb.ogg"
 JDT.SoundTypes.cc = "Interface\\Addons\\SharedMedia_Causese\\sound\\CC.ogg"
 JDT.SoundTypes.add = "Interface\\Addons\\SharedMedia_Causese\\sound\\Add.ogg"
+JDT.SoundTypes.adds = "Interface\\Addons\\SharedMedia_Causese\\sound\\Adds.ogg"
 
 
 setmetatable(JDT.SoundTypes, {

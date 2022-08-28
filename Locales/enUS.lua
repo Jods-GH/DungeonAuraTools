@@ -5,6 +5,7 @@ local LocalisationData = AceLocale:NewLocale(appName, "enUS",true)
 
 if LocalisationData then
 
+-- Options
 LocalisationData["Enable"] = "Enable"
 LocalisationData["EnableDescription"] = "enables / disables the Addon"
 LocalisationData["GeneralOptions"] = "General Options"
@@ -43,6 +44,7 @@ LocalisationData["MinusDmgTakenCCable"] = "Damage reduction channel (CCable)"
 LocalisationData["CarryingDeBuff"] = "Debuff that needs to be Carried"
 LocalisationData["KillAddChanneling"] = "Add that needs to be killed"
 LocalisationData["ShockWave"] = "Shockwave mechanics"
+LocalisationData["AddSummonCombatlog"] = "Summoning Adds"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
@@ -52,6 +54,7 @@ LocalisationData["Tazavesh.boss3"]= "Mailroom Mayhem"
 LocalisationData["Tazavesh.boss4"]= "Myza's Oasis" 
 LocalisationData["Tazavesh.boss5"]= "So'azmi" 
 LocalisationData["Tazavesh.boss6"]= "Hylbrande"
+LocalisationData["Tazavesh.boss7"]= "Timecap'n Hooktail" 
 
 
 -- TextBelowAura Data
@@ -90,6 +93,9 @@ LocalisationData["Laser"] = "Laser"
 LocalisationData["- dmg"] = "- Dmg"
 LocalisationData["Kill add"] = "Kill Add"
 LocalisationData["Consoles"] = "Consoles"
+LocalisationData["Breath"] = "Breath"
+LocalisationData["Hooking"] = "Hooking"
+LocalisationData["Adds"] = "Adds"
 
 
 --[[ 
