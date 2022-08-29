@@ -6,6 +6,7 @@ JDT.SpellList.Shadowlands = JDT.SpellList.Shadowlands or {}
 JDT.SpellList.Shadowlands.Tazavesh = {
     groupName = "[TAZAVESH",
     zoneId = "g423", 
+    EncounterJournalID = 1194,
     Bosses = {}
 }
 
@@ -543,6 +544,292 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss5 = {
 
                 }
             }
+        },
+    }
+}
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss6 = {
+    EncounterId = "2437",
+    additionalName = "] 05 ",
+    Auras = { 
+        [JDT.GroupTypes.Frontal] = {
+            ShearingSwings = {
+                enabled = true,
+                spellId = 346116,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "346116",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.CarryingDeBuff] = {
+            BypassCode = {
+                enabled = true,
+                spellId = 348451,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = {
+							"348451", -- [1]
+							"348447", -- [2]
+							"348450", -- [3]
+							"348437", -- [4]
+						},
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.ShockWave] = {
+            TitanicCrash = {
+                enabled = true,
+                spellId = 347094,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "347094",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.Orbs] = {
+            PurifyingBurst = {
+                enabled = true,
+                spellId = 353312,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "353312",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.LaserCombatlogSuccess ] = {
+            PurgedByFire = {
+                enabled = true,
+                spellId = 346957,
+                triggerData = {
+                    {
+                        duration = "3",
+                        spellId = "346957",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.MinusDmgTakenCCable] = {
+            EmpoweredDefense = {
+                enabled = true,
+                spellId = 346980,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "346980",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] = {
+            ValorousBolt = {
+                enabled = true,
+                spellId = 352347,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "352347",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.KillAddChanneling] = {
+            KeepersProtection = {
+                enabled = true,
+                spellId = 347958,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "347958",
+                    }
+
+                }
+            },
+
+        },
+
+        [JDT.GroupTypes.Consoles] = {
+            SanitizingCycle = {
+                enabled = true,
+                spellId = 346766,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "346766",
+                    }
+
+                }
+            },
+
+        },
+
+    }
+}
+
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss7 = {
+    EncounterId = "2419",
+    additionalName = "] 07 ",
+    Auras = {  
+            [JDT.GroupTypes.Breath] = {
+                InfiniteBreath = {
+                    enabled = true,
+                    spellId = 347149,
+                    triggerData = {
+                       [1] = {
+                            unit = JDT.Templates.Triggers.UnitTypes.boss,
+                            spellId = "347149",
+                        }
+
+                    }
+                },
+
+        },
+            [JDT.GroupTypes.Dot] = {
+                ["Hook'd!"] = {
+                    enabled = true,
+                    spellId = 354334,
+                    type = "bleed",
+                    triggerData = {
+                       [1] = {
+                            unit = JDT.Templates.Triggers.UnitTypes.player,
+                            spellId = "354334",
+                        }
+
+                    }
+                },
+
+        },
+            [JDT.GroupTypes.BossCastIntoBuff] = {
+                DoubleTime = {
+                    enabled = true,
+                    spellId = 350517,
+                    type = "bleed",
+                    triggerData = {
+                       [1] = {
+                            unit = JDT.Templates.Triggers.UnitTypes.boss,
+                            spellId = "350517",
+                        },
+                        [2] ={
+                            unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                            spellId = "350517",
+                        },
+
+                    }
+                },
+
+        },
+        [JDT.GroupTypes.Hooking] = {
+            AnchorShot = {
+                enabled = true,
+                spellId = 352345,
+                triggerData = {
+                   [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "352345",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCombatlog] = {
+            CorsairBrute = {
+                enabled = true,
+                spellId = 352345,
+                triggerData = {
+                  [1] =  {
+                        spellId = "355179",
+                        duration = "3",
+                    },
+
+                }
+            },
+        },
+
+
+    }
+}
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss8 = {
+    EncounterId = "2442",
+    additionalName = "] 08 ",
+    Auras = {  
+        [JDT.GroupTypes.AddSummonCast] = {
+            SummonAssasin = {
+                enabled = true,
+                spellId = 351124,
+                triggerData = {
+                    [1] ={
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "351124",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            ShurikenBlitz = {
+                enabled = true,
+                spellId = 351119,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "351119",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] = {
+            ShurikenBlitzDot = {
+                enabled = true,
+                spellId = 351119,
+                extraName = " dot",
+                type = "bleed",
+                triggerData = {
+                   [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "351119",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CollapsingStar] = {
+            CollapsingStar = {
+                enabled = true,
+                spellId = 353635,
+                triggerData = {
+                   [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "353635",
+                    },
+                    [2]={
+                        spellIdList = {},
+                        extraUnit = ""
+
+                    },
+                }
+            },
         },
     }
 }
