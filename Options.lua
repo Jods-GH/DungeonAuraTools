@@ -41,22 +41,27 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
       }
   }
     for DungeonKey,DungeonValue in pairs(ExpansionValue) do 
+      EJ_SelectInstance(DungeonValue.EncounterJournalID)
+        local Instancename, Instancedescription,_,_,_,_, _,_,_= EJ_GetInstanceInfo()
       JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey] = {
-        name = JDT.getLocalisation(DungeonKey),
+        name = Instancename,
+        desc = Instancedescription,
         type = "group",
         args={
         -- more options go here
         }
     }
       for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do 
-        local id, name, description, displayInfo, iconImage, uiModelSceneID = EJ_GetCreatureInfo(1,2448)
+        local EncounterName, Encounterdescription, journalEncounterID, rootSectionID, link, journalInstanceID, dungeonEncounterID, instanceID = EJ_GetEncounterInfoByIndex(tonumber(strsub(BossNameKey,5)))
+        local id, name, description, displayInfo, iconImage, uiModelSceneID = EJ_GetCreatureInfo(1,journalEncounterID)
         JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey] = {
-          name = JDT.getLocalisation(DungeonKey.."."..BossNameKey),
+          name = EncounterName,
+          desc = Encounterdescription,
           type = "group",
           args={
             BossToggle = {
-              name = JDT.getLocalisation(DungeonKey.."."..BossNameKey),
-              desc = JDT.getLocalisation("Toggles all Auras for").." "..JDT.getLocalisation(DungeonKey.."."..BossNameKey).."\n"..JDT.getLocalisation("Warning will overwrite all currently selected values."),
+              name = EncounterName,
+              desc = JDT.getLocalisation("Toggles all Auras for").." "..EncounterName.."\n"..JDT.getLocalisation("Warning will overwrite all currently selected values."),
               type = "toggle",
               image = iconImage,
               set = function(info,val)  

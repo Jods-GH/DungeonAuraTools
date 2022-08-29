@@ -6,6 +6,7 @@ JDT.SpellList.Shadowlands = JDT.SpellList.Shadowlands or {}
 JDT.SpellList.Shadowlands.Tazavesh = {
     groupName = "[TAZAVESH",
     zoneId = "g423", 
+    EncounterJournalID = 1194,
     Bosses = {}
 }
 

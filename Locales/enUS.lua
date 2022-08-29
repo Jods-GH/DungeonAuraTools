@@ -45,6 +45,9 @@ LocalisationData["CarryingDeBuff"] = "Debuff that needs to be Carried"
 LocalisationData["KillAddChanneling"] = "Add that needs to be killed"
 LocalisationData["ShockWave"] = "Shockwave mechanics"
 LocalisationData["AddSummonCombatlog"] = "Summoning Adds"
+LocalisationData["AddSummonCast"] = "Summoning Adds"
+LocalisationData["CollapsingStar"] = "Orb Soak"
+LocalisationData["InteruptableVolley"] = "Volley AoE (Interuptable)"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
@@ -55,6 +58,7 @@ LocalisationData["Tazavesh.boss4"]= "Myza's Oasis"
 LocalisationData["Tazavesh.boss5"]= "So'azmi" 
 LocalisationData["Tazavesh.boss6"]= "Hylbrande"
 LocalisationData["Tazavesh.boss7"]= "Timecap'n Hooktail" 
+LocalisationData["Tazavesh.boss8"] = "So'leah"
 
 
 -- TextBelowAura Data
@@ -96,6 +100,7 @@ LocalisationData["Consoles"] = "Consoles"
 LocalisationData["Breath"] = "Breath"
 LocalisationData["Hooking"] = "Hooking"
 LocalisationData["Adds"] = "Adds"
+LocalisationData["Volley"] = "Volley"
 
 
 --[[ 
