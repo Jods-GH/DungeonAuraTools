@@ -42,7 +42,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
   }
     for DungeonKey,DungeonValue in pairs(ExpansionValue) do 
       EJ_SelectInstance(DungeonValue.EncounterJournalID)
-        local Instancename, Instancedescription,_,_,_,_, _,_,_= EJ_GetInstanceInfo()
+      local Instancename, Instancedescription,_,_,_,_, _,_,_= EJ_GetInstanceInfo()
       JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey] = {
         name = Instancename,
         desc = Instancedescription,
