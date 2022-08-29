@@ -695,7 +695,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss7 = {
                     enabled = true,
                     spellId = 347149,
                     triggerData = {
-                        {
+                       [1] = {
                             unit = JDT.Templates.Triggers.UnitTypes.boss,
                             spellId = "347149",
                         }
@@ -710,7 +710,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss7 = {
                     spellId = 354334,
                     type = "bleed",
                     triggerData = {
-                        {
+                       [1] = {
                             unit = JDT.Templates.Triggers.UnitTypes.player,
                             spellId = "354334",
                         }
@@ -725,11 +725,11 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss7 = {
                     spellId = 350517,
                     type = "bleed",
                     triggerData = {
-                        {
+                       [1] = {
                             unit = JDT.Templates.Triggers.UnitTypes.boss,
                             spellId = "350517",
                         },
-                        {
+                        [2] ={
                             unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                             spellId = "350517",
                         },
@@ -739,11 +739,11 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss7 = {
 
         },
         [JDT.GroupTypes.Hooking] = {
-            DoubleTime = {
+            AnchorShot = {
                 enabled = true,
                 spellId = 352345,
                 triggerData = {
-                    {
+                   [1] = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "352345",
                     },
@@ -752,11 +752,11 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss7 = {
             },
         },
         [JDT.GroupTypes.AddSummonCombatlog] = {
-            DoubleTime = {
+            CorsairBrute = {
                 enabled = true,
                 spellId = 352345,
                 triggerData = {
-                    {
+                  [1] =  {
                         spellId = "355179",
                         duration = "3",
                     },
@@ -766,5 +766,69 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss7 = {
         },
 
 
+    }
+}
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss8 = {
+    EncounterId = "2442",
+    additionalName = "] 08 ",
+    Auras = {  
+        [JDT.GroupTypes.AddSummonCast] = {
+            SummonAssasin = {
+                enabled = true,
+                spellId = 351124,
+                triggerData = {
+                    [1] ={
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "351124",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            ShurikenBlitz = {
+                enabled = true,
+                spellId = 351119,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "351119",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] = {
+            ShurikenBlitzDot = {
+                enabled = true,
+                spellId = 351119,
+                extraName = " dot",
+                type = "bleed",
+                triggerData = {
+                   [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "351119",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CollapsingStar] = {
+            CollapsingStar = {
+                enabled = true,
+                spellId = 353635,
+                triggerData = {
+                   [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "353635",
+                    },
+                    [2]={
+                        spellIdList = {},
+                        extraUnit = ""
+
+                    },
+                }
+            },
+        },
     }
 }

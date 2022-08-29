@@ -97,7 +97,10 @@ JDT.buildDataToExport = function()
                                     TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_big_number_format"] = "AbbreviateNumbers"
                                     tinsert(SpellTable.subRegions,TextTemplate)
                                 end
-
+                                if AuraTemplate.useCount then
+                                    local TextTemplate = CopyTable(JDT.Templates.TextRegions.Count)
+                                    tinsert(SpellTable.subRegions,TextTemplate)
+                                end
 
                                 -- set load conditions
                                 if DungeonValue.zoneId then 

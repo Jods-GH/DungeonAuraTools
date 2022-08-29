@@ -40,6 +40,10 @@ JDT.GroupTypes.Consoles = "Consoles"
 JDT.GroupTypes.Breath = "Breath"
 JDT.GroupTypes.Hooking = "Hooking"
 JDT.GroupTypes.AddSummonCombatlog = "AddSummonCombatlog"
+JDT.GroupTypes.AddSummonCast = "AddSummonCast"
+JDT.GroupTypes.InteruptableVolley = "InteruptableVolley"
+JDT.GroupTypes.CollapsingStar = "CollapsingStar"
+
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
@@ -1169,4 +1173,59 @@ JDT.Templates.GroupTypes.AddSummonCombatlog= {
     doSound = JDT.SoundTypes.adds,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.AddSummonCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Adds"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.adds,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 
+JDT.Templates.GroupTypes.InteruptableVolley= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Volley"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.interrupt,
+    type = "interrupt",
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.CollapsingStar= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {   
+            triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
+            customPreset = "CollapsingStar"
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soak,
+    useCount = true,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}

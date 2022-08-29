@@ -101,17 +101,23 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
           }
           for k,v in pairs(SpellTypeValue) do -- Generates Spell toggles depending on SPellData.lua
             local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
-            JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey].args[SpellTypeKey].args[k]= {
-                  name = Spellname,
-                  desc = GetSpellDescription(SpellID),
-                  type = "toggle",
-                  image = Spellicon,
-                  set = function(info,val)  JDT.db.profile[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val end, --Sets value of SavedVariables depending on toggles
-                  get = function(info)
-                      return  JDT.db.profile[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled --Sets value of toggles depending on SavedVariables 
-                  end
+            local spell = Spell:CreateFromSpellID(SpellID)
 
-            }
+            spell:ContinueOnSpellLoad(function()
+              local desc = spell:GetSpellDescription()
+              JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey].args[SpellTypeKey].args[k]= {
+                name = Spellname,
+                desc = desc,
+                type = "toggle",
+                image = Spellicon,
+                set = function(info,val)  JDT.db.profile[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled --Sets value of toggles depending on SavedVariables 
+                end
+
+          }
+            end)
+           
           end
         end
       end
