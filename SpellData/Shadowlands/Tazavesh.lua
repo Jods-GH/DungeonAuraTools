@@ -10,7 +10,7 @@ JDT.SpellList.Shadowlands.Tazavesh = {
     Bosses = {}
 }
 
-JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional stuff thats alot more work keep only these for now
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { 
     EncounterId = "2425",
     additionalName = "] 01 ",
     Auras = {
@@ -831,5 +831,10 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss8 = {
                 }
             },
         },
+    }
+}
+JDT.SpellList.Shadowlands.Tazavesh.Bosses.Trash = {
+    additionalName = "TRASH] ",
+    Auras = {  
     }
 }

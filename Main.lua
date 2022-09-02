@@ -47,7 +47,7 @@ function DungeonAuraTools:SlashCommand(msg) -- called when slash command is used
 end
 
 function DungeonAuraTools:PLAYER_ENTERING_WORLD(event, isLogin, isReload)
-    if isLogin then
+    if isLogin == true or isReload == true then
     JDT.createOptionsData() 
     end
 end
