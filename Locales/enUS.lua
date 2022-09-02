@@ -48,6 +48,7 @@ LocalisationData["AddSummonCombatlog"] = "Summoning Adds"
 LocalisationData["AddSummonCast"] = "Summoning Adds"
 LocalisationData["CollapsingStar"] = "Orb Soak"
 LocalisationData["InteruptableVolley"] = "Volley AoE (Interuptable)"
+LocalisationData["BuffCast"] = "Casts that leave a Buff on the mob"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
@@ -101,6 +102,8 @@ LocalisationData["Breath"] = "Breath"
 LocalisationData["Hooking"] = "Hooking"
 LocalisationData["Adds"] = "Adds"
 LocalisationData["Volley"] = "Volley"
+LocalisationData["Grenade"] = "Grenade"
+LocalisationData["Pulse"] = "Pulse"
 
 
 --[[ 

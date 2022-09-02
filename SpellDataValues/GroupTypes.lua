@@ -43,6 +43,9 @@ JDT.GroupTypes.AddSummonCombatlog = "AddSummonCombatlog"
 JDT.GroupTypes.AddSummonCast = "AddSummonCast"
 JDT.GroupTypes.InteruptableVolley = "InteruptableVolley"
 JDT.GroupTypes.CollapsingStar = "CollapsingStar"
+JDT.GroupTypes.Grenade = "Grenade"
+JDT.GroupTypes.BuffCast = "BuffCast"
+JDT.GroupTypes.Pulse = "Pulse"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -1228,4 +1231,55 @@ JDT.Templates.GroupTypes.CollapsingStar= {
     doSound = JDT.SoundTypes.soak,
     useCount = true,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+
+JDT.Templates.GroupTypes.Grenade= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Grenade"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.BuffCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Buffing"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.highEnergy,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.Pulse= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Pulse"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.aoe,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
