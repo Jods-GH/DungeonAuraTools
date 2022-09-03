@@ -9,8 +9,9 @@ JDT.SpellList.Shadowlands.Tazavesh = {
     EncounterJournalID = 1194,
     Bosses = {}
 }
+local bosses = JDT.SpellList.Shadowlands.Tazavesh.Bosses
 
-JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional stuff thats alot more work keep only these for now
+bosses.boss1 = { 
     EncounterId = "2425",
     additionalName = "] 01 ",
     Auras = {
@@ -108,7 +109,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss1 = { -- needs alot of additional 
     }
 }
 
-JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
+bosses.boss2 = {
     EncounterId = "2441",
     additionalName = "] 02 ",
     Auras = {
@@ -263,7 +264,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss2 = {
     }
 } 
 
-JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss3 = {
+bosses.boss3 = {
     EncounterId = "2424",
     additionalName = "] 03 ",
     Auras = {
@@ -326,7 +327,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss3 = {
                 showStacks = 1,
                 triggerData = {
                     [1] = {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "346844",
 
                     },
@@ -380,7 +381,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss3 = {
     }
 }
 
-JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss4 = {
+bosses.boss4 = {
     EncounterId = "2440",
     additionalName = "] 04 ",
     Auras = { 
@@ -479,7 +480,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss4 = {
         },
     }
 }
-JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss5 = {
+bosses.boss5 = {
     EncounterId = "2437",
     additionalName = "] 05 ",
     Auras = { 
@@ -547,7 +548,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss5 = {
         },
     }
 }
-JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss6 = {
+bosses.boss6 = {
     EncounterId = "2437",
     additionalName = "] 05 ",
     Auras = { 
@@ -687,7 +688,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss6 = {
     }
 }
 
-JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss7 = {
+bosses.boss7 = {
     EncounterId = "2419",
     additionalName = "] 07 ",
     Auras = {  
@@ -769,7 +770,7 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss7 = {
 
     }
 }
-JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss8 = {
+bosses.boss8 = {
     EncounterId = "2442",
     additionalName = "] 08 ",
     Auras = {  
@@ -830,6 +831,186 @@ JDT.SpellList.Shadowlands.Tazavesh.Bosses.boss8 = {
                     },
                 }
             },
+        },
+    }
+}
+bosses.Trash = {
+    additionalName = "TRASH] ",
+    Auras = {  
+        [JDT.GroupTypes.Grenade] = {
+            DisruptionGrenade = {
+                enabled = true,
+                spellId = 355900,
+                triggerData = {
+                    [1] ={
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355900",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.BuffCast] = {
+            HardLightBaton = {
+                enabled = true,
+                spellId = 355888,
+                RoleLoad =  "TANK",
+                triggerData = {
+                    [1] ={
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355888",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Pulse] = {
+            RadiantPulse = {
+                enabled = true,
+                spellId = 356548,
+                triggerData = {
+                    [1] ={
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356548",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            RadiantPulse = {
+                enabled = true,
+                spellId = 356548, -- for spellname etc
+                extraName = " dot",
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "356548",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ShieldInc] ={
+            HardLightBarrier = {
+                enabled = true,
+                spellId = 355934, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355934",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            HyperlightBolt = {
+                enabled = true,
+                spellId = 354297, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "354297",
+
+                    },
+
+                }
+            },
+            SparkBurn = {
+                enabled = true,
+                spellId = 355930, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355930",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableSuppresion] ={
+            StasisBeam = {
+                enabled = true,
+                spellId = 356031, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356031",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.InterruptableSlow] ={
+            GlyphOfRestraint= {
+                enabled = true,
+                spellId = 356537, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356537",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.SlowDebuff] ={
+            GlyphOfRestraint= {
+                enabled = true,
+                spellId = 356537, -- for spellname etc
+                extraName = " debuff",
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = {
+                            "356537",
+                            "356324",
+                            "356537",
+                        },
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.LaserCast] ={
+            BeamSlicer= {
+                enabled = true,
+                spellId = 356001, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356001",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.LaserCastCombatLogStart] ={
+            RiftBlasts= {
+                enabled = true,
+                spellId = 352390, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "352390",
+
+                    },
+                    [2] = {
+                        spellId = "355306",
+                        duration = "3"
+
+                    },
+
+                }
+            }
         },
     }
 }

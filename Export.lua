@@ -3,21 +3,23 @@ JDT.exportAuras = function()
     print("running export")
 
     if WeakAuras and WeakAuras.Import then
-        local wassuccesful,msg = WeakAuras.Import(JDT.buildDataToExport()) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import
+        local wassuccesful,msg = WeakAuras.Import(JDT.buildDataToExport(),nil,JDT.CallbackFunc) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import
        if msg  then
         print("Import failed: "..msg)
        end
     end
 end
 
+JDT.CallbackFunc = function (result)
+    DevTools_Dump(result)
+end
 
 
 JDT.buildDataToExport = function()
     local ExportTable = CopyTable(JDT.DataToExport)
     ExportTable.d = JDT.Templates.DynamicGroup
     ExportTable.d.id = "JodsDungeonToolsGroup"-- AuraName
-    ExportTable.d.uid = "JodsDungeonToolsGroup" --AuraUniqueId
-    ViragDevTool_AddData(JDT.db.profile, "DB")
+    ExportTable.d.uid = "JodsDungeonToolsGroupUID" --AuraUniqueId
     for ExpansionKey,ExpansionValue in pairs(JDT.db.profile) do 
         for DungeonKey,DungeonValue in pairs(ExpansionValue) do 
             for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  

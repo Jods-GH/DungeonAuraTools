@@ -48,6 +48,11 @@ LocalisationData["AddSummonCombatlog"] = "Summoning Adds"
 LocalisationData["AddSummonCast"] = "Summoning Adds"
 LocalisationData["CollapsingStar"] = "Orb Soak"
 LocalisationData["InteruptableVolley"] = "Volley AoE (Interuptable)"
+LocalisationData["BuffCast"] = "Casts that leave a Buff on the mob"
+LocalisationData["SlowDebuff"] = "Debuffs that slow"
+LocalisationData["LaserCast"] = "Laser cast"
+LocalisationData["InterruptableSlow"] = "Slow cast (Interuptable)"
+LocalisationData["LaserCastCombatLogStart"] = "Laser mechanic"
 
 -- Dungeon Data
 LocalisationData["Tazavesh"] = "Tazavesh, the Veiled Market"
@@ -101,6 +106,10 @@ LocalisationData["Breath"] = "Breath"
 LocalisationData["Hooking"] = "Hooking"
 LocalisationData["Adds"] = "Adds"
 LocalisationData["Volley"] = "Volley"
+LocalisationData["Grenade"] = "Grenade"
+LocalisationData["Pulse"] = "Pulse"
+LocalisationData["Slowed"] = "Slowed"
+LocalisationData["Slow"] = "Slow"
 
 
 --[[ 

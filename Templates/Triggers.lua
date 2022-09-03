@@ -68,7 +68,6 @@ JDT.Templates.Triggers.Buffs = {
             subeventPrefix = "SPELL",
             useName = true,
             auranames = { -- spellid from aura names
-                "12345", -- [1]
             },
             debuffType = "HARMFUL", -- if buff or debuff
             useMatch_count = true,
