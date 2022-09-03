@@ -46,6 +46,10 @@ JDT.GroupTypes.CollapsingStar = "CollapsingStar"
 JDT.GroupTypes.Grenade = "Grenade"
 JDT.GroupTypes.BuffCast = "BuffCast"
 JDT.GroupTypes.Pulse = "Pulse"
+JDT.GroupTypes.InterruptableSlow = "InterruptableSlow"
+JDT.GroupTypes.SlowDebuff = "SlowDebuff"
+JDT.GroupTypes.LaserCast = "LaserCast"
+JDT.GroupTypes.LaserCastCombatLogStart = "LaserCastCombatLogStart"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -896,6 +900,23 @@ JDT.Templates.GroupTypes.DmgBuff = {
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.SlowDebuff = {
+    AuraType = "AuraIcon",
+    type = "snare",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Slowed"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 
 JDT.Templates.GroupTypes.InterruptableTargetedCast= {
     AuraType = "AuraIcon",
@@ -1071,6 +1092,43 @@ JDT.Templates.GroupTypes.LaserCombatlogSuccess = {
         }, 
     },
     doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.LaserCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Laser"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.LaserCastCombatLogStart = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_START",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Laser"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.beam,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
@@ -1282,4 +1340,21 @@ JDT.Templates.GroupTypes.Pulse= {
     },
     doSound = JDT.SoundTypes.aoe,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.InterruptableSlow= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Slow"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    doSound = JDT.SoundTypes.interrupt,
+    type = "interrupt",
 }

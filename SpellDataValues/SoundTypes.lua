@@ -22,6 +22,7 @@ JDT.SoundTypes.cc = "Interface\\Addons\\SharedMedia_Causese\\sound\\CC.ogg"
 JDT.SoundTypes.add = "Interface\\Addons\\SharedMedia_Causese\\sound\\Add.ogg"
 JDT.SoundTypes.adds = "Interface\\Addons\\SharedMedia_Causese\\sound\\Adds.ogg"
 JDT.SoundTypes.aoe = "Interface\\Addons\\SharedMedia_Causese\\sound\\AoE.ogg"
+JDT.SoundTypes.beam = "Interface\\Addons\\SharedMedia_Causese\\sound\\Beam.ogg"
 
 
 setmetatable(JDT.SoundTypes, {

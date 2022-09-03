@@ -54,8 +54,9 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
       for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do 
         local EncounterName, Encounterdescription, journalEncounterID, rootSectionID, link, journalInstanceID, dungeonEncounterID, instanceID
         local id, name, description, displayInfo, iconImage, uiModelSceneID
+        local OrderNumber = tonumber(strsub(BossNameKey,5))
         if BossNameKey ~= "Trash" then
-        EncounterName, Encounterdescription, journalEncounterID, rootSectionID, link, journalInstanceID, dungeonEncounterID, instanceID = EJ_GetEncounterInfoByIndex(tonumber(strsub(BossNameKey,5)))
+        EncounterName, Encounterdescription, journalEncounterID, rootSectionID, link, journalInstanceID, dungeonEncounterID, instanceID = EJ_GetEncounterInfoByIndex(OrderNumber)
         id, name, description, displayInfo, iconImage, uiModelSceneID = EJ_GetCreatureInfo(1,journalEncounterID)
         else
           EncounterName =  DungeonKey.." Trash"
@@ -65,6 +66,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
           name = EncounterName,
           desc = Encounterdescription,
           type = "group",
+          order = OrderNumber,
           args={
             BossToggle = {
               name = EncounterName,
