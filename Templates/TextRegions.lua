@@ -232,3 +232,38 @@ JDT.Templates.TextRegions.Count = {
 	anchorXOffset = 0,
 	text_visible = true,
 }
+JDT.Templates.TextRegions.DebuffClassIcon =	{
+	text_shadowXOffset = 0,
+	text_text = "%debuffClassIcon",
+	text_shadowColor = {
+		0, -- [1]
+		0, -- [2]
+		0, -- [3]
+		1, -- [4]
+	},
+	text_selfPoint = "AUTO",
+	text_automaticWidth = "Auto",
+	text_fixedWidth = 64,
+	anchorYOffset = 0,
+	text_justify = "CENTER",
+	rotateText = "NONE",
+	text_text_format_p_time_precision = 1,
+	type = "subtext",
+	anchorXOffset = 0,
+	text_color = {
+		1, -- [1]
+		1, -- [2]
+		1, -- [3]
+		1, -- [4]
+	},
+	text_font = "Friz Quadrata TT",
+	text_text_format_p_format = "timed",
+	text_shadowYOffset = 0,
+	text_fontType = "OUTLINE",
+	text_wordWrap = "WordWrap",
+	text_visible = true,
+	text_anchorPoint = "INNER_BOTTOMRIGHT",
+	text_text_format_p_time_format = 0,
+	text_fontSize = 17,
+	text_text_format_p_time_dynamic_threshold = 60,
+}	

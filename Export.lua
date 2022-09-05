@@ -149,6 +149,11 @@ JDT.buildDataToExport = function()
                                     BorderTable.border_color = JDT.Templates.Borders[v.type]
                                     table.insert(SpellTable.subRegions,BorderTable)
                                 end
+                                if AuraTemplate.useDebuffClass then
+                                    local CustomText = CopyTable(JDT.Templates.TextRegions.DebuffClassIcon)
+                                    CustomText.text_visible = AuraTemplate.debuffClassDefaultValue
+                                    table.insert(SpellTable.subRegions,CustomText)
+                                end
 
 
                             

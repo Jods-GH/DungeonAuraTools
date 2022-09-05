@@ -864,7 +864,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.Pulse] = {
+        [JDT.GroupTypes.PulseCastIntoDot] = {
             RadiantPulse = {
                 enabled = true,
                 spellId = 356548,
@@ -873,17 +873,7 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "356548",
                     },
-
-                }
-            },
-        },
-        [JDT.GroupTypes.Dot] ={
-            RadiantPulse = {
-                enabled = true,
-                spellId = 356548, -- for spellname etc
-                extraName = " dot",
-                triggerData = {
-                    [1] = {
+                    [2] = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "356548",
 
@@ -946,7 +936,7 @@ bosses.Trash = {
                 }
             }
         },
-        [JDT.GroupTypes.InterruptableSlow] ={
+        [JDT.GroupTypes.InteruptableMobCastIntoPlayerDebuffSlow] ={
             GlyphOfRestraint= {
                 enabled = true,
                 spellId = 356537, -- for spellname etc
@@ -956,17 +946,7 @@ bosses.Trash = {
                         spellId = "356537",
 
                     },
-
-                }
-            }
-        },
-        [JDT.GroupTypes.SlowDebuff] ={
-            GlyphOfRestraint= {
-                enabled = true,
-                spellId = 356537, -- for spellname etc
-                extraName = " debuff",
-                triggerData = {
-                    [1] = {
+                    [2] = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = {
                             "356537",
@@ -1006,6 +986,211 @@ bosses.Trash = {
                     [2] = {
                         spellId = "355306",
                         duration = "3"
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoRoot] ={
+            Lockdown= {
+                enabled = true,
+                spellId = 356942, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356942",
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "356942"
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoAtackspeedSlow] ={
+            AncientDread= {
+                enabled = true,
+                spellId = 356407, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356407",
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "356407"
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.RunOut] ={
+            GroundStomp = {
+                enabled = true,
+                spellId = 356408, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356408",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] ={
+            LavaBreath= {
+                enabled = true,
+                spellId = 356404, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356404",
+
+                    },
+
+                }
+            },
+            WildThrash= {
+                enabled = true,
+                spellId = 357508, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "357508",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Charge] ={
+            FrenziedCharge= {
+                enabled = true,
+                spellId = 357512, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "357512",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            FranticRip = {
+                enabled = true,
+                spellId = 357827, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "357827",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.DashIntoDebuff] ={
+            Quickblade = {
+                enabled = true,
+                spellId = 355830, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355830",
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "355830",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.InteruptableBombCastIntoSpread] ={
+            HyperlightBomb= {
+                enabled = true,
+                spellId = 357029, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "357029",
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "357029",
+
+                    },
+                    [3] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "357029",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.GlyphTp] ={
+            LightshardRetrat = {
+                enabled = true,
+                spellId = 357197, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "357197",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.BuffSlow] ={
+            ChronolightEnhancer = {
+                enabled = true,
+                spellId = 357229, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "357229",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.KnockCast] ={
+            HyperlightBackhand = {
+                enabled = true,
+                spellId = 356967, -- for spellname etc
+                RoleLoad =  "TANK",
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356967",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.GoMeleeCast ] ={
+            QuellingStrike = {
+                enabled = true,
+                spellId = 355637, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355637",
 
                     },
 

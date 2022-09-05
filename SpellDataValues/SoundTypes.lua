@@ -23,6 +23,7 @@ JDT.SoundTypes.add = "Interface\\Addons\\SharedMedia_Causese\\sound\\Add.ogg"
 JDT.SoundTypes.adds = "Interface\\Addons\\SharedMedia_Causese\\sound\\Adds.ogg"
 JDT.SoundTypes.aoe = "Interface\\Addons\\SharedMedia_Causese\\sound\\AoE.ogg"
 JDT.SoundTypes.beam = "Interface\\Addons\\SharedMedia_Causese\\sound\\Beam.ogg"
+JDT.SoundTypes.knock = "Interface\\Addons\\SharedMedia_Causese\\sound\\Knock.ogg"
 
 
 setmetatable(JDT.SoundTypes, {
