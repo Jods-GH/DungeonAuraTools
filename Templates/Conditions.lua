@@ -16,9 +16,11 @@ JDT.Templates.Conditions.ConditionsAdvancedGeneratorTemplate={
                         value = true,
                     },
                     {
-                        type = "simplecheck",
-                        trigger= 2,
-                        value = false,
+                        type = "NumberCheck",
+                        trigger= 3,
+                        op = ">",
+                        variable = "stacks",
+                        value = "1",
                     },
                 },
         },
@@ -98,6 +100,9 @@ JDT.Templates.Conditions.ConditionGenerator.advanced = function(ConditionTable)
     for ConditionKey,Conditionvalue in pairs(ConditionTable) do -- iterate through  provided table
         local ConditionTemplate = CopyTable(JDT.Templates.Conditions.ConditionsTemplate) -- copy conditions template
         ConditionTemplate.check = JDT.Templates.Conditions.ConditionGenerator[Conditionvalue.condition.type](Conditionvalue.condition) -- generate checks based on condition type 
+        if Conditionvalue.linked == true then
+            ConditionTemplate.linked = true
+        end
         for ChangesKey, ChangesValue in pairs(Conditionvalue.changes) do -- iterates through changes
         local ChangesTemplate =  CopyTable(JDT.Templates.Conditions.changes) -- copy changes template
         ChangesTemplate.value = ChangesValue.value
