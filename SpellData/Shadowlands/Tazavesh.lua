@@ -1052,6 +1052,18 @@ bosses.Trash = {
 
                 }
             },
+            ChargedPulse = {
+                enabled = true,
+                spellId = 355584, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355584",
+
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.Frontal] ={
             LavaBreath= {
@@ -1448,6 +1460,17 @@ bosses.Trash = {
 
                 }
             },
+            BoulderThrow = {
+                enabled = true,
+                spellId = 355464,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355464",
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.BigStackingAoeWithCD] = {
             TidalStomp = {
@@ -1471,6 +1494,20 @@ bosses.Trash = {
                 }
             },
         },
-        --[TAZAVESHTRASH] Boulder Throw continue there
-    }
+        
+        [JDT.GroupTypes.DodgeCast] = {
+            Crackle = {
+                enabled = true,
+                spellId = 355577,
+                triggerData = {
+                [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355577",
+                    },
+
+                }
+            },
+        },
+    }    
+    -- Continue Disruptive Shout
 }

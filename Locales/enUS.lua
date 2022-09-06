@@ -61,6 +61,22 @@ LocalisationData["BuffSlow"] = "Buffs that slow the Caster"
 LocalisationData["KnockCast"] = "Cast that Knocks away"
 LocalisationData["GoMeleeCast"] = "Cast that requires you to be in Melee"
 LocalisationData["GlyphTp"] = "Teleport that leaves behind a Void"
+LocalisationData["RageBuffCast"] = "Cast that results in a Enrage Buff"
+LocalisationData["StunableReflectCast"] = "Reflect cast (Stunnable)"
+LocalisationData["MinesCast"] = "Cast that results in Mines on the ground"
+LocalisationData["InteruptableMobCastIntoPlayerDebuffDmgTaken"] = "Cast that results in increased dmg taken (Interuptable)"
+LocalisationData["BigStackingAoeWithCD"] = "Big Aoe with increased dmg taken"
+LocalisationData["CastIntoLink"] = "Linked with another Player mechanic"
+LocalisationData["VoidCast"] = "Void on the Ground"
+LocalisationData["StunableHealCast"] = "Cast that Heals (Stunable)"
+LocalisationData["TargetedCastIntoDot"] = "Targeted cast that leaves a dot"
+LocalisationData["SpreadCast"] = "Spread Mechanic"
+LocalisationData["DodgeCast"] = "Dodge Mechanic"
+LocalisationData["CageCast"] = "Mechanic that frees Stuff (CCable)"
+
+--[[ 
+    LocalisationData[""] = ""
+]]
 
 -- TextBelowAura Data
 LocalisationData["Soon"] = "Soon"
@@ -116,6 +132,18 @@ LocalisationData["Tp+Glyph"] = "Tp+Glyph"
 LocalisationData["Buff+Slow"] = "Buff+Slow"
 LocalisationData["Knock"] = "Knock"
 LocalisationData["Go Melee"] = "Go Melee"
+LocalisationData["Reflecting"] = "Reflecting"
+LocalisationData["+inc dmg"] = "+inc dmg"
+LocalisationData["Raging"] = "Raging"
+LocalisationData["Link"] = "Link"
+LocalisationData["Mines"] = "Mines"
+LocalisationData["Cage"] = "Cage"
+LocalisationData["Heal"] = "Heal"
+LocalisationData["Avoid"] = "Avoid"
+LocalisationData["Big Aoe"] = "Big Aoe"
+LocalisationData["CD"] = "CD"
+LocalisationData["Dodge"] = "Dodge"
+LocalisationData["Stop Cast"] = "Stop Cast"
 
 
 --[[ 

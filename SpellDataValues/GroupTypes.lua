@@ -72,6 +72,8 @@ JDT.GroupTypes.TargetedCastIntoDot = "TargetedCastIntoDot"
 JDT.GroupTypes.StunableHealCast = "StunableHealCast"
 JDT.GroupTypes.VoidCast = "VoidCast"
 JDT.GroupTypes.BigStackingAoeWithCD = "BigStackingAoeWithCD"
+JDT.GroupTypes.DodgeCast = "DodgeCast"
+JDT.GroupTypes.InteruptShout = "InteruptShout "
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -1963,7 +1965,7 @@ JDT.Templates.GroupTypes.CastIntoLink = {
             isactive = true,
         }, 
         {   
-            value = JDT.getLocalisation("link %2.unitCaster"),  
+            value = JDT.getLocalisation("Link").." %2.unitCaster",  
             isactive = false,
         },    
     },
@@ -2037,7 +2039,7 @@ JDT.Templates.GroupTypes.SpreadCast = {
             isactive = true,
         }, 
         {   
-            value = JDT.getLocalisation("On %1.destUnit"),
+            value = JDT.getLocalisation("on").." %1.destUnit",
             isactive = false,
         }, 
     },
@@ -2211,6 +2213,54 @@ JDT.Templates.GroupTypes.BigStackingAoeWithCD = {
                 },
             },
     },
+    }
+), 
+}
+JDT.Templates.GroupTypes.DodgeCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dodge"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.dodge,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.InteruptShout = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Stop Cast"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.stopcast,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                    type = "CustomCheck",
+                    subtype = "CastInteruptable"
+            },
+                changes = {
+                    {
+                        property = "sub.4.glow",
+                        value = true,
+                    },
+                },
+        },
     }
 ), 
 }
