@@ -129,6 +129,10 @@ JDT.buildDataToExport = function()
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
                                     StacksText.text_text = "%"..v.showStacks..".s"
                                     table.insert(SpellTable.subRegions,StacksText)
+                                elseif AuraTemplate.showStacks then
+                                    local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
+                                    StacksText.text_text = "%"..AuraTemplate.showStacks..".s"
+                                    table.insert(SpellTable.subRegions,StacksText)
                                 end
                                 if AuraTemplate.type then
                                     local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)

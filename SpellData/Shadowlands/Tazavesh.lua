@@ -863,6 +863,17 @@ bosses.Trash = {
 
                 }
             },
+            SpamFilter = {
+                enabled = true,
+                spellId = 347775,
+                triggerData = {
+                    [1] ={
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "347775",
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.PulseCastIntoDot] = {
             RadiantPulse = {
@@ -1181,7 +1192,33 @@ bosses.Trash = {
                     },
 
                 }
-            }
+            },
+            PowerKick = {
+                enabled = true,
+                spellId = 355477, -- for spellname etc
+                RoleLoad =  "TANK",
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355477",
+
+                    },
+
+                }
+            },
+            ShellCracker = {
+                enabled = true,
+                spellId = 355048, -- for spellname etc
+                RoleLoad =  "TANK",
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355048",
+
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.GoMeleeCast ] ={
             QuellingStrike = {
@@ -1197,5 +1234,243 @@ bosses.Trash = {
                 }
             }
         },
+        [JDT.GroupTypes.StunableReflectCast] ={
+            PhalanxField = {
+                enabled = true,
+                spellId = 355640, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355640",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.InteruptableMobCastIntoPlayerDebuffDmgTaken] ={
+            Scintillate = {
+                enabled = true,
+                spellId = 355641, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355641",
+
+                    },
+                    [2] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "355641",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            HyperlightVolley = {
+                enabled = true,
+                spellId = 355642,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355642",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            ForceMultiplier = {
+                enabled = true,
+                spellId = 355782,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355782",
+                    },
+
+                }
+            },
+            CryOfMrrggllrrgg = {
+                enabled = true,
+                spellId = 355057,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355057",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoLink] = {
+            LethalForce = {
+                enabled = true,
+                spellId = 355479,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355479",
+                    },
+                    [2] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "355479",
+                    },        
+
+                }
+            },
+        },
+        [JDT.GroupTypes.MinesCast] = {
+            ShockMines = {
+                enabled = true,
+                spellId = 355473,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355473",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CageCast] = {
+            OpenCage = {
+                enabled = true,
+                spellId = 347721,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "347721",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpreadCast] = {
+            MailShoot = {
+                enabled = true,
+                spellId = 347814,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "347814",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            LetterOpener = {
+                enabled = true,
+                spellId = 347716,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "347716",
+                    },
+                    [2] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "347716",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            PostageStamp = {
+                enabled = true,
+                spellId = 348008,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "348008",
+                    }
+
+                }
+            },
+            JunkMail = {
+                enabled = true,
+                spellId = 347903,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "347903",
+                    }
+
+                }
+            },
+            MrrggrrglrrlrLeap = {
+                enabled = true,
+                spellId = 355118,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355118",
+                    }
+
+                }
+            },
+            Waterbolt = {
+                enabled = true,
+                spellId = 355225,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355225",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.StunableHealCast] = {
+            InverogatingFishStick = {
+                enabled = true,
+                spellId = 355132,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355132",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            VolatilePufferfish = {
+                enabled = true,
+                spellId = 355234,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355234",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.BigStackingAoeWithCD] = {
+            TidalStomp = {
+                enabled = true,
+                spellId = 355429,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "355429",
+                    },
+                    [2] = {
+                        spellId = "355429",
+                        duration = "15"
+
+                    },
+                    [3] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "355429",
+                    },
+
+                }
+            },
+        },
+        --[TAZAVESHTRASH] Boulder Throw continue there
     }
 }
