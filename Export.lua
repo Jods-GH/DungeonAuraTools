@@ -81,6 +81,15 @@ JDT.buildDataToExport = function()
                                         GlowTemplate.glow = true
                                     end
                                     tinsert(SpellTable.subRegions,GlowTemplate)
+                                elseif v.glowtype then
+                                    local GlowTemplate = JDT.Templates.Glows[v.glowtype]
+                                    if v.useGlowColor then
+                                        v.useGlowColor = true
+                                    end
+                                    if v.showGlow then
+                                        v.glow = true
+                                    end
+                                    tinsert(SpellTable.subRegions,GlowTemplate)
                                 end
 
                                 if AuraTemplate.useTooltip then
@@ -129,6 +138,10 @@ JDT.buildDataToExport = function()
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
                                     StacksText.text_text = "%"..v.showStacks..".s"
                                     table.insert(SpellTable.subRegions,StacksText)
+                                elseif AuraTemplate.showStacks then
+                                    local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
+                                    StacksText.text_text = "%"..AuraTemplate.showStacks..".s"
+                                    table.insert(SpellTable.subRegions,StacksText)
                                 end
                                 if AuraTemplate.type then
                                     local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
@@ -148,6 +161,11 @@ JDT.buildDataToExport = function()
                                     local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
                                     BorderTable.border_color = JDT.Templates.Borders[v.type]
                                     table.insert(SpellTable.subRegions,BorderTable)
+                                end
+                                if AuraTemplate.useDebuffClass then
+                                    local CustomText = CopyTable(JDT.Templates.TextRegions.DebuffClassIcon)
+                                    CustomText.text_visible = AuraTemplate.debuffClassDefaultValue
+                                    table.insert(SpellTable.subRegions,CustomText)
                                 end
 
 
@@ -198,7 +216,10 @@ end
 
 JDT.generateTriggerfromGroupType.Cast = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    if triggerData.spellId then
+    AuraTrigger.trigger.use_spellId = true
     AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
+    end
     AuraTrigger.trigger.unit = triggerData.unit
     if AuraTemplate.target then
         AuraTrigger.trigger.destUnit = AuraTemplate.target

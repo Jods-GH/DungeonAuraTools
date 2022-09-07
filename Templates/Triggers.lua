@@ -89,8 +89,8 @@ JDT.Templates.Triggers.Buffs = {
             use_absorbMode = true,
             event = "Cast",
             unit = "nameplate", -- the unit to track the casts one ["SmartGroup","Boss","Player","Nameplate"]
-            use_spellId = true,
-            spellId = 5555,  -- spellid of the buff to track
+            use_spellId = false,
+            spellId = nil,  -- spellid of the buff to track
             use_unit = true,
             debuffType = "HELPFUL",
         },

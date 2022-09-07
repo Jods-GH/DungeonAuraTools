@@ -16,9 +16,11 @@ JDT.Templates.Conditions.ConditionsAdvancedGeneratorTemplate={
                         value = true,
                     },
                     {
-                        type = "simplecheck",
-                        trigger= 2,
-                        value = false,
+                        type = "NumberCheck",
+                        trigger= 3,
+                        op = ">",
+                        variable = "stacks",
+                        value = "1",
                     },
                 },
         },
@@ -75,6 +77,16 @@ JDT.Templates.Conditions.NumberCheck ={
 				value = "3", -- the value to compare the variable to
 }
 
+JDT.Templates.Conditions.CustomCheck ={
+    trigger = -1,
+    variable = "customcheck",
+    value = "",
+
+}
+JDT.Templates.Conditions.CustomCheckTemplate = JDT.Templates.Conditions.CustomCheckTemplate or {}
+JDT.Templates.Conditions.CustomCheckTemplate.CastInteruptable = "function()\n    if aura_env.states and aura_env.states[1] and aura_env.states[1].expirationTime and aura_env.states[2] and aura_env.states[2].expirationTime then\n        return aura_env.states[1].expirationTime<aura_env.states[2].expirationTime\n    end\nend"
+
+
 
 JDT.Templates.Conditions.AndCheck = {
         trigger = -2, -- -2 is the value for non specific trigger to check aka and/or checks
@@ -98,6 +110,9 @@ JDT.Templates.Conditions.ConditionGenerator.advanced = function(ConditionTable)
     for ConditionKey,Conditionvalue in pairs(ConditionTable) do -- iterate through  provided table
         local ConditionTemplate = CopyTable(JDT.Templates.Conditions.ConditionsTemplate) -- copy conditions template
         ConditionTemplate.check = JDT.Templates.Conditions.ConditionGenerator[Conditionvalue.condition.type](Conditionvalue.condition) -- generate checks based on condition type 
+        if Conditionvalue.linked == true then
+            ConditionTemplate.linked = true
+        end
         for ChangesKey, ChangesValue in pairs(Conditionvalue.changes) do -- iterates through changes
         local ChangesTemplate =  CopyTable(JDT.Templates.Conditions.changes) -- copy changes template
         ChangesTemplate.value = ChangesValue.value
@@ -145,5 +160,11 @@ JDT.Templates.Conditions.ConditionGenerator.NumberCheck = function(check)
     checkTemplate.op = check.op
     checkTemplate.value = check.value
 
+    return checkTemplate
+end
+
+JDT.Templates.Conditions.ConditionGenerator.CustomCheck = function(check)
+    local checkTemplate = CopyTable(JDT.Templates.Conditions.CustomCheck) -- copy from template
+    checkTemplate.value = JDT.Templates.Conditions.CustomCheckTemplate[check.subtype]
     return checkTemplate
 end
