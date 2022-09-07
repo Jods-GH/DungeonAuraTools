@@ -81,6 +81,15 @@ JDT.buildDataToExport = function()
                                         GlowTemplate.glow = true
                                     end
                                     tinsert(SpellTable.subRegions,GlowTemplate)
+                                elseif v.glowtype then
+                                    local GlowTemplate = JDT.Templates.Glows[v.glowtype]
+                                    if v.useGlowColor then
+                                        v.useGlowColor = true
+                                    end
+                                    if v.showGlow then
+                                        v.glow = true
+                                    end
+                                    tinsert(SpellTable.subRegions,GlowTemplate)
                                 end
 
                                 if AuraTemplate.useTooltip then
@@ -207,7 +216,10 @@ end
 
 JDT.generateTriggerfromGroupType.Cast = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    if triggerData.spellId then
+    AuraTrigger.trigger.use_spellId = true
     AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
+    end
     AuraTrigger.trigger.unit = triggerData.unit
     if AuraTemplate.target then
         AuraTrigger.trigger.destUnit = AuraTemplate.target

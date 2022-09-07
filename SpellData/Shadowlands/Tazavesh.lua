@@ -932,6 +932,18 @@ bosses.Trash = {
 
                 }
             },
+            BrackishBolt = {
+                enabled = true,
+                spellId = 356843, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356843",
+
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.InterruptableSuppresion] ={
             StasisBeam = {
@@ -1085,6 +1097,18 @@ bosses.Trash = {
                     [1] = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "357508",
+
+                    },
+
+                }
+            },
+            SwordToss= {
+                enabled = true,
+                spellId = 356162, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356162",
 
                     },
 
@@ -1315,6 +1339,19 @@ bosses.Trash = {
 
                 }
             },
+            SuperSaison = {
+                enabled = true,
+                spellId = 356133,
+                glowtype = "Ants",
+                showGlow = true,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356133",
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.CastIntoLink] = {
             LethalForce = {
@@ -1471,6 +1508,18 @@ bosses.Trash = {
 
                 }
             },
+            TidalBurst = {
+                enabled = true,
+                spellId = 356260,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "356260",
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.BigStackingAoeWithCD] = {
             TidalStomp = {
@@ -1507,7 +1556,99 @@ bosses.Trash = {
 
                 }
             },
+            DriftingStar = {
+                enabled = true,
+                spellId = 357226,
+                triggerData = {
+                [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "357226",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptShout] = {
+            DisruptiveShout = {
+                enabled = true,
+                spellId = 358344,
+                triggerData = {
+                [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "358344",
+                    },
+                [2] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                   },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Pulsar] = {
+            WanderingPulsar = {
+                enabled = true,
+                spellId = 357238,
+                triggerData = {
+                    [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "357238",
+                    },
+                    [2] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = 357243,
+                   },
+                    [3] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        npcID = "180433",
+
+                },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            Reinvigorate = {
+                enabled = true,
+                spellId = 357284,
+                triggerData = {
+                    [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "357284",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigAoeCast] = {
+            UnstableRift = {
+                enabled = true,
+                spellId = 357260,
+                triggerData = {
+                    [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "357260",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDmgTakenDebuff] = {
+            EnergySlash = {
+                enabled = true,
+                spellId = 357281,
+                showStacks = 2,
+                triggerData = {
+                    [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "357281",
+                    },
+                    [2] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "357281",
+                    },
+
+                }
+            },
         },
     }    
-    -- Continue Disruptive Shout
 }

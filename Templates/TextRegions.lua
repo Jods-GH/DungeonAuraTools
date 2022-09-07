@@ -191,7 +191,7 @@ JDT.Templates.TextRegions.HealthDisplay = {
 		text_anchorPoint = "INNER_BOTTOMRIGHT",
 		text_text_format_p_format = "timed",
 		text_text_format_p_time_format = 0,
-		text_fontSize = 12,
+		text_fontSize = 17,
 		text_text_format_p_time_dynamic_threshold = 60,
 }	
 

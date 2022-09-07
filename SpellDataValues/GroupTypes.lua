@@ -73,7 +73,11 @@ JDT.GroupTypes.StunableHealCast = "StunableHealCast"
 JDT.GroupTypes.VoidCast = "VoidCast"
 JDT.GroupTypes.BigStackingAoeWithCD = "BigStackingAoeWithCD"
 JDT.GroupTypes.DodgeCast = "DodgeCast"
-JDT.GroupTypes.InteruptShout = "InteruptShout "
+JDT.GroupTypes.InteruptShout = "InteruptShout"
+JDT.GroupTypes.Pulsar = "Pulsar"
+JDT.GroupTypes.InteruptableBigHealCast = "InteruptableBigHealCast"
+JDT.GroupTypes.InteruptableBigAoeCast = "InteruptableBigAoeCast"
+JDT.GroupTypes.TargetedCastIntoDmgTakenDebuff = "TargetedCastIntoDmgTakenDebuff"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -1041,6 +1045,51 @@ JDT.Templates.GroupTypes.TargetedCastIntoDot= {
                     },
                     {
                         property= "sub.6.text_visible",
+                        value = false
+                    },
+                },
+        },
+    })
+}
+JDT.Templates.GroupTypes.TargetedCastIntoDmgTakenDebuff= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+            target = JDT.Templates.Triggers.UnitTypes.player,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("targeted"),
+            isactive = false,
+        },
+        {   
+            value = JDT.getLocalisation("+dmg inc"),
+            isactive = true,
+        },  
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.targeted,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = true,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.4.text_visible",
                         value = false
                     },
                 },
@@ -2086,6 +2135,25 @@ JDT.Templates.GroupTypes.StunableHealCast = {
     type = JDT.AuraTypes.stun,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.InteruptableBigHealCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Big Heal"),
+            isactive = true,
+        }, 
+    },
+    glowtype = "ActionButton",
+    showGlow  = true,
+    doSound = JDT.SoundTypes.interrupt,
+    type = JDT.AuraTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 JDT.Templates.GroupTypes.VoidCast = {
     AuraType = "AuraIcon",
     triggers = {
@@ -2238,6 +2306,9 @@ JDT.Templates.GroupTypes.InteruptShout = {
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
         },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
     },
     text = {
         {   
@@ -2246,7 +2317,9 @@ JDT.Templates.GroupTypes.InteruptShout = {
         }, 
     },
     doSound = JDT.SoundTypes.stopcast,
-    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    glowtype = "ActionButton",
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1] \n end",
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
         {
             {
@@ -2263,4 +2336,76 @@ JDT.Templates.GroupTypes.InteruptShout = {
         },
     }
 ), 
+}
+JDT.Templates.GroupTypes.Pulsar = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitHealth, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Pulsar"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("Kill Add"),
+            isactive = true,
+        }, 
+    },
+    useHealth = 3,
+    doSound = JDT.SoundTypes.add,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1] or t[2]\n end",
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 1,
+                   value = true,
+                    },
+                    changes = {
+                        {
+                            property = "sub.2.text_visible",
+                            value = true,
+                        },
+                        {
+                            property= "sub.3.text_visible",
+                            value = false
+                        },
+                        {
+                            property= "sub.4.text_visible",
+                            value = false
+                        },
+                    },
+            },
+    }
+), 
+}
+JDT.Templates.GroupTypes.InteruptableBigAoeCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Big Aoe"),
+            isactive = true,
+        }, 
+    },
+    glowtype = "ActionButton",
+    showGlow  = true,
+    doSound = JDT.SoundTypes.interrupt,
+    type = JDT.AuraTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

@@ -73,7 +73,7 @@ LocalisationData["TargetedCastIntoDot"] = "Targeted cast that leaves a dot"
 LocalisationData["SpreadCast"] = "Spread Mechanic"
 LocalisationData["DodgeCast"] = "Dodge Mechanic"
 LocalisationData["CageCast"] = "Mechanic that frees Stuff (CCable)"
-
+LocalisationData["InteruptShout"] = "Aoe that Interupts the Player if casting"
 --[[ 
     LocalisationData[""] = ""
 ]]
