@@ -74,6 +74,10 @@ LocalisationData["SpreadCast"] = "Spread Mechanic"
 LocalisationData["DodgeCast"] = "Dodge Mechanic"
 LocalisationData["CageCast"] = "Mechanic that frees Stuff (CCable)"
 LocalisationData["InteruptShout"] = "Aoe that Interupts the Player if casting"
+LocalisationData["InteruptableBigHealCast"] = "Important Heal (Interuptable)"
+LocalisationData["InteruptableBigAoeCast"] = "Important Aoe (Interuptable)"
+LocalisationData["TargetedCastIntoDmgTakenDebuff"] = "Targeted cast that leaves a Debuff that increases dmg Taken"
+
 --[[ 
     LocalisationData[""] = ""
 ]]
@@ -144,6 +148,8 @@ LocalisationData["Big Aoe"] = "Big Aoe"
 LocalisationData["CD"] = "CD"
 LocalisationData["Dodge"] = "Dodge"
 LocalisationData["Stop Cast"] = "Stop Cast"
+LocalisationData["Big Heal"] = "Big Heal"
+LocalisationData["Pulsar"] = "Pulsar"
 
 
 --[[ 

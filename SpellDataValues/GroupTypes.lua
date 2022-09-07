@@ -1069,7 +1069,7 @@ JDT.Templates.GroupTypes.TargetedCastIntoDmgTakenDebuff= {
             isactive = false,
         },
         {   
-            value = JDT.getLocalisation("+dmg inc"),
+            value = JDT.getLocalisation("+inc dmg"),
             isactive = true,
         },  
     },
@@ -2356,7 +2356,7 @@ JDT.Templates.GroupTypes.Pulsar = {
             isactive = false,
         }, 
         {   
-            value = JDT.getLocalisation("Kill Add"),
+            value = JDT.getLocalisation("Kill add"),
             isactive = true,
         }, 
     },
