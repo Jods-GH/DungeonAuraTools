@@ -38,6 +38,7 @@ SpellDataValues/GroupTypes.lua
 #SpellData
 #SpellData/SpellData.lua
 SpellData/Shadowlands/Tazavesh.lua
+SpellData/BattleForAzeroth/OperationMechagon.lua
 
 # Core
 ExportData.lua

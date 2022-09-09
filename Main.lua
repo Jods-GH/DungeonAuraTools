@@ -5,11 +5,13 @@ local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 local AceDBOptions = LibStub("AceDBOptions-3.0")
 ---@class MyAddon : AceAddon-3.0, AceConsole-3.0, AceConfig-3.0, AceGUI-3.0, AceConfigDialog-3.0
 local DungeonAuraTools = LibStub("AceAddon-3.0"):NewAddon("DungeonAuraTools", "AceConsole-3.0", "AceEvent-3.0")
+JDT.AddonVersion = GetAddOnMetadata(appName, "Version")
 
 function DungeonAuraTools:OnInitialize()
 	-- Called when the addon is loaded
 	self:Print("Access the options via /jdt")
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
+    self:RegisterEvent("CHAT_MSG_ADDON")
 
     local DatatoPersist = {
         profile = JDT.SpellList
@@ -41,7 +43,16 @@ function DungeonAuraTools:OnDisable()
 	-- Called when the addon is disabled
 end
 
-
+local VersionCheckPrefix = "DAT_VERSION"
+local function sendVersion ()
+			if IsInRaid() then
+				C_ChatInfo.SendAddonMessage(VersionCheckPrefix, JDT.AddonVersion, (not IsInRaid(LE_PARTY_CATEGORY_HOME) and IsInRaid(LE_PARTY_CATEGORY_INSTANCE)) and "INSTANCE_CHAT" or "RAID")
+			elseif IsInGroup() then
+				C_ChatInfo.SendAddonMessage(VersionCheckPrefix, JDT.AddonVersion, (not IsInGroup(LE_PARTY_CATEGORY_HOME) and IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) and "INSTANCE_CHAT" or "PARTY")
+			elseif IsInGuild() then
+				C_ChatInfo.SendAddonMessage(VersionCheckPrefix, JDT.AddonVersion, "GUILD")
+			end
+end
 function DungeonAuraTools:SlashCommand(msg) -- called when slash command is used
     JDT.CreateOptionsFrame() 
 end
@@ -50,4 +61,15 @@ function DungeonAuraTools:PLAYER_ENTERING_WORLD(event, isLogin, isReload)
     if isLogin == true or isReload == true then
     JDT.createOptionsData() 
     end
+    C_ChatInfo.RegisterAddonMessagePrefix(VersionCheckPrefix)
+    local name,realm = UnitFullName("player")
+    JDT.PlayerName = name.."-"..realm
+    sendVersion ()
+end
+function DungeonAuraTools:CHAT_MSG_ADDON(event, prefix, version , channel, sender, target, zoneChannelID, localID, name, instanceID)
+    if prefix == VersionCheckPrefix and sender == JDT.PlayerName then
+        if version and version > JDT.AddonVersion then
+            self:Print(JDT.getLocalisation("VersionCheckMessage"))
+        end
+end 
 end

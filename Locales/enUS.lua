@@ -12,6 +12,7 @@ LocalisationData["GeneralOptions"] = "General Options"
 LocalisationData["SpellOptions"] = "Spell Options"
 LocalisationData["Toggles all Auras for"] = "Toggles all Auras for" 
 LocalisationData["Warning will overwrite all currently selected values."] = "Warning will overwrite all currently selected values."
+LocalisationData["VersionCheckMessage"] = "A new Version is available Download it via Curseforge, WagoAddons, WoWInterface or directly on Github"
 
 -- Aura Types
 LocalisationData["SpinToWin"] = "Spin AoEs"
@@ -77,7 +78,7 @@ LocalisationData["InteruptShout"] = "Aoe that Interupts the Player if casting"
 LocalisationData["InteruptableBigHealCast"] = "Important Heal (Interuptable)"
 LocalisationData["InteruptableBigAoeCast"] = "Important Aoe (Interuptable)"
 LocalisationData["TargetedCastIntoDmgTakenDebuff"] = "Targeted cast that leaves a Debuff that increases dmg Taken"
-
+LocalisationData["StackCast"] = "Mechanic that requires you to Stack"
 --[[ 
     LocalisationData[""] = ""
 ]]
