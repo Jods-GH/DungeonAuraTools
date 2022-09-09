@@ -78,6 +78,7 @@ JDT.GroupTypes.Pulsar = "Pulsar"
 JDT.GroupTypes.InteruptableBigHealCast = "InteruptableBigHealCast"
 JDT.GroupTypes.InteruptableBigAoeCast = "InteruptableBigAoeCast"
 JDT.GroupTypes.TargetedCastIntoDmgTakenDebuff = "TargetedCastIntoDmgTakenDebuff"
+JDT.GroupTypes.StackCast = "StackCast"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -2407,5 +2408,21 @@ JDT.Templates.GroupTypes.InteruptableBigAoeCast = {
     showGlow  = true,
     doSound = JDT.SoundTypes.interrupt,
     type = JDT.AuraTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.StackCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Stack"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.stack,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
