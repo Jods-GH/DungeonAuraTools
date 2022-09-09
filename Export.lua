@@ -210,6 +210,9 @@ JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
         triggerData.spellId, -- [1]
         }
     end
+    if triggerData.ignoreSelf then
+        AuraTrigger.trigger.ignoreSelf = triggerData.ignoreSelf
+    end
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end
@@ -262,7 +265,7 @@ JDT.generateTriggerfromGroupType.CombatLog = function(triggerData,AuraTemplate)
     AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
     AuraTrigger.trigger.duration = triggerData.duration
     if AuraTemplate.subeventSuffix then
-        AuraTrigger.trigger.subeventSuffix = AuraTemplate.subeventSuffi
+        AuraTrigger.trigger.subeventSuffix = AuraTemplate.subeventSuffix
     end
     return AuraTrigger
 end
