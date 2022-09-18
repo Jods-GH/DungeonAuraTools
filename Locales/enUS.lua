@@ -92,7 +92,9 @@ LocalisationData["ArmorBuff"] = "Armor Buff"
 LocalisationData["KillAddDebuff"] = "Add to be Killed"
 LocalisationData["StayAwayCast"] = "Mechanic requiring you to stay away from the boss"
 LocalisationData["StayAwayCastIntoSpellAuraApplied"] = "Mechanic requiring you to stay away from the boss"
-
+LocalisationData["CastIntoChaseWithBuffEffect"] = "Kite Mechanic"
+LocalisationData["ExplodingCast"] = "Explosion Mechanic"
+LocalisationData["InteruptableCastIntoPlayerGroupDebuffSpreadWithAnouncement"] = "Spread Mechanic"
 --[[ 
     LocalisationData[""] = ""
 ]]
@@ -177,7 +179,8 @@ LocalisationData["on You"] = "on You"
 LocalisationData["Armor"] = "Armor"
 LocalisationData["Save"] = "Save"
 LocalisationData["Stay Away"] = "Stay Away"
-
+LocalisationData["Chasing"] = "Chasing"
+LocalisationData["Exploding"] = "Exploding"
 --[[ 
     LocalisationData[""] = ""
 ]]

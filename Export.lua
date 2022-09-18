@@ -144,14 +144,25 @@ JDT.buildDataToExport = function()
                                     table.insert(SpellTable.subRegions,StacksText)
                                 end
                                 if AuraTemplate.type then
+                                   
                                     local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
                                     table.insert(SpellTable.subRegions,CustomText)
-                                    
+                                    if type(AuraTemplate.type) == "table" then
+                                        SpellTable.customText = JDT.Templates.CustomTextIcons.generator(AuraTemplate.type)
+                                        for _, bordevalue in ipairs(AuraTemplate.type) do
+                                            local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+                                            BorderTable.border_color = JDT.Templates.Borders[bordevalue.type]
+                                            BorderTable.border_visible = bordevalue.visible
+                                            table.insert(SpellTable.subRegions,BorderTable)
+                                        end
+                                    else
                                     SpellTable.customText = JDT.Templates.CustomTextIcons[AuraTemplate.type]
-
                                     local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
                                     BorderTable.border_color = JDT.Templates.Borders[AuraTemplate.type]
                                     table.insert(SpellTable.subRegions,BorderTable)
+                                    end
+                        
+                                    
                                 elseif v.type then -- add border color and custom text if needed
                                     local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
                                     table.insert(SpellTable.subRegions,CustomText)
