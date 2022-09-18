@@ -95,7 +95,17 @@ LocalisationData["StayAwayCastIntoSpellAuraApplied"] = "Mechanic requiring you t
 LocalisationData["CastIntoChaseWithBuffEffect"] = "Kite Mechanic"
 LocalisationData["ExplodingCast"] = "Explosion Mechanic"
 LocalisationData["InteruptableCastIntoPlayerGroupDebuffSpreadWithAnouncement"] = "Spread Mechanic"
+LocalisationData["InteruptableCastIntoRoot"] = "Cast that roots (Interuptable)"
+LocalisationData["ArmorDeBuff"] = "Armor Debuff"
+LocalisationData["InteruptableAoeCast"] = "AoE Cast (Interuptable)"
+LocalisationData["LosCast"] = "Line of Sight mechanic"
+LocalisationData["InteruptableCCImmunityCast"] = "Cc-Immunity cast (Interuptable)"
+LocalisationData["InteruptableHealCast"] = "Heal Cast (Interuptable)"
+LocalisationData["SquirrelCast"] = "Mechanic that summons a Squirrel (CC-able)"
+
 --[[ 
+    LocalisationData[""] = ""
+    LocalisationData[""] = ""
     LocalisationData[""] = ""
 ]]
 
@@ -181,6 +191,12 @@ LocalisationData["Save"] = "Save"
 LocalisationData["Stay Away"] = "Stay Away"
 LocalisationData["Chasing"] = "Chasing"
 LocalisationData["Exploding"] = "Exploding"
+LocalisationData["CC imune"] = "CC imune"
+LocalisationData["Jump"] = "Jump"
+LocalisationData["Healing"] = "Healing"
+LocalisationData["LoS"] = "LoS"
+LocalisationData["Squirrel"] = "Squirrel"
+
 --[[ 
     LocalisationData[""] = ""
 ]]

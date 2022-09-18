@@ -98,6 +98,11 @@ JDT.GroupTypes.InteruptableCastIntoPlayerGroupDebuffSpreadWithAnouncement = "Int
 JDT.GroupTypes.InteruptableAoeCast = "InteruptableAoeCast"
 JDT.GroupTypes.ArmorDeBuff = "ArmorDeBuff"
 JDT.GroupTypes.InteruptableCastIntoRoot = "InteruptableCastIntoRoot"
+JDT.GroupTypes.InteruptableCCImmunityCast = "InteruptableCCImmunityCast"
+JDT.GroupTypes.Jump = "Jump"
+JDT.GroupTypes.LosCast = "LosCast"
+JDT.GroupTypes.SquirrelCast = "SquirrelCast"
+JDT.GroupTypes.InteruptableHealCast = "InteruptableHealCast"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -420,6 +425,22 @@ JDT.Templates.GroupTypes.Charge = {
     text = {
         {   
             value = JDT.getLocalisation("Charge"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+JDT.Templates.GroupTypes.Jump = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Jump"),
             isactive = true,
         }, 
     },
@@ -1881,8 +1902,20 @@ JDT.Templates.GroupTypes.InteruptableCastIntoRoot = {
                         value = true
                     },
                     {
-                        property = "sub.5.border_color",
-                        value = JDT.Templates.Borders.root,
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                    {
+                        property = "sub.6.border_visible",
+                        value = false,
+                    },
+                    {
+                        property= "sub.7.text_visible",
+                        value = true
+                    },
+                    {
+                        property = "sub.8.border_visible",
+                        value = true,
                     },
                 },
         },
@@ -2392,6 +2425,23 @@ JDT.Templates.GroupTypes.InteruptableBigHealCast = {
     },
     glowtype = "ActionButton",
     showGlow  = true,
+    doSound = JDT.SoundTypes.interrupt,
+    type = JDT.AuraTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.InteruptableHealCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Healing"),
+            isactive = true,
+        }, 
+    },
     doSound = JDT.SoundTypes.interrupt,
     type = JDT.AuraTypes.interrupt,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
@@ -3106,5 +3156,59 @@ JDT.Templates.GroupTypes.ExplodingCast = {
         }, 
     },
     doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.InteruptableCCImmunityCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("CC imune"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    doSound = JDT.SoundTypes.interrupt,
+    type = JDT.AuraTypes.interrupt,
+}
+JDT.Templates.GroupTypes.LosCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("LoS"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.hide,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.SquirrelCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Squirrel"),
+            isactive = true,
+        }, 
+    },
+    type = JDT.AuraTypes.stun,
+    doSound = JDT.SoundTypes.hide,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

@@ -543,6 +543,18 @@ bosses.Trash = {
 
                 }
             },
+            Detonate = {
+                enabled = true,
+                spellId = 301088,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "301088",
+                    }
+
+                }
+            },
 
         },
         [JDT.GroupTypes.BuffCast] = {
@@ -621,6 +633,19 @@ bosses.Trash = {
                     },
 
                 }
+            },
+            ArcingZap = {
+                enabled = true,
+                spellId = 294195, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "294195",
+
+                    },
+
+                }
             }
         },
         [JDT.GroupTypes.RunOut] ={
@@ -631,6 +656,18 @@ bosses.Trash = {
                     [1] = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "300687",
+
+                    },
+
+                }
+            },
+            MegaDrill = {
+                enabled = true,
+                spellId = 294324, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "294324",
 
                     },
 
@@ -650,6 +687,19 @@ bosses.Trash = {
 
                 }
             },
+            Charge= {
+                enabled = true,
+                spellId = 301681, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "301681",
+
+                    },
+
+                }
+            },
+
         },
         [JDT.GroupTypes.InterruptableSuppresion] = {
             SuffocatingSmog = {
@@ -657,7 +707,7 @@ bosses.Trash = {
                 spellId = 300650,
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "300650",
                     }
 
@@ -696,12 +746,24 @@ bosses.Trash = {
                 spellId = 299475,
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "299475",
                     }
 
                 }
             },
+            ProcessWaste = {
+                enabled = true,
+                spellId = 294290,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "294290",
+                    }
+
+                }
+            },
+
 
         }, 
         [JDT.GroupTypes.InteruptableCastIntoRoot] = {
@@ -710,7 +772,7 @@ bosses.Trash = {
                 spellId = 300436,
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "300436",
                     },
                     {
@@ -722,6 +784,186 @@ bosses.Trash = {
             },
 
         }, 
+        [JDT.GroupTypes.InteruptableCCImmunityCast] = {
+            Stoneskin= {
+                enabled = true,
+                spellId = 300514,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "300514",
+                    }
 
-    }
+                }
+            },
+        },
+        [JDT.GroupTypes.KnockCast] ={
+            Headbutt = {
+                enabled = true,
+                spellId = 300434, -- for spellname etc
+                RoleLoad =  "TANK",
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "300434",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ShockWave] ={
+            Headbutt = {
+                enabled = true,
+                spellId = 300424, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "300424",
+
+                    },
+
+                }
+            },
+            SonicPulse = {
+                enabled = true,
+                spellId = 293986, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "293986",
+
+                    },
+
+                }
+            },
+            
+    },
+    [JDT.GroupTypes.Jump] ={
+        FlyingPeck = {
+            enabled = true,
+            spellId = 294061, -- for spellname etc
+            triggerData = {
+                [1] = {
+                    unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                    spellId = "294061",
+
+                },
+
+            }
+        },
+    },
+    [JDT.GroupTypes.Dance] ={
+        RapidFire = {
+            enabled = true,
+            spellId = 301667, -- for spellname etc
+            triggerData = {
+                [1] = {
+                    unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                    spellId = "301667",
+
+                },
+
+            }
+        },
+        RocketBarrage= {
+            enabled = true,
+            spellId = 294103, -- for spellname etc
+            triggerData = {
+                [1] = {
+                    unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                    spellId = "294103",
+
+                },
+
+            }
+        },
+        CapacitorDischarge= {
+            enabled = true,
+            spellId = 295169, -- for spellname etc
+            triggerData = {
+                [1] = {
+                    unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                    spellId = "295169",
+
+                },
+
+            }
+        },
+        LaunchHighExplosiveRockets= {
+            enabled = true,
+            spellId = 294015, -- for spellname etc
+            triggerData = {
+                [1] = {
+                    unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                    spellId = "294015",
+
+                },
+
+            }
+        }
+    },
+    [JDT.GroupTypes.LosCast] ={
+        VolatileWaste = {
+            enabled = true,
+            spellId = 294349, -- for spellname etc
+            triggerData = {
+                [1] = {
+                    unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                    spellId = "294349",
+
+                },
+
+            }
+        },
+    },
+    [JDT.GroupTypes.SquirrelCast] ={
+        VolatileWaste = {
+            enabled = true,
+            spellId = 293854, -- for spellname etc
+            triggerData = {
+                {
+                    unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                    spellId = "293854",
+
+                },
+                {
+                    unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                    spellId = "293861",
+
+                },
+
+            }
+        },
+    },
+    [JDT.GroupTypes.UnavoidableAoe] ={
+        ShortOut = {
+            enabled = true,
+            spellId = 297128, -- for spellname etc
+            triggerData = {
+                [1] = {
+                    unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                    spellId = "297128",
+
+                },
+
+            }
+        }
+    },
+    [JDT.GroupTypes.InteruptableHealCast] ={
+        ShortOut = {
+            enabled = true,
+            spellId = 293729, -- for spellname etc
+            triggerData = {
+                [1] = {
+                    unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                    spellId = "293729",
+
+                },
+
+            }
+        }
+    },
+    
+} 
 }

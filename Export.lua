@@ -145,17 +145,21 @@ JDT.buildDataToExport = function()
                                 end
                                 if AuraTemplate.type then
                                    
-                                    local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
-                                    table.insert(SpellTable.subRegions,CustomText)
                                     if type(AuraTemplate.type) == "table" then
-                                        SpellTable.customText = JDT.Templates.CustomTextIcons.generator(AuraTemplate.type)
-                                        for _, bordevalue in ipairs(AuraTemplate.type) do
+                                        for borderkey, bordevalue in ipairs(AuraTemplate.type) do
+                                            local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
+                                            CustomText.text_text = "%c"..borderkey
+                                            CustomText.text_visible = bordevalue.visible
+                                            table.insert(SpellTable.subRegions,CustomText)
                                             local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
                                             BorderTable.border_color = JDT.Templates.Borders[bordevalue.type]
                                             BorderTable.border_visible = bordevalue.visible
                                             table.insert(SpellTable.subRegions,BorderTable)
                                         end
+                                        SpellTable.customText = JDT.Templates.CustomTextIcons.generator(AuraTemplate.type)
                                     else
+                                    local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
+                                    table.insert(SpellTable.subRegions,CustomText)
                                     SpellTable.customText = JDT.Templates.CustomTextIcons[AuraTemplate.type]
                                     local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
                                     BorderTable.border_color = JDT.Templates.Borders[AuraTemplate.type]
