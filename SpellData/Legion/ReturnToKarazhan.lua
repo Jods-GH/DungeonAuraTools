@@ -1074,3 +1074,238 @@ bosses.boss10 = { -- Viz'aduum the Watcher
         },
     }
 }
+bosses.Trash= { 
+    additionalName = "TRASH] ",
+    Auras = {
+        [JDT.GroupTypes.Dance] ={
+            PenniesFromHeaven = {
+                enabled = true,
+                spellId = 227999, -- for spellname etc
+                type = JDT.AuraTypes.stun,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227999",
+        
+                    },
+        
+                }
+            },
+            UnstableEnergy = {
+                enabled = true,
+                spellId = 227529, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227529",
+        
+                    },
+        
+                }
+            },
+
+        
+        },
+        [JDT.GroupTypes.ExplodingCast] = {
+            FinalCurtain = {
+                enabled = true,
+                spellId = 227925,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227925",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableAoeStun] = {
+            PoetrySlam = {
+                enabled = true,
+                spellId = 227917,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227917",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SummoningCast] = {
+            FirelandsPortal = {
+                enabled = true,
+                spellId = 232115,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "232115",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.LookAwayCast] = {
+            Flashlight = {
+                enabled = true,
+                spellId = 227966,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227966",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            BansheeWail = {
+                enabled = true,
+                spellId = 228625,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "228625",
+                    }
+
+                }
+            },
+            ShieldSmash = {
+                enabled = true,
+                spellId = 241774,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "241774",
+                    }
+
+                }
+            },
+            Smash = {
+                enabled = true,
+                spellId = 228637,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "228637",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.SpreadDebuff] = {
+            BurningBrand = {
+                enabled = true,
+                spellId = 228610,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "228610",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Charge] ={
+            Charge= {
+                enabled = true,
+                spellId = 228603, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "228603",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableDrainCast] ={
+            SoulLeech= {
+                enabled = true,
+                spellId = 228254, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "228254",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableAoeFear] ={
+            TerrifyingWail= {
+                enabled = true,
+                spellId = 228239, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "228239",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoCollect] = {
+            Nullification= {
+                enabled = true,
+                spellId = 230094, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "230094",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "230094",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoRoot] ={
+            Web= {
+                enabled = true,
+                spellId = 229705, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "229705",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "229705"
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Hooking] = {
+            HeavySmash= {
+                enabled = true,
+                spellId = 229611,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "229611",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.KnockCast] ={
+            MightySwing= {
+                enabled = true,
+                spellId = 229608, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "229608",
+
+                    },
+
+                }
+            },
+        },
+    }
+}

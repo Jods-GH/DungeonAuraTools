@@ -9,7 +9,7 @@ JDT.GroupTypes.ShieldInc = "ShieldInc"
 JDT.GroupTypes.PlayerGroupDebuffSpread = "PlayerGroupDebuffSpread"
 JDT.GroupTypes.EnergyTrackSoonCast = "EnergyTrackSoonCast"
 JDT.GroupTypes.CastIntoBuff = "CastIntoBuff"
-JDT.GroupTypes.BossCastIntoCollect = "BossCastIntoCollect"
+JDT.GroupTypes.CastIntoCollect = "CastIntoCollect"
 JDT.GroupTypes.CollectBuff = "CollectBuff"
 JDT.GroupTypes.RunOut = "RunOut"
 JDT.GroupTypes.Dance = "Dance"
@@ -129,6 +129,12 @@ JDT.GroupTypes.InteruptableCastIntoMagicDot = "InteruptableCastIntoMagicDot"
 JDT.GroupTypes.LaserDebuff = "LaserDebuff"
 JDT.GroupTypes.SlowDot = "SlowDot"
 JDT.GroupTypes.BeamCast = "BeamCast"
+JDT.GroupTypes.InteruptableAoeStun = "InteruptableAoeStun"
+JDT.GroupTypes.SummoningCast = "SummoningCast"
+JDT.GroupTypes.LookAwayCast = "LookAwayCast"
+JDT.GroupTypes.SpreadDebuff = "SpreadDebuff"
+JDT.GroupTypes.InterruptableDrainCast = "InterruptableDrainCast"
+JDT.GroupTypes.InteruptableAoeFear = "InteruptableAoeFear"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -168,6 +174,22 @@ JDT.Templates.GroupTypes.SlowDot = {
     text = {
         {   
             value = JDT.getLocalisation("Slow dot"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.SpreadDebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Spread"),
             isactive = true,
         }, 
     },
@@ -374,7 +396,7 @@ JDT.Templates.GroupTypes.InteruptableCastIntoBuff = {
 ), 
 }
 
-JDT.Templates.GroupTypes.BossCastIntoCollect = {
+JDT.Templates.GroupTypes.CastIntoCollect = {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -1905,6 +1927,22 @@ JDT.Templates.GroupTypes.AddSummonCast= {
     doSound = JDT.SoundTypes.adds,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.SummoningCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Summoning"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.adds,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 
 JDT.Templates.GroupTypes.InteruptableVolley= {
     AuraType = "AuraIcon",
@@ -3099,6 +3137,40 @@ JDT.Templates.GroupTypes.InteruptableAoeCast = {
     type = JDT.AuraTypes.interrupt,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.InteruptableAoeStun= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("AoE Stun"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.interrupt,
+    type = JDT.AuraTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.InteruptableAoeFear= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("AoE Fear"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.interrupt,
+    type = JDT.AuraTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 JDT.Templates.GroupTypes.StackCast = {
     AuraType = "AuraIcon",
     triggers = {
@@ -4050,5 +4122,38 @@ JDT.Templates.GroupTypes.TeleportCast = {
             isactive = true,
         }, 
     },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.LookAwayCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Look Away"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.turn,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.InterruptableDrainCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Draining"),
+            isactive = true,
+        }, 
+    },
+    type = JDT.AuraTypes.interrupt,
+    doSound = JDT.SoundTypes.interrupt,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

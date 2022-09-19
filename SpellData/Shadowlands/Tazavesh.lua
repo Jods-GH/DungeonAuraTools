@@ -88,7 +88,7 @@ bosses.boss1 = {
                 }
             }
         },
-        [JDT.GroupTypes.BossCastIntoCollect] = {
+        [JDT.GroupTypes.CastIntoCollect] = {
             ImpoundContraband = {
                 enabled = true,
                 spellId = 345770, -- for spellname etc

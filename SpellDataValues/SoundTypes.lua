@@ -30,6 +30,7 @@ JDT.SoundTypes.stack = "Interface\\Addons\\SharedMedia_Causese\\sound\\Stack.ogg
 JDT.SoundTypes.hide = "Interface\\Addons\\SharedMedia_Causese\\sound\\Hide.ogg"
 JDT.SoundTypes.bloodlust = "Interface\\Addons\\SharedMedia_Causese\\sound\\Bloodlust.ogg"
 JDT.SoundTypes.melee = "Interface\\Addons\\SharedMedia_Causese\\sound\\Melee.ogg"
+JDT.SoundTypes.turn = "Interface\\Addons\\SharedMedia_Causese\\sound\\Turn.ogg"
 
 setmetatable(JDT.SoundTypes, {
     __index = function(_, key)
