@@ -102,6 +102,11 @@ LocalisationData["LosCast"] = "Line of Sight mechanic"
 LocalisationData["InteruptableCCImmunityCast"] = "Cc-Immunity cast (Interuptable)"
 LocalisationData["InteruptableHealCast"] = "Heal Cast (Interuptable)"
 LocalisationData["SquirrelCast"] = "Mechanic that summons a Squirrel (CC-able)"
+LocalisationData["TrapSoak"] = "Mechanic that requires the player to soak a Trap"
+LocalisationData["TrapSpawn"] = "Mechanic that spawns a trap"
+LocalisationData["CastIntoDebuffSpread"] = "Spreads after Cast"
+LocalisationData["InteruptableBubblelCast"] = "Cast that spawns Bubbles (Interuptable)"
+LocalisationData["SoakWithDebuff"] = "Debuff that enables/requires you to soak stuff"
 
 --[[ 
     LocalisationData[""] = ""
@@ -196,6 +201,10 @@ LocalisationData["Jump"] = "Jump"
 LocalisationData["Healing"] = "Healing"
 LocalisationData["LoS"] = "LoS"
 LocalisationData["Squirrel"] = "Squirrel"
+LocalisationData["Bubble"] = "Bubble"
+LocalisationData["Soak Trap"] = "Soak Trap"
+LocalisationData["Void inc"] = "Void inc"
+
 
 --[[ 
     LocalisationData[""] = ""

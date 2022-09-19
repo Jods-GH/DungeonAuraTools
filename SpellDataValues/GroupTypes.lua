@@ -103,6 +103,11 @@ JDT.GroupTypes.Jump = "Jump"
 JDT.GroupTypes.LosCast = "LosCast"
 JDT.GroupTypes.SquirrelCast = "SquirrelCast"
 JDT.GroupTypes.InteruptableHealCast = "InteruptableHealCast"
+JDT.GroupTypes.SoakWithDebuff = "SoakWithDebuff"
+JDT.GroupTypes.CastIntoDebuffSpread = "CastIntoDebuffSpread"
+JDT.GroupTypes.InteruptableBubblelCast = "InteruptableBubblelCast"
+JDT.GroupTypes.TrapSoak = "TrapSoak"
+JDT.GroupTypes.TrapSpawn = "TrapSpawn"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -483,6 +488,51 @@ JDT.Templates.GroupTypes.CastIntoCastSuccessDance= {
     },
     doSound = JDT.SoundTypes.dance,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+JDT.Templates.GroupTypes.CastIntoDebuffSpread =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Spread inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Spread"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.spread,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 2,
+               value = true,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = true
+                },
+            },
+        },
+    }
+), 
 }
 
 JDT.Templates.GroupTypes.CastIntoPlayerGroupDebuffSpread =  {
@@ -977,6 +1027,24 @@ JDT.Templates.GroupTypes.VoidSoak= {
     text = {
         {   
             value = JDT.getLocalisation("Soak Void"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soak,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.SoakWithDebuff= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak"),
             isactive = true,
         }, 
     },
@@ -3210,5 +3278,55 @@ JDT.Templates.GroupTypes.SquirrelCast = {
     },
     type = JDT.AuraTypes.stun,
     doSound = JDT.SoundTypes.hide,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.InteruptableBubblelCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Bubble"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.interrupt,
+    type = JDT.AuraTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.TrapSoak= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak Trap"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soak,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.TrapSpawn= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Void inc"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
