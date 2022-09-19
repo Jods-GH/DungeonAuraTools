@@ -750,7 +750,7 @@ bosses.boss8 = { -- Medivh
                 showStacks = 2,
                 triggerData = {
                     [1] =  {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "227628",
                     },
                     [2] =  {
@@ -854,5 +854,81 @@ bosses.boss8 = { -- Medivh
                 }
             },
         },
+    }
+}
+bosses.boss9 = { -- Medivh
+    EncounterId = "1959", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = " - UPPER] 03 ",
+    Auras = {
+        [JDT.GroupTypes.ExplodingCast] = {
+            DecimatingEssence = {
+                enabled = true,
+                spellId = 227507,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227507",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SoakVoidWithDebuff] = {
+            DecimatingEssence = {
+                enabled = true,
+                spellId = 227502,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "227502",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.AvoidCombatLogSuccess] = {
+            ArcaneBomb = {
+                enabled = true,
+                spellId = 227618,
+                triggerData = {
+                    {
+                        duration = "4",
+                        spellId = "227618",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            EnergyDischarge = {
+                enabled = true,
+                spellId = 227457, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227457",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.OrbSoak] ={
+            CoalescePower = {
+                enabled = true,
+                spellId = 227297, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227297",
+
+                    },
+
+                }
+            }
+        },
+
+
     }
 }

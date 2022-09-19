@@ -122,6 +122,8 @@ JDT.GroupTypes.InteruptableFreezeCast = "InteruptableFreezeCast"
 JDT.GroupTypes.CastIntoKeepMovingWithDebuff  = "CastIntoKeepMovingWithDebuff"
 JDT.GroupTypes.DontMoveCastWithDebuff = "DontMoveCastWithDebuff"
 JDT.GroupTypes.DmgTakenDebuff = "DmgTakenDebuff"
+JDT.GroupTypes.SoakVoidWithDebuff = "SoakVoidWithDebuff"
+JDT.GroupTypes.OrbSoak = "OrbSoak"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -1118,6 +1120,22 @@ JDT.Templates.GroupTypes.VoidSoak= {
     doSound = JDT.SoundTypes.soak,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.OrbSoak= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak Orbs"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soak,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 
 JDT.Templates.GroupTypes.SoakWithDebuff= {
     AuraType = "AuraIcon",
@@ -1130,6 +1148,23 @@ JDT.Templates.GroupTypes.SoakWithDebuff= {
     text = {
         {   
             value = JDT.getLocalisation("Soak"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soak,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.SoakVoidWithDebuff= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak Void"),
             isactive = true,
         }, 
     },

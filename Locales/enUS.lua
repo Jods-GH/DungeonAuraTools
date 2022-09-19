@@ -120,6 +120,8 @@ LocalisationData["SpreadOrClearBlockWithdebuff"] = "Clear block mechanic"
 LocalisationData["CastIntoKeepMovingWithDebuff"] = "keep moving mechanic"
 LocalisationData["InteruptableFreezeCast"] = "Freeze cast (Interuptable)"
 LocalisationData["DontMoveCastWithDebuff"] = "Don't move mechanic"
+LocalisationData["OrbSoak"] = "Orb soaking mechanic"
+LocalisationData["SoakVoidWithDebuff"] = "Soak void if you have debuffs'"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -227,6 +229,8 @@ LocalisationData["Freezing"] = "Freezing"
 LocalisationData["keep moving"] = "keep moving"
 LocalisationData["Move"] = "Move"
 LocalisationData["Don't Move"] = "Don't Move"
+LocalisationData["Soak Orbs"] = "Soak Orbs"
+
 
 --[[ 
 LocalisationData[""] = ""
