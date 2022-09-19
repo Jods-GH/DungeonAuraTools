@@ -124,6 +124,11 @@ JDT.GroupTypes.DontMoveCastWithDebuff = "DontMoveCastWithDebuff"
 JDT.GroupTypes.DmgTakenDebuff = "DmgTakenDebuff"
 JDT.GroupTypes.SoakVoidWithDebuff = "SoakVoidWithDebuff"
 JDT.GroupTypes.OrbSoak = "OrbSoak"
+JDT.GroupTypes.TeleportCast = "TeleportCast"
+JDT.GroupTypes.InteruptableCastIntoMagicDot = "InteruptableCastIntoMagicDot"
+JDT.GroupTypes.LaserDebuff = "LaserDebuff"
+JDT.GroupTypes.SlowDot = "SlowDot"
+JDT.GroupTypes.BeamCast = "BeamCast"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -152,7 +157,22 @@ JDT.Templates.GroupTypes.Dot = {
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
-
+JDT.Templates.GroupTypes.SlowDot = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Slow dot"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 JDT.Templates.GroupTypes.Frontal = {
     AuraType = "AuraIcon",
     triggers = {
@@ -1693,7 +1713,24 @@ JDT.Templates.GroupTypes.LaserCast = {
             isactive = true,
         }, 
     },
-    doSound = JDT.SoundTypes.avoid,
+    doSound = JDT.SoundTypes.beam,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.LaserDebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Laser"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.move,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
@@ -1717,7 +1754,22 @@ JDT.Templates.GroupTypes.LaserCastCombatLogStart = {
     doSound = JDT.SoundTypes.beam,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
-
+JDT.Templates.GroupTypes.BeamCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Beam"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.beam,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 JDT.Templates.GroupTypes.MinusDmgTakenCCable = {
     AuraType = "AuraIcon",
     triggers = {
@@ -2180,6 +2232,78 @@ JDT.Templates.GroupTypes.InteruptableCastIntoRoot = {
 ), 
 }
 
+JDT.Templates.GroupTypes.InteruptableCastIntoMagicDot = {
+    AuraType = "AuraIcon",
+    triggers = {
+        [1] = {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        [2] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dot inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Dot"),  
+            isactive = false,
+        },    
+    },
+    type = 
+        {
+            {
+                type = "interrupt",
+                visible = true,
+            },
+            {
+                type = "magic",
+                visible = false,
+            },
+        },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                    {
+                        property = "sub.6.border_visible",
+                        value = false,
+                    },
+                    {
+                        property= "sub.7.text_visible",
+                        value = true
+                    },
+                    {
+                        property = "sub.8.border_visible",
+                        value = true,
+                    },
+                },
+        },
+    }
+), 
+}
+
 JDT.Templates.GroupTypes.CastIntoAtackspeedSlow = {
     AuraType = "AuraIcon",
     triggers = {
@@ -2480,7 +2604,7 @@ JDT.Templates.GroupTypes.InteruptableMobCastIntoPlayerDebuffDmgTaken = {
         },    
     },
     doSound = JDT.SoundTypes.targeted,
-    type = JDT.AuraTypes.magic,
+    type = JDT.AuraTypes.interrupt,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
         {
@@ -3912,4 +4036,19 @@ JDT.Templates.GroupTypes.DontMoveCastWithDebuff =  {
             },
     }
 ), 
+}
+JDT.Templates.GroupTypes.TeleportCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Teleporting"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

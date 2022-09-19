@@ -856,7 +856,7 @@ bosses.boss8 = { -- Medivh
         },
     }
 }
-bosses.boss9 = { -- Medivh
+bosses.boss9 = { -- Mana Wyrm
     EncounterId = "1959", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = " - UPPER] 03 ",
     Auras = {
@@ -930,5 +930,147 @@ bosses.boss9 = { -- Medivh
         },
 
 
+    }
+}
+bosses.boss10 = { -- Viz'aduum the Watcher
+    EncounterId = "2017", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = " - UPPER] 04 ",
+    Auras = {
+        [JDT.GroupTypes.TeleportCast] = {
+            DemonicPortal = {
+                enabled = true,
+                spellId = 229610,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "229610",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.BeamCast] ={
+            Disintegrate= {
+                enabled = true,
+                spellId = 229151, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "229151",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.PlayerGroupDebuffSpread] ={
+            ChaoticShadows= {
+                enabled = true,
+                spellId = 229159, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "229159",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "229159",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.InteruptableCastIntoMagicDot] = {
+            BurningBlast = {
+                enabled = true,
+                spellId = 229083,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "229083",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "229083",
+                    }
+                }
+            },
+        }, 
+        [JDT.GroupTypes.LaserDebuff] ={
+            AcquiringTarget= {
+                enabled = true,
+                spellId = 229241, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "229241",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Dance] ={
+            Bombardement = {
+                enabled = true,
+                spellId = 229287, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "229287",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            StabilizeRift = {
+                glowtype = "Ants",
+                showGlow = true,
+                enabled = true,
+                type = JDT.AuraTypes.interrupt,
+                spellId = 230084,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "230084",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.AvoidCombatLogSuccess] = {
+            ShadowPhlegm = {
+                enabled = true,
+                spellId = 230066,
+                triggerData = {
+                    {
+                        duration = "2",
+                        spellId = "230066",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SlowDot ] ={
+            BlazingHamstring = {
+                enabled = true,
+                showStacks = 1,
+                type = JDT.AuraTypes.magic,
+                spellId = 230002, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "230002",
+
+                    },
+
+                }
+            }
+        },
     }
 }
