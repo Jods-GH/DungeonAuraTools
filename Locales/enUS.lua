@@ -20,7 +20,7 @@ LocalisationData["PlayerGroupDebuffSpread"] = "Spreads"
 LocalisationData["CastIntoPlayerGroupDebuffSpread"] = "Spreads after Cast"
 LocalisationData["ShieldInc"] = "Shields"
 LocalisationData["EnergyTrackSoonCast"] = "Boss Energy Tracker"
-LocalisationData["BossCastIntoBuff"] = "Boss Buffs"
+LocalisationData["CastIntoBuff"] = "Buffs"
 LocalisationData["BossCastIntoCollect"] = "Collects"
 LocalisationData["CollectBuff"] = "Collect Buffs"
 LocalisationData["RunOut"] = " Whirlwind AoEs"
@@ -110,6 +110,8 @@ LocalisationData["SoakWithDebuff"] = "Debuff that enables/requires you to soak s
 LocalisationData["CastIntoPlayerGroupDropVoid"] = "Drop Void Mechanic"
 LocalisationData["SoakCastSafeWithDebuff"] = "Soak Void Mechanic"
 LocalisationData["InteruptableTargetedCastIntoDmgTakenDebuff"] = "Targeted cast that leaves a Debuff that increases dmg Taken (Interuptable)"
+LocalisationData["InteruptableCastIntoBuff"] = "Buffs"
+LocalisationData["HealthDeBuff"] = "Health Debuff"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -208,7 +210,7 @@ LocalisationData["Void inc"] = "Void inc"
 LocalisationData["Soak Void"] = "Soak Void"
 LocalisationData["Drop inc"] = "Drop inc"
 LocalisationData["Drop Void"] = "Drop Void"
-
+LocalisationData["-Health"] = "-Health"
 --[[ 
     LocalisationData[""] = ""
 ]]

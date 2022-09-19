@@ -8,7 +8,7 @@ JDT.GroupTypes.SpinToWin = "SpinToWin"
 JDT.GroupTypes.ShieldInc = "ShieldInc"
 JDT.GroupTypes.PlayerGroupDebuffSpread = "PlayerGroupDebuffSpread"
 JDT.GroupTypes.EnergyTrackSoonCast = "EnergyTrackSoonCast"
-JDT.GroupTypes.BossCastIntoBuff = "BossCastIntoBuff"
+JDT.GroupTypes.CastIntoBuff = "CastIntoBuff"
 JDT.GroupTypes.BossCastIntoCollect = "BossCastIntoCollect"
 JDT.GroupTypes.CollectBuff = "CollectBuff"
 JDT.GroupTypes.RunOut = "RunOut"
@@ -111,6 +111,9 @@ JDT.GroupTypes.TrapSpawn = "TrapSpawn"
 JDT.GroupTypes.SoakCastSafeWithDebuff = "SoakCastSafeWithDebuff"
 JDT.GroupTypes.CastIntoPlayerGroupDropVoid = "CastIntoPlayerGroupDropVoid"
 JDT.GroupTypes.InteruptableTargetedCastIntoDmgTakenDebuff = "InteruptableTargetedCastIntoDmgTakenDebuff"
+JDT.GroupTypes.InteruptableCastIntoBuff = "InteruptableCastIntoBuff"
+JDT.GroupTypes.HealthDeBuff = "HealthDeBuff"
+JDT.GroupTypes.DmgBuff = "DmgBuff"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -240,7 +243,7 @@ JDT.Templates.GroupTypes.EnergyTrackSoonCast=  {
     customTriggerLogic = "function(t) \n  return t[1]  and not (t[2] or t[3]) \n end",
 }
 
-JDT.Templates.GroupTypes.BossCastIntoBuff = {
+JDT.Templates.GroupTypes.CastIntoBuff = {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -279,6 +282,61 @@ JDT.Templates.GroupTypes.BossCastIntoBuff = {
                     {
                         property= "sub.4.text_visible",
                         value = true
+                    },
+                },
+        },
+    }
+), 
+}
+
+JDT.Templates.GroupTypes.InteruptableCastIntoBuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+        [1] = {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        [2] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Buffing"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Buffed"),  
+            isactive = false,
+        },    
+    },
+    doSound = JDT.SoundTypes.highEnergy,
+    type = JDT.AuraTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.6.border_visible",
+                        value = false
                     },
                 },
         },
@@ -3053,6 +3111,22 @@ JDT.Templates.GroupTypes.TankBusterCastWithDebuffCheck = {
     }
 ), 
 }
+JDT.Templates.GroupTypes.DmgBuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Buffed"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 JDT.Templates.GroupTypes.ArmorBuff = {
     AuraType = "AuraIcon",
     showStacks = 1,
@@ -3082,6 +3156,23 @@ JDT.Templates.GroupTypes.ArmorDeBuff = {
     text = {
         {   
             value = "- "..JDT.getLocalisation("Armor"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.HealthDeBuff = {
+    AuraType = "AuraIcon",
+    showStacks = 1,
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = "- "..JDT.getLocalisation("-Health"),
             isactive = true,
         }, 
     },

@@ -464,3 +464,132 @@ bosses.boss4 = { -- Maiden of Virtue
        
     }
 }
+bosses.boss5 = { -- Attumen the Huntsman
+    EncounterId = "1960", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = " - LOWER] 03 ",
+    Auras = {
+        [JDT.GroupTypes.LosCast] ={
+            MightyStomp = {
+                enabled = true,
+                spellId = 227363, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227363",
+    
+                    },
+    
+                }
+            },
+        },
+        [JDT.GroupTypes.Charge] ={
+            Mezair= {
+                enabled = true,
+                spellId = 227339, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227339",
+
+                    },
+
+                }
+            },
+            SpectralCharge= {
+                enabled = true,
+                spellId = 227365, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227365",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            MortalStrike = {
+                enabled = true,
+                spellId = 227493,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227493",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.HealthDeBuff ] = {
+            MortalStrike = {
+                enabled = true,
+                spellId = 227493,
+                extraName = " debuff",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227493",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.StackCast] = {
+            SharedSuffering = {
+                enabled = true,
+                spellId = 228852,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "228852",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.DmgBuff] = {
+            Enrage = {
+                enabled = true,
+                spellId = 228895,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "228895",
+                    }
+
+                }
+            },
+
+        },
+        
+   }
+} 
+
+bosses.boss6 = { -- Moroes
+    EncounterId = "1961", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = " - LOWER] 04 ",
+    Auras = {
+        [JDT.GroupTypes.InteruptableCastIntoBuff] = {
+            EmpoweredArms = {
+                enabled = true,
+                spellId = 227616,
+                triggerData = {
+                   [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227616",
+                    },
+                    [2] ={
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227616",
+                    },
+        
+                }
+            },
+        
+        },
+        
+   }
+} 
