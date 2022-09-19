@@ -114,6 +114,12 @@ LocalisationData["InteruptableCastIntoBuff"] = "Buffs"
 LocalisationData["HealthDeBuff"] = "Health Debuff"
 LocalisationData["ManaDrain"] = "Cast that drains Mana (Interuptable)"
 LocalisationData["SummonAxeCast"] = "Cast that summons a spinning axe"
+LocalisationData["CastIntoAddStackingCasts"] = "Adds to kill"
+LocalisationData["DmgTakenDebuff"] = "increased Damage Taken debuff"
+LocalisationData["SpreadOrClearBlockWithdebuff"] = "Clear block mechanic"
+LocalisationData["CastIntoKeepMovingWithDebuff"] = "keep moving mechanic"
+LocalisationData["InteruptableFreezeCast"] = "Freeze cast (Interuptable)"
+LocalisationData["DontMoveCastWithDebuff"] = "Don't move mechanic"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -215,8 +221,16 @@ LocalisationData["Drop Void"] = "Drop Void"
 LocalisationData["-Health"] = "-Health"
 LocalisationData["Axe"] = "Axe"
 LocalisationData["Mana Drain"] = "Mana Drain"
+LocalisationData["Spawning"] = "Spawning"
+LocalisationData["Clear Block"] = "Clear Block"
+LocalisationData["Freezing"] = "Freezing"
+LocalisationData["keep moving"] = "keep moving"
+LocalisationData["Move"] = "Move"
+LocalisationData["Don't Move"] = "Don't Move"
+
 --[[ 
-    LocalisationData[""] = ""
+LocalisationData[""] = ""
+LocalisationData[""] = ""
 ]]
 
 JDT.localisation = LocalisationData

@@ -116,6 +116,12 @@ JDT.GroupTypes.HealthDeBuff = "HealthDeBuff"
 JDT.GroupTypes.DmgBuff = "DmgBuff"
 JDT.GroupTypes.SummonAxeCast = "SummonAxeCast"
 JDT.GroupTypes.ManaDrain = "ManaDrain"
+JDT.GroupTypes.CastIntoAddStackingCasts = "CastIntoAddStackingCasts"
+JDT.GroupTypes.SpreadOrClearBlockWithdebuff = "SpreadOrClearBlockWithdebuff"
+JDT.GroupTypes.InteruptableFreezeCast = "InteruptableFreezeCast"
+JDT.GroupTypes.CastIntoKeepMovingWithDebuff  = "CastIntoKeepMovingWithDebuff"
+JDT.GroupTypes.DontMoveCastWithDebuff = "DontMoveCastWithDebuff"
+JDT.GroupTypes.DmgTakenDebuff = "DmgTakenDebuff"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -1484,7 +1490,22 @@ JDT.Templates.GroupTypes.InteruptableTargetedCastIntoDmgTakenDebuff= {
         },
     })
 }
-
+JDT.Templates.GroupTypes.DmgTakenDebuff= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("+inc dmg"),
+            isactive = true,
+        },  
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
 JDT.Templates.GroupTypes.InterruptableSuppresion= {
     AuraType = "AuraIcon",
     triggers = {
@@ -3599,4 +3620,261 @@ JDT.Templates.GroupTypes.ManaDrain= {
     glowtype = "ActionButton",
     showGlow = true,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.CastIntoAddStackingCasts =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Spawning"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("Kill add"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    showStacks = 3,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = true,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = true
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.5.text_visible",
+                    value = false
+                },
+            },
+        },
+    }
+), 
+}
+
+JDT.Templates.GroupTypes.SpreadOrClearBlockWithdebuff =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Spread"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("Clear Block"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1] \n end",
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                    type = "And",
+                    checks = {
+                        {
+                               type = "NumberCheck",
+                               trigger= 1,
+                               op = "~=",
+                               variable = "destUnit",
+                               value = "player",
+                        },
+                        {
+                            type = "simplecheck",
+                            trigger= 2,
+                            value = true,
+                        },
+                    },
+                },
+                changes = {
+                        {
+                            property = "sub.3.text_visible",
+                            value = false,
+                        },
+                        {
+                            property = "sub.4.text_visible",
+                            value = true,
+                        },
+                },
+            },
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 2,
+                   value = true,
+                    },
+                changes = {
+                    {
+                        property = "sub.5.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.6.border_visible",
+                        value = false
+                    },
+                },
+            }, 
+    }
+), 
+}
+JDT.Templates.GroupTypes.InteruptableFreezeCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Freezing"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    doSound = JDT.SoundTypes.interrupt,
+    type = JDT.AuraTypes.interrupt,
+}
+JDT.Templates.GroupTypes.CastIntoKeepMovingWithDebuff =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("keep moving"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("Move"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    showStacks = 2,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 2,
+                   value = false,
+                    },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                },
+            }, 
+    }
+), 
+}
+JDT.Templates.GroupTypes.DontMoveCastWithDebuff =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Don't Move"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("on").." %3.unit",
+            isactive = false,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                    type = "And",
+                    checks = {
+                        {
+                            type = "simplecheck",
+                            trigger= 1,
+                            value = false,
+                        },
+                        {
+                            type = "simplecheck",
+                            trigger= 2,
+                            value = false,
+                        },
+                        {
+                            type = "simplecheck",
+                            trigger= 3,
+                            value = true,
+                        },
+                    },
+                },
+                changes = {
+                        {
+                            property = "sub.3.text_visible",
+                            value = false,
+                        },
+                        {
+                            property = "sub.4.text_visible",
+                            value = true,
+                        },
+                },
+            },
+    }
+), 
 }

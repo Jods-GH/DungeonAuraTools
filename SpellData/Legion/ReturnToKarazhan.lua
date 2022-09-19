@@ -687,3 +687,172 @@ bosses.boss6 = { -- Moroes
         },
    }
 } 
+bosses.boss7 = { -- The Curator
+    EncounterId = "1964", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = " - UPPER] 01 ",
+    Auras = {
+        [JDT.GroupTypes.CastIntoAddStackingCasts] = {
+            VolatileEnergy = {
+                enabled = true,
+                spellId = 227267,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227267",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227270",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227270",
+                    },
+                }
+            },  
+        },
+        [JDT.GroupTypes.IncreasedDmgTakenChannel] = {
+            Evocation = {
+                enabled = true,
+                spellId = 227254,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227254",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.AvoidCombatLogSuccess] = {
+            PowerDischarge = {
+                enabled = true,
+                spellId = 227285,
+                triggerData = {
+                    {
+                        duration = "2.5",
+                        spellId = "227285",
+                    },
+
+                }
+            },
+        },
+      
+    }
+}
+bosses.boss8 = { -- Medivh
+    EncounterId = "1965", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = " - UPPER] 02 ",
+    Auras = {
+        [JDT.GroupTypes.InteruptableTargetedCastIntoDmgTakenDebuff] = {
+            PiercingMissiles= {
+                enabled = true,
+                spellId = 227628,
+                showStacks = 2,
+                triggerData = {
+                    [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227628",
+                    },
+                    [2] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "227644",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpreadOrClearBlockWithdebuff] = {
+            InfernoBolt= {
+                enabled = true,
+                spellId = 227615,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227615",
+                    },
+                    [2] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "227592",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableFreezeCast] = {
+            Frostbite = {
+                enabled = true,
+                spellId = 227592,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227592",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoKeepMovingWithDebuff] = {
+            CeaselessWinter = {
+                enabled = true,
+                spellId = 227779,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227779",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "227779",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.DontMoveCastWithDebuff] = {
+            FlameWreath = {
+                enabled = true,
+                spellId = 228269,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "228269",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "228261",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "228261",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            GuardiansImage = {
+                enabled = true,
+                spellId = 228334,
+                triggerData = {
+                    [1] ={
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "228334",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            Shimmer = {
+                enabled = true,
+                spellId = 228524,
+                showStacks = 1,
+                triggerData = {
+                    [1] ={
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "228524",
+                    },
+
+                }
+            },
+        },
+    }
+}
