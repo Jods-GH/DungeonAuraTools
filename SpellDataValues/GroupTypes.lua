@@ -108,6 +108,9 @@ JDT.GroupTypes.CastIntoDebuffSpread = "CastIntoDebuffSpread"
 JDT.GroupTypes.InteruptableBubblelCast = "InteruptableBubblelCast"
 JDT.GroupTypes.TrapSoak = "TrapSoak"
 JDT.GroupTypes.TrapSpawn = "TrapSpawn"
+JDT.GroupTypes.SoakCastSafeWithDebuff = "SoakCastSafeWithDebuff"
+JDT.GroupTypes.CastIntoPlayerGroupDropVoid = "CastIntoPlayerGroupDropVoid"
+JDT.GroupTypes.InteruptableTargetedCastIntoDmgTakenDebuff = "InteruptableTargetedCastIntoDmgTakenDebuff"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -723,11 +726,11 @@ JDT.Templates.GroupTypes.BreakShieldIntoInterrupt = {
     text = {
         {   
             value = JDT.getLocalisation("Break shield"),
-            isactive = true,
+            isactive = false,
         }, 
         {   
             value = JDT.getLocalisation("Interrupt"),  
-            isactive = false,
+            isactive = true,
         }, 
 
     },
@@ -739,36 +742,27 @@ JDT.Templates.GroupTypes.BreakShieldIntoInterrupt = {
         {
             {
                 condition={
-                    type = "And",
-                    checks = {
-                        {
-                            type = "simplecheck",
-                            trigger= 1,
-                            value = true,
-                        },
-                        {
-                            type = "simplecheck",
-                            trigger= 2,
-                            value = false,
-                        },
-                    },
-            },
+                    type = "simplecheck",
+                    trigger= 2,
+                    value = true,
+                    
+                },
                 changes = {
                     {
                         property = "sub.3.text_visible",
-                        value = false,
+                        value = true,
                     },
                     {
                         property = "sub.4.text_visible",
-                        value = true,
+                        value = false,
                     },
                     {
                         property = "sub.6.text_visible",
-                        value = true,
+                        value = false,
                     },
                     {
                         property = "sub.7.border_visible",
-                        value = true,
+                        value = false,
                     },
                 },
         }
@@ -827,6 +821,31 @@ JDT.Templates.GroupTypes.DanceOrSoakIfDebuff = {
                    },
                }
 ), 
+}
+JDT.Templates.GroupTypes.SoakCastSafeWithDebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+        [1] = {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        [2] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak Void"),  
+            isactive = true,
+        }, 
+
+    },
+    glowtype = "ActionButton",
+    showGlow = true,
+    doSound = JDT.SoundTypes.dance,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = 'function(t) \n  if t[1] and t[2] then \nlocal t1,t2 = WeakAuras.GetTriggerStateForTrigger(aura_env.id, 1)[UnitGUID("boss1")], WeakAuras.GetTriggerStateForTrigger(aura_env.id, 2)[""] \n if t1 and t2 then \n return t1.expirationTime > t2.expirationTime \n end \n elseif t[1] then \n return true \n end \n end',
+   
 }
 
 JDT.Templates.GroupTypes.ChainToKill = {
@@ -1345,6 +1364,60 @@ JDT.Templates.GroupTypes.TargetedCastIntoDmgTakenDebuff= {
                     },
                     {
                         property= "sub.4.text_visible",
+                        value = false
+                    },
+                },
+        },
+    })
+}
+JDT.Templates.GroupTypes.InteruptableTargetedCastIntoDmgTakenDebuff= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+            target = JDT.Templates.Triggers.UnitTypes.player,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("targeted"),
+            isactive = false,
+        },
+        {   
+            value = JDT.getLocalisation("+inc dmg"),
+            isactive = true,
+        },  
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.targeted,
+    type = JDT.AuraTypes.interrupt,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = true,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.6.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.7.border_visible",
                         value = false
                     },
                 },
@@ -3329,4 +3402,73 @@ JDT.Templates.GroupTypes.TrapSpawn= {
     },
     doSound = JDT.SoundTypes.avoid,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.CastIntoPlayerGroupDropVoid =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Drop inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Drop Void"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("on").." %3.unit",
+            isactive = false,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 2,
+               value = true,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = true
+                },
+            },
+        },
+        {
+            condition={
+               type = "simplecheck",
+               trigger= 3,
+               value = true,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.5.text_visible",
+                    value = true
+                },
+            },
+        },
+    }
+), 
 }

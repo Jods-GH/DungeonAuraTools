@@ -354,6 +354,113 @@ bosses.boss4 = { -- Maiden of Virtue
     EncounterId = "1954", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = " - LOWER] 02 ",
     Auras = { 
-        
+        [JDT.GroupTypes.SoakCastSafeWithDebuff ] ={
+            MassRepentance = {
+                enabled = true,
+                spellId = 227508, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227508",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "227848",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.BreakShieldIntoInterrupt] ={
+            HolyWrath = {
+                enabled = true,
+                spellId = 227823, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss, --cast
+                        spellId = "227823",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss, --buff
+                        spellId = "227817",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDropVoid] ={
+            SacredGround= {
+                enabled = true,
+                spellId = 227789, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227789",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "227789",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "227789",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Dot] = {
+            SacredGround = {
+                enabled = true,
+                spellId = 227848,
+                showStacks = 1,
+                extraName = " dot",
+                triggerData = {
+                   [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "227848",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpreadCast] = {
+            HolyBolt = {
+                enabled = true,
+                spellId = 227809,
+                triggerData = {
+                  {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227809",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableTargetedCastIntoDmgTakenDebuff] = {
+            HolyShock = {
+                enabled = true,
+                spellId = 227800,
+                showStacks = 2,
+                triggerData = {
+                    [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227800",
+                    },
+                    [2] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "227800",
+                    },
+
+                }
+            },
+        },
+       
     }
 }

@@ -107,9 +107,10 @@ LocalisationData["TrapSpawn"] = "Mechanic that spawns a trap"
 LocalisationData["CastIntoDebuffSpread"] = "Spreads after Cast"
 LocalisationData["InteruptableBubblelCast"] = "Cast that spawns Bubbles (Interuptable)"
 LocalisationData["SoakWithDebuff"] = "Debuff that enables/requires you to soak stuff"
-
+LocalisationData["CastIntoPlayerGroupDropVoid"] = "Drop Void Mechanic"
+LocalisationData["SoakCastSafeWithDebuff"] = "Soak Void Mechanic"
+LocalisationData["InteruptableTargetedCastIntoDmgTakenDebuff"] = "Targeted cast that leaves a Debuff that increases dmg Taken (Interuptable)"
 --[[ 
-    LocalisationData[""] = ""
     LocalisationData[""] = ""
     LocalisationData[""] = ""
 ]]
@@ -204,7 +205,9 @@ LocalisationData["Squirrel"] = "Squirrel"
 LocalisationData["Bubble"] = "Bubble"
 LocalisationData["Soak Trap"] = "Soak Trap"
 LocalisationData["Void inc"] = "Void inc"
-
+LocalisationData["Soak Void"] = "Soak Void"
+LocalisationData["Drop inc"] = "Drop inc"
+LocalisationData["Drop Void"] = "Drop Void"
 
 --[[ 
     LocalisationData[""] = ""
