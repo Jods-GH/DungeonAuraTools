@@ -114,6 +114,8 @@ JDT.GroupTypes.InteruptableTargetedCastIntoDmgTakenDebuff = "InteruptableTargete
 JDT.GroupTypes.InteruptableCastIntoBuff = "InteruptableCastIntoBuff"
 JDT.GroupTypes.HealthDeBuff = "HealthDeBuff"
 JDT.GroupTypes.DmgBuff = "DmgBuff"
+JDT.GroupTypes.SummonAxeCast = "SummonAxeCast"
+JDT.GroupTypes.ManaDrain = "ManaDrain"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -3562,4 +3564,39 @@ JDT.Templates.GroupTypes.CastIntoPlayerGroupDropVoid =  {
         },
     }
 ), 
+}
+JDT.Templates.GroupTypes.SummonAxeCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Axe"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.ManaDrain= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Mana Drain"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.interrupt,
+    type = JDT.AuraTypes.interrupt,
+    glowtype = "ActionButton",
+    showGlow = true,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

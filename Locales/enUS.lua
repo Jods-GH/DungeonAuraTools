@@ -112,6 +112,8 @@ LocalisationData["SoakCastSafeWithDebuff"] = "Soak Void Mechanic"
 LocalisationData["InteruptableTargetedCastIntoDmgTakenDebuff"] = "Targeted cast that leaves a Debuff that increases dmg Taken (Interuptable)"
 LocalisationData["InteruptableCastIntoBuff"] = "Buffs"
 LocalisationData["HealthDeBuff"] = "Health Debuff"
+LocalisationData["ManaDrain"] = "Cast that drains Mana (Interuptable)"
+LocalisationData["SummonAxeCast"] = "Cast that summons a spinning axe"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -211,6 +213,8 @@ LocalisationData["Soak Void"] = "Soak Void"
 LocalisationData["Drop inc"] = "Drop inc"
 LocalisationData["Drop Void"] = "Drop Void"
 LocalisationData["-Health"] = "-Health"
+LocalisationData["Axe"] = "Axe"
+LocalisationData["Mana Drain"] = "Mana Drain"
 --[[ 
     LocalisationData[""] = ""
 ]]

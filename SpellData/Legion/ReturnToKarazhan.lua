@@ -577,12 +577,12 @@ bosses.boss6 = { -- Moroes
                 enabled = true,
                 spellId = 227616,
                 triggerData = {
-                   [1] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "227616",
                     },
-                    [2] ={
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "227616",
                     },
         
@@ -590,6 +590,100 @@ bosses.boss6 = { -- Moroes
             },
         
         },
-        
+        [JDT.GroupTypes.SummonAxeCast] ={
+            WhirlingEdge = {
+                enabled = true,
+                spellId = 227463, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227463",
+    
+                    },
+    
+                }
+            },
+        },
+        [JDT.GroupTypes.ShockWave] ={
+            WillBreaker = {
+                enabled = true,
+                spellId = 227672, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227672",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpinToWin] = {
+            IronWhirlwind = {
+                enabled = true,
+                spellId = 227646,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227646",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.ManaDrain] = {
+            ManaDrain = {
+                enabled = true,
+                spellId = 227545,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227545",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            HealingStream = {
+                enabled = true,
+                spellId = 227578,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227578",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            Garrote = {
+                enabled = true,
+                spellId = 346844, -- for spellname etc
+                showStacks = 1,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "227742",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.ArmorDeBuff] = {
+            SledgeHammer = {
+                enabled = true,
+                spellId = 299438,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "299438",
+                    }
+
+                }
+            },
+        },
    }
 } 
