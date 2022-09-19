@@ -1,37 +1,34 @@
 local _, JDT = ...
 
 JDT.SpellList = JDT.SpellList or {}
+JDT.SpellList.Shadowlands = JDT.SpellList.Shadowlands or {}
 
-JDT.SpellList = {
-    Debuffs= {
-        DebuffName1 = {
-           spellId = 1234,
-           enabled = false,
-           type = JDT.AuraTypes.magic,
-           groupType = JDT.GroupTypes.dot,
+JDT.SpellList.Shadowlands.Tazavesh = {
+    groupName = "[TAZAVESH",
+    zoneId = "g423", 
+    EncounterJournalID = 1194, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
+    Bosses = {}
+}
+local bosses = JDT.SpellList.Shadowlands.Tazavesh.Bosses
+
+bosses.boss1 = { 
+    EncounterId = "2425", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = "] 01 ",
+    Auras = {
+        
+        [JDT.GroupTypes.SpinToWin] = {
+            ArmedSecurity = {
+                enabled = true,
+                spellId = 346204,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "346204",
+                    }
+
+                }
+            },
+
         },
-        DebuffName2 = {
-            spellId = 57723,
-            enabled = false,
-            type =  JDT.AuraTypes.magic,
-            doSound = JDT.SoundTypes.debuff,
-            zoneId = "1234",
-            showStacks = true,
-            groupType = JDT.GroupTypes.dot,
-         }
-    },
-    Aoe = {
-        AoeName1 = {
-            spellId = 1234,
-            enabled = false,
-            groupType = JDT.GroupTypes.frontal,
-         },
-        AoeName2 = {
-            spellId = 12345,
-            enabled = false,
-            groupType = JDT.GroupTypes.frontal,
-         }
-    },
-
-
+    }
 }

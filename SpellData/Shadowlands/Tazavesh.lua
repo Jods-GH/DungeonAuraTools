@@ -66,7 +66,7 @@ bosses.boss1 = {
                 }
             }
         },
-        [JDT.GroupTypes.BossCastIntoBuff] ={
+        [JDT.GroupTypes.CastIntoBuff] ={
             FullyArmed = {
                 enabled = true,
                 spellId = 348128, -- for spellname etc
@@ -88,7 +88,7 @@ bosses.boss1 = {
                 }
             }
         },
-        [JDT.GroupTypes.BossCastIntoCollect] = {
+        [JDT.GroupTypes.CastIntoCollect] = {
             ImpoundContraband = {
                 enabled = true,
                 spellId = 345770, -- for spellname etc
@@ -721,11 +721,10 @@ bosses.boss7 = {
                 },
 
         },
-            [JDT.GroupTypes.BossCastIntoBuff] = {
+            [JDT.GroupTypes.CastIntoBuff] = {
                 DoubleTime = {
                     enabled = true,
                     spellId = 350517,
-                    type = "bleed",
                     triggerData = {
                        [1] = {
                             unit = JDT.Templates.Triggers.UnitTypes.boss,

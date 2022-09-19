@@ -14,3 +14,29 @@ JDT.Templates.CustomTextIcons.interrupt= "function()\n   return WeakAuras.EJIcon
 JDT.Templates.CustomTextIcons.root = "function()\n   return '|T236922:18|t'  \nend"
 JDT.Templates.CustomTextIcons.snare = "function()\n   return '|T132309:18|t' \nend"
 JDT.Templates.CustomTextIcons.stun = "function()\n   return '|T135860:16|t' \nend"
+
+JDT.Templates.CustomTextIcons.Icons = JDT.Templates.CustomTextIcons.Icons or {}
+JDT.Templates.CustomTextIcons.Icons.stun  = "'|T135860:16|t'" 
+JDT.Templates.CustomTextIcons.Icons.snare = "'|T132309:18|t'"
+JDT.Templates.CustomTextIcons.Icons.root =  "'|T236922:18|t'"
+JDT.Templates.CustomTextIcons.Icons.interrupt = "WeakAuras.EJIcons.interrupt"
+JDT.Templates.CustomTextIcons.Icons.enrage = "WeakAuras.EJIcons.enrage"
+JDT.Templates.CustomTextIcons.Icons.bleed = "WeakAuras.EJIcons.bleed"
+JDT.Templates.CustomTextIcons.Icons.poison = "WeakAuras.EJIcons.poiso"
+JDT.Templates.CustomTextIcons.Icons.disease = "WeakAuras.EJIcons.disease"
+JDT.Templates.CustomTextIcons.Icons.curse = "WeakAuras.EJIcons.curse"
+JDT.Templates.CustomTextIcons.Icons.magic = "WeakAuras.EJIcons.magic"
+
+
+JDT.Templates.CustomTextIcons.generator = function (typetable) 
+    local returntext = ""
+    for index, value in ipairs(typetable) do
+        if returntext == "" then
+            returntext = JDT.Templates.CustomTextIcons.Icons[value.type]
+        else
+        returntext  = returntext..", "..JDT.Templates.CustomTextIcons.Icons[value.type]
+        end
+    end
+    local stufftoreturn = "function()\n return "..returntext.." \nend"
+    return stufftoreturn
+end    

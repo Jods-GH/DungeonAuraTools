@@ -25,22 +25,7 @@
 				},
 			},
 			triggers = {
-				{
-					trigger = {
-						names = {
-						},
-						type = "aura2",
-						spellIds = {
-						},
-						subeventSuffix = "_CAST_START",
-						unit = "player",
-						subeventPrefix = "SPELL",
-						event = "Health",
-						debuffType = "HELPFUL",
-					},
-					untrigger = {
-					},
-				}, -- [1]
+				
 			},
 			columnSpace = 1,
 			radius = 200,
