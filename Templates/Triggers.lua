@@ -16,6 +16,7 @@ JDT.Templates.Triggers.TriggerTypes = {
     unitResource = "UnitResource",
     unitHealth = "UnitHealth",
     combatlog = "CombatLog", 
+    monsterYell = "MonsterYell"
 }
 setmetatable(JDT.Templates.Triggers.TriggerTypes, {
     __index = function(_, key)
@@ -171,3 +172,17 @@ JDT.Templates.Triggers.Buffs = {
         untrigger = {
         },
     }
+
+    JDT.Templates.Triggers.MonsterYell = {
+        trigger = {
+            type = "event",
+            event = "Chat Message",
+            use_messageType = true,
+            messageType = "CHAT_MSG_MONSTER_YELL",
+            duration = "2.5",
+           -- destName = "Rakun",
+           -- use_destName = true,
+        },
+    untrigger = {
+    },
+}

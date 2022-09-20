@@ -87,7 +87,7 @@ JDT.buildDataToExport = function()
                                         v.useGlowColor = true
                                     end
                                     if v.showGlow then
-                                        v.glow = true
+                                        GlowTemplate.glow = true
                                     end
                                     tinsert(SpellTable.subRegions,GlowTemplate)
                                 end
@@ -281,6 +281,16 @@ JDT.generateTriggerfromGroupType.CombatLog = function(triggerData,AuraTemplate)
     AuraTrigger.trigger.duration = triggerData.duration
     if AuraTemplate.subeventSuffix then
         AuraTrigger.trigger.subeventSuffix = AuraTemplate.subeventSuffix
+    end
+    return AuraTrigger
+end
+
+JDT.generateTriggerfromGroupType.MonsterYell = function(triggerData,AuraTemplate)
+    local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    AuraTrigger.trigger.duration = triggerData.duration
+    if triggerData.destName then
+        AuraTrigger.trigger.destName = triggerData.destName
+        AuraTrigger.trigger.use_destName = true
     end
     return AuraTrigger
 end

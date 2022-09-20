@@ -135,6 +135,12 @@ JDT.GroupTypes.LookAwayCast = "LookAwayCast"
 JDT.GroupTypes.SpreadDebuff = "SpreadDebuff"
 JDT.GroupTypes.InterruptableDrainCast = "InterruptableDrainCast"
 JDT.GroupTypes.InteruptableAoeFear = "InteruptableAoeFear"
+JDT.GroupTypes.IncreasedDmgTakenBuff = "IncreasedDmgTakenBuff"
+JDT.GroupTypes.VoidCastWithSuccess = "VoidCastWithSuccess"
+JDT.GroupTypes.CarryingBuff = "CarryingBuff"
+JDT.GroupTypes.BreathMonsterYell = "BreathMonsterYell"
+JDT.GroupTypes.InteruptableStunCast = "InteruptableStunCast"
+JDT.GroupTypes.CastIntoSpreadifDebuffed = "CastIntoSpreadifDebuffed"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -1617,6 +1623,7 @@ JDT.Templates.GroupTypes.InterruptableKickStomp= {
     doSound = JDT.SoundTypes.interrupt,
     type = JDT.AuraTypes.interrupt,
 }
+
 JDT.Templates.GroupTypes.RoomSplit = {
     AuraType = "AuraIcon",
     triggers = {
@@ -1665,6 +1672,22 @@ JDT.Templates.GroupTypes.CarryingDeBuff =  {
     text = {
         {   
             value = JDT.getLocalisation("Drop off"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.CarryingBuff =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Carrying"),
             isactive = true,
         }, 
     },
@@ -3306,6 +3329,23 @@ JDT.Templates.GroupTypes.IncreasedDmgTakenChannel = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
     doSound = JDT.SoundTypes.bloodlust,
 }
+JDT.Templates.GroupTypes.IncreasedDmgTakenBuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Burn"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    doSound = JDT.SoundTypes.bloodlust,
+}
 JDT.Templates.GroupTypes.LinesCastIntoCombatLogSuccess = {
     AuraType = "AuraIcon",
     triggers = {
@@ -3741,7 +3781,7 @@ JDT.Templates.GroupTypes.TrapSpawn= {
     },
     text = {
         {   
-            value = JDT.getLocalisation("Void inc"),
+            value = JDT.getLocalisation("Trap inc"),
             isactive = true,
         }, 
     },
@@ -4156,4 +4196,107 @@ JDT.Templates.GroupTypes.InterruptableDrainCast = {
     type = JDT.AuraTypes.interrupt,
     doSound = JDT.SoundTypes.interrupt,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.VoidCastWithSuccess = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_SUCCESS",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Avoid"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+
+JDT.Templates.GroupTypes.BreathMonsterYell = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.monsterYell, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Breath"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+
+JDT.Templates.GroupTypes.InteruptableStunCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Stun"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.interrupt,
+    type = JDT.AuraTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.CastIntoSpreadifDebuffed =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Spread inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Spread"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.spread,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 2,
+               value = true,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = true
+                },
+             
+             },
+      
+        }
+    }
+), 
 }
