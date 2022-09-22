@@ -1,26 +1,28 @@
 local _, JDT = ...
 JDT.exportAuras = function()
-    print("running export")
-
     if WeakAuras and WeakAuras.Import then
-        local wassuccesful,msg = WeakAuras.Import(JDT.buildDataToExport(),nil,JDT.CallbackFunc) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import
-       if msg  then
-        print("Import failed: "..msg)
-       end
+        JDT.CallbackFunc("running export")
     end
 end
 
 JDT.CallbackFunc = function (result)
-    DevTools_Dump(result)
+    print(result)
+    local value 
+    JDT.CallbackKey,value = next(JDT.db.profile.data,JDT.CallbackKey)
+    if JDT.CallbackKey ~= nil then
+        WeakAuras.Import(JDT.buildDataToExport(JDT.CallbackKey,value),nil,JDT.CallbackFunc) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import  
+    end
 end
 
 
-JDT.buildDataToExport = function()
+
+
+JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     local ExportTable = CopyTable(JDT.DataToExport)
     ExportTable.d = JDT.Templates.DynamicGroup
-    ExportTable.d.id = "JodsDungeonToolsGroup"-- AuraName
-    ExportTable.d.uid = "JodsDungeonToolsGroupUID" --AuraUniqueId
-    for ExpansionKey,ExpansionValue in pairs(JDT.db.profile.data) do 
+    ExportTable.d.id = "DungeonAuras_"..ExpansionKey-- AuraName
+    ExportTable.d.uid = "DungeonAuras_"..ExpansionKey.."UID" --AuraUniqueId
+    
         for DungeonKey,DungeonValue in pairs(ExpansionValue) do 
             for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
                     for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
@@ -209,7 +211,7 @@ JDT.buildDataToExport = function()
                                 
                             end
                         end
-                    end
+                
                 end
             end
     end
