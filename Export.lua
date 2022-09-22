@@ -20,7 +20,7 @@ JDT.buildDataToExport = function()
     ExportTable.d = JDT.Templates.DynamicGroup
     ExportTable.d.id = "JodsDungeonToolsGroup"-- AuraName
     ExportTable.d.uid = "JodsDungeonToolsGroupUID" --AuraUniqueId
-    for ExpansionKey,ExpansionValue in pairs(JDT.db.profile) do 
+    for ExpansionKey,ExpansionValue in pairs(JDT.db.profile.data) do 
         for DungeonKey,DungeonValue in pairs(ExpansionValue) do 
             for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
                     for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
@@ -28,6 +28,11 @@ JDT.buildDataToExport = function()
                             if v.enabled == true then
                                 local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]
                                 local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
+
+                                --set general options
+                                SpellTable.subRegions[2].text_visible = JDT.db.profile.ShowTimer
+
+
 
                                 --- create triggers 
                                 local TriggerTable =  CopyTable(JDT.Templates.Triggers.ActivationTemplate) 
@@ -68,7 +73,7 @@ JDT.buildDataToExport = function()
                             
                                 end
 
-                                if AuraTemplate.doSound then -- set Sound
+                                if AuraTemplate.doSound and JDT.db.profile.PlaySound then -- set Sound
                                     SpellTable.actions.start.sound = AuraTemplate.doSound
                                     SpellTable.actions.start.do_sound = true
                                 end

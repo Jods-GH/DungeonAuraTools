@@ -13,6 +13,10 @@ LocalisationData["SpellOptions"] = "Spell Options"
 LocalisationData["Toggles all Auras for"] = "Toggles all Auras for" 
 LocalisationData["Warning will overwrite all currently selected values."] = "Warning will overwrite all currently selected values."
 LocalisationData["VersionCheckMessage"] = "A new Version is available Download it via Curseforge, WagoAddons, WoWInterface or directly on Github"
+LocalisationData["PlaySound"] = "Play Sound"
+LocalisationData["PlaySoundDescription"] = "Toggles whether WeakAuras should play sounds"
+LocalisationData["ShowTimer"] = "Show Timer"
+LocalisationData["ShowTimerDescription"] = "Toggles whether WeakAuras should display Timers (incase you don't use omnicc/Elvui Cooldown text)"
 
 -- Aura Types
 LocalisationData["SpinToWin"] = "Spin AoEs"

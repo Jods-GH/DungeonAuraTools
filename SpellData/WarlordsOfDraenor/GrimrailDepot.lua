@@ -331,6 +331,17 @@ bosses.Trash= {
 
                 }
             },
+            ThunderZone= {
+                enabled = true,
+                spellId = 166341,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "166341",
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.CastIntoSpreadifDebuffed] = {
             LavaWreath = {
@@ -346,6 +357,40 @@ bosses.Trash= {
                         spellId = "176025",
                     },
 
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoStopAtackingShield] ={
+            Stormshield= {
+                enabled = true,
+                spellId = 166335, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "166335",
+    
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "166335",
+    
+                    },
+    
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            ArcaneBlitz = {
+                enabled = true,
+                spellId = 166397, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "166397",
+    
+                    },
+    
                 }
             },
         },
