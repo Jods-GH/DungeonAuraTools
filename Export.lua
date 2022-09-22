@@ -133,6 +133,9 @@ JDT.buildDataToExport = function()
                                     end
                                 end
                                 
+                                if v.loadInBossfight ~= nil then
+                                    SpellTable.load.use_encounter = v.loadInBossfight
+                                end
                                 
                                 if v.showStacks then -- add Text for Stacks display if needed
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
@@ -248,7 +251,7 @@ end
 
 JDT.generateTriggerfromGroupType.TSU= function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
-    local Trigger = JDT.Templates.CustomTriggers[AuraTemplate.customPreset](triggerData.spellIdList,triggerData.extraUnit)
+    local Trigger = JDT.Templates.CustomTriggers[AuraTemplate.customPreset](triggerData)
     AuraTrigger.trigger.custom = Trigger.customTrigger
     AuraTrigger.trigger.events = Trigger.customEvents
     if Trigger.customVariables then

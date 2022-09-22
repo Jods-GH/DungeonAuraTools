@@ -86,3 +86,10 @@ JDT.Templates.Borders.snare = {
 						0.5058823529411764, -- [3]
 						1, -- [4]
 					}
+
+JDT.Templates.Borders.purge = {
+						0, -- [1]
+						0, -- [2]
+						1, -- [3]
+						1, -- [4]
+					}

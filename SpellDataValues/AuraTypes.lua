@@ -12,6 +12,7 @@ JDT.AuraTypes.interrupt = "interrupt"
 JDT.AuraTypes.root = "root"
 JDT.AuraTypes.snare = "snare"
 JDT.AuraTypes.stun = "stun"
+JDT.AuraTypes.purge = "purge"
 
 setmetatable(JDT.AuraTypes, {
     __index = function(_, key)

@@ -139,6 +139,11 @@ LocalisationData["CarryingBuff"] = "Player carrying Buffs"
 LocalisationData["BreathMonsterYell"] = "Breath mechanic"
 LocalisationData["CastIntoSpreadifDebuffed"] = "Spread mechanic"
 LocalisationData["InteruptableStunCast"] = "Stun cast (Interuptable)"
+LocalisationData["FeastCast"] = "Feast mechanic"
+LocalisationData["CastIntoStopAtackingShield"] = "Stop Atacking mechanic"
+LocalisationData["SpellCastStartIntoPlayerGroupDebuffSpread"] = "Spreads after cast"
+LocalisationData["NoCastVoid"] = "Void that requires you not to cast"
+LocalisationData["ShatteringStrike"] = "Ground Slam"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -257,6 +262,11 @@ LocalisationData["AoE Fear"] = "AoE Fear"
 LocalisationData["Look Away"] = "Look Away"
 LocalisationData["Draining"] = "Draining"
 LocalisationData["Stun"] = "Stun"
+LocalisationData["Feasting"] = "Feasting"
+LocalisationData["Stop inc"] = "Stop inc"
+LocalisationData["Stop Atack"] = "Stop Atack"
+LocalisationData["No cast inc"] = "No cast inc"
+LocalisationData["No ability"] = "No ability"
 
 
 --[[ 

@@ -237,6 +237,18 @@ bosses.Trash= {
 
                 }
             },
+            RecklessSlash= {
+                enabled = true,
+                spellId = 166380, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "166380",
+
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.InteruptableStunCast] ={
             FiftyThousandVolt= {
