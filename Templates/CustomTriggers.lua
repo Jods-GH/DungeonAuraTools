@@ -4,8 +4,8 @@ JDT.Templates = JDT.Templates  or {}
 
 JDT.Templates.CustomTriggers = JDT.Templates.CustomTriggers  or {}
 
-JDT.Templates.CustomTriggers.EnergyTrackSoonCast = function(spellIdList,extraUnit)
-
+JDT.Templates.CustomTriggers.EnergyTrackSoonCast = function(triggerData)
+    local spellIdList,extraUnit = triggerData.spellIdList,triggerData.extraUnit
     local trigger = {
         customTrigger = "",
         customEvents = "",
@@ -25,7 +25,7 @@ JDT.Templates.CustomTriggers.EnergyTrackSoonCast = function(spellIdList,extraUni
 end
 
 
-JDT.Templates.CustomTriggers.TazaveshDispose = function(spellIdList,extraUnit)
+JDT.Templates.CustomTriggers.TazaveshDispose = function()
     local trigger = {
         customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_SUMMON\" and spellID == 346381 then\n        if not s[\"\"] then\n            \n            s[\"\"] = {\n                duration = 30,\n                expirationTime = GetTime()+30,\n                stacks = 1,\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+1\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+30\n        end\n        \n        return true\n        \n        \n    elseif subevent == \"SPELL_AURA_REMOVED\" and spellID == 346296 then\n        \n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
         customEvents = "COMBAT_LOG_EVENT_UNFILTERED:Spell_Summon,COMBAT_LOG_EVENT_UNFILTERED:Spell_Aura_Removed",
@@ -34,10 +34,18 @@ JDT.Templates.CustomTriggers.TazaveshDispose = function(spellIdList,extraUnit)
     return trigger
 end
 
-JDT.Templates.CustomTriggers.CollapsingStar = function(spellIdList,extraUnit)
+JDT.Templates.CustomTriggers.CollapsingStar = function()
     local trigger = {
         customTrigger = "function(allstates, event, ...)\n    if event == \"COMBAT_LOG_EVENT_UNFILTERED\" then\n        local timestamp, subEvent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellID, _,_, auraType = ...\n        if (subEvent == \"SPELL_AURA_APPLIED\" or subEvent == \"SPELL_AURA_APPLIED_DOSE\")\n        and spellID == 350804\n        and destGUID == WeakAuras.myGUID\n        then\n            local state = allstates[\"star\"]\n            if state then\n                state.count = state.count - 1 \n                state.changed = true\n                if state.count <= 0 then\n                    state.show = false\n                end\n                return true\n            end\n        elseif subEvent == \"SPELL_CAST_SUCCESS\" and spellID == 353635 then\n            allstates[\"star\"] = {\n                show = true,\n                changed = true,\n                progressType = \"timed\",\n                duration = 25,\n                expirationTime = 25 + GetTime(),\n                autoHide = true,\n                count = 4,\n            }\n            return true\n        end\n    end\nend",				
         customEvents = "CLEU:SPELL_CAST_SUCCESS:SPELL_AURA_APPLIED:SPELL_AURA_APPLIED_DOSE",
     }
     return trigger 
+end
+
+JDT.Templates.CustomTriggers.ShatteringStrike = function()
+    local trigger = {
+        customTrigger = 'function(allstates,event,unit, castGUID, spellID)\n if spellID == 172982 then\n if castGUID then\n local _,_,_,_,_,npc_id,_ = strsplit("-",castGUID)\n        local calculatedDuration = 0\n       if npc_id ==83026 then\n        if not aura_env.isSecond or aura_env.isSecond==false then\n          calculatedDuration = 6.9 \n     else\n         calculatedDuration = 13.8 \n        end \n      else \n      if not aura_env.isSecond or aura_env.isSecond==false then \n           calculatedDuration = 7.3 \n        else\n           calculatedDuration = 13.4 \n              end \n           end  \n        allstates[""] = {\n              duration = calculatedDuration, \n              expirationTime = GetTime()+calculatedDuration,\n             progressType = "timed", \n             autoHide = true, \n                 changed = true, \n                show = true, \n        } \n         return true \n      end \n      end \n    end',
+        customEvents = "UNIT_SPELLCAST_START",
+    }
+    return trigger
 end

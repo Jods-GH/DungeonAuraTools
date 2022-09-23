@@ -14,7 +14,11 @@ function DungeonAuraTools:OnInitialize()
     self:RegisterEvent("CHAT_MSG_ADDON")
 
     local DatatoPersist = {
-        profile = JDT.SpellList
+        profile = {
+            ShowTimer = true,
+            PlaySound = true,
+            data = JDT.SpellList
+        }
     }
     JDT.db = LibStub("AceDB-3.0"):New("DungeonAuraTools",DatatoPersist, true) -- Generates Saved Variables with default Values (if they don't already exist)
     local OptionTable = {

@@ -56,7 +56,7 @@
 						rotateText = "NONE",
 						anchorYOffset = 0,
 						type = "subtext",
-						text_text_format_p_time_dynamic_threshold = 60,
+						text_text_format_p_time_dynamic_threshold = 3,
 						text_color = {
 							1, -- [1]
 							1, -- [2]
@@ -77,7 +77,7 @@
 						text_anchorPoint = "CENTER",
 						text_text_format_p_time_format = 0,
 						text_visible = false,
-						text_fontSize = 12,
+						text_fontSize = 17,
 						anchorXOffset = 0,
 						text_shadowXOffset = 0,
 					}, 

@@ -1,26 +1,28 @@
 local _, JDT = ...
 JDT.exportAuras = function()
-    print("running export")
-
     if WeakAuras and WeakAuras.Import then
-        local wassuccesful,msg = WeakAuras.Import(JDT.buildDataToExport(),nil,JDT.CallbackFunc) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import
-       if msg  then
-        print("Import failed: "..msg)
-       end
+        JDT.CallbackFunc("running export")
     end
 end
 
 JDT.CallbackFunc = function (result)
-    DevTools_Dump(result)
+    print(result)
+    local value 
+    JDT.CallbackKey,value = next(JDT.db.profile.data,JDT.CallbackKey)
+    if JDT.CallbackKey ~= nil then
+        WeakAuras.Import(JDT.buildDataToExport(JDT.CallbackKey,value),nil,JDT.CallbackFunc) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import  
+    end
 end
 
 
-JDT.buildDataToExport = function()
+
+
+JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     local ExportTable = CopyTable(JDT.DataToExport)
     ExportTable.d = JDT.Templates.DynamicGroup
-    ExportTable.d.id = "JodsDungeonToolsGroup"-- AuraName
-    ExportTable.d.uid = "JodsDungeonToolsGroupUID" --AuraUniqueId
-    for ExpansionKey,ExpansionValue in pairs(JDT.db.profile) do 
+    ExportTable.d.id = "DungeonAuras_"..ExpansionKey-- AuraName
+    ExportTable.d.uid = "DungeonAuras_"..ExpansionKey.."UID" --AuraUniqueId
+    
         for DungeonKey,DungeonValue in pairs(ExpansionValue) do 
             for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
                     for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
@@ -28,6 +30,11 @@ JDT.buildDataToExport = function()
                             if v.enabled == true then
                                 local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]
                                 local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
+
+                                --set general options
+                                SpellTable.subRegions[2].text_visible = JDT.db.profile.ShowTimer -- enable/disable %p
+
+
 
                                 --- create triggers 
                                 local TriggerTable =  CopyTable(JDT.Templates.Triggers.ActivationTemplate) 
@@ -68,7 +75,7 @@ JDT.buildDataToExport = function()
                             
                                 end
 
-                                if AuraTemplate.doSound then -- set Sound
+                                if AuraTemplate.doSound and JDT.db.profile.PlaySound then -- set Sound
                                     SpellTable.actions.start.sound = AuraTemplate.doSound
                                     SpellTable.actions.start.do_sound = true
                                 end
@@ -87,7 +94,7 @@ JDT.buildDataToExport = function()
                                         v.useGlowColor = true
                                     end
                                     if v.showGlow then
-                                        v.glow = true
+                                        GlowTemplate.glow = true
                                     end
                                     tinsert(SpellTable.subRegions,GlowTemplate)
                                 end
@@ -133,6 +140,9 @@ JDT.buildDataToExport = function()
                                     end
                                 end
                                 
+                                if v.loadInBossfight ~= nil then
+                                    SpellTable.load.use_encounter = v.loadInBossfight
+                                end
                                 
                                 if v.showStacks then -- add Text for Stacks display if needed
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
@@ -201,7 +211,7 @@ JDT.buildDataToExport = function()
                                 
                             end
                         end
-                    end
+                
                 end
             end
     end
@@ -248,7 +258,7 @@ end
 
 JDT.generateTriggerfromGroupType.TSU= function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
-    local Trigger = JDT.Templates.CustomTriggers[AuraTemplate.customPreset](triggerData.spellIdList,triggerData.extraUnit)
+    local Trigger = JDT.Templates.CustomTriggers[AuraTemplate.customPreset](triggerData)
     AuraTrigger.trigger.custom = Trigger.customTrigger
     AuraTrigger.trigger.events = Trigger.customEvents
     if Trigger.customVariables then
@@ -281,6 +291,16 @@ JDT.generateTriggerfromGroupType.CombatLog = function(triggerData,AuraTemplate)
     AuraTrigger.trigger.duration = triggerData.duration
     if AuraTemplate.subeventSuffix then
         AuraTrigger.trigger.subeventSuffix = AuraTemplate.subeventSuffix
+    end
+    return AuraTrigger
+end
+
+JDT.generateTriggerfromGroupType.MonsterYell = function(triggerData,AuraTemplate)
+    local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    AuraTrigger.trigger.duration = triggerData.duration
+    if triggerData.destName then
+        AuraTrigger.trigger.destName = triggerData.destName
+        AuraTrigger.trigger.use_destName = true
     end
     return AuraTrigger
 end

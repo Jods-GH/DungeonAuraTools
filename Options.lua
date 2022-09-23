@@ -18,6 +18,26 @@ JDT.options = {
             type = "description",
             image = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga",
           },
+          PlaySound = {
+            name = JDT.getLocalisation("PlaySound"),
+            desc = JDT.getLocalisation("PlaySoundDescription"),
+            type = "toggle",
+            set = function(info,val)  JDT.db.profile.PlaySound = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.PlaySound  --Sets value of toggles depending on SavedVariables 
+            end
+
+          },
+          ShowTimer = {
+            name = JDT.getLocalisation("ShowTimer"),
+            desc = JDT.getLocalisation("ShowTimerDescription"),
+            type = "toggle",
+            set = function(info,val)  JDT.db.profile.ShowTimer = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.ShowTimer  --Sets value of toggles depending on SavedVariables 
+            end
+
+          },
           
           -- more options go here
         }
@@ -75,16 +95,16 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
               image = iconImage,
               set = function(info,val)  
                 for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
-                for k,v in pairs(JDT.db.profile[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
-                  JDT.db.profile[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val 
+                for k,v in pairs(JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
+                  JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val 
                 end 
               end
                 end, --Sets value of SavedVariables depending on toggles
               get = function(info)
                 local isactive = false
                 for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
-                for k,v in pairs(JDT.db.profile[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
-                  if JDT.db.profile[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled  == true then
+                for k,v in pairs(JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
+                  if JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled  == true then
                     isactive = true
                   end
                 end 
@@ -125,9 +145,9 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
                 desc = desc,
                 type = "toggle",
                 image = Spellicon,
-                set = function(info,val)  JDT.db.profile[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val end, --Sets value of SavedVariables depending on toggles
+                set = function(info,val)  JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled --Sets value of toggles depending on SavedVariables 
                 end
 
           }
