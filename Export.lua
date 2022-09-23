@@ -32,7 +32,7 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
                                 local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
 
                                 --set general options
-                                SpellTable.subRegions[2].text_visible = JDT.db.profile.ShowTimer
+                                SpellTable.subRegions[2].text_visible = JDT.db.profile.ShowTimer -- enable/disable %p
 
 
 
