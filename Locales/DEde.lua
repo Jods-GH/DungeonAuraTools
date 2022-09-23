@@ -8,8 +8,7 @@ LocalisationData["Enable"] = "Aktivieren"
 LocalisationData["EnableDescription"] = "Aktiviert / Deaktiviert das Addon"
 LocalisationData["GeneralOptions"] = "Allgemeine Optionen"
 LocalisationData["SpellOptions"] = "Zauber Configuration"
-LocalisationData["Debuffs"] = "Debuffs"
-LocalisationData["Aoe"] = "Aoe"
+
 
 -- LocalisationData[""] =
 
