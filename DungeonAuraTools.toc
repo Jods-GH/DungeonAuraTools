@@ -37,8 +37,12 @@ SpellDataValues/GroupTypes.lua
 
 #SpellData
 SpellData/Shadowlands/Tazavesh.lua
+
 SpellData/BattleForAzeroth/OperationMechagon.lua
+
 SpellData/Legion/ReturnToKarazhan.lua
+SpellData/Legion/CourtOfStars.lua
+
 SpellData/WarlordsOfDraenor/GrimrailDepot.lua
 SpellData/WarlordsOfDraenor/Irondocks.lua
 

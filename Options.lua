@@ -79,8 +79,8 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
         EncounterName, Encounterdescription, journalEncounterID, rootSectionID, link, journalInstanceID, dungeonEncounterID, instanceID = EJ_GetEncounterInfoByIndex(OrderNumber)
         id, name, description, displayInfo, iconImage, uiModelSceneID = EJ_GetCreatureInfo(1,journalEncounterID)
         else
-          EncounterName =  DungeonKey.." Trash"
-          Encounterdescription = DungeonKey.." Trash"
+          EncounterName =  "Trash"
+          Encounterdescription = "Trash"
         end
         JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey] = {
           name = EncounterName,
