@@ -1,5 +1,5 @@
 ## Interface: 90207
-## Version: 1.0.1
+## Version: 1.0.2
 ## Title: DungeonAuraTools
 ## Notes: Compact Addon to Manage all my Stuff for Dungeons
 ## Author: Jods
