@@ -153,7 +153,7 @@ bosses.boss2 = { -- Nitrogg Thundertower
             BlackrockWeapons = {
                 enabled = true,
                 spellId = 160702,
-                showStacks = true,
+                showStacks = 1,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
