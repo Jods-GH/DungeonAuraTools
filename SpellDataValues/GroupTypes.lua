@@ -3229,7 +3229,7 @@ JDT.Templates.GroupTypes.InteruptableAoeCast = {
     },
     text = {
         {   
-            value = JDT.getLocalisation("Aoe"),
+            value = JDT.getLocalisation("AoE"),
             isactive = true,
         }, 
     },
