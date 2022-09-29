@@ -2,14 +2,15 @@ local _, JDT = ...
 
 JDT.SpellList = JDT.SpellList or {}
 JDT.SpellList.WarlordOfDraenor = JDT.SpellList.WarlordOfDraenor or {}
+JDT.SpellList.WarlordOfDraenor.Dungeons = JDT.SpellList.WarlordOfDraenor.Dungeons or {}
 
-JDT.SpellList.WarlordOfDraenor.Irondocks = {
+JDT.SpellList.WarlordOfDraenor.Dungeons.Irondocks = {
     groupName = "[IRONDOCKS",
     zoneId = "595", 
     EncounterJournalID = 558, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }
-local bosses = JDT.SpellList.WarlordOfDraenor.Irondocks.Bosses
+local bosses = JDT.SpellList.WarlordOfDraenor.Dungeons.Irondocks.Bosses
 
 bosses.boss1 = { --	Fleshrender Nok'gar
     EncounterId = "1749", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID

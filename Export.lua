@@ -19,11 +19,13 @@ end
 
 JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     local ExportTable = CopyTable(JDT.DataToExport)
-    ExportTable.d = JDT.Templates.DynamicGroup
-    ExportTable.d.id = "DungeonAuras_"..ExpansionKey-- AuraName
-    ExportTable.d.uid = "DungeonAuras_"..ExpansionKey.."UID" --AuraUniqueId
+    ExportTable.d = CopyTable(JDT.Templates.DynamicGroup)
+    ExpansionValue.id = "DungeonAuras_"..ExpansionKey-- AuraName
+    ExpansionValue.uid  = "DungeonAuras_"..ExpansionKey.."UID" --AuraUniqueId
+    ExportTable.d.id = ExpansionValue.id
+    ExportTable.d.uid = ExpansionValue.uid 
     
-        for DungeonKey,DungeonValue in pairs(ExpansionValue) do 
+        for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
             for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
                     for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
                         for k,v in pairs(TypeValue) do 
@@ -202,8 +204,8 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
                                     SpellTable.uid = v.uID
                                 else
                                 local uId = WeakAuras.GenerateUniqueID()
-                                SpellTable.uid = uId
                                 v.uID = uId
+                                SpellTable.uid = v.uID
                                 end
                                 SpellTable.parent = ExportTable.d.id
                                 table.insert(ExportTable.d.controlledChildren,SpellTable.id)

@@ -2,14 +2,16 @@ local _, JDT = ...
 
 JDT.SpellList = JDT.SpellList or {}
 JDT.SpellList.Legion = JDT.SpellList.Legion or {}
+JDT.SpellList.Legion.Dungeons = JDT.SpellList.Legion.Dungeons or {}
 
-JDT.SpellList.Legion.ReturnToKarazhan = {
+
+JDT.SpellList.Legion.Dungeons.ReturnToKarazhan = {
     groupName = "[KARAZHAN ",
     zoneId = "g260", 
     EncounterJournalID = 860,
     Bosses = {}
 }
-local bosses = JDT.SpellList.Legion.ReturnToKarazhan.Bosses
+local bosses = JDT.SpellList.Legion.Dungeons.ReturnToKarazhan.Bosses
 
 bosses.boss1 = {  -- Opera Hall Wikket
     EncounterId = "1957", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID

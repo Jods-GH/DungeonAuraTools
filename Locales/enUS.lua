@@ -17,6 +17,10 @@ LocalisationData["PlaySound"] = "Play Sound"
 LocalisationData["PlaySoundDescription"] = "Toggles whether WeakAuras should play sounds"
 LocalisationData["ShowTimer"] = "Show Timer"
 LocalisationData["ShowTimerDescription"] = "Toggles whether WeakAuras should display Timers (incase you don't use omnicc/Elvui Cooldown text)"
+LocalisationData["xOffset"] = "xOffset"
+LocalisationData["xOffsetDescriptio"] = "Sets the vertical of the Weakaura groups according to screen size"
+LocalisationData["yOffset"] = "yOffset"
+LocalisationData["yOffsetDescriptio"] = "Sets the horizontal of the Weakaura groups according to screen size"
 
 -- Aura Types
 LocalisationData["SpinToWin"] = "Spin AoEs"

@@ -6,8 +6,8 @@
 				-- "JDT Icon Template", -- [1]   -- Children Aura Names
 			},
 			borderBackdrop = "Blizzard Tooltip",
-			xOffset = 0,
-			yOffset = 0,
+			xOffset = 300,
+			yOffset = -41,
 			anchorPoint = "CENTER",
 			borderColor = {
 				0, -- [1]
@@ -58,7 +58,7 @@
 				1, -- [3]
 				0.5, -- [4]
 			},
-			useLimit = false,
+			useLimit = true,
 			animate = false,
 			arcLength = 360,
 			scale = 1,
@@ -90,7 +90,7 @@
 			rotation = 0,
 			fullCircle = true,
 			constantFactor = "RADIUS",
-			limit = 5,
+			limit = 7,
 			borderOffset = 4,
 			gridType = "RD",
 			borderInset = 1,

@@ -38,6 +38,32 @@ JDT.options = {
             end
 
           },
+          xOffset= {
+            name = JDT.getLocalisation("xOffset"),
+            desc = JDT.getLocalisation("xOffsetDescription"),
+            type = "range",
+            softMin = math.floor(-GetScreenWidth()/2),
+            softMax = math.ceil(GetScreenWidth()/2),
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.xOffset = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.xOffset  --Sets value of toggles depending on SavedVariables 
+            end
+
+          },
+          yOffset= {
+            name = JDT.getLocalisation("yOffset"),
+            desc = JDT.getLocalisation("yOffsetDescription"),
+            type = "range",
+            softMin = math.floor(-GetScreenHeight()/2),
+            softMax = math.ceil(GetScreenHeight()/2),
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.yOffset = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.yOffset  --Sets value of toggles depending on SavedVariables 
+            end
+
+          },
           
           -- more options go here
         }
@@ -60,7 +86,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
       -- more options go here
       }
   }
-    for DungeonKey,DungeonValue in pairs(ExpansionValue) do 
+    for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
       EJ_SelectInstance(DungeonValue.EncounterJournalID)
       local Instancename, Instancedescription,_,_,_,_, _,_,_= EJ_GetInstanceInfo()
       JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey] = {
@@ -95,16 +121,16 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
               image = iconImage,
               set = function(info,val)  
                 for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
-                for k,v in pairs(JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
-                  JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val 
+                for k,v in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
+                  JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val 
                 end 
               end
                 end, --Sets value of SavedVariables depending on toggles
               get = function(info)
                 local isactive = false
                 for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
-                for k,v in pairs(JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
-                  if JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled  == true then
+                for k,v in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
+                  if JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled  == true then
                     isactive = true
                   end
                 end 
@@ -145,9 +171,9 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
                 desc = desc,
                 type = "toggle",
                 image = Spellicon,
-                set = function(info,val)  JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val end, --Sets value of SavedVariables depending on toggles
+                set = function(info,val)  JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.data[ExpansionKey][DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled --Sets value of toggles depending on SavedVariables 
                 end
 
           }
