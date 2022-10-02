@@ -6,11 +6,15 @@ JDT.exportAuras = function()
 end
 
 JDT.CallbackFunc = function (result)
-    print(result)
     local value 
     JDT.CallbackKey,value = next(JDT.db.profile.data,JDT.CallbackKey)
     if JDT.CallbackKey ~= nil then
-        WeakAuras.Import(JDT.buildDataToExport(JDT.CallbackKey,value),nil,JDT.CallbackFunc) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import  
+        local exportstuff = JDT.buildDataToExport(JDT.CallbackKey,value)
+        if #exportstuff.c ~= 0 then
+            WeakAuras.Import(exportstuff,nil,JDT.CallbackFunc) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import  
+        else
+            JDT.CallbackFunc(false)
+        end
     end
 end
 
@@ -215,7 +219,7 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
                                 end
                                 SpellTable.parent = ExportTable.d.id
                                 table.insert(ExportTable.d.controlledChildren,SpellTable.id)
-                                table.insert(ExportTable.c,1,SpellTable)
+                                table.insert(ExportTable.c,SpellTable)
                                 
                             end
                         end
@@ -246,6 +250,9 @@ JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
     if triggerData.ignoreSelf then
         AuraTrigger.trigger.ignoreSelf = triggerData.ignoreSelf
     end
+    if triggerData.exactSpellId then
+        AuraTrigger.trigger.use_spellId = triggerData.exactSpellId
+    end
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end
@@ -260,6 +267,9 @@ JDT.generateTriggerfromGroupType.Cast = function(triggerData,AuraTemplate)
     if AuraTemplate.target then
         AuraTrigger.trigger.destUnit = AuraTemplate.target
         AuraTrigger.trigger.use_destUnit = true
+    end
+    if triggerData.exactSpellId then
+        AuraTrigger.trigger.use_exact_spellId = triggerData.exactSpellId
     end
     return AuraTrigger
 end
