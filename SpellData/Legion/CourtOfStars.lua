@@ -17,7 +17,20 @@ bosses.boss1 = {
     EncounterId = "1868", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 01 ",
     Auras = {
-        
+        [JDT.GroupTypes.ShockWave] = {
+            ResonantSlash = {
+                enabled = true,
+                spellId = 207261,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "207261",
+                    }
+
+                }
+            },
+
+        },
 
     }
 }
@@ -25,7 +38,20 @@ bosses.boss2 = {
     EncounterId = "1869", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 02 ",
     Auras = {
-        
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            BurningIntenisity = {
+                enabled = true,
+                spellId = 207906, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "207906",
+
+                    },
+
+                }
+            }
+        },
 
     }
 }
@@ -33,7 +59,47 @@ bosses.boss3 = {
     EncounterId = "1870", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = {
-        
+        [JDT.GroupTypes.ShockWave] = {
+            PiercingGale = {
+                enabled = true,
+                spellId = 209628,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "209628",
+                    }
+
+                }
+            },
+
+        },    
+        [JDT.GroupTypes.VoidCast] = {
+            SlicingMaelstrom = {
+                enabled = true,
+                spellId = 209676,
+                triggerData = {
+                  [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "209676",
+                    },
+
+                }
+            },
+        },    
+        [JDT.GroupTypes.Charge] ={
+            BladeSurge= {
+                enabled = true,
+                spellId = 209602, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "209602",
+
+                    },
+
+                }
+            },
+        },
 
     }
 }
