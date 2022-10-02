@@ -146,6 +146,9 @@ JDT.GroupTypes.CastIntoStopAtackingShield = "CastIntoStopAtackingShield"
 JDT.GroupTypes.SpellCastStartIntoPlayerGroupDebuffSpread = "SpellCastStartIntoPlayerGroupDebuffSpread"
 JDT.GroupTypes.NoCastVoid = "NoCastVoid"
 JDT.GroupTypes.ShatteringStrike = "ShatteringStrike"
+JDT.GroupTypes.AddSummonWithBuffStacks = "AddSummonWithBuffStacks"
+JDT.GroupTypes.CastIntoJumpWithDebuff = "CastIntoJumpWithDebuff"
+JDT.GroupTypes.BuffOrDeathCast = "BuffOrDeathCast"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -4541,4 +4544,95 @@ JDT.Templates.GroupTypes.ShatteringStrike= {
         }
     }
 ), 
+}
+
+
+JDT.Templates.GroupTypes.AddSummonWithBuffStacks = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Summoning"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.adds,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    showStacks = 2,
+    additionalStackText = "/5",
+}
+
+JDT.Templates.GroupTypes.CastIntoJumpWithDebuff =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Jump inc"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("Jump"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    showStacks = 2,
+    doSound = JDT.SoundTypes.move,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 2,
+                   value = false,
+                    },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                },
+            }, 
+    }
+), 
+}
+JDT.Templates.GroupTypes.BuffOrDeathCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Buff/Death"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.highEnergy,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

@@ -149,10 +149,16 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
                                 if v.showStacks then -- add Text for Stacks display if needed
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
                                     StacksText.text_text = "%"..v.showStacks..".s"
+                                    if v.additionalStackText then
+                                        StacksText.text_text =  StacksText.text_text.." "..v.additionalStackText
+                                    end
                                     table.insert(SpellTable.subRegions,StacksText)
                                 elseif AuraTemplate.showStacks then
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
                                     StacksText.text_text = "%"..AuraTemplate.showStacks..".s"
+                                    if AuraTemplate.additionalStackText then
+                                        StacksText.text_text =  StacksText.text_text.." "..AuraTemplate.additionalStackText
+                                    end
                                     table.insert(SpellTable.subRegions,StacksText)
                                 end
                                 if AuraTemplate.type then

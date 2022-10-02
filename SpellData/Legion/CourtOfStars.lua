@@ -31,6 +31,55 @@ bosses.boss1 = {
             },
 
         },
+        [JDT.GroupTypes.CastIntoJumpWithDebuff] = {
+            ArcaneLockdown = {
+                enabled = true,
+                spellId = 207278,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "207278",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "207278",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonWithBuffStacks] = {
+            SignalBeacon = {
+                enabled = true,
+                spellId = 207806,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "207806",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "227147",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.BuffOrDeathCast] = {
+            FlaskOFTheSolemnNight = {
+                enabled = true,
+                spellId = 207815,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "207815",
+                    }
+
+                }
+            },
+
+        },
 
     }
 }

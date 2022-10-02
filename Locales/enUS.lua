@@ -152,6 +152,9 @@ LocalisationData["CastIntoStopAtackingShield"] = "Stop Atacking mechanic"
 LocalisationData["SpellCastStartIntoPlayerGroupDebuffSpread"] = "Spreads after cast"
 LocalisationData["NoCastVoid"] = "Void that requires you not to cast"
 LocalisationData["ShatteringStrike"] = "Ground Slam"
+LocalisationData["BuffOrDeathCast"] = "Cast that either buffs the Unit or kills it"
+LocalisationData["CastIntoJumpWithDebuff"] = "Mechanic that requires the player to jump"
+LocalisationData["AddSummonWithBuffStacks"] = "Add Summon"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -275,7 +278,8 @@ LocalisationData["Stop inc"] = "Stop inc"
 LocalisationData["Stop Atack"] = "Stop Atack"
 LocalisationData["No cast inc"] = "No cast inc"
 LocalisationData["No ability"] = "No ability"
-
+LocalisationData["Jump inc"] = "Jump inc"
+LocalisationData["Buff/Death"] = "Buff/Death"
 
 --[[ 
 LocalisationData[""] = ""
