@@ -531,7 +531,7 @@ bosses.boss5 = { -- Attumen the Huntsman
                 extraName = " debuff",
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "227493",
                     }
 
