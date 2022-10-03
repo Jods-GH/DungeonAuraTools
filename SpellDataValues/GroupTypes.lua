@@ -163,6 +163,7 @@ JDT.GroupTypes.SpinCastIntoBleed = "SpinCastIntoBleed"
 JDT.GroupTypes.CastOnlyTargetDisplay = "CastOnlyTargetDisplay"
 JDT.GroupTypes.FrontalIntoDot = "FrontalIntoDot"
 JDT.GroupTypes.CastIntoAtackspeedSlowMagic = "CastIntoAtackspeedSlowMagic"
+JDT.GroupTypes.CastIntoCastStartDance = "CastIntoCastStartDance"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -664,6 +665,27 @@ JDT.Templates.GroupTypes.CastIntoCastSuccessDance= {
         },
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_SUCCESS",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dance"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.dance,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+JDT.Templates.GroupTypes.CastIntoCastStartDance= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_START",
         },
     },
     text = {

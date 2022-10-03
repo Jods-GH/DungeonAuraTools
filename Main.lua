@@ -9,7 +9,7 @@ JDT.AddonVersion = GetAddOnMetadata(appName, "Version")
 
 function DungeonAuraTools:OnInitialize()
 	-- Called when the addon is loaded
-	self:Print("Access the options via /jdt")
+	self:Print(JDT.getLocalisation("AccessOptionsMessage"))
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("CHAT_MSG_ADDON")
 
@@ -31,6 +31,9 @@ function DungeonAuraTools:OnInitialize()
     AceConfigDialog:AddToBlizOptions(appName, appName)
     self:RegisterChatCommand("jdt", "SlashCommand")
 	self:RegisterChatCommand("Jdt", "SlashCommand")
+    self:RegisterChatCommand("DAT", "SlashCommand")
+    self:RegisterChatCommand("Dat", "SlashCommand")
+    self:RegisterChatCommand("dat", "SlashCommand")
     self:RegisterChatCommand("DungeonAuraTools", "SlashCommand")
   -- generates Data for Options Table
 

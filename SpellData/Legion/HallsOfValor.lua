@@ -45,7 +45,8 @@ bosses.boss1 = { --hymdall
                 }
             },
         },
-        [JDT.GroupTypes.Dance] ={
+        
+        [JDT.GroupTypes.CastIntoCastStartDance] ={
             HornofValor = {
                 enabled = true,
                 spellId = 191284, -- for spellname etc
@@ -53,6 +54,11 @@ bosses.boss1 = { --hymdall
                     [1] = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "191284",
+
+                    },
+                    [2] = {
+                        spellId = "188404",
+                        duration = "4"
 
                     },
 
