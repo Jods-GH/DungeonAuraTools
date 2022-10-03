@@ -250,9 +250,21 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 209027, -- for spellname etc
                 triggerData = {
-                    [1] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "209027",
+
+                    },
+
+                }
+            },
+            Shockwave= {
+                enabled = true,
+                spellId = 207979, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "207979",
 
                     },
 
@@ -444,6 +456,160 @@ bosses.Trash = {
                 }
             },
         },
-        -- weiter bei bewitch
+        [JDT.GroupTypes.InteruptableBewitchCastIntoDebuff] ={
+            Bewitch= {
+                enabled = true,
+                spellId = 211470, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "211470",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "211470",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            Ferocity = {
+                enabled = true,
+                spellId = 211477,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "211477",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] = {
+            Firebolt = {
+                enabled = true,
+                spellId = 211406,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "211406",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            DriftingEmbers = {
+                enabled = true,
+                spellId = 211401,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "211401",
+                    },
+
+                }
+            },
+            ShadowBoltVolley = {
+                enabled = true,
+                spellId = 214692,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "214692",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.LosCastIntoDot ] = {
+            FelDetonation = {
+                enabled = true,
+                spellId = 211464,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "211464",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "211464",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpinCastIntoBleed ] = {
+            WhirlingBlades = {
+                enabled = true,
+                spellId = 209378,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "209378",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "209378",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastOnlyTargetDisplay] = {
+            DesintegrationBeam = {
+                enabled = true,
+                spellId = 207980,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "207980",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.FrontalIntoDot] = {
+            CarrionSwarm = {
+                enabled = true,
+                spellId = 214688,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "214688",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "214688",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoAtackspeedSlowMagic] = {
+            Cripple = {
+                enabled = true,
+                spellId = 214690,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "214690",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "214690",
+                    },
+
+                }
+            },
+        },
+      
+      
+       
+        
+        
     }
 }
