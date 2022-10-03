@@ -164,6 +164,9 @@ JDT.GroupTypes.CastOnlyTargetDisplay = "CastOnlyTargetDisplay"
 JDT.GroupTypes.FrontalIntoDot = "FrontalIntoDot"
 JDT.GroupTypes.CastIntoAtackspeedSlowMagic = "CastIntoAtackspeedSlowMagic"
 JDT.GroupTypes.CastIntoCastStartDance = "CastIntoCastStartDance"
+JDT.GroupTypes.SpellcastSucceededAvoid = "SpellcastSucceededAvoid"
+JDT.GroupTypes.SpellcastSucceededAdds = "SpellcastSucceededAdds"
+JDT.GroupTypes.InteruptableKillAddWithStackingBuff = "InteruptableKillAddWithStackingBuff"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -5314,4 +5317,63 @@ JDT.Templates.GroupTypes.CastOnlyTargetDisplay =  {
             },
     }
 ), 
+}
+
+JDT.Templates.GroupTypes.SpellcastSucceededAvoid =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {   
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitSpellcastSucceeded, 
+        },
+        
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Avoid"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.avoid,
+}
+
+JDT.Templates.GroupTypes.SpellcastSucceededAdds=  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {   
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitSpellcastSucceeded, 
+        },
+        
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Add"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.add,
+}
+
+JDT.Templates.GroupTypes.InteruptableKillAddWithStackingBuff= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("AoE"),
+            isactive = true,
+        }, 
+    },
+    type = JDT.AuraTypes.interrupt,
+    showStacks = 2,
+    doSound = JDT.SoundTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

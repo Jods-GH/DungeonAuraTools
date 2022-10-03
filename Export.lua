@@ -322,3 +322,10 @@ JDT.generateTriggerfromGroupType.MonsterYell = function(triggerData,AuraTemplate
     end
     return AuraTrigger
 end
+
+JDT.generateTriggerfromGroupType.UnitSpellcastSucceeded = function(triggerData,AuraTemplate)
+    local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
+    AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
+    AuraTrigger.trigger.duration = triggerData.duration
+    return AuraTrigger
+end
