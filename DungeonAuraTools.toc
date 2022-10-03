@@ -1,6 +1,7 @@
-## Interface: 90207
-## Version: 1.0.1
-## Title: DungeonAuraTools
+## Interface: 10002
+## Version: 1.1.0
+## Plain Title: DungeonAuraTools
+## Title: |cffe5c75fD|r|cffFF657Fungeon|r|cffe5c75fA|r|cffFF657Fura|r|cffe5c75fT|r|cffFF657Fools|r 
 ## Notes: Compact Addon to Manage all my Stuff for Dungeons
 ## Author: Jods
 ## SavedVariables: DungeonAuraTools
@@ -37,8 +38,14 @@ SpellDataValues/GroupTypes.lua
 
 #SpellData
 SpellData/Shadowlands/Tazavesh.lua
+
 SpellData/BattleForAzeroth/OperationMechagon.lua
+
 SpellData/Legion/ReturnToKarazhan.lua
+SpellData/Legion/HallsOfValor.lua
+SpellData/Legion/CourtOfStars.lua
+
+
 SpellData/WarlordsOfDraenor/GrimrailDepot.lua
 SpellData/WarlordsOfDraenor/Irondocks.lua
 

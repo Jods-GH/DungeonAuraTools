@@ -86,14 +86,11 @@ JDT.Templates.Triggers.Buffs = {
     JDT.Templates.Triggers.Cast = {
         trigger = {
             type = "unit",
-            use_absorbHealMode = true,
-            use_absorbMode = true,
             event = "Cast",
             unit = "nameplate", -- the unit to track the casts one ["SmartGroup","Boss","Player","Nameplate"]
             use_spellId = false,
             spellId = nil,  -- spellid of the buff to track
             use_unit = true,
-            debuffType = "HELPFUL",
         },
         untrigger = {
         },

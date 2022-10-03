@@ -2,14 +2,16 @@ local _, JDT = ...
 
 JDT.SpellList = JDT.SpellList or {}
 JDT.SpellList.WarlordOfDraenor = JDT.SpellList.WarlordOfDraenor or {}
+JDT.SpellList.WarlordOfDraenor.Dungeons = JDT.SpellList.WarlordOfDraenor.Dungeons or {}
 
-JDT.SpellList.WarlordOfDraenor.GrimrailDepot = {
+
+JDT.SpellList.WarlordOfDraenor.Dungeons.GrimrailDepot = {
     groupName = "[GRIMRAIL",
     zoneId = "g225", 
     EncounterJournalID = 536, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }
-local bosses = JDT.SpellList.WarlordOfDraenor.GrimrailDepot.Bosses
+local bosses = JDT.SpellList.WarlordOfDraenor.Dungeons.GrimrailDepot.Bosses
 
 bosses.boss1 = { -- Rocketspark and Borka
     EncounterId = "1715", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID

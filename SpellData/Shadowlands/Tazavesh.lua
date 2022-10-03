@@ -2,14 +2,16 @@ local _, JDT = ...
 
 JDT.SpellList = JDT.SpellList or {}
 JDT.SpellList.Shadowlands = JDT.SpellList.Shadowlands or {}
+JDT.SpellList.Shadowlands.Dungeons = JDT.SpellList.Shadowlands.Dungeons or {}
 
-JDT.SpellList.Shadowlands.Tazavesh = {
+
+JDT.SpellList.Shadowlands.Dungeons.Tazavesh = {
     groupName = "[TAZAVESH",
     zoneId = "g423", 
     EncounterJournalID = 1194,
     Bosses = {}
 }
-local bosses = JDT.SpellList.Shadowlands.Tazavesh.Bosses
+local bosses = JDT.SpellList.Shadowlands.Dungeons.Tazavesh.Bosses
 
 bosses.boss1 = { 
     EncounterId = "2425",

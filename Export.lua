@@ -6,11 +6,15 @@ JDT.exportAuras = function()
 end
 
 JDT.CallbackFunc = function (result)
-    print(result)
     local value 
     JDT.CallbackKey,value = next(JDT.db.profile.data,JDT.CallbackKey)
     if JDT.CallbackKey ~= nil then
-        WeakAuras.Import(JDT.buildDataToExport(JDT.CallbackKey,value),nil,JDT.CallbackFunc) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import  
+        local exportstuff = JDT.buildDataToExport(JDT.CallbackKey,value)
+        if #exportstuff.c ~= 0 then
+            WeakAuras.Import(exportstuff,nil,JDT.CallbackFunc) --https://github.com/WeakAuras/WeakAuras2/wiki/API-Documentation#import  
+        else
+            JDT.CallbackFunc(false)
+        end
     end
 end
 
@@ -19,11 +23,13 @@ end
 
 JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     local ExportTable = CopyTable(JDT.DataToExport)
-    ExportTable.d = JDT.Templates.DynamicGroup
-    ExportTable.d.id = "DungeonAuras_"..ExpansionKey-- AuraName
-    ExportTable.d.uid = "DungeonAuras_"..ExpansionKey.."UID" --AuraUniqueId
+    ExportTable.d = CopyTable(JDT.Templates.DynamicGroup)
+    ExpansionValue.id = "DungeonAuras_"..ExpansionKey-- AuraName
+    ExpansionValue.uid  = "DungeonAuras_"..ExpansionKey.."UID" --AuraUniqueId
+    ExportTable.d.id = ExpansionValue.id
+    ExportTable.d.uid = ExpansionValue.uid 
     
-        for DungeonKey,DungeonValue in pairs(ExpansionValue) do 
+        for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
             for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
                     for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
                         for k,v in pairs(TypeValue) do 
@@ -147,10 +153,16 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
                                 if v.showStacks then -- add Text for Stacks display if needed
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
                                     StacksText.text_text = "%"..v.showStacks..".s"
+                                    if v.additionalStackText then
+                                        StacksText.text_text =  StacksText.text_text.." "..v.additionalStackText
+                                    end
                                     table.insert(SpellTable.subRegions,StacksText)
                                 elseif AuraTemplate.showStacks then
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
                                     StacksText.text_text = "%"..AuraTemplate.showStacks..".s"
+                                    if AuraTemplate.additionalStackText then
+                                        StacksText.text_text =  StacksText.text_text.." "..AuraTemplate.additionalStackText
+                                    end
                                     table.insert(SpellTable.subRegions,StacksText)
                                 end
                                 if AuraTemplate.type then
@@ -202,12 +214,12 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
                                     SpellTable.uid = v.uID
                                 else
                                 local uId = WeakAuras.GenerateUniqueID()
-                                SpellTable.uid = uId
                                 v.uID = uId
+                                SpellTable.uid = v.uID
                                 end
                                 SpellTable.parent = ExportTable.d.id
                                 table.insert(ExportTable.d.controlledChildren,SpellTable.id)
-                                table.insert(ExportTable.c,1,SpellTable)
+                                table.insert(ExportTable.c,SpellTable)
                                 
                             end
                         end
@@ -238,6 +250,9 @@ JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
     if triggerData.ignoreSelf then
         AuraTrigger.trigger.ignoreSelf = triggerData.ignoreSelf
     end
+    if triggerData.exactSpellId then
+        AuraTrigger.trigger.use_spellId = triggerData.exactSpellId
+    end
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end
@@ -252,6 +267,9 @@ JDT.generateTriggerfromGroupType.Cast = function(triggerData,AuraTemplate)
     if AuraTemplate.target then
         AuraTrigger.trigger.destUnit = AuraTemplate.target
         AuraTrigger.trigger.use_destUnit = true
+    end
+    if triggerData.exactSpellId then
+        AuraTrigger.trigger.use_exact_spellId = triggerData.exactSpellId
     end
     return AuraTrigger
 end
