@@ -236,3 +236,9 @@ bosses.boss5 = { -- odyn
        
     }
 }
+bosses.Trash = {
+    additionalName = "TRASH] ",
+    Auras = { 
+
+    }
+}
