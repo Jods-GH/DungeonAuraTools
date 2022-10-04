@@ -16,7 +16,8 @@ JDT.Templates.Triggers.TriggerTypes = {
     unitResource = "UnitResource",
     unitHealth = "UnitHealth",
     combatlog = "CombatLog", 
-    monsterYell = "MonsterYell"
+    monsterYell = "MonsterYell",
+    unitSpellcastSucceeded = "UnitSpellcastSucceeded"
 }
 setmetatable(JDT.Templates.Triggers.TriggerTypes, {
     __index = function(_, key)
@@ -182,4 +183,18 @@ JDT.Templates.Triggers.Buffs = {
         },
     untrigger = {
     },
+}
+JDT.Templates.Triggers.UnitSpellcastSucceeded = {
+    trigger = {
+        type = "event",
+        duration = "30",
+        event = "Spell Cast Succeeded",
+        use_specific_unit = true,
+        use_unit = true,
+        unit = "boss1",
+        spellId = "12345",
+		use_spellId = true,
+    },
+    untrigger = {
+    }, 
 }
