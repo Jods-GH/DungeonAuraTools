@@ -174,6 +174,9 @@ LocalisationData["CastIntoCastStartDance"] = "Dance Mechanic"
 LocalisationData["SpellcastSucceededAvoid"] = "Avoid Mechanic"
 LocalisationData["InteruptableKillAddWithStackingBuff"] = "Dmg stacking add cast (Interuptable)"
 LocalisationData["SpellcastSucceededAdds"] = "Add spawn"
+LocalisationData["PhaseChangeCast"] = "Phase Change"
+LocalisationData["CastIntoChase"] = "Chase mechanic"
+LocalisationData["TargetedCastIntoHealingReducedDebuff"] = "Reduced healing debuff"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -310,8 +313,9 @@ LocalisationData["AoE inc"] = "AoE inc"
 LocalisationData["Bewitched"] = "Bewitched"
 LocalisationData["Bewitch"] = "Bewitch"
 LocalisationData["-AS"] = "-AS"
-
-
+LocalisationData["Phase"] = "Phase"
+LocalisationData["InteruptableBigDotCast"] = "Big dot Cast (interuptable)"
+LocalisationData["Big Dot"] = "Big Dot"
 --[[ 
 LocalisationData[""] = ""
 LocalisationData[""] = ""
