@@ -7,7 +7,7 @@ JDT.SpellList.Dragonflight.Dungeons = JDT.SpellList.Dragonflight.Dungeons or {}
 
 JDT.SpellList.Dragonflight.Dungeons.AlgetharAcademy = {
     groupName = "[AA",
-    --zoneId = "g423", 
+    zoneId = "g433", 
     EncounterJournalID = 1201, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }

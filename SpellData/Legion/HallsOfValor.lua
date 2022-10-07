@@ -7,7 +7,7 @@ JDT.SpellList.Legion.Dungeons = JDT.SpellList.Legion.Dungeons or {}
 
 JDT.SpellList.Legion.Dungeons.HallsOfValor = {
     groupName = "[HOV",
-    --zoneId = "g252", 
+    zoneId = "1041", 
     EncounterJournalID = 721, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }

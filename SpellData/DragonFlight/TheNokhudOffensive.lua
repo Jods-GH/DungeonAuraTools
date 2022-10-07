@@ -7,7 +7,7 @@ JDT.SpellList.Dragonflight.Dungeons = JDT.SpellList.Dragonflight.Dungeons or {}
 
 JDT.SpellList.Dragonflight.Dungeons.TheNokhudOffensive = {
     groupName = "[TNO",
-    --zoneId = "g423", 
+    zoneId = "2093", 
     EncounterJournalID = 1198, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }
