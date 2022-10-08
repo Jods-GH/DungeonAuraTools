@@ -6,7 +6,7 @@ JDT.SpellList.Dragonflight.Dungeons = JDT.SpellList.Dragonflight.Dungeons or {}
 
 JDT.SpellList.Dragonflight.Dungeons.RubyLifePools = {
     groupName = "[RLP",
-    --zoneId = "g423", 
+    zoneId = "g430", 
     EncounterJournalID = 1202, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }
