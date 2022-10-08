@@ -170,6 +170,7 @@ JDT.GroupTypes.TargetedCastIntoHealingReducedDebuff = "TargetedCastIntoHealingRe
 JDT.GroupTypes.PhaseChangeCast  = "PhaseChangeCast"
 JDT.GroupTypes.CastIntoChase = "CastIntoChase"
 JDT.GroupTypes.InteruptableBigDotCast = "InteruptableBigDotCast"
+JDT.GroupTypes.RunOutUnitSpellcastSucceeded = "RunOutUnitSpellcastSucceeded"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -329,11 +330,11 @@ JDT.Templates.GroupTypes.ShieldInc =  {
 JDT.Templates.GroupTypes.PlayerGroupDebuffSpread =  {
     AuraType = "AuraIcon",
     triggers = {
-        [1] = {
+        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
             BuffTypes = "debuff",
         },
-        [2] ={
+        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
             BuffTypes = "debuff",
         },
@@ -343,9 +344,34 @@ JDT.Templates.GroupTypes.PlayerGroupDebuffSpread =  {
             value = JDT.getLocalisation("Spread"),
             isactive = true,
         }, 
+        {   
+            value = JDT.getLocalisation("on").." %3.unit",
+            isactive = false,
+        }, 
     },
     doSound = JDT.SoundTypes.spread,
-    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = true
+                },
+            },
+        },
+    }
+), 
 }
 
 JDT.Templates.GroupTypes.EnergyTrackSoonCast=  {
@@ -602,6 +628,23 @@ JDT.Templates.GroupTypes.RunOut = {
     triggers = {
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Run Out"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+
+JDT.Templates.GroupTypes.RunOutUnitSpellcastSucceeded = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {   
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitSpellcastSucceeded, 
         },
     },
     text = {

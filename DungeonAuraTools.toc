@@ -49,6 +49,8 @@ SpellData/Legion/CourtOfStars.lua
 SpellData/WarlordsOfDraenor/GrimrailDepot.lua
 SpellData/WarlordsOfDraenor/Irondocks.lua
 
+SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
+
 # Core
 ExportData.lua
 Export.lua
