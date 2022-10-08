@@ -40,6 +40,22 @@ function DungeonAuraTools:OnInitialize()
     function JDT.CreateOptionsFrame () 
         AceConfigDialog:Open(appName)
     end
+
+    function JDT.CheckIfAuraUpdates ()
+        for ExpansionKey, ExpansionValue in pairs(JDT.db.profile.data) do
+            for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
+                for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
+                        for TypeKey,TypeValue in pairs(BossNameValue.Auras) do
+                            for k,v in pairs(TypeValue) do 
+                                if v.enabled == true and not v.uID then
+                                    self:Print(JDT.getLocalisation("NewAurasAddedMessage"))
+                                end
+                        end
+                    end
+                end
+            end
+        end
+    end
 end
 
 function DungeonAuraTools:OnEnable()
@@ -61,12 +77,17 @@ local function sendVersion ()
 			end
 end
 function DungeonAuraTools:SlashCommand(msg) -- called when slash command is used
+    if msg == "export" then
+        JDT.exportAuras()
+    else
     JDT.CreateOptionsFrame() 
+    end
 end
 
 function DungeonAuraTools:PLAYER_ENTERING_WORLD(event, isLogin, isReload)
     if isLogin == true or isReload == true then
     JDT.createOptionsData() 
+    JDT.CheckIfAuraUpdates()
     end
     C_ChatInfo.RegisterAddonMessagePrefix(VersionCheckPrefix)
     local name,realm = UnitFullName("player")
@@ -78,5 +99,5 @@ function DungeonAuraTools:CHAT_MSG_ADDON(event, prefix, version , channel, sende
         if version and version > JDT.AddonVersion then
             self:Print(JDT.getLocalisation("VersionCheckMessage"))
         end
-end 
+    end 
 end

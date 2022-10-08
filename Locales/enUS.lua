@@ -22,6 +22,7 @@ LocalisationData["xOffset"] = "xOffset"
 LocalisationData["xOffsetDescription"] = "Sets the vertical of the Weakaura groups according to screen size"
 LocalisationData["yOffset"] = "yOffset"
 LocalisationData["yOffsetDescription"] = "Sets the horizontal of the Weakaura groups according to screen size"
+LocalisationData["NewAurasAddedMessage"] = "Enabled Auras that havn't been Exported detected. Please export them via /Dat export"
 
 -- Aura Types
 LocalisationData["SpinToWin"] = "Spin AoEs"
