@@ -28,6 +28,8 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     ExpansionValue.uid  = "DungeonAuras_"..ExpansionKey.."UID" --AuraUniqueId
     ExportTable.d.id = ExpansionValue.id
     ExportTable.d.uid = ExpansionValue.uid 
+    ExportTable.d.xOffset  = JDT.db.profile.xOffset
+    ExportTable.d.yOffset = JDT.db.profile.yOffset
     
         for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
             for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
