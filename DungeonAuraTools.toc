@@ -1,5 +1,5 @@
 ## Interface: 100002
-## Version: 1.1.1
+## Version: 1.1.2
 ## Plain Title: DungeonAuraTools
 ## Title: |cffe5c75fD|r|cffFF657Fungeon|r|cffe5c75fA|r|cffFF657Fura|r|cffe5c75fT|r|cffFF657Fools|r 
 ## Notes: Compact Addon to Manage all my Stuff for Dungeons
@@ -32,6 +32,11 @@ Templates/Conditions.lua
 
 
 #SpellDataValues
+#SpellData/DragonFlight/AlgetharAcademy.lua
+#SpellData/DragonFlight/RubyLifePools.lua
+#SpellData/DragonFlight/TheAzureVault.lua
+#SpellData/DragonFlight/TheNokhudOffensive.lua
+
 SpellDataValues/AuraTypes.lua
 SpellDataValues/SoundTypes.lua
 SpellDataValues/GroupTypes.lua
