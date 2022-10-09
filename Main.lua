@@ -55,6 +55,15 @@ function DungeonAuraTools:OnInitialize()
                 end
             end
         end
+        -- don't use before read only or spaten will haunt my dreams WeakAuras.GetData("DungeonAuras_MistOfPandaria")
+        --[[
+        for ExpansionKey, ExpansionValue in pairs(JDT.db.profile.data) do
+                    for DungeonKey,DungeonValue in pairs(WeakAuras.GetData("DungeonAuras_"..ExpansionKey)) do 
+                        
+                    end
+        end
+
+        ]]
     end
 end
 
