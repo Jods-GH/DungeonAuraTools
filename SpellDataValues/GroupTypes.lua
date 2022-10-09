@@ -171,6 +171,10 @@ JDT.GroupTypes.PhaseChangeCast  = "PhaseChangeCast"
 JDT.GroupTypes.CastIntoChase = "CastIntoChase"
 JDT.GroupTypes.InteruptableBigDotCast = "InteruptableBigDotCast"
 JDT.GroupTypes.RunOutUnitSpellcastSucceeded = "RunOutUnitSpellcastSucceeded"
+JDT.GroupTypes.SlowDebuffHighStacksWarning = "SlowDebuffHighStacksWarning"
+JDT.GroupTypes.StunDot = "StunDot"
+JDT.GroupTypes.CastIntoBreakShield = "CastIntoBreakShield"
+JDT.GroupTypes.WindCastIntoCastSuccess = "WindCastIntoCastSuccess"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -214,6 +218,22 @@ JDT.Templates.GroupTypes.SlowDot = {
         }, 
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.StunDot = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Stun inc"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 JDT.Templates.GroupTypes.SpreadDebuff = {
     AuraType = "AuraIcon",
@@ -1096,6 +1116,54 @@ JDT.Templates.GroupTypes.BreakShieldIntoInterrupt = {
     }
 ), 
 }
+JDT.Templates.GroupTypes.CastIntoBreakShield = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Break shield"),
+            isactive =  true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Shield inc"),
+            isactive = false,
+        }, 
+
+    },
+    useTooltip = 1,
+    doSound = JDT.SoundTypes.breakshield,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+                {
+                    {
+                       condition={
+                          type = "simplecheck",
+                          trigger= 1,
+                          value = true,
+                           },
+                           changes = {
+                            {
+                                property = "sub.3.text_visible",
+                                value = false,
+                            },
+                            {
+                                property = "sub.4.text_visible",
+                                value = true,
+                            },
+                           },
+                   },
+               }
+), 
+ 
+}
 
 JDT.Templates.GroupTypes.DanceOrSoakIfDebuff = {
     AuraType = "AuraIcon",
@@ -1537,6 +1605,61 @@ JDT.Templates.GroupTypes.SlowDebuff = {
         }, 
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.SlowDebuffHighStacksWarning = {
+    AuraType = "AuraIcon",
+    type = "snare",
+    showStacks = 1,
+    glowtype = "Ants",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Slowed"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "NumberCheck",
+                   trigger= 1,
+                   op = ">=",
+                   variable = "stacks",
+                   value = "5",
+                    },
+                    changes = {
+            
+                        {
+                            property= "sub.4.glow_visible",
+                            value = true
+                        },
+                    },
+            },
+            {
+                condition={
+                   type = "NumberCheck",
+                   trigger= 1,
+                   op = ">=",
+                   variable = "stacks",
+                   value = "8",
+                    },
+                    changes = {
+            
+                        {
+                            property = "sub.4.glowType",
+                            value = "buttonOverlay",
+                        },
+                    },
+            },
+    })
 }
 
 JDT.Templates.GroupTypes.InterruptableTargetedCast= {
@@ -5560,4 +5683,49 @@ JDT.Templates.GroupTypes.InteruptableBigDotCast = {
     doSound = JDT.SoundTypes.interrupt,
     type = JDT.AuraTypes.interrupt,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.WindCastIntoCastSuccess = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_SUCCESS",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Wind inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Wind"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.move,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 1,
+                   value = false,
+                    },
+                changes = {
+                    {
+                        property= "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    }, 
+            }
+        }   
+), 
 }
