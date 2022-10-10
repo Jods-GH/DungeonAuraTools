@@ -128,6 +128,12 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
                                     tinsert(SpellTable.subRegions,TextTemplate)
                                 end
 
+                               if AuraTemplate.useProgress then
+                                    local TextTemplate = CopyTable(JDT.Templates.TextRegions.Progress)
+                                    TextTemplate.text_text = "%"..AuraTemplate.useProgress..".p"
+                                    tinsert(SpellTable.subRegions,TextTemplate)
+                               end
+
                                 -- set load conditions
                                 if DungeonValue.zoneId then 
                                     SpellTable.load.use_zoneIds = true

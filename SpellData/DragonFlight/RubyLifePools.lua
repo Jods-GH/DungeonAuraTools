@@ -48,24 +48,9 @@ bosses.boss1 = {
                 enabled = true,
                 spellId = 372851, -- for spellname etc
                 triggerData = {
-                    [1] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "372851",
-
-                    },
-
-                }
-            }
-        },
-        [JDT.GroupTypes.SlowDebuff] ={
-            PrimalChill = {
-                enabled = true,
-                spellId = 372682, -- for spellname etc
-                showStacks = 1,
-                triggerData = {
-                    [1] = {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "372682",
 
                     },
 
@@ -242,18 +227,28 @@ bosses.boss3 = {
             },
 
         },
-        [JDT.GroupTypes.SpreadDebuff] = {
-            Infernocore = {
+        [JDT.GroupTypes.CastIntoPlayerGroupDropVoid] ={
+            Flamespit= {
                 enabled = true,
-                spellId = 381862,
+                spellId = 381605, -- for spellname etc
                 triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "381605",
+
+                    },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "381862",
-                    }
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "381862",
+                    },
 
                 }
-            },
+            }
         },
         [JDT.GroupTypes.Frontal] = {
             RoaringFirebreath= {
@@ -269,19 +264,6 @@ bosses.boss3 = {
             },
 
         }, 
-        [JDT.GroupTypes.VoidCast] = {
-            WindsofChange = {
-                enabled = true,
-                spellId = 381517,
-                triggerData = {
-                  [1] =  {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "381517",
-                    },
-
-                }
-            },
-        },
         [JDT.GroupTypes.InteruptShout] = {
             InterruptingCloudburst = {
                 enabled = true,
@@ -294,6 +276,410 @@ bosses.boss3 = {
                 [2] =  {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.WindCastIntoCastSuccess] = {
+            WindsofChange = {
+                enabled = true,
+                spellId = 381517,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "381517",
+                    },
+                    {
+                        duration = "3",
+                        spellId = "381517",
+                    },
+
+                }
+            },
+        },
+    }
+}
+bosses.Trash = {
+    additionalName = "TRASH] ",
+    Auras = {  
+        [JDT.GroupTypes.Frontal] = {
+            FlameBreath= {
+                enabled = true,
+                spellId = 381525,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "381525",
+                    }
+
+                }
+            },
+            StormBreath= {
+                enabled = true,
+                spellId = 391726,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "391726",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            ExcavatingBlast = {
+                enabled = true,
+                spellId = 391723,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "391723",
+                    },
+
+                }
+            }, 
+            StoneMissile = {
+                enabled = true,
+                spellId = 371956,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "371956",
+                    },
+
+                }
+            }, 
+            Hailbombs = {
+                enabled = true,
+                spellId = 396044,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396044",
+                    },
+
+                }
+            }, 
+            MoltenBlood = {
+                enabled = true,
+                spellId = 392569, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "392569",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] = {
+            BurningTouch = {
+                enabled = true,
+                spellId = 373869,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                   {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "373869",
+                    },
+
+                }
+            },
+            FireMaw = {
+                enabled = true,
+                spellId = 392394,
+                triggerData = {
+                   {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "392394",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.StunDot] = {
+            UnluckyStrike = {
+                enabled = true,
+                spellId = 385313,
+                type = JDT.AuraTypes.curse,
+                triggerData = {
+                   {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "385313",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ShieldInc] ={
+            IceShield = {
+                enabled = true,
+                type = JDT.AuraTypes.interrupt,
+                spellId = 372743, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372743",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.RunOut] ={
+            TectonicSlam = {
+                enabled = true,
+                spellId = 372735, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372735",
+
+                    },
+
+                }
+            },
+            Thunderclap = {
+                enabled = true,
+                spellId = 392406, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "392406",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.DashIntoDebuff] ={
+            BlazingRush = {
+                enabled = true,
+                spellId = 372087, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372087",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "372087",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.SlowDebuffHighStacksWarning] ={
+            PrimalChill = {
+                enabled = true,
+                spellId = 373589, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "373589",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            Flurry = {
+                enabled = true,
+                spellId = 372794, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372794",
+
+                    },
+
+                }
+            },
+            BlazeofGlory = {
+                enabled = true,
+                spellId = 373972, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "373972",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.BuffCast] = {
+            BurningAmbition = {
+                enabled = true,
+                spellId = 385063,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "385063",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread] ={
+            LivingBomb = {
+                enabled = true,
+                spellId = 373693, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "373693",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "373693",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "373693",
+                    },
+
+                }
+            },
+            RollingThunder = {
+                enabled = true,
+                spellId = 392640, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "392640",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "392640",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "392640",
+                    },
+
+                }
+            },
+            Flashfire = {
+                enabled = true,
+                spellId = 392451, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "392451",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "392451",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "392451",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ExplodingCast] = {
+            Burnout = {
+                enabled = true,
+                spellId = 373614,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "373614",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            Inferno = {
+                enabled = true,
+                spellId = 373692, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "373692",
+
+                    },
+
+                }
+            },
+            FlameDance = {
+                enabled = true,
+                spellId = 385536, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "385536",
+
+                    },
+
+                }
+            },
+            LightningStorm = {
+                enabled = true,
+                spellId = 392486, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "392486",
+
+                    },
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            SummonScorchlings = {
+                enabled = true,
+                spellId = 384139,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "384139",
+                    },
+
+                }
+            },
+            SummonPrimalThundercloud = {
+                enabled = true,
+                spellId = 392574,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "392574",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoBreakShield] = {
+            TempestStormshield = {
+                enabled = true,
+                spellId = 391050,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "391050",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "391050",
+                    },
 
                 }
             },
