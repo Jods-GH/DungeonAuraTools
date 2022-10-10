@@ -32,28 +32,35 @@ Templates/Conditions.lua
 
 
 #SpellDataValues
-#SpellData/DragonFlight/AlgetharAcademy.lua
-#SpellData/DragonFlight/RubyLifePools.lua
-#SpellData/DragonFlight/TheAzureVault.lua
-#SpellData/DragonFlight/TheNokhudOffensive.lua
 
 SpellDataValues/AuraTypes.lua
 SpellDataValues/SoundTypes.lua
 SpellDataValues/GroupTypes.lua
 
-#SpellData
+#SpellData DragonFlight
+
+#SpellData/DragonFlight/AlgetharAcademy.lua
+#SpellData/DragonFlight/RubyLifePools.lua
+#SpellData/DragonFlight/TheAzureVault.lua
+#SpellData/DragonFlight/TheNokhudOffensive.lua
+
+#SpellData Shadowlands
 SpellData/Shadowlands/Tazavesh.lua
 
+#SpellData BattleForAzeroth
 SpellData/BattleForAzeroth/OperationMechagon.lua
 
+#SpellData Legion
 SpellData/Legion/ReturnToKarazhan.lua
 SpellData/Legion/HallsOfValor.lua
 SpellData/Legion/CourtOfStars.lua
 
-
+#SpellData WarlordsOfDraenor
+SpellData/WarlordsOfDraenor/ShadowmoonBurialGrounds.lua
 SpellData/WarlordsOfDraenor/GrimrailDepot.lua
 SpellData/WarlordsOfDraenor/Irondocks.lua
 
+#SpellData MistOfPandaria
 SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
 
 # Core
