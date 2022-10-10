@@ -175,6 +175,10 @@ JDT.GroupTypes.SlowDebuffHighStacksWarning = "SlowDebuffHighStacksWarning"
 JDT.GroupTypes.StunDot = "StunDot"
 JDT.GroupTypes.CastIntoBreakShield = "CastIntoBreakShield"
 JDT.GroupTypes.WindCastIntoCastSuccess = "WindCastIntoCastSuccess"
+JDT.GroupTypes.SpellcastSucceededDance = "SpellcastSucceededDance"
+JDT.GroupTypes.SucceeddedintoCastDance = "SucceeddedintoCastDance"
+JDT.GroupTypes.TankBusterCast = "TankBusterCast"
+JDT.GroupTypes.ChannelDmgWithNextTick = "ChannelDmgWithNextTick"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -745,6 +749,50 @@ JDT.Templates.GroupTypes.CastIntoCastSuccessDance= {
     },
     doSound = JDT.SoundTypes.dance,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+JDT.Templates.GroupTypes.SucceeddedintoCastDance= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {   
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitSpellcastSucceeded, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dance inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Dance"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.dance,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 2,
+               value = true,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = true
+                },
+            },
+        },
+    }
+), 
 }
 JDT.Templates.GroupTypes.CastIntoCastStartDance= {
     AuraType = "AuraIcon",
@@ -3789,6 +3837,21 @@ JDT.Templates.GroupTypes.LinesCastIntoCombatLogSuccess = {
     doSound = JDT.SoundTypes.beam,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
+JDT.Templates.GroupTypes.TankBusterCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Tank Buster"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
 JDT.Templates.GroupTypes.TankBusterCastWithDebuffCheck = {
     AuraType = "AuraIcon",
     triggers = {
@@ -5170,6 +5233,30 @@ JDT.Templates.GroupTypes.CastIntoAoeDebuffWithNextTick =  {
     }
 ), 
 }
+JDT.Templates.GroupTypes.ChannelDmgWithNextTick =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+            
+        },
+        {   
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_DAMAGE",
+        },
+        
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("AoE"),
+            isactive = true,
+        }, 
+    },
+    useProgress = 2,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.aoe,
+ 
+}
 JDT.Templates.GroupTypes.CastIntoVoidsWithAdds =  {
     AuraType = "AuraIcon",
     triggers = {
@@ -5608,6 +5695,23 @@ JDT.Templates.GroupTypes.SpellcastSucceededAvoid =  {
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     doSound = JDT.SoundTypes.avoid,
 }
+JDT.Templates.GroupTypes.SpellcastSucceededDance =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {   
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitSpellcastSucceeded, 
+        },
+        
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dance"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.dance,
+}
 
 JDT.Templates.GroupTypes.SpellcastSucceededAdds=  {
     AuraType = "AuraIcon",
@@ -5729,3 +5833,4 @@ JDT.Templates.GroupTypes.WindCastIntoCastSuccess = {
         }   
 ), 
 }
+
