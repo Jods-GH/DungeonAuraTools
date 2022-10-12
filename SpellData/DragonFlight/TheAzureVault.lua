@@ -106,7 +106,7 @@ bosses.boss1 = {
     }
 }
 
-bosses.boss2 = { 
+bosses.boss2 = {  --Azureblade
     EncounterId = "2585", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 02 ",
     Auras = {
@@ -179,10 +179,24 @@ bosses.boss2 = {
             },
 
         }, 
+        [JDT.GroupTypes.KillAddChanneling] = {
+            SealEmpowerment = {
+                enabled = true,
+                spellId = 379256,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "379256",
+                    }
+
+                }
+            },
+
+        },
     }
 }
      
-bosses.boss3 = { 
+bosses.boss3 = {  --telash greywing
     EncounterId = "2583", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = {
@@ -217,7 +231,7 @@ bosses.boss3 = {
             },
         },
         [JDT.GroupTypes.CastWithSafeBuff] = {
-            BelowZero = {
+            AbsoluteZero = {
                 enabled = true,
                 spellId = 388008,
                 triggerData = {
@@ -239,7 +253,7 @@ bosses.boss3 = {
     }
 }
 
-bosses.boss4 = { 
+bosses.boss4 = {  --Umbrelskul
     EncounterId = "2584", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = {
@@ -299,6 +313,204 @@ bosses.boss4 = {
 
                 }
             },
+        },
+    }
+}
+
+
+bosses.Trash = {
+    additionalName = "TRASH] ",
+    Auras = { 
+        [JDT.GroupTypes.RageBuffCast] = {
+            ArcaneFury = {
+                enabled = true,
+                spellId = 389686,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "389686",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            PiercingShards = {
+                enabled = true,
+                spellId = 370764,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "370764",
+                    }
+
+                }
+            },
+            ArcaneBash = {
+                enabled = true,
+                spellId = 387067,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "387067",
+                    }
+
+                }
+            },
+            SpellfrostBreath = {
+                enabled = true,
+                spellId = 391118,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "391118",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.RunOut] ={
+            Crystallize = {
+                enabled = true,
+                spellId = 370766, -- for spellname etc
+                type = JDT.AuraTypes.root,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "370766",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            SplinteringShards = {
+                enabled = true,
+                spellId = 349954, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "371005",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "371005",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "371005",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            ArcaneBolt = {
+                enabled = true,
+                spellId = 371306,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "371306",
+                    }
+
+                }
+            },
+            HeavyTome = {
+                enabled = true,
+                spellId = 389804,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "389804",
+                    }
+
+                }
+            },
+            CondensedFrost = {
+                enabled = true,
+                spellId = 377503,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "377503",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            ForbiddenKnowledge = {
+                enabled = true,
+                spellId = 371358,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "371358",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ShieldInc] ={
+            ConjuredBarrier = {
+                enabled = true,
+                spellId = 387122, -- for spellname etc
+                type = JDT.AuraTypes.purge,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "387122",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Charge] ={
+            ShoulderSlam = {
+                enabled = true,
+                spellId = 391136, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "391136",
+
+                    },
+
+                }
+            },
+            NullStomp = {
+                enabled = true,
+                spellId = 386526, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "386526",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            TearFlesh = {
+                enabled = true,
+                spellId = 386640, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "386640",
+
+                    },
+
+                }
+            }
         },
     }
 }
