@@ -41,7 +41,7 @@ function DungeonAuraTools:OnInitialize()
         AceConfigDialog:Open(appName)
     end
 
-    function JDT.CheckIfAuraUpdates ()
+    function JDT.CheckIfAuraUpdates () --[[
         for ExpansionKey, ExpansionValue in pairs(JDT.db.profile.data) do
             for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
                 for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
@@ -54,7 +54,7 @@ function DungeonAuraTools:OnInitialize()
                     end
                 end
             end
-        end
+        end ]]
         -- don't use before read only or spaten will haunt my dreams WeakAuras.GetData("DungeonAuras_MistOfPandaria")
         --[[
         for ExpansionKey, ExpansionValue in pairs(JDT.db.profile.data) do
