@@ -13,7 +13,7 @@ JDT.SpellList.Dragonflight.Dungeons.AlgetharAcademy = {
 }
 local bosses = JDT.SpellList.Dragonflight.Dungeons.AlgetharAcademy.Bosses
 
-bosses.boss1 = { -- VExamus
+bosses.boss1 = { -- Vexamus
     EncounterId = "2562", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 01 ",
     Auras = {
@@ -178,6 +178,19 @@ bosses.boss2 = { -- Overgrown Ancient
                 }
             },
         },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            HealingTouch = {
+                enabled = true,
+                spellId = 396640,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396640",
+                    },
+
+                }
+            },
+        },
     }
 }
 bosses.boss3 = { -- Crawth
@@ -243,7 +256,7 @@ bosses.boss3 = { -- Crawth
     }
 }
 
-bosses.boss4 = { -- Crawth
+bosses.boss4 = { -- Echo of Doragosa
     EncounterId = "2565", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = {
@@ -275,5 +288,253 @@ bosses.boss4 = { -- Crawth
                 }
             },
         },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            EnergyBomb = {
+                enabled = true,
+                spellId = 374343, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "374343",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "374343",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "374343",
+                    },
+
+                }
+            }
+        },
+    }
+}
+bosses.Trash = {
+    additionalName = "TRASH] ",
+    Auras = {  
+        [JDT.GroupTypes.TargetedCast] = {
+            Surge = {
+                enabled = true,
+                spellId = 388862,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "388862",
+                    }
+
+                }
+            },
+            ViciousLunge = {
+                enabled = true,
+                spellId = 389054,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "389054",
+                    }
+
+                }
+            },
+            StormSlash = {
+                enabled = true,
+                spellId = 377991,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "377991",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpreadCast] = {
+            ManaVoid = {
+                enabled = true,
+                spellId = 388863,
+                triggerData = {
+                  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "388863",
+                    },
+
+                }
+            },
+            ViciousAmbush = {
+                enabled = true,
+                spellId = 388942,
+                triggerData = {
+                  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "388942",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] = {
+            SeveringSlash= {
+                enabled = true,
+                spellId = 388911,
+                type = "bleed",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "388911",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            ArcaneRain = {
+                enabled = true,
+                spellId = 388886, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "388886",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Frontal] = {
+            Riftbreath = {
+                enabled = true,
+                spellId = 388976,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "388976",
+                    }
+
+                }
+            },
+            Gust = {
+                enabled = true,
+                spellId = 377383,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "377383",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableSleepCastIntoDebuff] ={
+            MonotonousLecture= {
+                enabled = true,
+                spellId = 388392, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "388392",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "388392",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            DeadlyWinds = {
+                enabled = true,
+                spellId = 378003,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "378003",
+                    },
+
+                }
+            },
+            DetonationSeeds = {
+                enabled = true,
+                spellId = 390912,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "390912",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            ExpelIntruders = {
+                enabled = true,
+                spellId = 377912, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "377912",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpinToWin] = {
+            AstralWhirlwind = {
+                enabled = true,
+                spellId = 387910,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "387910",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptShout] = {
+            DisruptingPulse = {
+                enabled = true,
+                spellId = 387862,
+                triggerData = {
+                {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "387862",
+                    },
+                {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                   },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBombCastIntoSpread] ={
+            AstralBomb= {
+                enabled = true,
+                spellId = 387843, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "387843",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "387843",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "387843",
+                    },
+
+                }
+            }
+        },
+       
     }
 }

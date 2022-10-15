@@ -181,6 +181,7 @@ JDT.GroupTypes.TankBusterCast = "TankBusterCast"
 JDT.GroupTypes.ChannelDmgWithNextTick = "ChannelDmgWithNextTick"
 JDT.GroupTypes.Trader = "Trader"
 JDT.GroupTypes.Spiteful = "Spiteful"
+JDT.GroupTypes.InteruptableSleepCastIntoDebuff = "InteruptableSleepCastIntoDebuff"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -5880,4 +5881,77 @@ JDT.Templates.GroupTypes.Spiteful=  {
     showStacks = 1,
     activationType = JDT.Templates.Triggers.ActivationTypes.custom,
     customTriggerLogic = "function(t) \n  return t[1]  and t[3] \n end",
+}
+
+JDT.Templates.GroupTypes.InteruptableSleepCastIntoDebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Sleep inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Slept"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.interrupt,
+    type = 
+    {
+        {
+            type = "interrupt",
+            visible = true,
+        },
+        {
+            type = "magic",
+            visible = false,
+        },
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 1,
+                   value = false,
+                    },
+                changes = {
+                    {
+                        property= "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.6.border_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.7.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.8.border_visible",
+                        value = true
+                    },
+                },
+            }, 
+    }
+), 
 }
