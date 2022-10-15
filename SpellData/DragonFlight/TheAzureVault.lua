@@ -106,7 +106,7 @@ bosses.boss1 = {
     }
 }
 
-bosses.boss2 = { 
+bosses.boss2 = {  --Azureblade
     EncounterId = "2585", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 02 ",
     Auras = {
@@ -179,10 +179,24 @@ bosses.boss2 = {
             },
 
         }, 
+        [JDT.GroupTypes.KillAddChanneling] = {
+            SealEmpowerment = {
+                enabled = true,
+                spellId = 379256,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "379256",
+                    }
+
+                }
+            },
+
+        },
     }
 }
      
-bosses.boss3 = { 
+bosses.boss3 = {  --telash greywing
     EncounterId = "2583", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = {
@@ -217,7 +231,7 @@ bosses.boss3 = {
             },
         },
         [JDT.GroupTypes.CastWithSafeBuff] = {
-            BelowZero = {
+            AbsoluteZero = {
                 enabled = true,
                 spellId = 388008,
                 triggerData = {
@@ -239,7 +253,7 @@ bosses.boss3 = {
     }
 }
 
-bosses.boss4 = { 
+bosses.boss4 = {  --Umbrelskul
     EncounterId = "2584", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = {
@@ -302,6 +316,7 @@ bosses.boss4 = {
         },
     }
 }
+
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
