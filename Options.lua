@@ -28,6 +28,16 @@ JDT.options = {
             end
 
           },
+          AnchorGroupsToAffixes = {
+            name = JDT.getLocalisation("AnchorGroupsToAffixes"),
+            desc = JDT.getLocalisation("AnchorGroupsToAffixesDescription"),
+            type = "toggle",
+            set = function(info,val)  JDT.db.profile.AnchorGroupsToAffixes = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.AnchorGroupsToAffixes  --Sets value of toggles depending on SavedVariables 
+            end
+
+          },
           ShowTimer = {
             name = JDT.getLocalisation("ShowTimer"),
             desc = JDT.getLocalisation("ShowTimerDescription"),
@@ -64,6 +74,7 @@ JDT.options = {
             end
 
           },
+          
           
           -- more options go here
         }
