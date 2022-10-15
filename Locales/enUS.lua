@@ -331,6 +331,7 @@ LocalisationData["Stun inc"] = "Stun inc"
 LocalisationData["Wind inc"] = "Wind inc"
 LocalisationData["Wind"] = "Wind"
 LocalisationData["Dance inc"] = "Dance inc"
+LocalisationData["despawning"] = "despawning"
 --[[ 
 LocalisationData[""] = ""
 LocalisationData[""] = ""

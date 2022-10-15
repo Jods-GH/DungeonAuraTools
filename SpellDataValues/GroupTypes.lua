@@ -179,6 +179,8 @@ JDT.GroupTypes.SpellcastSucceededDance = "SpellcastSucceededDance"
 JDT.GroupTypes.SucceeddedintoCastDance = "SucceeddedintoCastDance"
 JDT.GroupTypes.TankBusterCast = "TankBusterCast"
 JDT.GroupTypes.ChannelDmgWithNextTick = "ChannelDmgWithNextTick"
+JDT.GroupTypes.Trader = "Trader"
+JDT.GroupTypes.Spiteful = "Spiteful"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -5833,4 +5835,49 @@ JDT.Templates.GroupTypes.WindCastIntoCastSuccess = {
         }   
 ), 
 }
+JDT.Templates.GroupTypes.Trader= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_AURA_APPLIED",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("despawning"),
+            isactive = true,
+        }, 
+    },
+    glowtype = "Ants",
+    showGlow = true,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
 
+JDT.Templates.GroupTypes.Spiteful=  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
+            customPreset = "Spiteful"
+
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "buff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("on You"),
+            isactive = true,
+        }, 
+    },
+    showStacks = 1,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1]  and t[3] \n end",
+}
