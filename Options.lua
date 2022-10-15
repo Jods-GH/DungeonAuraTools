@@ -86,6 +86,44 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
       -- more options go here
       }
   }
+  if ExpansionKey == "Affixes" then
+    for typekey,typevalue in pairs(ExpansionValue.Auras) do
+      for k,v in pairs(typevalue) do -- Generates Spell toggles depending on SPellData.lua
+        if v.affixId then
+          local name, description, filedataid = C_ChallengeMode.GetAffixInfo(v.affixId)
+          JDT.options.args.spelloptions.args[ExpansionKey].args[k]= {
+            name = name,
+            desc = description,
+            type = "toggle",
+            image = filedataid,
+            set = function(info,val)  JDT.db.profile.data[ExpansionKey].Auras[typekey][k].enabled = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.data[ExpansionKey].Auras[typekey][k].enabled --Sets value of toggles depending on SavedVariables 
+            end
+
+      }
+      else
+          local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
+          local spell = Spell:CreateFromSpellID(SpellID)
+          spell:ContinueOnSpellLoad(function()
+            local desc = spell:GetSpellDescription()
+            JDT.options.args.spelloptions.args[ExpansionKey].args[k]= {
+              name = Spellname,
+              desc = desc,
+              type = "toggle",
+              image = Spellicon,
+              set = function(info,val)  JDT.db.profile.data[ExpansionKey].Auras[typekey][k].enabled = val end, --Sets value of SavedVariables depending on toggles
+              get = function(info)
+                  return  JDT.db.profile.data[ExpansionKey].Auras[typekey][k].enabled --Sets value of toggles depending on SavedVariables 
+              end
+
+        }
+          end)
+        end
+      end
+  end
+
+  else
     for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
       EJ_SelectInstance(DungeonValue.EncounterJournalID)
       local Instancename, Instancedescription,_,_,_,_, _,_,_= EJ_GetInstanceInfo()
@@ -184,4 +222,5 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
       end
     end
   end
+end
 end
