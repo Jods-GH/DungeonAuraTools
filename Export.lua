@@ -30,12 +30,31 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     ExportTable.d.uid = ExpansionValue.uid 
     ExportTable.d.xOffset  = JDT.db.profile.xOffset
     ExportTable.d.yOffset = JDT.db.profile.yOffset
-    
-        for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
-            for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
-                    for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
-                        for k,v in pairs(TypeValue) do 
-                            if v.enabled == true then
+        if ExpansionKey == "Affixes" then
+            for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
+                for k,v in pairs(TypeValue) do 
+                    if v.enabled == true then
+                        JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue)              
+                    end
+                end 
+            end
+        else
+            for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
+                for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
+                        for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
+                            for k,v in pairs(TypeValue) do 
+                                if v.enabled == true then
+                                    JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue)         
+                                end
+                            end
+                    end
+                end
+            end
+        end
+    return ExportTable
+end
+
+JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue) 
                                 local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]
                                 local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
 
@@ -143,6 +162,27 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
                                     SpellTable.load.use_encounterid = true
                                     SpellTable.load.encounterid = BossNameValue.EncounterId
                                 end
+                                if ExpansionValue.instanceSizeType then
+                                    SpellTable.load.use_size = true
+                                    SpellTable.load.size = {
+                                        single = ExpansionValue.instanceSizeType,
+                                    }
+                                end
+                                if ExpansionValue.instanceDifficulty then
+                                    SpellTable.load.use_difficulty = true
+                                    SpellTable.load.difficulty = {
+                                        single = ExpansionValue.instanceDifficulty,
+                                    }
+                                end
+
+
+
+                                if v.affixId then
+                                    SpellTable.load.use_affixes = true
+                                    SpellTable.load.affixes = {
+                                        single = v.affixId,
+                                    }
+                                end
                                 
                                 if v.RoleLoad then
                                     if type(v.RoleLoad) == "table" then
@@ -228,16 +268,7 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
                                 SpellTable.parent = ExportTable.d.id
                                 table.insert(ExportTable.d.controlledChildren,SpellTable.id)
                                 table.insert(ExportTable.c,SpellTable)
-                                
-                            end
-                        end
-                
-                end
-            end
-    end
-    return ExportTable
 end
-
 
 -- Trigger generators need addition value for other trigger types
 
