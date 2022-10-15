@@ -317,7 +317,6 @@ bosses.boss4 = {  --Umbrelskul
     }
 }
 
-
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 

@@ -1,11 +1,11 @@
 ## Interface: 100002
-## Version: 1.1.3
+## Version: 1.1.4
 ## Plain Title: DungeonAuraTools
 ## Title: |cffe5c75fD|r|cffFF657Fungeon|r|cffe5c75fA|r|cffFF657Fura|r|cffe5c75fT|r|cffFF657Fools|r 
 ## Notes: Compact Addon to Manage all my Stuff for Dungeons
 ## Author: Jods
 ## SavedVariables: DungeonAuraTools
-## OptionalDeps: Ace3, WeakAuras, Plater
+## OptionalDeps: Ace3, WeakAuras, Plater, ViragDevTool
 ## X-Curse-Project-ID: 662863
 ## X-WoWI-ID: 26384
 ## X-Wago-ID: XrNkX86a
@@ -36,6 +36,8 @@ Templates/Conditions.lua
 SpellDataValues/AuraTypes.lua
 SpellDataValues/SoundTypes.lua
 SpellDataValues/GroupTypes.lua
+
+SpellData/Affixes.lua
 
 #SpellData DragonFlight
 

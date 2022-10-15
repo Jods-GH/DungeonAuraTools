@@ -23,6 +23,8 @@ LocalisationData["xOffsetDescription"] = "Sets the vertical of the Weakaura grou
 LocalisationData["yOffset"] = "yOffset"
 LocalisationData["yOffsetDescription"] = "Sets the horizontal of the Weakaura groups according to screen size"
 LocalisationData["NewAurasAddedMessage"] = "Enabled Auras that havn't been Exported detected. Please export them via /Dat export"
+LocalisationData["AnchorGroupsToAffixes"] = "Anchor to Affix"
+LocalisationData["AnchorGroupsToAffixesDescription"] = "Enables the Anchoring of the Expansion Groups to the Affix Group so you don't have to move them individually"
 
 -- Aura Types
 LocalisationData["SpinToWin"] = "Spin AoEs"
@@ -188,6 +190,7 @@ LocalisationData["SpellcastSucceededDance"] = "Dance Mechanic"
 LocalisationData["ChannelDmgWithNextTick"] = "Ticking dmg channel"
 LocalisationData["SucceeddedintoCastDance"] = "Dance Mechanic"
 LocalisationData["TankBusterCast"] = "Tank Buster"
+LocalisationData["InteruptableSleepCastIntoDebuff"] = "Sleep Mechanic (Interuptable)"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -331,6 +334,9 @@ LocalisationData["Stun inc"] = "Stun inc"
 LocalisationData["Wind inc"] = "Wind inc"
 LocalisationData["Wind"] = "Wind"
 LocalisationData["Dance inc"] = "Dance inc"
+LocalisationData["despawning"] = "despawning"
+LocalisationData["Sleep inc"] = "Sleep inc"
+LocalisationData["Slept"] = "Slept"
 --[[ 
 LocalisationData[""] = ""
 LocalisationData[""] = ""
