@@ -36,6 +36,7 @@ Templates/Conditions.lua
 SpellDataValues/AuraTypes.lua
 SpellDataValues/SoundTypes.lua
 SpellDataValues/GroupTypes.lua
+SpellDataValues/ExpansionValues.lua
 
 SpellData/Affixes.lua
 

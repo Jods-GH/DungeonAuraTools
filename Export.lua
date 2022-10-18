@@ -38,12 +38,13 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     else
     ExportTable.d.xOffset  = JDT.db.profile.xOffset
     ExportTable.d.yOffset = JDT.db.profile.yOffset
+    ExportTable.d.url = JDT.ExpansionValues[ExpansionKey]
     end
         if ExpansionKey == "Affixes" then
             for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
                 for k,v in pairs(TypeValue) do 
                     if v.enabled == true then
-                        JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue)              
+                        JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue,ExpansionKey)              
                     end
                 end 
             end
@@ -53,7 +54,7 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
                         for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
                             for k,v in pairs(TypeValue) do 
                                 if v.enabled == true then
-                                    JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue)         
+                                    JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)         
                                 end
                             end
                     end
@@ -63,7 +64,7 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     return ExportTable
 end
 
-JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue) 
+JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey) 
                                 local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]
                                 local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
 
@@ -274,12 +275,17 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 v.uID = uId
                                 SpellTable.uid = v.uID
                                 end
+                                print(ExpansionKey)
+                                SpellTable.url = JDT.ExpansionValues[ExpansionKey]
                                 SpellTable.parent = ExportTable.d.id
                                 table.insert(ExportTable.d.controlledChildren,SpellTable.id)
                                 table.insert(ExportTable.c,SpellTable)
+                                return SpellTable
 end
 
 -- Trigger generators need addition value for other trigger types
+
+
 
 JDT.generateTriggerfromGroupType = JDT.generateTriggerfromGroupType or {}
 
