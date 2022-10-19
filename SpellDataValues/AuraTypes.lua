@@ -1,7 +1,7 @@
 local _, JDT = ...
 
 JDT.AuraTypes = JDT.AuraTypes  or {}
-
+JDT.AuraTypes.none= "none"
 JDT.AuraTypes.magic = "magic"
 JDT.AuraTypes.curse = "curse"
 JDT.AuraTypes.disease = "disease"
@@ -19,3 +19,11 @@ setmetatable(JDT.AuraTypes, {
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
     end,
 })
+
+JDT.AuraTypesForOptions = function()
+    local returntable = {}
+    for key, value in pairs(JDT.AuraTypes) do
+        returntable[key] = JDT.getLocalisation(value)
+    end
+    return returntable
+end

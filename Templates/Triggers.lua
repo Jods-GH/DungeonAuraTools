@@ -25,6 +25,23 @@ setmetatable(JDT.Templates.Triggers.TriggerTypes, {
     end,
 })
 
+JDT.Templates.Triggers.DataForTriggerTypes  = {
+    Buffs = {
+            "unit",
+            "spellId" 
+    },
+    Cast = {
+        "unit",
+        "spellId" 
+    },  
+    Tsu = {},
+    UnitResource = {},
+    UnitHealth = {},
+    Combatlog = {},
+    MonsterYell = {},
+    UnitSpellcastSucceeded = {},
+}
+
 JDT.Templates.Triggers.ActivationTemplate = {
     activeTriggerMode = -10, -- default value? idk what it does but needs to be included
     disjunctive = "custom", -- JDT.Templates.Triggers.ActivationTypes
@@ -51,11 +68,21 @@ JDT.Templates.Triggers.UnitTypes = {
     smartGroup = "group",
 }
 
+
+
 setmetatable(JDT.Templates.Triggers.UnitTypes, {
     __index = function(_, key)
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
     end,
 })
+
+JDT.UnitTypesForOptions = function()
+    local returntable = {}
+    for key, value in pairs(JDT.Templates.Triggers.UnitTypes) do
+        returntable[key] = value
+    end
+    return returntable
+end
 
 JDT.Templates.Triggers.Buffs = {
         trigger = {

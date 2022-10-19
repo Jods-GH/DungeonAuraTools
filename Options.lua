@@ -85,10 +85,106 @@ JDT.options = {
             args={
               -- more options go here  
       }
-    }
+    },
+
+    selfGenerated={
+      name = JDT.getLocalisation("SelfGenerated"),
+      type = "group",
+      args={
+        SpellID= {
+          name = JDT.getLocalisation("SelfGeneratedSpellId"),
+          desc = JDT.getLocalisation("SelfGeneratedSpellIdDescription"),
+          type = "input",
+          set = function(info,val) JDT.db.profile.selfGenerated.SpellID = val  end, --Sets value of SavedVariables depending on toggles
+          get = function(info)
+              return  JDT.db.profile.selfGenerated.SpellID --Sets value of toggles depending on SavedVariables 
+          end
+        },
+        GroupType= {
+          name = JDT.getLocalisation("SelfGeneratedGroupType"),
+          desc = JDT.getLocalisation("SelfGeneratedGroupTypeDescription"),
+          type = "select",
+          style = "dropdown",
+          values = JDT.GroupTypesForOptions(),
+          set = function(info,val) JDT.db.profile.selfGenerated.GroupType = val  
+            JDT.createSelfGeneratedTriggerData(val)
+          end, --Sets value of SavedVariables depending on toggles
+          get = function(info)
+              JDT.createSelfGeneratedTriggerData(JDT.db.profile.selfGenerated.GroupType)
+              return  JDT.db.profile.selfGenerated.GroupType --Sets value of toggles depending on SavedVariables 
+          end
+        },
+        AuraType= {
+          name = JDT.getLocalisation("SelfGeneratedAuraType"),
+          desc = JDT.getLocalisation("SelfGeneratedAuraTypeDescription"),
+          type = "select",
+          style = "dropdown",
+          values = JDT.AuraTypesForOptions,
+          set = function(info,val) 
+            JDT.db.profile.selfGenerated.AuraType = val  end, --Sets value of SavedVariables depending on toggles
+          get = function(info)
+              return  JDT.db.profile.selfGenerated.AuraType --Sets value of toggles depending on SavedVariables 
+          end
+        },
+        triggerData = {
+          name = JDT.getLocalisation("SelfGeneratedTriggerData"),
+          desc = JDT.getLocalisation("SelfGeneratedTriggerDataDescription"),
+          type = "group",
+          inline = true,
+          args={
+
+          }
+          
+        },
+        
+        -- more options go here  
+}
+}
   }
 }
-JDT.createOptionsData = function() -- Generates Type Groups depending on SPellData.lua
+JDT.createSelfGeneratedTriggerData = function(val)
+  JDT.options.args.selfGenerated.args.triggerData.args = {}
+            for key, value in pairs(JDT.Templates.GroupTypes[val].triggers) do
+              local trigger = {
+                name = "trigger"..key.." : "..value.triggerType,
+                desc = JDT.getLocalisation("SelfGeneratedTriggerDataDescription"),
+                type = "group",
+                inline = true,
+                args={
+                }
+              }
+                
+              for k,v in pairs(JDT.Templates.Triggers.DataForTriggerTypes[value.triggerType]) do
+                if v == "unit" then
+                  trigger.args[key..v] = {
+                    name = v,
+                    desc = JDT.getLocalisation(v),
+                    type = "select",
+                    style = "dropdown",
+                    values = JDT.UnitTypesForOptions(),
+                    set = function(info,val) JDT.db.profile.selfGenerated.SpellID = val  end, --Sets value of SavedVariables depending on toggles
+                    get = function(info)
+                        return  JDT.db.profile.selfGenerated.SpellID --Sets value of toggles depending on SavedVariables 
+                    end
+                  }
+                else
+                trigger.args[key..v] = {
+                  name = v,
+                  desc = JDT.getLocalisation(v),
+                  type = "input",
+                  set = function(info,val) JDT.db.profile.selfGenerated.SpellID = val  end, --Sets value of SavedVariables depending on toggles
+                  get = function(info)
+                      return  JDT.db.profile.selfGenerated.SpellID --Sets value of toggles depending on SavedVariables 
+                  end
+                }
+                end
+              end
+              table.insert(JDT.options.args.selfGenerated.args.triggerData.args,trigger)
+            end
+end
+
+JDT.createOptionsData = function() -- Generates Type Groups depending on SpellData.lua
+  JDT.db.profile.selfGenerated = JDT.db.profile.selfGenerated or {}
   for ExpansionKey,ExpansionValue in pairs(JDT.SpellList) do 
     JDT.options.args.spelloptions.args[ExpansionKey] = {
       name = ExpansionKey,
@@ -234,4 +330,5 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
     end
   end
 end
+
 end

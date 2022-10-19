@@ -183,6 +183,16 @@ JDT.GroupTypes.Trader = "Trader"
 JDT.GroupTypes.Spiteful = "Spiteful"
 JDT.GroupTypes.InteruptableSleepCastIntoDebuff = "InteruptableSleepCastIntoDebuff"
 
+
+
+JDT.GroupTypesForOptions = function()
+    local returntable = {}
+    for key, value in pairs(JDT.GroupTypes) do
+        returntable[key] = value
+    end
+    return returntable
+end
+
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
