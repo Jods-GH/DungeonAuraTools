@@ -136,6 +136,11 @@ JDT.options = {
           }
           
         },
+        ExportButton = {
+          name = "Export",
+          type = "execute",
+          func = function() JDT.exportSelfGenerated() end
+      },
         
         -- more options go here  
 }
@@ -156,25 +161,27 @@ JDT.createSelfGeneratedTriggerData = function(val)
                 
               for k,v in pairs(JDT.Templates.Triggers.DataForTriggerTypes[value.triggerType]) do
                 if v == "unit" then
+                  JDT.db.profile.selfGenerated.triggerData[k] = JDT.db.profile.selfGenerated.triggerData[k] or {}
                   trigger.args[key..v] = {
                     name = v,
                     desc = JDT.getLocalisation(v),
                     type = "select",
                     style = "dropdown",
                     values = JDT.UnitTypesForOptions(),
-                    set = function(info,val) JDT.db.profile.selfGenerated.SpellID = val  end, --Sets value of SavedVariables depending on toggles
+                    set = function(info,val) JDT.db.profile.selfGenerated.triggerData[k].unit = val  end, --Sets value of SavedVariables depending on toggles
                     get = function(info)
-                        return  JDT.db.profile.selfGenerated.SpellID --Sets value of toggles depending on SavedVariables 
+                        return  JDT.db.profile.selfGenerated.triggerData[k].unit --Sets value of toggles depending on SavedVariables 
                     end
                   }
                 else
+                  JDT.db.profile.selfGenerated.triggerData[k][v] = JDT.db.profile.selfGenerated.triggerData[k][v] or {}
                 trigger.args[key..v] = {
                   name = v,
                   desc = JDT.getLocalisation(v),
                   type = "input",
-                  set = function(info,val) JDT.db.profile.selfGenerated.SpellID = val  end, --Sets value of SavedVariables depending on toggles
+                  set = function(info,val) JDT.db.profile.selfGenerated.triggerData[k][v]= val  end, --Sets value of SavedVariables depending on toggles
                   get = function(info)
-                      return  JDT.db.profile.selfGenerated.SpellID --Sets value of toggles depending on SavedVariables 
+                      return  JDT.db.profile.selfGenerated.triggerData[k][v] --Sets value of toggles depending on SavedVariables 
                   end
                 }
                 end
@@ -184,7 +191,7 @@ JDT.createSelfGeneratedTriggerData = function(val)
 end
 
 JDT.createOptionsData = function() -- Generates Type Groups depending on SpellData.lua
-  JDT.db.profile.selfGenerated = JDT.db.profile.selfGenerated or {}
+  JDT.db.profile.selfGenerated.triggerData = JDT.db.profile.selfGenerated.triggerData or {}
   for ExpansionKey,ExpansionValue in pairs(JDT.SpellList) do 
     JDT.options.args.spelloptions.args[ExpansionKey] = {
       name = ExpansionKey,

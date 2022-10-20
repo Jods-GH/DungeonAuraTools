@@ -64,6 +64,27 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     return ExportTable
 end
 
+JDT.exportSelfGenerated = function()
+    local ExportTable = CopyTable(JDT.DataToExport)
+    ExportTable.d = CopyTable(JDT.Templates.DynamicGroup)
+    ExportTable.d.id = "DungeonAuras_SelfGenerated"-- AuraName
+    ExportTable.d.uid = "DungeonAuras_SelfGenerated".."UID" --AuraUniqueId
+    ExportTable.d.xOffset  = JDT.db.profile.xOffset
+    ExportTable.d.yOffset = JDT.db.profile.yOffset
+    local AuraData = {
+        enabled = true,
+        spellId = JDT.db.profile.selfGenerated.SpellID,
+        triggerData = JDT.db.profile.selfGenerated.triggerData,
+        }
+        if JDT.db.profile.selfGenerated.AuraTyp and JDT.db.profile.selfGenerated.AuraTyp ~= "none" then
+            AuraData.type = JDT.db.profile.selfGenerated.AuraTyp
+        end
+
+    JDT.buildAura(ExportTable,{groupName= "SelfGenerated"},{additionalName = ""},JDT.db.profile.selfGenerated.GroupType,AuraData,{})  
+    JDT.CallbackFunc("running export")
+    WeakAuras.Import(ExportTable) 
+end
+
 JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey) 
                                 local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]
                                 local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
@@ -275,8 +296,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 v.uID = uId
                                 SpellTable.uid = v.uID
                                 end
-                                print(ExpansionKey)
+                                if ExpansionKey then
                                 SpellTable.url = JDT.ExpansionValues[ExpansionKey]
+                                end
                                 SpellTable.parent = ExportTable.d.id
                                 table.insert(ExportTable.d.controlledChildren,SpellTable.id)
                                 table.insert(ExportTable.c,SpellTable)
