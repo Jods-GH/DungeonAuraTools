@@ -182,6 +182,7 @@ JDT.GroupTypes.ChannelDmgWithNextTick = "ChannelDmgWithNextTick"
 JDT.GroupTypes.Trader = "Trader"
 JDT.GroupTypes.Spiteful = "Spiteful"
 JDT.GroupTypes.InteruptableSleepCastIntoDebuff = "InteruptableSleepCastIntoDebuff"
+JDT.GroupTypes.Thundering = "Thundering"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -5952,6 +5953,142 @@ JDT.Templates.GroupTypes.InteruptableSleepCastIntoDebuff = {
                     },
                 },
             }, 
+    }
+), 
+}
+
+JDT.Templates.GroupTypes.Thundering = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        
+        {   
+            value = JDT.getLocalisation("Buffed"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Clear"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.stack,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1] or t[2]\n end",
+    glowtype = "Ants",
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                    type = "Or",
+                    checks = {
+                        {
+                            type = "And",
+                            checks = {
+                                {
+                                    type = "simplecheck",
+                                    trigger= 1,
+                                    value = true,
+                                },
+                                {
+                                    type = "simplecheck",
+                                    trigger= 4,
+                                    value = true,
+                                },
+                            },
+                        },
+                        {
+                            type = "And",
+                            checks = {
+                                {
+                                    type = "simplecheck",
+                                    trigger= 2,
+                                    value = true,
+                                },
+                                {
+                                    type = "simplecheck",
+                                    trigger= 3,
+                                    value = true,
+                                },
+                            },
+                        },
+                    },
+                },
+                changes = {
+                        {
+                            property = "sub.3.text_visible",
+                            value = false,
+                        },
+                        {
+                            property = "sub.4.text_visible",
+                            value = true,
+                        },
+                },
+            },
+            {
+                condition={
+                    type = "Or",
+                    checks = {
+                        {
+                            type = "And",
+                            checks = {
+                                {
+                                    type = "NumberCheck",
+                                    trigger= 1,
+                                    op = "<",
+                                    variable = "expirationTime",
+                                    value = "5",
+                                },
+                                {
+                                    type = "simplecheck",
+                                    trigger= 4,
+                                    value = true,
+                                },
+                            },
+                        },
+                        {
+                            type = "And",
+                            checks = {
+                                {
+                                    type = "NumberCheck",
+                                    trigger= 2,
+                                    op = "<",
+                                    variable = "expirationTime",
+                                    value = "5",
+                                },
+                                {
+                                    type = "simplecheck",
+                                    trigger= 3,
+                                    value = true,
+                                },
+                            },
+                        },
+                    },
+                },
+                changes = {
+                    {
+                        property= "sub.5.glow_visible",
+                        value = true
+                    },
+                },
+            },
+            
     }
 ), 
 }
