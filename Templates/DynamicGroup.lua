@@ -16,42 +16,11 @@
 				1, -- [4]
 			},
 			space = 2,
-			actions = {
-				start = {
-				},
-				init = {
-				},
-				finish = {
-				},
-			},
-			triggers = {
-				
-			},
 			columnSpace = 1,
 			radius = 200,
 			selfPoint = "TOP",
 			align = "CENTER",
 			stagger = 0,
-			subRegions = {
-			},
-			load = {
-				size = {
-					multi = {
-					},
-				},
-				spec = {
-					multi = {
-					},
-				},
-				class = {
-					multi = {
-					},
-				},
-				talent = {
-					multi = {
-					},
-				},
-			},
 			backdropColor = {
 				1, -- [1]
 				1, -- [2]
@@ -62,26 +31,6 @@
 			animate = false,
 			arcLength = 360,
 			scale = 1,
-			animation = {
-				start = {
-					type = "none",
-					easeStrength = 3,
-					duration_type = "seconds",
-					easeType = "none",
-				},
-				main = {
-					type = "none",
-					easeStrength = 3,
-					duration_type = "seconds",
-					easeType = "none",
-				},
-				finish = {
-					type = "none",
-					easeStrength = 3,
-					duration_type = "seconds",
-					easeType = "none",
-				},
-			},
 			border = false,
 			borderEdge = "Square Full White",
 			regionType = "dynamicgroup",
@@ -108,6 +57,8 @@
 			},
 			information = {
 			},
+			ignoreWagoUpdate = true,
+			url = "https://wago.io/DF-Dungeons",
 			uid = "WOOOHOOO",
 			desc = "This Group was auto generated please consult DungeonAuraTools by accessing /DungeonAuraTools to change anything",
 	}

@@ -41,28 +41,56 @@ function DungeonAuraTools:OnInitialize()
         AceConfigDialog:Open(appName)
     end
 
-    function JDT.CheckIfAuraUpdates () --[[
+    function JDT.CheckIfAuraUpdates () 
         for ExpansionKey, ExpansionValue in pairs(JDT.db.profile.data) do
-            for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
-                for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
-                        for TypeKey,TypeValue in pairs(BossNameValue.Auras) do
-                            for k,v in pairs(TypeValue) do 
-                                if v.enabled == true and not v.uID then
-                                    self:Print(JDT.getLocalisation("NewAurasAddedMessage"))
-                                end
+            if ExpansionKey ~= "Affixes" then
+                for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
+                    for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
+                            for TypeKey,TypeValue in pairs(BossNameValue.Auras) do
+                                for k,v in pairs(TypeValue) do 
+                                    if v.enabled == true and not v.uID then
+                                        self:Print(JDT.getLocalisation("NewAurasAddedMessage"))
+                                    end
+                            end
                         end
                     end
                 end
-            end
-        end ]]
+            else
+                for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
+                    for k,v in pairs(TypeValue) do 
+                        if v.enabled == true and not v.uID  then
+                            self:Print(JDT.getLocalisation("NewAurasAddedMessage"))             
+                        end
+                    end 
+                end
+            end 
+        end
         -- don't use before read only or spaten will haunt my dreams WeakAuras.GetData("DungeonAuras_MistOfPandaria")
         --[[
+        local Message = JDT.getLocalisation("NewAurasAddedMessageSpecific")
         for ExpansionKey, ExpansionValue in pairs(JDT.db.profile.data) do
-                    for DungeonKey,DungeonValue in pairs(WeakAuras.GetData("DungeonAuras_"..ExpansionKey)) do 
-                        
-                    end
+                    if not (WeakAuras.GetData("DungeonAuras_"..ExpansionKey)) then
+                        self:Print(Message.."DungeonAuras_"..ExpansionKey)  
+                    else
+                        for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
+                            for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
+                                    for TypeKey,TypeValue in pairs(BossNameValue.Auras) do
+                                        for k,v in pairs(TypeValue) do 
+                                            if v.enabled == true  then
+                                                local ExportTable = CopyTable(JDT.DataToExport)
+                                                ExportTable.d = CopyTable(JDT.Templates.DynamicGroup)
+                                                local AuraToCheck = JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue) 
+                                                local InstalledAura = WeakAuras.GetData(AuraToCheck.id)
+                                                 if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then
+                                                     self:Print(Message..AuraToCheck.id)  
+                                                 end
+                                            end
+                                    end
+                                end
+                            end
+                         end
+                        end
         end
-
         ]]
     end
 end

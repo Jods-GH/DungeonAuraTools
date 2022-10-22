@@ -45,6 +45,33 @@ JDT.SpellList.Affixes = {
             },
 
         },
+        [JDT.GroupTypes.Thundering] = {
+            Thundering= {
+                enabled = true,
+                affixId = 132,
+                spellId = 396411,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "396369",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "396364",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "396369",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "396364",
+                    },
+
+                }
+            },
+
+        },
         [JDT.GroupTypes.Dot] = {
             Bursting = {
                 enabled = true,
