@@ -338,6 +338,7 @@ LocalisationData["Dance inc"] = "Dance inc"
 LocalisationData["despawning"] = "despawning"
 LocalisationData["Sleep inc"] = "Sleep inc"
 LocalisationData["Slept"] = "Slept"
+LocalisationData["Clear"] = "Clear"
 --[[ 
 LocalisationData[""] = ""
 LocalisationData[""] = ""
