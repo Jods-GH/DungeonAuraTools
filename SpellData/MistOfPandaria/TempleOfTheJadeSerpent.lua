@@ -58,16 +58,8 @@ bosses.boss1 = { -- Wise Mari
         },
     }
 }
-if not  floor(select(4, GetBuildInfo()) / 10000) ~= 10 then -- Disable on Dragonflight cause this boss got removed from the journal
-bosses.boss2 = { -- Lorewalker Stonestep
-    EncounterId = "1417", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
-    additionalName = "] 02 ",
-    Auras = {
-        
-    }
-}
-end
-bosses.boss3 = { --liu flameheart
+
+bosses.boss2 = { --liu flameheart
     EncounterId = "1416", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = {
@@ -140,7 +132,7 @@ bosses.boss3 = { --liu flameheart
     }
 }
 
-bosses.boss4 = { -- sha of doubt
+bosses.boss3 = { -- sha of doubt
     EncounterId = "1439", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = {
