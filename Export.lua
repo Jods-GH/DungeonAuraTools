@@ -275,7 +275,6 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 v.uID = uId
                                 SpellTable.uid = v.uID
                                 end
-                                print(ExpansionKey)
                                 SpellTable.url = JDT.ExpansionValues[ExpansionKey]
                                 SpellTable.parent = ExportTable.d.id
                                 table.insert(ExportTable.d.controlledChildren,SpellTable.id)
