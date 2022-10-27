@@ -45,6 +45,7 @@ JDT.SpellList.Affixes = {
             },
 
         },
+        --[[
         [JDT.GroupTypes.Thundering] = {
             Thundering= {
                 enabled = true,
@@ -71,7 +72,7 @@ JDT.SpellList.Affixes = {
                 }
             },
 
-        },
+        }, ]]
         [JDT.GroupTypes.Dot] = {
             Bursting = {
                 enabled = true,

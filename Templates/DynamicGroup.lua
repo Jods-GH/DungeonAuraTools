@@ -52,12 +52,12 @@
 			},
 			authorOptions = {
 			},
-			internalVersion = 53,
 			conditions = {
 			},
 			information = {
 			},
 			ignoreWagoUpdate = true,
+			internalVersion = 59,
 			url = "https://wago.io/DF-Dungeons",
 			uid = "WOOOHOOO",
 			desc = "This Group was auto generated please consult DungeonAuraTools by accessing /DungeonAuraTools to change anything",
