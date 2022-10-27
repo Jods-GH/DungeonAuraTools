@@ -16,7 +16,7 @@
 				triggers = {
 					
 				},
-				internalVersion = 53, -- version of weakauras addon on creation might need to be updated eventually
+				internalVersion = 59, -- version of weakauras addon on creation might need to be updated eventually
 				keepAspectRatio = false,
 				animation = {
 					start = {

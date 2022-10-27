@@ -52,7 +52,7 @@
 			},
 			authorOptions = {
 			},
-			internalVersion = 53,
+			internalVersion = 59,
 			conditions = {
 			},
 			information = {
