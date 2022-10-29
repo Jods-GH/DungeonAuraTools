@@ -192,6 +192,11 @@ LocalisationData["ChannelDmgWithNextTick"] = "Ticking dmg channel"
 LocalisationData["SucceeddedintoCastDance"] = "Dance Mechanic"
 LocalisationData["TankBusterCast"] = "Tank Buster"
 LocalisationData["InteruptableSleepCastIntoDebuff"] = "Sleep Mechanic (Interuptable)"
+LocalisationData["HealDebuff"] = "Heal Debuff"
+LocalisationData["RageBuff"] = "Enrage Buff"
+LocalisationData["CastIntoCursethatRoots"] = "Root Cast (Curse despell)"
+LocalisationData["InteruptableCastIntoReclaimSoul"] = "Reclaim sould mechanic"
+LocalisationData["ChargeIntoBleed"] = "Charge that leaves a bleed"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -339,6 +344,12 @@ LocalisationData["despawning"] = "despawning"
 LocalisationData["Sleep inc"] = "Sleep inc"
 LocalisationData["Slept"] = "Slept"
 LocalisationData["Clear"] = "Clear"
+LocalisationData["Root inc"] = "Root inc"
+LocalisationData["Slow inc"] = "Slow inc"
+LocalisationData["Claim Soul"] = "Claim Soul"
+
+
+
 --[[ 
 LocalisationData[""] = ""
 LocalisationData[""] = ""
