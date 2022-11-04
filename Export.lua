@@ -93,7 +93,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 -- set Fallback icon and display name
                                 local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
                                 SpellTable.displayIcon = Spellicon
-                                SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname -- set AuraName
+                                SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname.." ["..SpellID.."]"-- set AuraName
                                 if v.extraName then -- add extra stuff if needed to not have duplicate id's
                                     SpellTable.id= SpellTable.id..v.extraName 
                                 end
