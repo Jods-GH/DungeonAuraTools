@@ -56,6 +56,15 @@ JDT.options = {
                 return  JDT.db.profile.ShowTimer  --Sets value of toggles depending on SavedVariables 
             end
           },
+          HideCooldownText = {
+            name = JDT.getLocalisation("HideCooldownText"),
+            desc = JDT.getLocalisation("HideCooldownTextDescription"),
+            type = "toggle",
+            set = function(info,val)  JDT.db.profile.HideCooldownText = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.HideCooldownText  --Sets value of toggles depending on SavedVariables 
+            end
+          },
           CooldownTextFontSize= {
             name = JDT.getLocalisation("CooldownTextFontSize"),
             desc = JDT.getLocalisation("CooldownTextFontSizeDescription"),

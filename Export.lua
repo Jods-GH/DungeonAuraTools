@@ -116,6 +116,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 if JDT.db.profile.CooldownTextFontSize then
                                     SpellTable.subRegions[2].text_fontSize = JDT.db.profile.CooldownTextFontSize
                                 end
+                                if JDT.db.profile.HideCooldownText then
+                                    SpellTable.cooldownTextDisabled = JDT.db.profile.HideCooldownText 
+                                end
                                 -- set Text to display below Aura (telling you what to do)
                                 for textkey,textvalue in pairs(AuraTemplate.text) do
                                     local TextTemplate = CopyTable(JDT.Templates.TextRegions.TextToDisplay)
@@ -127,6 +130,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     if JDT.db.profile.TextFontSize  then
                                         TextTemplate.text_fontSize = JDT.db.profile.TextFontSize
                                     end
+                                   
                                     TextTemplate["text_text_format_"..textkey..".unit_abbreviate_max"] = 8
                                     TextTemplate["text_text_format_"..textkey..".unit_abbreviate"] = true
                                     TextTemplate["text_text_format_"..textkey..".unit_realm_name"] = "never"

@@ -36,6 +36,8 @@ LocalisationData["CooldownTextFontSizeDescription"] = "Sets the size of the Cool
 LocalisationData["CooldownTextFontSize"] = "Cooldown text size"
 LocalisationData["TextFontSize"] = "Text size"
 LocalisationData["TextFontSizeDescription"] = "Sets the size of all the texts"
+LocalisationData["HideCooldownText"] = "Hide cooldown text"
+LocalisationData["HideCooldownTextDescription"] = "Hides the cooldown text"
 
 
 -- Grows
