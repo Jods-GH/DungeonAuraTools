@@ -29,7 +29,7 @@ body:
     
 - type: textarea
   attributes:
-    label: "Describe alternatives you've considered".
+    label: "Describe alternatives you've considered."
     description: "Describe alternatives you've considered".
     placeholder: |
       1. Go to '...'
