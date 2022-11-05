@@ -49,8 +49,46 @@ bosses.boss1 = {
     }
 }
 bosses.boss2 = { 
-    EncounterId = "2312",
+    EncounterId = "2292",
     additionalName = " JUNKYARD] 02 ",
+    Auras = {
+             
+        [JDT.GroupTypes.DragCast] = {
+            Coalesce = {
+                enabled = true,
+                spellId = 297835,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "297835",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.WaveCast] = {
+            ToxicWave = {
+                enabled = true,
+                spellId = 297834,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "297834",
+                    }
+
+                }
+            },
+
+        },
+
+
+    }
+}
+
+bosses.boss3 = { 
+    EncounterId = "2312",
+    additionalName = " JUNKYARD] 03 ",
     Auras = {
      
         [JDT.GroupTypes.CastIntoHideDebuff] = {
@@ -118,43 +156,7 @@ bosses.boss2 = {
         }, 
     }
     }
-bosses.boss3 = { 
-    EncounterId = "2292",
-    additionalName = " JUNKYARD] 03 ",
-    Auras = {
-             
-        [JDT.GroupTypes.DragCast] = {
-            Coalesce = {
-                enabled = true,
-                spellId = 297835,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "297835",
-                    }
 
-                }
-            },
-
-        },
-        [JDT.GroupTypes.WaveCast] = {
-            ToxicWave = {
-                enabled = true,
-                spellId = 297834,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "297834",
-                    }
-
-                }
-            },
-
-        },
-
-
-    }
-}
 bosses.boss4 = { 
     EncounterId = "2291",
     additionalName = " JUNKYARD] 04 ",
