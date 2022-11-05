@@ -26,7 +26,16 @@ JDT.options = {
             get = function(info)
                 return  JDT.db.profile.PlaySound  --Sets value of toggles depending on SavedVariables 
             end
-
+          },
+         
+          FontOptions= {
+            name = JDT.getLocalisation("FontOption"),
+            desc = JDT.getLocalisation("FontOptionDescription"),
+            type = "select",
+            values = JDT.FontMedias,
+            set = function(info,val)  JDT.db.profile.FontOptions = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info) return  JDT.db.profile.FontOptions--Sets value of toggles depending on SavedVariables 
+            end
           },
           AnchorGroupsToAffixes = {
             name = JDT.getLocalisation("AnchorGroupsToAffixes"),
@@ -45,6 +54,43 @@ JDT.options = {
             set = function(info,val)  JDT.db.profile.ShowTimer = val end, --Sets value of SavedVariables depending on toggles
             get = function(info)
                 return  JDT.db.profile.ShowTimer  --Sets value of toggles depending on SavedVariables 
+            end
+          },
+          HideCooldownText = {
+            name = JDT.getLocalisation("HideCooldownText"),
+            desc = JDT.getLocalisation("HideCooldownTextDescription"),
+            type = "toggle",
+            set = function(info,val)  JDT.db.profile.HideCooldownText = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.HideCooldownText  --Sets value of toggles depending on SavedVariables 
+            end
+          },
+          CooldownTextFontSize= {
+            name = JDT.getLocalisation("CooldownTextFontSize"),
+            desc = JDT.getLocalisation("CooldownTextFontSizeDescription"),
+            type = "range",
+            softMin = 6,
+            softMax = 72,
+            min = 1,
+            step = 1,
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.CooldownTextFontSize = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.CooldownTextFontSize or 17  --Sets value of toggles depending on SavedVariables 
+            end
+          },
+          TextFontSize= {
+            name = JDT.getLocalisation("TextFontSize"),
+            desc = JDT.getLocalisation("TextFontSizeDescription"),
+            type = "range",
+            softMin = 6,
+            softMax = 72,
+            min = 1,
+            step = 1,
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.TextFontSize = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.TextFontSize or 17  --Sets value of toggles depending on SavedVariables 
             end
 
           },
@@ -72,8 +118,76 @@ JDT.options = {
             get = function(info)
                 return  JDT.db.profile.yOffset  --Sets value of toggles depending on SavedVariables 
             end
-
           },
+          GroupLimit= {
+            name = JDT.getLocalisation("GroupLimit"),
+            desc = JDT.getLocalisation("GroupLimitDescription"),
+            type = "range",
+            softMin = 1,
+            softMax = 20,
+            min = 0,
+            max= 20,
+            step = 1,
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.GroupLimit = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.GroupLimit or 7 --Sets value of toggles depending on SavedVariables 
+            end
+          },
+          IconWidth= {
+            name = JDT.getLocalisation("IconWidth"),
+            desc = JDT.getLocalisation("IconWidthDescription"),
+            type = "range",
+            softMin = 1,
+            softMax = 600,
+            min = 1,
+            step = 1,
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.IconWidth = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.IconWidth or 80  --Sets value of toggles depending on SavedVariables 
+            end
+          },
+          IconHeight= {
+            name = JDT.getLocalisation("IconHeight"),
+            desc = JDT.getLocalisation("IconHeightDescription"),
+            type = "range",
+            softMin = 1,
+            softMax = 600,
+            min = 1,
+            step = 1,
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.IconHeight = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.IconHeight or 80  --Sets value of toggles depending on SavedVariables 
+            end
+          },
+         GrowOptions={
+            name = JDT.getLocalisation("GrowOptions"),
+            type = "group",
+            args={
+              GroupGrow= {
+                name = JDT.getLocalisation("GroupGrow"),
+                desc = JDT.getLocalisation("GroupGrowDescription"),
+                type = "select",
+                values = JDT.Templates.GroupGrowTypes,
+                set = function(info,val)  JDT.db.profile.GroupGrow = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    JDT.options.args.generaloptions.args.GrowOptions.args.SpecificGrowOptions.args = JDT.Templates.GroupGrowOptionsFromType[JDT.db.profile.GroupGrow]
+                    return  JDT.db.profile.GroupGrow--Sets value of toggles depending on SavedVariables 
+                end
+              },
+              SpecificGrowOptions={
+                name = JDT.getLocalisation("SpecificGrowOptions"),
+                type = "group",
+                inline = true,
+                args={
+
+                }
+              }
+            },
+           
+        }
           
           
           -- more options go here
