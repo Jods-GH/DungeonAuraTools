@@ -31,6 +31,19 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     if JDT.db.profile.GroupLimit then
         ExportTable.d.limit = JDT.db.profile.GroupLimit
     end
+    if JDT.db.profile.GroupGrow then
+        ExportTable.d.grow = JDT.db.profile.GroupGrow
+        if JDT.db.profile.GroupGrow == "GRID" then
+            ExportTable.d.gridType = JDT.db.profile.GridDirection
+            ExportTable.d.gridWidth = JDT.db.profile.GridSize
+            ExportTable.d.rowSpace = JDT.db.profile.GridRowSpacing
+            ExportTable.d.columnSpace = JDT.db.profile.GridColumnnSpacing
+        else
+            ExportTable.d.align = JDT.db.profile.AlignDirection
+			ExportTable.d.stagger = JDT.db.profile.GrowStagger
+            ExportTable.d.space = JDT.db.profile.GrowSpace
+        end
+    end
     if JDT.db.profile.AnchorGroupsToAffixes and ExpansionKey ~= "Affixes" then
         ExportTable.d.xOffset = 0
         ExportTable.d.yOffset = 0

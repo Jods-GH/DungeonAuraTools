@@ -87,8 +87,33 @@ JDT.options = {
             get = function(info)
                 return  JDT.db.profile.GroupLimit or 7 --Sets value of toggles depending on SavedVariables 
             end
-
           },
+         GrowOptions={
+            name = JDT.getLocalisation("GrowOptions"),
+            type = "group",
+            args={
+              GroupGrow= {
+                name = JDT.getLocalisation("GroupGrow"),
+                desc = JDT.getLocalisation("GroupGrowDescription"),
+                type = "select",
+                values = JDT.Templates.GroupGrowTypes,
+                set = function(info,val)  JDT.db.profile.GroupGrow = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    JDT.options.args.generaloptions.args.GrowOptions.args.SpecificGrowOptions.args = JDT.Templates.GroupGrowOptionsFromType[JDT.db.profile.GroupGrow]
+                    return  JDT.db.profile.GroupGrow--Sets value of toggles depending on SavedVariables 
+                end
+              },
+              SpecificGrowOptions={
+                name = JDT.getLocalisation("SpecificGrowOptions"),
+                type = "group",
+                inline = true,
+                args={
+
+                }
+              }
+            },
+           
+        }
           
           
           -- more options go here
