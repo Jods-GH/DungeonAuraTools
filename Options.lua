@@ -134,6 +134,34 @@ JDT.options = {
                 return  JDT.db.profile.GroupLimit or 7 --Sets value of toggles depending on SavedVariables 
             end
           },
+          IconWidth= {
+            name = JDT.getLocalisation("IconWidth"),
+            desc = JDT.getLocalisation("IconWidthDescription"),
+            type = "range",
+            softMin = 1,
+            softMax = 600,
+            min = 1,
+            step = 1,
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.IconWidth = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.IconWidth or 80  --Sets value of toggles depending on SavedVariables 
+            end
+          },
+          IconHeight= {
+            name = JDT.getLocalisation("IconHeight"),
+            desc = JDT.getLocalisation("IconHeightDescription"),
+            type = "range",
+            softMin = 1,
+            softMax = 600,
+            min = 1,
+            step = 1,
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.IconHeight = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.IconHeight or 80  --Sets value of toggles depending on SavedVariables 
+            end
+          },
          GrowOptions={
             name = JDT.getLocalisation("GrowOptions"),
             type = "group",
