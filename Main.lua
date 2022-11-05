@@ -3,9 +3,18 @@ local AceGUI = LibStub("AceGUI-3.0")
 local AceConfig = LibStub("AceConfig-3.0")
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 local AceDBOptions = LibStub("AceDBOptions-3.0")
+local SharedMedia = LibStub("LibSharedMedia-3.0") 
 ---@class MyAddon : AceAddon-3.0, AceConsole-3.0, AceConfig-3.0, AceGUI-3.0, AceConfigDialog-3.0
 local DungeonAuraTools = LibStub("AceAddon-3.0"):NewAddon("DungeonAuraTools", "AceConsole-3.0", "AceEvent-3.0")
 JDT.AddonVersion = GetAddOnMetadata(appName, "Version")
+
+JDT.FontMedias = JDT.FontMedias or {} 
+
+for _,v in pairs(SharedMedia:List(SharedMedia.MediaType.FONT)) do
+    print(v)
+    JDT.FontMedias[v] = v
+end
+
 
 function DungeonAuraTools:OnInitialize()
 	-- Called when the addon is loaded
@@ -36,10 +45,11 @@ function DungeonAuraTools:OnInitialize()
     self:RegisterChatCommand("dat", "SlashCommand")
     self:RegisterChatCommand("DungeonAuraTools", "SlashCommand")
   -- generates Data for Options Table
-
     function JDT.CreateOptionsFrame () 
         AceConfigDialog:Open(appName)
     end
+    
+    
 
     function JDT.CheckIfAuraUpdates () 
         for ExpansionKey, ExpansionValue in pairs(JDT.db.profile.data) do

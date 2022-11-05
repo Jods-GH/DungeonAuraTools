@@ -28,6 +28,15 @@ JDT.options = {
             end
 
           },
+          FontOptions= {
+            name = JDT.getLocalisation("FontOption"),
+            desc = JDT.getLocalisation("FontOptionDescription"),
+            type = "select",
+            values = JDT.FontMedias,
+            set = function(info,val)  JDT.db.profile.FontOptions = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info) return  JDT.db.profile.FontOptions--Sets value of toggles depending on SavedVariables 
+            end
+          },
           AnchorGroupsToAffixes = {
             name = JDT.getLocalisation("AnchorGroupsToAffixes"),
             desc = JDT.getLocalisation("AnchorGroupsToAffixesDescription"),

@@ -30,6 +30,8 @@ LocalisationData["GroupLimit"] = "Group Limit"
 LocalisationData["GroupGrowDescription"] = "Sets the Grow type of the groups"
 LocalisationData["GroupGrow"] = "Group Grow"
 LocalisationData["GroupLimitDescription"] = "Sets the groups maximum amount of Auras shown at any given moment"
+LocalisationData["FontOption"] = "Font Option"
+LocalisationData["FontOptionDescription"] = "Sets the font of all the text elements"
 
 
 -- Grows
