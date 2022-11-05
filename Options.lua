@@ -69,6 +69,20 @@ JDT.options = {
             get = function(info)
                 return  JDT.db.profile.CooldownTextFontSize or 17  --Sets value of toggles depending on SavedVariables 
             end
+          },
+          TextFontSize= {
+            name = JDT.getLocalisation("TextFontSize"),
+            desc = JDT.getLocalisation("TextFontSizeDescription"),
+            type = "range",
+            softMin = 6,
+            softMax = 72,
+            min = 1,
+            step = 1,
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.TextFontSize = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.TextFontSize or 17  --Sets value of toggles depending on SavedVariables 
+            end
 
           },
           xOffset= {

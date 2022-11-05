@@ -34,6 +34,8 @@ LocalisationData["FontOption"] = "Font Option"
 LocalisationData["FontOptionDescription"] = "Sets the font of all the text elements"
 LocalisationData["CooldownTextFontSizeDescription"] = "Sets the size of the Cooldown text"
 LocalisationData["CooldownTextFontSize"] = "Cooldown text size"
+LocalisationData["TextFontSize"] = "Text size"
+LocalisationData["TextFontSizeDescription"] = "Sets the size of all the texts"
 
 
 -- Grows

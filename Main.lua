@@ -9,9 +9,7 @@ local DungeonAuraTools = LibStub("AceAddon-3.0"):NewAddon("DungeonAuraTools", "A
 JDT.AddonVersion = GetAddOnMetadata(appName, "Version")
 
 JDT.FontMedias = JDT.FontMedias or {} 
-
 for _,v in pairs(SharedMedia:List(SharedMedia.MediaType.FONT)) do
-    print(v)
     JDT.FontMedias[v] = v
 end
 

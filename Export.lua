@@ -124,6 +124,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     if JDT.db.profile.FontOptions then
                                         TextTemplate.text_font = JDT.db.profile.FontOptions
                                     end
+                                    if JDT.db.profile.TextFontSize  then
+                                        TextTemplate.text_fontSize = JDT.db.profile.TextFontSize
+                                    end
                                     TextTemplate["text_text_format_"..textkey..".unit_abbreviate_max"] = 8
                                     TextTemplate["text_text_format_"..textkey..".unit_abbreviate"] = true
                                     TextTemplate["text_text_format_"..textkey..".unit_realm_name"] = "never"
