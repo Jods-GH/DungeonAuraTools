@@ -8,186 +8,224 @@ JDT.options = {
         name = JDT.getLocalisation("GeneralOptions"),
         type = "group",
         args={
-          ExportButton = {
-            name = "Export",
-            type = "execute",
-            func = function() JDT.exportAuras() end
-        },
-          ComingSoon = {
-            name = "More options coming soon",
-            type = "description",
-            image = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga",
-          },
-          PlaySound = {
-            name = JDT.getLocalisation("PlaySound"),
-            desc = JDT.getLocalisation("PlaySoundDescription"),
-            type = "toggle",
-            set = function(info,val)  JDT.db.profile.PlaySound = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info)
-                return  JDT.db.profile.PlaySound  --Sets value of toggles depending on SavedVariables 
-            end
-          },
-         
-          FontOptions= {
-            name = JDT.getLocalisation("FontOption"),
-            desc = JDT.getLocalisation("FontOptionDescription"),
-            type = "select",
-            values = JDT.FontMedias,
-            set = function(info,val)  JDT.db.profile.FontOptions = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info) return  JDT.db.profile.FontOptions--Sets value of toggles depending on SavedVariables 
-            end
-          },
-          AnchorGroupsToAffixes = {
-            name = JDT.getLocalisation("AnchorGroupsToAffixes"),
-            desc = JDT.getLocalisation("AnchorGroupsToAffixesDescription"),
-            type = "toggle",
-            set = function(info,val)  JDT.db.profile.AnchorGroupsToAffixes = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info)
-                return  JDT.db.profile.AnchorGroupsToAffixes  --Sets value of toggles depending on SavedVariables 
-            end
-
-          },
-          ShowTimer = {
-            name = JDT.getLocalisation("ShowTimer"),
-            desc = JDT.getLocalisation("ShowTimerDescription"),
-            type = "toggle",
-            set = function(info,val)  JDT.db.profile.ShowTimer = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info)
-                return  JDT.db.profile.ShowTimer  --Sets value of toggles depending on SavedVariables 
-            end
-          },
-          HideCooldownText = {
-            name = JDT.getLocalisation("HideCooldownText"),
-            desc = JDT.getLocalisation("HideCooldownTextDescription"),
-            type = "toggle",
-            set = function(info,val)  JDT.db.profile.HideCooldownText = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info)
-                return  JDT.db.profile.HideCooldownText  --Sets value of toggles depending on SavedVariables 
-            end
-          },
-          CooldownTextFontSize= {
-            name = JDT.getLocalisation("CooldownTextFontSize"),
-            desc = JDT.getLocalisation("CooldownTextFontSizeDescription"),
-            type = "range",
-            softMin = 6,
-            softMax = 72,
-            min = 1,
-            step = 1,
-            bigStep = 1,
-            set = function(info,val)  JDT.db.profile.CooldownTextFontSize = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info)
-                return  JDT.db.profile.CooldownTextFontSize or 17  --Sets value of toggles depending on SavedVariables 
-            end
-          },
-          TextFontSize= {
-            name = JDT.getLocalisation("TextFontSize"),
-            desc = JDT.getLocalisation("TextFontSizeDescription"),
-            type = "range",
-            softMin = 6,
-            softMax = 72,
-            min = 1,
-            step = 1,
-            bigStep = 1,
-            set = function(info,val)  JDT.db.profile.TextFontSize = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info)
-                return  JDT.db.profile.TextFontSize or 17  --Sets value of toggles depending on SavedVariables 
-            end
-
-          },
-          xOffset= {
-            name = JDT.getLocalisation("xOffset"),
-            desc = JDT.getLocalisation("xOffsetDescription"),
-            type = "range",
-            softMin = math.floor(-GetScreenWidth()/2),
-            softMax = math.ceil(GetScreenWidth()/2),
-            bigStep = 1,
-            set = function(info,val)  JDT.db.profile.xOffset = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info)
-                return  JDT.db.profile.xOffset  --Sets value of toggles depending on SavedVariables 
-            end
-
-          },
-          yOffset= {
-            name = JDT.getLocalisation("yOffset"),
-            desc = JDT.getLocalisation("yOffsetDescription"),
-            type = "range",
-            softMin = math.floor(-GetScreenHeight()/2),
-            softMax = math.ceil(GetScreenHeight()/2),
-            bigStep = 1,
-            set = function(info,val)  JDT.db.profile.yOffset = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info)
-                return  JDT.db.profile.yOffset  --Sets value of toggles depending on SavedVariables 
-            end
-          },
-          GroupLimit= {
-            name = JDT.getLocalisation("GroupLimit"),
-            desc = JDT.getLocalisation("GroupLimitDescription"),
-            type = "range",
-            softMin = 1,
-            softMax = 20,
-            min = 0,
-            max= 20,
-            step = 1,
-            bigStep = 1,
-            set = function(info,val)  JDT.db.profile.GroupLimit = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info)
-                return  JDT.db.profile.GroupLimit or 7 --Sets value of toggles depending on SavedVariables 
-            end
-          },
-          IconWidth= {
-            name = JDT.getLocalisation("IconWidth"),
-            desc = JDT.getLocalisation("IconWidthDescription"),
-            type = "range",
-            softMin = 1,
-            softMax = 600,
-            min = 1,
-            step = 1,
-            bigStep = 1,
-            set = function(info,val)  JDT.db.profile.IconWidth = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info)
-                return  JDT.db.profile.IconWidth or 80  --Sets value of toggles depending on SavedVariables 
-            end
-          },
-          IconHeight= {
-            name = JDT.getLocalisation("IconHeight"),
-            desc = JDT.getLocalisation("IconHeightDescription"),
-            type = "range",
-            softMin = 1,
-            softMax = 600,
-            min = 1,
-            step = 1,
-            bigStep = 1,
-            set = function(info,val)  JDT.db.profile.IconHeight = val end, --Sets value of SavedVariables depending on toggles
-            get = function(info)
-                return  JDT.db.profile.IconHeight or 80  --Sets value of toggles depending on SavedVariables 
-            end
-          },
-         GrowOptions={
-            name = JDT.getLocalisation("GrowOptions"),
-            type = "group",
-            args={
-              GroupGrow= {
-                name = JDT.getLocalisation("GroupGrow"),
-                desc = JDT.getLocalisation("GroupGrowDescription"),
-                type = "select",
-                values = JDT.Templates.GroupGrowTypes,
-                set = function(info,val)  JDT.db.profile.GroupGrow = val end, --Sets value of SavedVariables depending on toggles
+              ExportButton = {
+                name = "Send to WeakAuras",
+                type = "execute",
+                order = 0,
+                func = function() JDT.exportAuras() end
+            },
+             
+              GroupOptionsSeperator={
+                name = "GroupOptions",
+                type = "header",
+                order = 1,
+              },
+              AnchorGroupsToAffixes = {
+                name = JDT.getLocalisation("AnchorGroupsToAffixes"),
+                desc = JDT.getLocalisation("AnchorGroupsToAffixesDescription"),
+                order = 30,
+                width = "full",
+                type = "toggle",
+                set = function(info,val)  JDT.db.profile.AnchorGroupsToAffixes = val end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    JDT.options.args.generaloptions.args.GrowOptions.args.SpecificGrowOptions.args = JDT.Templates.GroupGrowOptionsFromType[JDT.db.profile.GroupGrow]
-                    return  JDT.db.profile.GroupGrow--Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.AnchorGroupsToAffixes  --Sets value of toggles depending on SavedVariables 
                 end
               },
-              SpecificGrowOptions={
-                name = JDT.getLocalisation("SpecificGrowOptions"),
-                type = "group",
-                inline = true,
-                args={
-
-                }
-              }
-            },
-           
-        }
+              xOffset= {
+                name = JDT.getLocalisation("xOffset"),
+                desc = JDT.getLocalisation("xOffsetDescription"),
+                order = 31,
+                type = "range",
+                softMin = math.floor(-GetScreenWidth()/2),
+                softMax = math.ceil(GetScreenWidth()/2),
+                bigStep = 1,
+                set = function(info,val)  JDT.db.profile.xOffset = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.xOffset  --Sets value of toggles depending on SavedVariables 
+                end
+    
+              },
+              yOffset= {
+                name = JDT.getLocalisation("yOffset"),
+                desc = JDT.getLocalisation("yOffsetDescription"),
+                order = 32,
+                type = "range",
+                softMin = math.floor(-GetScreenHeight()/2),
+                softMax = math.ceil(GetScreenHeight()/2),
+                bigStep = 1,
+                set = function(info,val)  JDT.db.profile.yOffset = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.yOffset  --Sets value of toggles depending on SavedVariables 
+                end
+              },
+              GroupLimit= {
+                name = JDT.getLocalisation("GroupLimit"),
+                desc = JDT.getLocalisation("GroupLimitDescription"),
+                order = 33,
+                type = "range",
+                softMin = 1,
+                softMax = 20,
+                min = 0,
+                max= 20,
+                step = 1,
+                bigStep = 1,
+                set = function(info,val)  JDT.db.profile.GroupLimit = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.GroupLimit or 7 --Sets value of toggles depending on SavedVariables 
+                end
+              },
+              GrowOptionsSeperator={
+                name = "GrowOptions",
+                type = "header",
+                order = 34,
+              }, 
+              
+                  GroupGrow= {
+                    name = JDT.getLocalisation("GroupGrow"),
+                    desc = JDT.getLocalisation("GroupGrowDescription"),
+                    order = 35,
+                    type = "select",
+                    values = JDT.Templates.GroupGrowTypes,
+                    set = function(info,val)  JDT.db.profile.GroupGrow = val end, --Sets value of SavedVariables depending on toggles
+                    get = function(info)
+                        JDT.options.args.generaloptions.args.SpecificGrowOptions.args = JDT.Templates.GroupGrowOptionsFromType[JDT.db.profile.GroupGrow]
+                        return  JDT.db.profile.GroupGrow--Sets value of toggles depending on SavedVariables 
+                    end
+                  },
+                  SpecificGrowOptions={
+                    name = JDT.getLocalisation("SpecificGrowOptions"),
+                    type = "group",
+                    order = 36,
+                    inline = true,
+                    args={}
+                      },
+                 
+                         
+              AuraOptionsSeperator={
+                name = "AuraOptions",
+                type = "header",
+                order = 50,
+              },
+              IconWidth= {
+                name = JDT.getLocalisation("IconWidth"),
+                desc = JDT.getLocalisation("IconWidthDescription"),
+                type = "range",
+                order = 51,
+                width = 1.25,
+                softMin = 1,
+                softMax = 600,
+                min = 1,
+                step = 1,
+                bigStep = 1,
+                set = function(info,val)  JDT.db.profile.IconWidth = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.IconWidth or 80  --Sets value of toggles depending on SavedVariables 
+                end
+              },
+              
+              
+              IconHeight= {
+                name = JDT.getLocalisation("IconHeight"),
+                desc = JDT.getLocalisation("IconHeightDescription"),
+                type = "range",
+                order = 52,
+                width = 1.25,
+                softMin = 1,
+                softMax = 600,
+                min = 1,
+                step = 1,
+                bigStep = 1,
+                set = function(info,val)  JDT.db.profile.IconHeight = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.IconHeight or 80  --Sets value of toggles depending on SavedVariables 
+                end
+              },
+              
+              ShowTimer = {
+                name = JDT.getLocalisation("ShowTimer"),
+                desc = JDT.getLocalisation("ShowTimerDescription"),
+                type = "toggle",
+                order = 53,
+                width = 2.5/3,
+                set = function(info,val)  JDT.db.profile.ShowTimer = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.ShowTimer  --Sets value of toggles depending on SavedVariables 
+                end
+              },
+              HideCooldownText = {
+                name = JDT.getLocalisation("HideCooldownText"),
+                desc = JDT.getLocalisation("HideCooldownTextDescription"),
+                order = 54,
+                width = 2.5/3,
+                type = "toggle",
+                set = function(info,val)  JDT.db.profile.HideCooldownText = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.HideCooldownText  --Sets value of toggles depending on SavedVariables 
+                end
+              },
+              CooldownTextFontSize= {
+                name = JDT.getLocalisation("CooldownTextFontSize"),
+                desc = JDT.getLocalisation("CooldownTextFontSizeDescription"),
+                order = 55,
+                width = 2.5/3,
+                type = "range",
+                softMin = 6,
+                softMax = 72,
+                min = 1,
+                step = 1,
+                bigStep = 1,
+                set = function(info,val)  JDT.db.profile.CooldownTextFontSize = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.CooldownTextFontSize or 17  --Sets value of toggles depending on SavedVariables 
+                end
+              },
+              
+             
+              FontOptions= {
+                name = JDT.getLocalisation("FontOption"),
+                desc = JDT.getLocalisation("FontOptionDescription"),
+                order = 56,
+                type = "select",
+                width = 1.25,
+                values = JDT.FontMedias,
+                set = function(info,val)  JDT.db.profile.FontOptions = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info) return  JDT.db.profile.FontOptions--Sets value of toggles depending on SavedVariables 
+                end
+              },
+              TextFontSize= {
+                name = JDT.getLocalisation("TextFontSize"),
+                desc = JDT.getLocalisation("TextFontSizeDescription"),
+                type = "range",
+                order = 57,
+                width = 1.25,
+                softMin = 6,
+                softMax = 72,
+                min = 1,
+                step = 1,
+                bigStep = 1,
+                set = function(info,val)  JDT.db.profile.TextFontSize = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.TextFontSize or 17  --Sets value of toggles depending on SavedVariables 
+                end
+    
+              },
+              PlaySound = {
+                name = JDT.getLocalisation("PlaySound"),
+                desc = JDT.getLocalisation("PlaySoundDescription"),
+                type = "toggle",
+                set = function(info,val)  JDT.db.profile.PlaySound = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.PlaySound  --Sets value of toggles depending on SavedVariables 
+                end
+              },
+              
+              ComingSoon = {
+                name = "More options coming soon",
+                order = -1,
+                type = "description",
+                image = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga",
+              },
+       
           
           
           -- more options go here
