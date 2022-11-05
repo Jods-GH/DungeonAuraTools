@@ -28,6 +28,9 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     ExpansionValue.uid  = "DungeonAuras_"..ExpansionKey.."UID" --AuraUniqueId
     ExportTable.d.id = ExpansionValue.id
     ExportTable.d.uid = ExpansionValue.uid 
+    if JDT.db.profile.GroupLimit then
+        ExportTable.d.limit = JDT.db.profile.GroupLimit
+    end
     if JDT.db.profile.AnchorGroupsToAffixes and ExpansionKey ~= "Affixes" then
         ExportTable.d.xOffset = 0
         ExportTable.d.yOffset = 0

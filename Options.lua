@@ -72,6 +72,21 @@ JDT.options = {
             get = function(info)
                 return  JDT.db.profile.yOffset  --Sets value of toggles depending on SavedVariables 
             end
+          },
+          GroupLimit= {
+            name = JDT.getLocalisation("GroupLimit"),
+            desc = JDT.getLocalisation("GroupLimitDescription"),
+            type = "range",
+            softMin = 1,
+            softMax = 20,
+            min = 0,
+            max= 20,
+            step = 1,
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.GroupLimit = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.GroupLimit or 7 --Sets value of toggles depending on SavedVariables 
+            end
 
           },
           
