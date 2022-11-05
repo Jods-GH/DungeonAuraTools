@@ -30,4 +30,6 @@ jobs:
     # "steps" holds a list of all the steps needed to package and release our AddOn
     steps:
       - name: Generate Changelog
-        run: cd .github && ./generate_changelog.sh
+        run: |
+          cd .github/
+          ./generate_changelog.sh
