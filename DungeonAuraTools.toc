@@ -1,5 +1,5 @@
 ## Interface: 100002
-## Version: 1.2.1
+## Version: 1.2.2
 ## Plain Title: DungeonAuraTools
 ## Title: |cffe5c75fD|r|cffFF657Fungeon|r|cffe5c75fA|r|cffFF657Fura|r|cffe5c75fT|r|cffFF657Fools|r 
 ## Notes: Compact Addon to Manage all my Stuff for Dungeons

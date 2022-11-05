@@ -36,8 +36,14 @@ LocalisationData["CooldownTextFontSizeDescription"] = "Sets the size of the Cool
 LocalisationData["CooldownTextFontSize"] = "Cooldown text size"
 LocalisationData["TextFontSize"] = "Text size"
 LocalisationData["TextFontSizeDescription"] = "Sets the size of all the texts"
-LocalisationData["HideCooldownText"] = "Hide cooldown text"
-LocalisationData["HideCooldownTextDescription"] = "Hides the cooldown text"
+LocalisationData["HideCooldownText"] = "Hide CD"
+LocalisationData["HideCooldownTextDescription"] = "Hides blizzard cooldown numbers and CD displayed by ELVUI or OmniCC"
+LocalisationData["GroupOptions"] = "Group options"
+    LocalisationData["AuraOptions"] = "Aura options"
+    LocalisationData["IconWidth"] = "Icon width"
+    LocalisationData["IconWidthDescription"] = "Sets the width of the Icon"
+    LocalisationData["IconHeight"] = "Icon height"
+    LocalisationData["IconHeightDescription"] = "Sets the height of the Icon"
 
 
 -- Grows
