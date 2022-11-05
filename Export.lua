@@ -113,7 +113,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 if v.extraName then -- add extra stuff if needed to not have duplicate id's
                                     SpellTable.id= SpellTable.id..v.extraName 
                                 end
-
+                                if JDT.db.profile.CooldownTextFontSize then
+                                    SpellTable.subRegions[2].text_fontSize = JDT.db.profile.CooldownTextFontSize
+                                end
                                 -- set Text to display below Aura (telling you what to do)
                                 for textkey,textvalue in pairs(AuraTemplate.text) do
                                     local TextTemplate = CopyTable(JDT.Templates.TextRegions.TextToDisplay)

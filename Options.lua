@@ -26,8 +26,8 @@ JDT.options = {
             get = function(info)
                 return  JDT.db.profile.PlaySound  --Sets value of toggles depending on SavedVariables 
             end
-
           },
+         
           FontOptions= {
             name = JDT.getLocalisation("FontOption"),
             desc = JDT.getLocalisation("FontOptionDescription"),
@@ -54,6 +54,20 @@ JDT.options = {
             set = function(info,val)  JDT.db.profile.ShowTimer = val end, --Sets value of SavedVariables depending on toggles
             get = function(info)
                 return  JDT.db.profile.ShowTimer  --Sets value of toggles depending on SavedVariables 
+            end
+          },
+          CooldownTextFontSize= {
+            name = JDT.getLocalisation("CooldownTextFontSize"),
+            desc = JDT.getLocalisation("CooldownTextFontSizeDescription"),
+            type = "range",
+            softMin = 6,
+            softMax = 72,
+            min = 1,
+            step = 1,
+            bigStep = 1,
+            set = function(info,val)  JDT.db.profile.CooldownTextFontSize = val end, --Sets value of SavedVariables depending on toggles
+            get = function(info)
+                return  JDT.db.profile.CooldownTextFontSize or 17  --Sets value of toggles depending on SavedVariables 
             end
 
           },
