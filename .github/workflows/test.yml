@@ -29,5 +29,10 @@ jobs:
 
     # "steps" holds a list of all the steps needed to package and release our AddOn
     steps:
+      # we first have to clone the AddOn project, this is a required step
+      - name: Clone project
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # gets git history for changelogs
       - name: Generate Changelog
         run: ./generate_changelog.sh
