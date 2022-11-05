@@ -3,36 +3,86 @@ name: Bug report
 about: Create a report to help us improve
 title: ''
 labels: bug
-assignees: ''
+body:
+- type: markdown
+  attributes:
+    value: |
+      Please [search for existing issues](https://github.com/WeakAuras/WeakAuras2/issues](https://github.com/Jodsderechte/DungeonAuraTools/issues) before creating a new one.
 
----
+- type: textarea
+  attributes:
+    label: Description
+    description: What did you expect to happen and what happened instead?
+  validations:
+    required: true
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+- type: input
+  attributes:
+    label: WeakAuras Version
+    description: |
+      You can see the current version in the title bar of the options window, if the options do not open, check the CurseForge app or the `## Version:` field in the WeakAuras.toc file.
+    placeholder: "WeakAuras 2.2.0"
+  validations:
+    required: true
+    
+- type: input
+  attributes:
+    label: DungeonAuraTools Version
+    description: |
+      You can see the current version in the CurseForge app or similar
+    placeholder: "0.4.1"
+  validations:
+    required: true    
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+- type: checkboxes
+  id: testing
+  attributes:
+    label: Tested with only WeakAuras and DungeonAuraTools
+    description: Did you try having WeakAuras and DungeonAuraTools as the only enabled addons and everything else (especially something like ElvUI) disabled?
+    options:
+      - label: "Yes"
+      - label: "No"
+  validations:
+    required: true
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+- type: textarea
+  attributes:
+    label: Lua Error
+    description: |
+      Do you have an error log of what happened? If you don't see any errors, make sure that error reporting is enabled (`/console scriptErrors 1`) or install [BugSack](https://www.curseforge.com/wow/addons/bugsack) & [BugGrabber](https://www.curseforge.com/wow/addons/bug-grabber), yes both are needed.
+  validations:
+    required: false
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+- type: textarea
+  attributes:
+    label: Reproduction Steps
+    description: Please list out the steps to reproduce your bug.
+    placeholder: |
+      1. Go to '...'
+      2. Click on '....'
+      3. Scroll down to '....'
+      4. See error
+  validations:
+    required: true
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+- type: input
+  attributes:
+    label: Last Good Version
+    description: |
+      Was it working in a previous version? If yes, which was the last good one?
+    placeholder: "WeakAuras 2.1.0"
+  validations:
+    required: false
 
-**Additional context**
-Add any other context about the problem here.
+- type: textarea
+  attributes:
+    label: Screenshots
+    description: If applicable, add screenshots to help explain your problem.
+    placeholder: Click here to attach your screenshots via the editor button in the top right.
+  validations:
+    required: false
+
+
+
+
