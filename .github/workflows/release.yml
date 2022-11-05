@@ -29,6 +29,8 @@ jobs:
 
     # "steps" holds a list of all the steps needed to package and release our AddOn
     steps:
+      - name: Generate Changelog
+        run: ./.github/generate_changelog.sh
 
       # we first have to clone the AddOn project, this is a required step
       - name: Clone project
