@@ -4,16 +4,22 @@ JDT.options = {
   name = "Addon Options",
     type = "group",
     args = {
+      ExportButton = {
+        name = "Send to WeakAuras",
+        type = "execute",
+        order = 0,
+        func = function() JDT.exportAuras() end
+    },
+    ComingSoon = {
+      name = "More options coming soon",
+      type = "description",
+      image = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga",
+    },
       generaloptions={
         name = JDT.getLocalisation("GeneralOptions"),
         type = "group",
         args={
-              ExportButton = {
-                name = "Send to WeakAuras",
-                type = "execute",
-                order = 0,
-                func = function() JDT.exportAuras() end
-            },
+             
              
               GroupOptionsSeperator={
                 name = "GroupOptions",
@@ -219,13 +225,7 @@ JDT.options = {
                 end
               },
               
-              ComingSoon = {
-                name = "More options coming soon",
-                order = -1,
-                type = "description",
-                image = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga",
-              },
-       
+                  
           
           
           -- more options go here

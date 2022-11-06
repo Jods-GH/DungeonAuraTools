@@ -71,4 +71,5 @@ ExportData.lua
 Export.lua
 Main.lua
 Options.lua
+GUI.lua
 
