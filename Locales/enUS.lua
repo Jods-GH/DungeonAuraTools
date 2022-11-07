@@ -44,6 +44,7 @@ LocalisationData["GroupOptions"] = "Group options"
     LocalisationData["IconWidthDescription"] = "Sets the width of the Icon"
     LocalisationData["IconHeight"] = "Icon height"
     LocalisationData["IconHeightDescription"] = "Sets the height of the Icon"
+    LocalisationData["ExpansionOptions"] = "Expansion Options"
 
 
 -- Grows

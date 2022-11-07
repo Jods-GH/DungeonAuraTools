@@ -1,5 +1,4 @@
 local appName, JDT = ...
-local AceGUI = LibStub("AceGUI-3.0")
 local AceConfig = LibStub("AceConfig-3.0")
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 local AceDBOptions = LibStub("AceDBOptions-3.0")
@@ -19,6 +18,9 @@ function DungeonAuraTools:OnInitialize()
 	self:Print(JDT.getLocalisation("AccessOptionsMessage"))
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("CHAT_MSG_ADDON")
+
+
+
 
     local DatatoPersist = {
         profile = {

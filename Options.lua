@@ -4,16 +4,17 @@ JDT.options = {
   name = "Addon Options",
     type = "group",
     args = {
+      ExportButton = {
+        name = "Send to WeakAuras",
+        type = "execute",
+        order = 0,
+        func = function() JDT.exportAuras() end
+    },
       generaloptions={
         name = JDT.getLocalisation("GeneralOptions"),
         type = "group",
         args={
-              ExportButton = {
-                name = "Send to WeakAuras",
-                type = "execute",
-                order = 0,
-                func = function() JDT.exportAuras() end
-            },
+             
              
               GroupOptionsSeperator={
                 name = "GroupOptions",
@@ -235,21 +236,57 @@ JDT.options = {
             name = JDT.getLocalisation("SpellOptions"),
             type = "group",
             args={
+              Seperator={
+                name =  JDT.getLocalisation("ExpansionOptions"),
+                type = "header",
+                order = 0,
+              }
               -- more options go here  
       }
     }
   }
 }
 JDT.createOptionsData = function() -- Generates Type Groups depending on SPellData.lua
+  JDT.options.args.spelloptions.args["ExpansionToggles"] = {
+    type = "group",
+    name = "",
+    inline = true,
+    args={
+     
+}}
   for ExpansionKey,ExpansionValue in pairs(JDT.SpellList) do 
     JDT.options.args.spelloptions.args[ExpansionKey] = {
       name = ExpansionKey,
       type = "group",
       args={
+       
       -- more options go here
       }
   }
   if ExpansionKey == "Affixes" then
+    JDT.options.args.spelloptions.args["ExpansionToggles"].args[ExpansionKey] = {
+      name = ExpansionKey,
+      desc = JDT.getLocalisation("Toggles all Auras for").." "..ExpansionKey,
+      type = "toggle",
+      width = "full",
+      order =  0,
+      set = function(info,val)  for typekey,typevalue in pairs(ExpansionValue.Auras) do 
+        for k,v in pairs(typevalue) do
+          JDT.db.profile.data[ExpansionKey].Auras[typekey][k].enabled = val
+        end
+      end end,
+      get = function(info) 
+        local isactive = false
+        for typekey,typevalue in pairs(ExpansionValue.Auras) do 
+          for k,v in pairs(typevalue) do
+            if JDT.db.profile.data[ExpansionKey].Auras[typekey][k].enabled == true then
+            isactive = true
+            end
+          end
+        end return isactive  end,
+        confirm = true,
+        confirmText = JDT.getLocalisation("Warning will overwrite all currently selected values."), 
+      }
     for typekey,typevalue in pairs(ExpansionValue.Auras) do
       for k,v in pairs(typevalue) do -- Generates Spell toggles depending on SPellData.lua
         if v.affixId then
@@ -287,9 +324,61 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
   end
 
   else
+
+  
+  
+    JDT.options.args.spelloptions.args["ExpansionToggles"].args[ExpansionKey] = {
+      name = ExpansionKey,
+      desc = JDT.getLocalisation("Toggles all Auras for").." "..ExpansionKey,
+      type = "toggle",
+      width = "full",
+      order =  1000-JDT.ExpansionValues[ExpansionKey][2]*10,
+      set = function(info,val)
+            for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
+              for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do   
+                for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
+                  for k,v in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
+                    JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val 
+                  end 
+                end
+             end
+           end
+        end, --Sets value of SavedVariables depending on toggles
+      get = function(info)
+        local isactive = false
+        for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
+          for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do 
+            for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
+            for k,v in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
+              if JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled  == true then
+                isactive = true
+              end
+            end 
+          end
+        end
+      end
+          return  isactive --Sets value of toggles depending on SavedVariables 
+      end,
+      confirm = true,
+      confirmText = JDT.getLocalisation("Warning will overwrite all currently selected values."), 
+} 
+    JDT.options.args.spelloptions.args[ExpansionKey].args["DungeonToggles"] = {
+      type = "group",
+      name = "",
+      inline = true,
+      args={
+        Logo = {
+          name = "",
+          type = "description",
+          image = GetExpansionDisplayInfo(JDT.ExpansionValues[ExpansionKey][2]).logo,
+          imageWidth = 150,
+          imageHeight = 50,
+          order =  0,
+        }
+}}
     for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
       EJ_SelectInstance(DungeonValue.EncounterJournalID)
-      local Instancename, Instancedescription,_,_,_,_, _,_,_= EJ_GetInstanceInfo()
+      local Instancename, Instancedescription,_,buttonImage1,_,_, _,_,_= EJ_GetInstanceInfo()
       JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey] = {
         name = Instancename,
         desc = Instancedescription,
@@ -298,6 +387,46 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
         -- more options go here
         }
     }
+    JDT.options.args.spelloptions.args[ExpansionKey].args["DungeonToggles"].args[DungeonKey]= {
+      name = Instancename,
+      desc = JDT.getLocalisation("Toggles all Auras for").." "..Instancename,
+      type = "toggle",
+      image = buttonImage1,
+      width = "full",
+      order = DungeonValue.EncounterJournalID,
+      set = function(info,val)
+        for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do   
+          for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
+            for k,v in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
+              JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val 
+          end 
+      end
+    end
+        end, --Sets value of SavedVariables depending on toggles
+      get = function(info)
+        local isactive = false
+        for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do 
+          for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
+          for k,v in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
+            if JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled  == true then
+              isactive = true
+            end
+          end 
+        end
+      end
+          return  isactive --Sets value of toggles depending on SavedVariables 
+      end,
+      confirm = true,
+      confirmText = JDT.getLocalisation("Warning will overwrite all currently selected values."), 
+
+} 
+    JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args["BossToggles"] = {
+          type = "group",
+          name = "",
+          inline = true,
+          args={
+    }
+  }
       for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do 
         local EncounterName, Encounterdescription, journalEncounterID, rootSectionID, link, journalInstanceID, dungeonEncounterID, instanceID
         local id, name, description, displayInfo, iconImage, uiModelSceneID
@@ -315,42 +444,43 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
           type = "group",
           order = OrderNumber,
           args={
-            BossToggle = {
-              name = EncounterName,
-              desc = JDT.getLocalisation("Toggles all Auras for").." "..EncounterName,
-              type = "toggle",
-              image = iconImage,
-              set = function(info,val)  
-                for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
-                for k,v in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
-                  JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val 
-                end 
-              end
-                end, --Sets value of SavedVariables depending on toggles
-              get = function(info)
-                local isactive = false
-                for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
-                for k,v in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
-                  if JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled  == true then
-                    isactive = true
-                  end
-                end 
-              end
-                  return  isactive --Sets value of toggles depending on SavedVariables 
-              end,
-              confirm = true,
-              confirmText = JDT.getLocalisation("Warning will overwrite all currently selected values."), 
-              order = 0,
-
-        },
+           
           emptySpace = {
             name = "",
             type = "description",
             desc = ""
-          }
+          },
           -- more options go here
-          }
-      }
+          },
+         }
+         JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args["BossToggles"].args[BossNameKey]= {
+          name = EncounterName,
+          desc = JDT.getLocalisation("Toggles all Auras for").." "..EncounterName,
+          type = "toggle",
+          image = iconImage,
+          order = OrderNumber,
+          set = function(info,val)  
+            for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
+            for k,v in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
+              JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled = val 
+            end 
+          end
+            end, --Sets value of SavedVariables depending on toggles
+          get = function(info)
+            local isactive = false
+            for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
+            for k,v in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey]) do
+              if JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k].enabled  == true then
+                isactive = true
+              end
+            end 
+          end
+              return  isactive --Sets value of toggles depending on SavedVariables 
+          end,
+          confirm = true,
+          confirmText = JDT.getLocalisation("Warning will overwrite all currently selected values."), 
+    } 
+    
         for SpellTypeKey,SpellTypeValue in pairs (BossNameValue.Auras) do 
           JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey].args[SpellTypeKey] = {
               name = JDT.getLocalisation(SpellTypeKey),
