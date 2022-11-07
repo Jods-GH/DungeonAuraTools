@@ -256,7 +256,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
 }}
   for ExpansionKey,ExpansionValue in pairs(JDT.SpellList) do 
     JDT.options.args.spelloptions.args[ExpansionKey] = {
-      name = ExpansionKey,
+      name = JDT.ExpansionValues[ExpansionKey][3],
       type = "group",
       args={
        
@@ -328,7 +328,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
   
   
     JDT.options.args.spelloptions.args["ExpansionToggles"].args[ExpansionKey] = {
-      name = ExpansionKey,
+      name = JDT.ExpansionValues[ExpansionKey][3],
       desc = JDT.getLocalisation("Toggles all Auras for").." "..ExpansionKey,
       type = "toggle",
       width = "full",
