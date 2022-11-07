@@ -237,7 +237,7 @@ JDT.options = {
             type = "group",
             args={
               Seperator={
-                name =  JDT.getLocalisation("Expansion Options"),
+                name =  JDT.getLocalisation("ExpansionOptions"),
                 type = "header",
                 order = 0,
               }
