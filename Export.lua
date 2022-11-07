@@ -54,7 +54,8 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     else
     ExportTable.d.xOffset  = JDT.db.profile.xOffset
     ExportTable.d.yOffset = JDT.db.profile.yOffset
-    ExportTable.d.url = JDT.ExpansionValues[ExpansionKey]
+    ExportTable.d.internalVersion = JDT.InternalWaVersion
+    ExportTable.d.url = JDT.ExpansionValues[ExpansionKey][1]
     end
         if ExpansionKey == "Affixes" then
             for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
@@ -312,6 +313,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 v.uID = uId
                                 SpellTable.uid = v.uID
                                 end
+                                SpellTable.internalVersion = JDT.InternalWaVersion
                                 SpellTable.url = JDT.ExpansionValues[ExpansionKey][1]
                                 SpellTable.parent = ExportTable.d.id
                                 table.insert(ExportTable.d.controlledChildren,SpellTable.id)
