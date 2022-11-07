@@ -86,6 +86,16 @@
 	JDT.Templates.GridDirectionTypes.RU = JDT.getLocalisation("GridRightUp")
 	JDT.Templates.GridDirectionTypes.UL = JDT.getLocalisation("GridUpLeft")
 	JDT.Templates.GridDirectionTypes.UR = JDT.getLocalisation("GridUpRight")
+  JDT.Templates.GridDirectionTypes.HD = JDT.getLocalisation("GridHorizontalDown")
+  JDT.Templates.GridDirectionTypes.HU = JDT.getLocalisation("GridHorizontalUp")
+  JDT.Templates.GridDirectionTypes.HV = JDT.getLocalisation("GridHorizontalVertical")
+  JDT.Templates.GridDirectionTypes.VR = JDT.getLocalisation("GridVerticalRight")
+  JDT.Templates.GridDirectionTypes.VL = JDT.getLocalisation("GridVerticalLeft")
+  JDT.Templates.GridDirectionTypes.VH = JDT.getLocalisation("GridVerticalHorizontal")
+  JDT.Templates.GridDirectionTypes.DH = JDT.getLocalisation("GridDownHorizontal")
+  JDT.Templates.GridDirectionTypes.UH = JDT.getLocalisation("GridUpHorizontal")
+  JDT.Templates.GridDirectionTypes.RV = JDT.getLocalisation("GridRightVertical")
+  JDT.Templates.GridDirectionTypes.LV = JDT.getLocalisation("GridLeftVertical")
 
 
 	JDT.Templates.AlignDirections = JDT.Templates.AlignDirections or {}
