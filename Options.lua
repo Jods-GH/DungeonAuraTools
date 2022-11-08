@@ -255,15 +255,17 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
      
 }}
   for ExpansionKey,ExpansionValue in pairs(JDT.SpellList) do 
+   
+  if ExpansionKey == "Affixes" then
     JDT.options.args.spelloptions.args[ExpansionKey] = {
       name = JDT.ExpansionValues[ExpansionKey][3],
       type = "group",
+      order =  0,
       args={
        
       -- more options go here
       }
   }
-  if ExpansionKey == "Affixes" then
     JDT.options.args.spelloptions.args["ExpansionToggles"].args[ExpansionKey] = {
       name = ExpansionKey,
       desc = JDT.getLocalisation("Toggles all Auras for").." "..ExpansionKey,
@@ -324,7 +326,15 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
   end
 
   else
-
+    JDT.options.args.spelloptions.args[ExpansionKey] = {
+      name = JDT.ExpansionValues[ExpansionKey][3],
+      type = "group",
+      order =  (1000-JDT.ExpansionValues[ExpansionKey][2]*10),
+      args={
+       
+      -- more options go here
+      }
+  }
   
   
     JDT.options.args.spelloptions.args["ExpansionToggles"].args[ExpansionKey] = {
@@ -371,7 +381,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
           name = "",
           type = "description",
           image = GetExpansionDisplayInfo(JDT.ExpansionValues[ExpansionKey][2]).logo,
-          imageWidth = 150,
+          imageWidth = 120,
           imageHeight = 50,
           order =  0,
         }

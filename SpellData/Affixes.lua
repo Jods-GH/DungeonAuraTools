@@ -73,6 +73,23 @@ JDT.SpellList.Affixes = {
             },
 
         }, ]]
+        [JDT.GroupTypes.HealBuff] = {
+            Sanguine = {
+                enabled = true,
+                affixId = 8,
+                spellId = 226510,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "226510",
+                    },
+
+                }
+            }, 
+        },
+
+
         [JDT.GroupTypes.Dot] = {
             Bursting = {
                 enabled = true,

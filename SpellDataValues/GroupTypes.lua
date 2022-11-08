@@ -188,6 +188,7 @@ JDT.GroupTypes.RageBuff = "RageBuff"
 JDT.GroupTypes.CastIntoCursethatRoots = "CastIntoCursethatRoots"
 JDT.GroupTypes.HealDebuff = "HealDebuff"
 JDT.GroupTypes.InteruptableCastIntoReclaimSoul = "InteruptableCastIntoReclaimSoul"
+JDT.GroupTypes.HealBuff = "HealBuff"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -223,6 +224,22 @@ JDT.Templates.GroupTypes.HealDebuff = {
          {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
             BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = "-"..JDT.getLocalisation("Healing"),
+            isactive = true,
+        },  
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.HealBuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
         },
     },
     text = {
