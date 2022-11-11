@@ -193,5 +193,265 @@ bosses.Trash = {
                 }
             },
         },
+        [JDT.GroupTypes.TargetedCast] = {
+            Agony = {
+                enabled = true,
+                spellId = 114571,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "114571",
+                    }
+
+                }
+            },
+            Hydrolance = {
+                enabled = true,
+                spellId = 397888,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "397888",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            TidalBurst = {
+                enabled = true,
+                spellId = 397889,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "397889",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoDot] = {
+            TaintedRipple = {
+                enabled = true,
+                spellId = 397878,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "397878",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "397878",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            SurgingDeluge = {
+                enabled = true,
+                spellId = 397881,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "397881",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoHealingReducedDebuff] = {
+            SettingSunKick = {
+                enabled = true,
+                spellId = 397904,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "397904",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "397904",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            LegSweep = {
+                enabled = true,
+                spellId = 397899, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "397899",
+
+                    },
+
+                }
+            },
+            TerritorialDisplay= {
+                enabled = true,
+                spellId = 396001, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396001",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableAoeFear] ={
+            HauntingScream= {
+                enabled = true,
+                spellId = 395859, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "395859",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            FlamesofDoubt = {
+                enabled = true,
+                spellId = 398300,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "398300",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            SummonSha = {
+                enabled = true,
+                spellId = 398296,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "398296",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.HealthDeBuff] = {
+            StaggeringBlow = {
+                enabled = true,
+                spellId = 396019,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396019",
+                    },
+
+                }
+            },
+        },
+        
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            ViciousPeck = {
+                enabled = true,
+                spellId = 396007,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396007",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "396007",
+                    },
+
+                }
+            },
+            DefilingMist = {
+                enabled = true,
+                spellId = 397914,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "397914",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "397914",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoBreakShield] = {
+            GoldenBarrier = {
+                enabled = true,
+                spellId = 396020,
+                type = JDT.AuraTypes.purge,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396020",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396020",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableSleepCastIntoDebuff] ={
+            SleepySoliloquy= {
+                enabled = true,
+                spellId = 395872, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "395872",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "395872",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            FitofRage = {
+                enabled = true,
+                spellId = 396018,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396018",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            CatNap = {
+                enabled = true,
+                spellId = 396073,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396073",
+                    },
+
+                }
+            },
+        },
+        
     }
 }

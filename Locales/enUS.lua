@@ -270,6 +270,8 @@ LocalisationData["RageBuff"] = "Enrage Buff"
 LocalisationData["CastIntoCursethatRoots"] = "Root Cast (Curse despell)"
 LocalisationData["InteruptableCastIntoReclaimSoul"] = "Reclaim sould mechanic"
 LocalisationData["ChargeIntoBleed"] = "Charge that leaves a bleed"
+LocalisationData["CastIntoDot"] = "Cast that leaves a dot"
+LocalisationData["BewitchCastIntoCurse"] = "Cast that Bewitches (Curse despellable)"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""

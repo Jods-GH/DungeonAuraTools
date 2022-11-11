@@ -190,6 +190,7 @@ JDT.GroupTypes.HealDebuff = "HealDebuff"
 JDT.GroupTypes.InteruptableCastIntoReclaimSoul = "InteruptableCastIntoReclaimSoul"
 JDT.GroupTypes.HealBuff = "HealBuff"
 JDT.GroupTypes.BewitchCastIntoCurse = "BewitchCastIntoCurse"
+JDT.GroupTypes.CastIntoDot = "CastIntoDot"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -1915,6 +1916,59 @@ JDT.Templates.GroupTypes.TargetedCastIntoDot= {
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     doSound = JDT.SoundTypes.targeted,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = true,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.5.border_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.6.text_visible",
+                        value = false
+                    },
+                },
+        },
+    })
+}
+JDT.Templates.GroupTypes.CastIntoDot= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+            target = JDT.Templates.Triggers.UnitTypes.player,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dot inc"),
+            isactive = false,
+        },
+        {   
+            value = JDT.getLocalisation("Dot"),
+            isactive = true,
+        },  
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.debuff,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
         {
          {
