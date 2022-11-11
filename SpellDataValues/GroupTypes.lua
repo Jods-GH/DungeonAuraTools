@@ -189,6 +189,7 @@ JDT.GroupTypes.CastIntoCursethatRoots = "CastIntoCursethatRoots"
 JDT.GroupTypes.HealDebuff = "HealDebuff"
 JDT.GroupTypes.InteruptableCastIntoReclaimSoul = "InteruptableCastIntoReclaimSoul"
 JDT.GroupTypes.HealBuff = "HealBuff"
+JDT.GroupTypes.BewitchCastIntoCurse = "BewitchCastIntoCurse"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -299,6 +300,10 @@ JDT.Templates.GroupTypes.SpreadDebuff = {
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+
+
+
+
 JDT.Templates.GroupTypes.Frontal = {
     AuraType = "AuraIcon",
     triggers = {
@@ -5668,6 +5673,78 @@ JDT.Templates.GroupTypes.StunableStormCastIntoBuff = {
                         value = true
                     },
 
+                },
+            }, 
+    }
+), 
+}
+JDT.Templates.GroupTypes.BewitchCastIntoCurse = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Bewitch"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Bewitched"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.interrupt,
+    type = 
+    {
+        {
+            type = JDT.AuraTypes.interrupt,
+            visible = true,
+        },
+        {
+            type = JDT.AuraTypes.curse,
+            visible = false,
+        },
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 1,
+                   value = false,
+                    },
+                changes = {
+                    {
+                        property= "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.6.border_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.7.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.8.border_visible",
+                        value = true
+                    },
                 },
             }, 
     }
