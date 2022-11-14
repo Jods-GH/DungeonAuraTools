@@ -29,6 +29,7 @@ Templates/Actions.lua
 Templates/Glows.lua
 Templates/CustomTriggers.lua
 Templates/Conditions.lua
+Templates/WeakaurasCompanionData.lua
 
 
 #SpellDataValues
@@ -59,12 +60,12 @@ SpellData/Legion/HallsOfValor.lua
 SpellData/Legion/CourtOfStars.lua
 
 #SpellData WarlordsOfDraenor
-SpellData/WarlordsOfDraenor/ShadowmoonBurialGrounds.lua
+#SpellData/WarlordsOfDraenor/ShadowmoonBurialGrounds.lua
 SpellData/WarlordsOfDraenor/GrimrailDepot.lua
 SpellData/WarlordsOfDraenor/Irondocks.lua
 
 #SpellData MistOfPandaria
-SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
+#SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
 
 # Core
 ExportData.lua

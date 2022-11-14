@@ -16,7 +16,7 @@ end
 
 function DungeonAuraTools:OnInitialize()
 	-- Called when the addon is loaded
-	self:Print(JDT.getLocalisation("AccessOptionsMessage"))
+    self:Print(JDT.getLocalisation("AccessOptionsMessage"))
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("CHAT_MSG_ADDON")
 
@@ -134,6 +134,7 @@ end
 
 function DungeonAuraTools:PLAYER_ENTERING_WORLD(event, isLogin, isReload)
     if isLogin == true or isReload == true then
+    JDT.exportCompanion()
     JDT.createOptionsData() 
     JDT.CheckIfAuraUpdates()
     end
