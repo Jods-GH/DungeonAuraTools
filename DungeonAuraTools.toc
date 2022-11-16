@@ -1,4 +1,4 @@
-## Interface: 100000
+## Interface: 100002
 ## Version: @project-version@
 ## Plain Title: DungeonAuraTools
 ## Title: |cffe5c75fD|r|cffFF657Fungeon|r|cffe5c75fA|r|cffFF657Fura|r|cffe5c75fT|r|cffFF657Fools|r 
@@ -29,6 +29,7 @@ Templates/Actions.lua
 Templates/Glows.lua
 Templates/CustomTriggers.lua
 Templates/Conditions.lua
+Templates/WeakaurasCompanionData.lua
 
 
 #SpellDataValues

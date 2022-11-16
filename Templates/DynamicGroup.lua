@@ -149,6 +149,7 @@
 			name = JDT.getLocalisation("GridDirection"),
 			desc = JDT.getLocalisation("GridDirection"),
 			type = "select",
+      order = 0,
 			values = JDT.Templates.GridDirectionTypes,
 			set = function(info,val)  JDT.db.profile.GridDirection= val end, --Sets value of SavedVariables depending on toggles
 			get = function(info)

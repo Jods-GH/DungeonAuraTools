@@ -337,6 +337,30 @@ bosses.Trash = {
 
                 }
             },
+            RendingVoidlash = {
+                enabled = true,
+                spellId = 156776,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                   {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "156776",
+                    },
+
+                }
+            },
+            ShadowWordFrailty = {
+                enabled = true,
+                spellId = 152819,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                   {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "152819",
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.InterruptableTargetedCast] ={
             DeathVenom = {
@@ -346,6 +370,17 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "156717",
+                    }
+
+                }
+            },
+            DeathBlast = {
+                enabled = true,
+                spellId = 398206,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "398206",
                     }
 
                 }
@@ -427,5 +462,37 @@ bosses.Trash = {
                 }
             }
         },
+        [JDT.GroupTypes.BewitchCastIntoCurse] = {
+            Domination = {
+                enabled = true,
+                spellId = 398150,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "398150",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "398150",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            CryofAnguish = {
+                enabled = true,
+                spellId = 398154, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "398154",
+
+                    },
+
+                }
+            },
+        }
+       
     }
 }

@@ -17,8 +17,52 @@ JDT.CallbackFunc = function (result)
         end
     end
 end
-
-
+JDT.exportCompanion = function()
+    local WeakAurasData = CopyTable(JDT.Templates.WeakAurasCompanionData)
+    for k,v in pairs(JDT.db.profile.data) do
+        local exportstuff = JDT.buildDataToExport(k,v)
+        if #exportstuff.c ~= 0 then
+            local encoded = TableToString(exportstuff)
+            local slug = CopyTable(JDT.Templates.WeakAurasCompanionSlugData)
+            slug.name = exportstuff.d.id
+            slug.encoded = encoded
+           WeakAurasData.WeakAuras.slugs[JDT.ExpansionValues[k][4]] = slug
+        end
+    end
+    JDT.db.profile.testing = WeakAurasData
+    WeakAuras.AddCompanionData(WeakAurasData)
+end
+local LibDeflate = LibStub:GetLibrary("LibDeflate")
+local LibSerialize = LibStub("LibSerialize")
+local configForLS = {
+    errorOnUnserializableType =  false
+  }
+local configForDeflate = {level = 9}
+local compressedTablesCache = {}
+function TableToString(inTable)
+    local serialized = LibSerialize:SerializeEx(configForLS, inTable)
+    local compressed
+    -- get from / add to cache
+    if compressedTablesCache[serialized] then
+      compressed = compressedTablesCache[serialized].compressed
+      compressedTablesCache[serialized].lastAccess = time()
+    else
+      compressed = LibDeflate:CompressDeflate(serialized, configForDeflate)
+      compressedTablesCache[serialized] = {
+        compressed = compressed,
+        lastAccess = time(),
+      }
+    end
+    -- remove cache items after 5 minutes
+    for k, v in pairs(compressedTablesCache) do
+      if v.lastAccess < (time() - 300) then
+        compressedTablesCache[k] = nil
+      end
+    end
+    local encoded = "!WA:2!"
+    encoded = encoded .. LibDeflate:EncodeForPrint(compressed)
+    return encoded
+  end
 
 
 JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
