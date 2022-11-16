@@ -1,4 +1,4 @@
-## Interface: 100000
+## Interface: 100002
 ## Version: @project-version@
 ## Plain Title: DungeonAuraTools
 ## Title: |cffe5c75fD|r|cffFF657Fungeon|r|cffe5c75fA|r|cffFF657Fura|r|cffe5c75fT|r|cffFF657Fools|r 
@@ -60,12 +60,12 @@ SpellData/Legion/HallsOfValor.lua
 SpellData/Legion/CourtOfStars.lua
 
 #SpellData WarlordsOfDraenor
-#SpellData/WarlordsOfDraenor/ShadowmoonBurialGrounds.lua
+SpellData/WarlordsOfDraenor/ShadowmoonBurialGrounds.lua
 SpellData/WarlordsOfDraenor/GrimrailDepot.lua
 SpellData/WarlordsOfDraenor/Irondocks.lua
 
 #SpellData MistOfPandaria
-#SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
+SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
 
 # Core
 ExportData.lua

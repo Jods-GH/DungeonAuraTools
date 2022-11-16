@@ -29,7 +29,6 @@ JDT.exportCompanion = function()
            WeakAurasData.WeakAuras.slugs[JDT.ExpansionValues[k][4]] = slug
         end
     end
-    ViragDevTool_AddData(WeakAurasData)
     JDT.db.profile.testing = WeakAurasData
     WeakAuras.AddCompanionData(WeakAurasData)
 end
