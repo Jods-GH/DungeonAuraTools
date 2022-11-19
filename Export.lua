@@ -18,7 +18,7 @@ JDT.CallbackFunc = function (result)
     end
 end
 JDT.exportCompanion = function()
-    local WeakAurasData = CopyTable(JDT.Templates.WeakAurasCompanionData)
+    local WeakaurasData = CopyTable(JDT.Templates.JodsCompanionData)
     for k,v in pairs(JDT.db.profile.data) do
         local exportstuff = JDT.buildDataToExport(k,v)
         if #exportstuff.c ~= 0 then
@@ -26,11 +26,17 @@ JDT.exportCompanion = function()
             local slug = CopyTable(JDT.Templates.WeakAurasCompanionSlugData)
             slug.name = exportstuff.d.id
             slug.encoded = encoded
-           WeakAurasData.WeakAuras.slugs[JDT.ExpansionValues[k][4]] = slug
+            local slugname, version = exportstuff.d.url:match("wago.io/([^/]+)/([0-9]+)")
+            WeakaurasData.WeakAuras.slugs[slugname] = slug
+            WeakaurasData.WeakAuras.slugs[slugname].wagoVersion = exportstuff.d.version+1
+            WeakaurasData.WeakAuras.slugs[slugname].wagoSemver = "1.0.0-"..exportstuff.d.version+1
+            WeakaurasData.WeakAuras.slugs[slugname].logo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
+            WeakaurasData.WeakAuras.slugs[slugname].refreshLogo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
         end
     end
-    JDT.db.profile.testing = WeakAurasData
-    WeakAuras.AddCompanionData(WeakAurasData)
+    local JodsCompanionData = WeakaurasData.WeakAuras
+    JDT.db.profile.testing = JodsCompanionData
+    WeakAuras.AddCompanionData(JodsCompanionData)
 end
 local LibDeflate = LibStub:GetLibrary("LibDeflate")
 local LibSerialize = LibStub("LibSerialize")
@@ -70,6 +76,23 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     ExportTable.d = CopyTable(JDT.Templates.DynamicGroup)
     ExpansionValue.id = "DungeonAuras_"..ExpansionKey-- AuraName
     ExpansionValue.uid  = "DungeonAuras_"..ExpansionKey.."UID" --AuraUniqueId
+
+    ExpansionValue.wagoID = ExpansionValue.uid
+    ExpansionValue.preferToUpdate = true
+    local version = ExpansionValue.version or 0
+    ExpansionValue.version = version+1
+    ExpansionValue.source = "import"
+    local _,_,_,tocversion = GetBuildInfo()
+    ExpansionValue.tocversion = tocversion 
+    ExpansionValue.semver = "1.0."..ExpansionValue.version
+
+    ExportTable.d.wagoID = ExpansionValue.wagoID
+    ExportTable.d.preferToUpdate = ExpansionValue.preferToUpdate
+    ExportTable.d.version = ExpansionValue.version
+    ExportTable.d.source = ExpansionValue.source
+    ExportTable.d.tocversion = ExpansionValue.tocversion
+    ExportTable.d.semver = ExpansionValue.semver
+
     ExportTable.d.id = ExpansionValue.id
     ExportTable.d.uid = ExpansionValue.uid 
     if JDT.db.profile.GroupLimit then
@@ -99,7 +122,8 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     ExportTable.d.xOffset  = JDT.db.profile.xOffset
     ExportTable.d.yOffset = JDT.db.profile.yOffset
     ExportTable.d.internalVersion = JDT.InternalWaVersion
-    ExportTable.d.url = JDT.ExpansionValues[ExpansionKey][1]
+    ExportTable.d.url = JDT.ExpansionValues[ExpansionKey][1].."/"..version
+
     end
         if ExpansionKey == "Affixes" then
             for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
@@ -357,8 +381,14 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 v.uID = uId
                                 SpellTable.uid = v.uID
                                 end
+                                SpellTable.wagoID = ExpansionValue.wagoID
+                                SpellTable.preferToUpdate = ExpansionValue.preferToUpdate
+                                SpellTable.version = ExpansionValue.version
+                                SpellTable.source = ExpansionValue.source
+                                SpellTable.tocversion = ExpansionValue.tocversion
+                                SpellTable.semver = ExpansionValue.semver
                                 SpellTable.internalVersion = JDT.InternalWaVersion
-                                SpellTable.url = JDT.ExpansionValues[ExpansionKey][1]
+                                SpellTable.url = ExportTable.d.url
                                 SpellTable.parent = ExportTable.d.id
                                 table.insert(ExportTable.d.controlledChildren,SpellTable.id)
                                 table.insert(ExportTable.c,SpellTable)

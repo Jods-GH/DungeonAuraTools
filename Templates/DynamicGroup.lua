@@ -56,7 +56,6 @@
 			},
 			information = {
 			},
-			ignoreWagoUpdate = true,
 			internalVersion = 59,
 			url = "https://wago.io/DF-Dungeons",
 			uid = "WOOOHOOO",
