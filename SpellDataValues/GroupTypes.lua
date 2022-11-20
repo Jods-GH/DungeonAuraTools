@@ -1862,11 +1862,10 @@ JDT.Templates.GroupTypes.TargetedCastWithTargetAnounce= {
             value = JDT.getLocalisation("on You"),
             isactive = false,
         }, 
-        {   
-            value = JDT.getLocalisation("on").."%1.destUnit",
-            isactive = true,
-        }, 
+       
     },
+    usedestUnit = 1,
+    destUnitActive = true,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
     doSound = JDT.SoundTypes.targeted,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
@@ -3426,6 +3425,7 @@ JDT.Templates.GroupTypes.CastIntoLink = {
             isactive = false,
         },    
     },
+    useUnitCaster = 2,
     doSound = JDT.SoundTypes.spread,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
@@ -3495,11 +3495,10 @@ JDT.Templates.GroupTypes.SpreadCast = {
             value = JDT.getLocalisation("Spread"),
             isactive = true,
         }, 
-        {   
-            value = JDT.getLocalisation("on").." %1.destUnit",
-            isactive = false,
-        }, 
+        
     },
+    usedestUnit = 1,
+    destUnitActive = true,
     doSound = JDT.SoundTypes.spread,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
@@ -5936,14 +5935,13 @@ JDT.Templates.GroupTypes.CastOnlyTargetDisplay =  {
     },
     text = {
         {   
-            value = JDT.getLocalisation("on") .."%1.destUnit",
-            isactive = true,
-        }, 
-        {   
             value = JDT.getLocalisation("on You"),
             isactive = false,
         }, 
+        
     },
+    usedestUnit = 1,
+    destUnitActive = true,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
         {
@@ -5958,11 +5956,11 @@ JDT.Templates.GroupTypes.CastOnlyTargetDisplay =  {
                 changes = {
                         {
                             property = "sub.3.text_visible",
-                            value = false,
+                            value = true,
                         },
                         {
                             property = "sub.4.text_visible",
-                            value = true,
+                            value = false,
                         },
                 },
             },

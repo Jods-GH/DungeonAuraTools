@@ -35,7 +35,6 @@ JDT.exportCompanion = function()
         end
     end
     local JodsCompanionData = WeakaurasData.WeakAuras
-    JDT.db.profile.testing = JodsCompanionData
     WeakAuras.AddCompanionData(JodsCompanionData)
 end
 local LibDeflate = LibStub:GetLibrary("LibDeflate")
@@ -78,9 +77,9 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     ExpansionValue.uid  = "DungeonAuras_"..ExpansionKey.."UID" --AuraUniqueId
 
     ExpansionValue.wagoID = ExpansionValue.uid
-    ExpansionValue.preferToUpdate = true
+    ExpansionValue.preferToUpdate = false
     local version = ExpansionValue.version or 0
-    ExpansionValue.version = version+1
+    ExpansionValue.version = version
     ExpansionValue.source = "import"
     local _,_,_,tocversion = GetBuildInfo()
     ExpansionValue.tocversion = tocversion 
@@ -212,6 +211,13 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     TextTemplate["text_text_format_"..textkey..".unit_realm_name"] = "never"
                                     TextTemplate["text_text_format_"..textkey..".unit_color"] = "class"
                                     TextTemplate["text_text_format_"..textkey..".unit_format"] = "Unit"
+                                    if AuraTemplate.useUnitCaster and AuraTemplate.useUnitCaster == textkey then
+                                    TextTemplate["text_text_format_"..textkey..".unitCaster_format"] = "Unit"
+                                    TextTemplate["text_text_format_"..textkey..".unitCaster_color"] = true
+                                    TextTemplate["text_text_format_"..textkey..".unitCaster_abbreviate"] = false
+					                TextTemplate["text_text_format_"..textkey..".unitCaster_realm_name"] = "never"
+                                    TextTemplate["text_text_format_"..textkey..".unitCaster_abbreviate_max"] = 8
+                                    end
                                     tinsert(SpellTable.subRegions,TextTemplate)
                             
                                 end
@@ -268,12 +274,29 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     TextTemplate.text_text = "%"..AuraTemplate.useProgress..".p"
                                     tinsert(SpellTable.subRegions,TextTemplate)
                                end
+                               if AuraTemplate.usedestUnit then
+                                local TextTemplate = CopyTable(JDT.Templates.TextRegions.destUnit)
+                                TextTemplate.text_text = "%"..AuraTemplate.usedestUnit..".destUnit"
+                                TextTemplate["text_text_format_"..AuraTemplate.usedestUnit..".destUnit_format"] = "Unit"
+                                TextTemplate["text_text_format_"..AuraTemplate.usedestUnit..".destUnit_abbreviate_max"] = 8
+                                TextTemplate["text_text_format_"..AuraTemplate.usedestUnit..".destUnit_abbreviate"] = true
+                                TextTemplate["text_text_format_"..AuraTemplate.usedestUnit..".destUnit_realm_name"] = "never"
+                                TextTemplate["text_text_format_"..AuraTemplate.usedestUnit..".destUnitcolor"] = "class"
+                                 if AuraTemplate.destUnitActive then
+                                    TextTemplate.text_visible = AuraTemplate.destUnitActive
+                                 end
+                                tinsert(SpellTable.subRegions,TextTemplate)
+                             end
+
+
+                             
 
                                                             
                                -- set %s if needed 
                                 if v.showStacks then -- add Text for Stacks display if needed
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
                                     StacksText.text_text = "%"..v.showStacks..".s"
+                                    StacksText["text_text_format_"..v.showStacks..".s_format"] = "none"
                                     if v.additionalStackText then
                                         StacksText.text_text =  StacksText.text_text.." "..v.additionalStackText
                                     end
@@ -281,6 +304,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 elseif AuraTemplate.showStacks then
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
                                     StacksText.text_text = "%"..AuraTemplate.showStacks..".s"
+                                    StacksText["text_text_format_"..AuraTemplate.showStacks..".s_format"] = "none"
                                     if AuraTemplate.additionalStackText then
                                         StacksText.text_text =  StacksText.text_text.." "..AuraTemplate.additionalStackText
                                     end
@@ -294,6 +318,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                             local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
                                             CustomText.text_text = "%c"..borderkey
                                             CustomText.text_visible = bordevalue.visible
+                                            CustomText["text_text_format_c"..borderkey.."_format"] = "none"
                                             table.insert(SpellTable.subRegions,CustomText)
                                             local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
                                             BorderTable.border_color = JDT.Templates.Borders[bordevalue.type]
@@ -388,7 +413,8 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 SpellTable.tocversion = ExpansionValue.tocversion
                                 SpellTable.semver = ExpansionValue.semver
                                 SpellTable.internalVersion = JDT.InternalWaVersion
-                                SpellTable.url = ExportTable.d.url
+                                local version = ExpansionValue.version or 0
+                                SpellTable.url = JDT.ExpansionValues[ExpansionKey][1].."/"..version
                                 SpellTable.parent = ExportTable.d.id
                                 table.insert(ExportTable.d.controlledChildren,SpellTable.id)
                                 table.insert(ExportTable.c,SpellTable)
