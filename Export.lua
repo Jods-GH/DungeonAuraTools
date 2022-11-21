@@ -205,19 +205,16 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     if JDT.db.profile.TextFontSize  then
                                         TextTemplate.text_fontSize = JDT.db.profile.TextFontSize
                                     end
-                                   
-                                    TextTemplate["text_text_format_"..textkey..".unit_abbreviate_max"] = 8
-                                    TextTemplate["text_text_format_"..textkey..".unit_abbreviate"] = true
-                                    TextTemplate["text_text_format_"..textkey..".unit_realm_name"] = "never"
-                                    TextTemplate["text_text_format_"..textkey..".unit_color"] = "class"
-                                    TextTemplate["text_text_format_"..textkey..".unit_format"] = "Unit"
-                                    if AuraTemplate.useUnitCaster and AuraTemplate.useUnitCaster == textkey then
-                                    TextTemplate["text_text_format_"..textkey..".unitCaster_format"] = "Unit"
-                                    TextTemplate["text_text_format_"..textkey..".unitCaster_color"] = true
-                                    TextTemplate["text_text_format_"..textkey..".unitCaster_abbreviate"] = false
-					                TextTemplate["text_text_format_"..textkey..".unitCaster_realm_name"] = "never"
-                                    TextTemplate["text_text_format_"..textkey..".unitCaster_abbreviate_max"] = 8
-                                    end
+                                    
+
+                                    for number, unit in textvalue.value:gmatch("%%(%d+)%.(%a+)") do
+                                        TextTemplate["text_text_format_"..number.."."..unit.."_abbreviate_max"] = 8
+                                        TextTemplate["text_text_format_"..number.."."..unit.."_abbreviate"] = true
+                                        TextTemplate["text_text_format_"..number.."."..unit.."_realm_name"] = "never"
+                                        TextTemplate["text_text_format_"..number.."."..unit.."_color"] = "class"
+                                        TextTemplate["text_text_format_"..number.."."..unit.."_format"] = "Unit"
+                                      end
+                                                                     
                                     tinsert(SpellTable.subRegions,TextTemplate)
                             
                                 end
@@ -274,22 +271,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     TextTemplate.text_text = "%"..AuraTemplate.useProgress..".p"
                                     tinsert(SpellTable.subRegions,TextTemplate)
                                end
-                               if AuraTemplate.usedestUnit then
-                                local TextTemplate = CopyTable(JDT.Templates.TextRegions.destUnit)
-                                TextTemplate.text_text = "%"..AuraTemplate.usedestUnit..".destUnit"
-                                TextTemplate["text_text_format_"..AuraTemplate.usedestUnit..".destUnit_format"] = "Unit"
-                                TextTemplate["text_text_format_"..AuraTemplate.usedestUnit..".destUnit_abbreviate_max"] = 8
-                                TextTemplate["text_text_format_"..AuraTemplate.usedestUnit..".destUnit_abbreviate"] = true
-                                TextTemplate["text_text_format_"..AuraTemplate.usedestUnit..".destUnit_realm_name"] = "never"
-                                TextTemplate["text_text_format_"..AuraTemplate.usedestUnit..".destUnitcolor"] = "class"
-                                 if AuraTemplate.destUnitActive then
-                                    TextTemplate.text_visible = AuraTemplate.destUnitActive
-                                 end
-                                tinsert(SpellTable.subRegions,TextTemplate)
-                             end
-
-
-                             
+                                                            
 
                                                             
                                -- set %s if needed 

@@ -1862,10 +1862,12 @@ JDT.Templates.GroupTypes.TargetedCastWithTargetAnounce= {
             value = JDT.getLocalisation("on You"),
             isactive = false,
         }, 
+        {   
+            value = "%1.destUnit",
+            isactive = true,
+        }, 
        
     },
-    usedestUnit = 1,
-    destUnitActive = true,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
     doSound = JDT.SoundTypes.targeted,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
@@ -3425,7 +3427,6 @@ JDT.Templates.GroupTypes.CastIntoLink = {
             isactive = false,
         },    
     },
-    useUnitCaster = 2,
     doSound = JDT.SoundTypes.spread,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
@@ -3495,10 +3496,12 @@ JDT.Templates.GroupTypes.SpreadCast = {
             value = JDT.getLocalisation("Spread"),
             isactive = true,
         }, 
+        {   
+            value = "%1.destUnit",
+            isactive = false,
+        }, 
         
     },
-    usedestUnit = 1,
-    destUnitActive = true,
     doSound = JDT.SoundTypes.spread,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
@@ -5938,10 +5941,13 @@ JDT.Templates.GroupTypes.CastOnlyTargetDisplay =  {
             value = JDT.getLocalisation("on You"),
             isactive = false,
         }, 
+        {   
+            value = "%1.destUnit",
+            isactive = true,
+        }, 
         
     },
-    usedestUnit = 1,
-    destUnitActive = true,
+
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
         {
