@@ -82,6 +82,7 @@ function DungeonAuraTools:OnInitialize()
 
         -- don't use before read only or spaten will haunt my dreams WeakAuras.GetData("DungeonAuras_MistOfPandaria")
         local AuraUpdatesCount = 0
+        local AuraUpdatesTable = {}
         for ExpansionKey, ExpansionValue in pairs(JDT.db.profile.data) do
                     if not (WeakAuras.GetData("DungeonAuras_"..ExpansionKey)) then
                         local Shouldbeloaded = nil
@@ -158,16 +159,20 @@ function DungeonAuraTools:OnInitialize()
                                                         AuraToCheck.preferToUpdate = InstalledAura.preferToUpdate
                                                     end
                                                     if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then
-                                                        if AuraToCheck.id == "[TOTJS] 03 Jadefeuer [107045]" then
+                                                        
+                                                        print(AuraToCheck.id)
+                                                        if AuraToCheck.id == "[KARAZHAN  - UPPER] 04 Riss stabilisieren [230084]" then
                                                             local CompareData ={}
                                                             CompareData.AuraToCheck = AuraToCheck
                                                             CompareData.InstalledAura = InstalledAura
                                                             ViragDevTool_AddData(AuraToCheck, "AuraToCheck")
                                                             ViragDevTool_AddData(InstalledAura, "InstalledAura")
+                                                            local difference = findOutDifferenceBetweenTwoTables(AuraToCheck, InstalledAura)
+                                                            DevTools_Dump(difference)
                                                             JDT.db.profile.testing = CompareData 
                                                         end
-                                                        print(AuraToCheck.id)
                                                         AuraUpdatesCount = AuraUpdatesCount +1 
+                                                        AuraUpdatesTable[ExpansionKey] = true
                                                     end
                                                 end
                                       
@@ -183,8 +188,10 @@ function DungeonAuraTools:OnInitialize()
                                         local AuraToCheck = JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue,ExpansionKey)
                                         local InstalledAura = WeakAuras.GetData(AuraToCheck.id)
                                         if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then
+                                            
                                             print(AuraToCheck.id)
                                             AuraUpdatesCount = AuraUpdatesCount +1  
+                                            AuraUpdatesTable[ExpansionKey] = true
                                         end         
                                     end
                                 end 
@@ -194,7 +201,10 @@ function DungeonAuraTools:OnInitialize()
 
         end
         if AuraUpdatesCount  > 0 then
+            DevTools_Dump(AuraUpdatesTable)
+            JDT.exportCompanion(AuraUpdatesTable)
             self:Print(AuraUpdatesCount.." "..JDT.getLocalisation("AurasUpdatesMessage"))
+
         end
         
 
@@ -202,6 +212,22 @@ function DungeonAuraTools:OnInitialize()
 end
 
 
+function findOutDifferenceBetweenTwoTables(table1, table2)
+    local difference = {}
+    for k, v in pairs(table1) do
+        if table2[k] == nil then
+            difference[k] = v
+        elseif type(v) == "table" then
+            local sub_diff = findOutDifferenceBetweenTwoTables(v, table2[k])
+            if next(sub_diff) ~= nil then
+                difference[k] = sub_diff
+            end
+        elseif v ~= table2[k] then
+            difference[k] = v
+        end
+    end
+    return difference
+end
 
 function DungeonAuraTools:OnEnable()
 	-- Called when the addon is enabled
@@ -231,7 +257,6 @@ end
 
 function DungeonAuraTools:PLAYER_ENTERING_WORLD(event, isLogin, isReload)
     if isLogin == true or isReload == true then
-    JDT.exportCompanion()
     JDT.createOptionsData() 
     JDT.CheckIfAuraUpdates()
     end

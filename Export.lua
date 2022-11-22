@@ -17,21 +17,23 @@ JDT.CallbackFunc = function (result)
         end
     end
 end
-JDT.exportCompanion = function()
+JDT.exportCompanion = function(AuraUpdatesTable)
     local WeakaurasData = CopyTable(JDT.Templates.JodsCompanionData)
     for k,v in pairs(JDT.db.profile.data) do
-        local exportstuff = JDT.buildDataToExport(k,v)
-        if #exportstuff.c ~= 0 then
-            local encoded = TableToString(exportstuff)
-            local slug = CopyTable(JDT.Templates.WeakAurasCompanionSlugData)
-            slug.name = exportstuff.d.id
-            slug.encoded = encoded
-            local slugname, version = exportstuff.d.url:match("wago.io/([^/]+)/([0-9]+)")
-            WeakaurasData.WeakAuras.slugs[slugname] = slug
-            WeakaurasData.WeakAuras.slugs[slugname].wagoVersion = exportstuff.d.version+1
-            WeakaurasData.WeakAuras.slugs[slugname].wagoSemver = "1.0.0-"..exportstuff.d.version+1
-            WeakaurasData.WeakAuras.slugs[slugname].logo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
-            WeakaurasData.WeakAuras.slugs[slugname].refreshLogo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
+        if AuraUpdatesTable[k] then
+            local exportstuff = JDT.buildDataToExport(k,v,true)
+            if #exportstuff.c ~= 0 then
+                local encoded = TableToString(exportstuff)
+                local slug = CopyTable(JDT.Templates.WeakAurasCompanionSlugData)
+                slug.name = exportstuff.d.id
+                slug.encoded = encoded
+                local slugname, version = exportstuff.d.url:match("wago.io/([^/]+)/([0-9]+)")
+                WeakaurasData.WeakAuras.slugs[slugname] = slug
+                WeakaurasData.WeakAuras.slugs[slugname].wagoVersion = exportstuff.d.version+1
+                WeakaurasData.WeakAuras.slugs[slugname].wagoSemver = "1.0.0-"..exportstuff.d.version+1
+                WeakaurasData.WeakAuras.slugs[slugname].logo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
+                WeakaurasData.WeakAuras.slugs[slugname].refreshLogo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
+            end
         end
     end
     local JodsCompanionData = WeakaurasData.WeakAuras
@@ -70,7 +72,7 @@ function TableToString(inTable)
   end
 
 
-JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
+JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVersion)
     local ExportTable = CopyTable(JDT.DataToExport)
     ExportTable.d = CopyTable(JDT.Templates.DynamicGroup)
     ExpansionValue.id = "DungeonAuras_"..ExpansionKey-- AuraName
@@ -79,6 +81,9 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue)
     ExpansionValue.wagoID = ExpansionValue.uid
     ExpansionValue.preferToUpdate = false
     local version = ExpansionValue.version or 0
+    if shouldIncrimentVersion then
+        version = version + 1
+    end
     ExpansionValue.version = version
     ExpansionValue.source = "import"
     local _,_,_,tocversion = GetBuildInfo()
@@ -346,10 +351,20 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 end
                                 if ExpansionValue.instanceSizeType then
                                     SpellTable.load.use_size = true
+                                    if type(ExpansionValue.instanceSizeType) ~= "table" then
                                     SpellTable.load.size = {
                                         single = ExpansionValue.instanceSizeType,
+                                        multi = {
+                                        },
                                     }
+                                    else
+                                        SpellTable.load.size = {
+                                            single = "",
+                                            multi = ExpansionValue.instanceSizeType,
+                                        }
+                                    end
                                 end
+
                                 if ExpansionValue.instanceDifficulty then
                                     SpellTable.load.use_difficulty = true
                                     SpellTable.load.difficulty = {
