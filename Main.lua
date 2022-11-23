@@ -109,7 +109,7 @@ function DungeonAuraTools:OnInitialize()
                         end 
 
                             if Shouldbeloaded then
-                                self:Print(JDT.getLocalisation("AurasUpdatesMessage").." Group in question is: DungeonAuras_"..ExpansionKey)
+                                self:Print(JDT.getLocalisation("NewAurasAddedMessage").." Group in question is: DungeonAuras_"..ExpansionKey)
                             end
                         
                     else
@@ -155,22 +155,63 @@ function DungeonAuraTools:OnInitialize()
                                                 if v.enabled == true  then   
                                                     local AuraToCheck = JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)  
                                                     local InstalledAura = WeakAuras.GetData(AuraToCheck.id)
-                                                    if AuraToCheck.preferToUpdate ~= InstalledAura.preferToUpdate then -- adjust this value if needed (no idea what this value actually does though)
+                                                    if AuraToCheck and InstalledAura and AuraToCheck.preferToUpdate ~= InstalledAura.preferToUpdate then -- adjust this value if needed (no idea what this value actually does though)
                                                         AuraToCheck.preferToUpdate = InstalledAura.preferToUpdate
                                                     end
                                                     if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then
-                                                        
+                                                        --[[
                                                         print(AuraToCheck.id)
                                                         if AuraToCheck.id == "[KARAZHAN  - UPPER] 04 Riss stabilisieren [230084]" then
+                                                            local function findOutDifferenceBetweenTwoTables(table1, table2)
+                                                                local difference = {}
+                                                                for k, v in pairs(table1) do
+                                                                    if table2[k] == nil then
+                                                                        difference[k] = v
+                                                                        print("difference in: "..k)
+                                                                        DevTools_Dump(v)
+                                                                        DevTools_Dump(table2[k])
+                                                                    elseif type(v) == "table" and type(table2[k]) == "table" then
+                                                                        local sub_diff = findOutDifferenceBetweenTwoTables(v, table2[k])
+                                                                        if next(sub_diff) ~= nil then
+                                                                            difference[k] = sub_diff
+                                                                        end
+                                                                    elseif v ~= table2[k] then
+                                                                        difference[k] = v
+                                                                        print("difference in: "..k)
+                                                                        DevTools_Dump(v)
+                                                                        DevTools_Dump(table2[k])
+                                                                    end
+                                                                end
+                                                                local difference2 = {}
+                                                                for k, v in pairs(table2) do
+                                                                    if table1[k] == nil then
+                                                                        difference2[k] = v
+                                                                    elseif type(v) == "table" and type(table1[k]) == "table" then
+                                                                        local sub_diff = findOutDifferenceBetweenTwoTables(v, table1[k])
+                                                                        if next(sub_diff) ~= nil then
+                                                                            difference2[k] = sub_diff
+                                                                        end
+                                                                    elseif v ~= table1[k] then
+                                                                        difference2[k] = v
+                                                                    end
+                                                                end
+                                                                return difference,difference2
+                                                            end
+
                                                             local CompareData ={}
                                                             CompareData.AuraToCheck = AuraToCheck
                                                             CompareData.InstalledAura = InstalledAura
+                                                           
                                                             ViragDevTool_AddData(AuraToCheck, "AuraToCheck")
                                                             ViragDevTool_AddData(InstalledAura, "InstalledAura")
-                                                            local difference = findOutDifferenceBetweenTwoTables(AuraToCheck, InstalledAura)
+                                                            
+                                                            local difference,difference2 = findOutDifferenceBetweenTwoTables(AuraToCheck, InstalledAura)
+                                                            
                                                             DevTools_Dump(difference)
+                                                            DevTools_Dump(difference2)
                                                             JDT.db.profile.testing = CompareData 
-                                                        end
+                                                            
+                                                        end]]
                                                         AuraUpdatesCount = AuraUpdatesCount +1 
                                                         AuraUpdatesTable[ExpansionKey] = true
                                                     end
@@ -201,7 +242,6 @@ function DungeonAuraTools:OnInitialize()
 
         end
         if AuraUpdatesCount  > 0 then
-            DevTools_Dump(AuraUpdatesTable)
             JDT.exportCompanion(AuraUpdatesTable)
             self:Print(AuraUpdatesCount.." "..JDT.getLocalisation("AurasUpdatesMessage"))
 
@@ -212,22 +252,7 @@ function DungeonAuraTools:OnInitialize()
 end
 
 
-function findOutDifferenceBetweenTwoTables(table1, table2)
-    local difference = {}
-    for k, v in pairs(table1) do
-        if table2[k] == nil then
-            difference[k] = v
-        elseif type(v) == "table" then
-            local sub_diff = findOutDifferenceBetweenTwoTables(v, table2[k])
-            if next(sub_diff) ~= nil then
-                difference[k] = sub_diff
-            end
-        elseif v ~= table2[k] then
-            difference[k] = v
-        end
-    end
-    return difference
-end
+
 
 function DungeonAuraTools:OnEnable()
 	-- Called when the addon is enabled

@@ -230,21 +230,21 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 end
                                 -- set glow
                                 if AuraTemplate.glowtype then -- add glow
-                                    local GlowTemplate = JDT.Templates.Glows[AuraTemplate.glowtype]
+                                    local GlowTemplate =  CopyTable(JDT.Templates.Glows[AuraTemplate.glowtype])
                                     if AuraTemplate.useGlowColor then
-                                        GlowTemplate.useGlowColor = true
+                                        GlowTemplate.useGlowColor = AuraTemplate.useGlowColor
                                     end
                                     if AuraTemplate.showGlow then
-                                        GlowTemplate.glow = true
+                                        GlowTemplate.glow = AuraTemplate.showGlow
                                     end
                                     tinsert(SpellTable.subRegions,GlowTemplate)
                                 elseif v.glowtype then
-                                    local GlowTemplate = JDT.Templates.Glows[v.glowtype]
+                                    local GlowTemplate =  CopyTable(JDT.Templates.Glows[v.glowtype])
                                     if v.useGlowColor then
-                                        v.useGlowColor = true
+                                        GlowTemplate.useGlowColor = v.useGlowColor
                                     end
                                     if v.showGlow then
-                                        GlowTemplate.glow = true
+                                        GlowTemplate.glow = v.showGlow 
                                     end
                                     tinsert(SpellTable.subRegions,GlowTemplate)
                                 end
