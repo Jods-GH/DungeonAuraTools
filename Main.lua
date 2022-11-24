@@ -155,13 +155,24 @@ function DungeonAuraTools:OnInitialize()
                                                 if v.enabled == true  then   
                                                     local AuraToCheck = JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)  
                                                     local InstalledAura = WeakAuras.GetData(AuraToCheck.id)
-                                                    if AuraToCheck and InstalledAura and AuraToCheck.preferToUpdate ~= InstalledAura.preferToUpdate then -- adjust this value if needed (no idea what this value actually does though)
+                                                    if AuraToCheck and InstalledAura then 
+                                                        if AuraToCheck.preferToUpdate ~= InstalledAura.preferToUpdate then -- adjust this value if needed (no idea what this value actually does though)
                                                         AuraToCheck.preferToUpdate = InstalledAura.preferToUpdate
+                                                        end
+                                                        if AuraToCheck.version ~= InstalledAura.version then -- adjust this value if needed 
+                                                            AuraToCheck.version = InstalledAura.version
+                                                        end
+                                                        if AuraToCheck.url ~= InstalledAura.url then -- adjust this value if needed 
+                                                            AuraToCheck.url = InstalledAura.url
+                                                        end
+                                                        if AuraToCheck.semver ~= InstalledAura.semver then -- adjust this value if needed 
+                                                            AuraToCheck.semver = InstalledAura.semver
+                                                        end
                                                     end
                                                     if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then
-                                                        --[[
-                                                        print(AuraToCheck.id)
-                                                        if AuraToCheck.id == "[KARAZHAN  - UPPER] 04 Riss stabilisieren [230084]" then
+                                                        
+                                                        --[[print(AuraToCheck.id)
+                                                        if AuraToCheck.id == "[MECHAGON WORKSHOP] 04 Protokoll: Neunundneunzig [292290]" then
                                                             local function findOutDifferenceBetweenTwoTables(table1, table2)
                                                                 local difference = {}
                                                                 for k, v in pairs(table1) do
@@ -204,11 +215,14 @@ function DungeonAuraTools:OnInitialize()
                                                            
                                                             ViragDevTool_AddData(AuraToCheck, "AuraToCheck")
                                                             ViragDevTool_AddData(InstalledAura, "InstalledAura")
+                                        
                                                             
                                                             local difference,difference2 = findOutDifferenceBetweenTwoTables(AuraToCheck, InstalledAura)
                                                             
                                                             DevTools_Dump(difference)
                                                             DevTools_Dump(difference2)
+                                                            ViragDevTool_AddData(difeference, "difference1")
+                                                            ViragDevTool_AddData(difeference2, "difference2")
                                                             JDT.db.profile.testing = CompareData 
                                                             
                                                         end]]
@@ -228,9 +242,22 @@ function DungeonAuraTools:OnInitialize()
                                     if v.enabled == true then
                                         local AuraToCheck = JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue,ExpansionKey)
                                         local InstalledAura = WeakAuras.GetData(AuraToCheck.id)
-                                        if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then
-                                            
-                                            print(AuraToCheck.id)
+                                        if AuraToCheck and InstalledAura then 
+                                            if AuraToCheck.preferToUpdate ~= InstalledAura.preferToUpdate then -- adjust this value if needed (no idea what this value actually does though)
+                                            AuraToCheck.preferToUpdate = InstalledAura.preferToUpdate
+                                            end
+                                            if AuraToCheck.version ~= InstalledAura.version then -- adjust this value if needed 
+                                                AuraToCheck.version = InstalledAura.version
+                                            end
+                                            if AuraToCheck.url ~= InstalledAura.url then -- adjust this value if needed 
+                                                AuraToCheck.url = InstalledAura.url
+                                            end
+                                            if AuraToCheck.semver ~= InstalledAura.semver then -- adjust this value if needed 
+                                                AuraToCheck.semver = InstalledAura.semver
+                                            end
+                                        end
+                                        if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then             
+                                            --print(AuraToCheck.id)
                                             AuraUpdatesCount = AuraUpdatesCount +1  
                                             AuraUpdatesTable[ExpansionKey] = true
                                         end         

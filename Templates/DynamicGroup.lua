@@ -111,7 +111,7 @@
 			values = JDT.Templates.AlignDirections,
 			set = function(info,val)  JDT.db.profile.AlignDirection= val end, --Sets value of SavedVariables depending on toggles
 			get = function(info)
-				return  JDT.db.profile.AlignDirection--Sets value of toggles depending on SavedVariables 
+				return  JDT.db.profile.AlignDirection or JDT.Templates.AlignDirections.RIGHT--Sets value of toggles depending on SavedVariables 
 			end
 		  },
 		  stagger= {
