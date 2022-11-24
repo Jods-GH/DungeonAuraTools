@@ -1863,9 +1863,10 @@ JDT.Templates.GroupTypes.TargetedCastWithTargetAnounce= {
             isactive = false,
         }, 
         {   
-            value = JDT.getLocalisation("on").."%1.destUnit",
+            value = "%1.destUnit",
             isactive = true,
         }, 
+       
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
     doSound = JDT.SoundTypes.targeted,
@@ -3496,9 +3497,10 @@ JDT.Templates.GroupTypes.SpreadCast = {
             isactive = true,
         }, 
         {   
-            value = JDT.getLocalisation("on").." %1.destUnit",
+            value = "%1.destUnit",
             isactive = false,
         }, 
+        
     },
     doSound = JDT.SoundTypes.spread,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
@@ -5936,14 +5938,16 @@ JDT.Templates.GroupTypes.CastOnlyTargetDisplay =  {
     },
     text = {
         {   
-            value = JDT.getLocalisation("on") .."%1.destUnit",
-            isactive = true,
-        }, 
-        {   
             value = JDT.getLocalisation("on You"),
             isactive = false,
         }, 
+        {   
+            value = "%1.destUnit",
+            isactive = true,
+        }, 
+        
     },
+
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
         {
@@ -5958,11 +5962,11 @@ JDT.Templates.GroupTypes.CastOnlyTargetDisplay =  {
                 changes = {
                         {
                             property = "sub.3.text_visible",
-                            value = false,
+                            value = true,
                         },
                         {
                             property = "sub.4.text_visible",
-                            value = true,
+                            value = false,
                         },
                 },
             },

@@ -39,7 +39,6 @@
 					},
 				},
 				desaturate = false,
-				ignoreWagoUpdate = true,
 				url = "https://wago.io/DF-Dungeons",
 				subRegions = {
 					{

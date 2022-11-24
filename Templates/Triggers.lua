@@ -76,6 +76,7 @@ JDT.Templates.Triggers.Buffs = {
             match_countOperator = ">",
 			match_count = "0",
             ignoreSelf = true,
+            
         },
         untrigger = {
         },
@@ -92,6 +93,11 @@ JDT.Templates.Triggers.Buffs = {
             use_spellId = false,
             spellId = nil,  -- spellid of the buff to track
             use_unit = true,
+            subeventSuffix = "_CAST_START",
+            spellIds = {},
+			names = {},
+			subeventPrefix = "SPELL",
+			debuffType = "HELPFUL",
         },
         untrigger = {
         },
@@ -114,6 +120,7 @@ JDT.Templates.Triggers.Buffs = {
             subeventPrefix = "SPELL",
             unit = "player",
             debuffType = "HELPFUL",
+            
         },
         untrigger = {
         },
@@ -126,11 +133,15 @@ JDT.Templates.Triggers.Buffs = {
             use_absorbMode = true,
             event = "Power",
             use_unit = true,
-            unit = "",
+            unit = "player",
             use_percentpower = true, -- if it should be checked for percentpower
             percentpower_operator = "<", -- what operator to use 
             percentpower = "", -- the percent to check against
             debuffType = "HELPFUL",
+            subeventSuffix = "_CAST_START",
+            spellIds = {},
+			names = {},
+			subeventPrefix = "SPELL",
         },
         untrigger = {
         },
@@ -151,8 +162,9 @@ JDT.Templates.Triggers.Buffs = {
             names = {
             },
             use_unit = true, -- if it should check for unit type
-            unit = "", -- unit to check for
+            unit = "player", -- unit to check for
             debuffType = "HELPFUL",
+            
         },
         untrigger = {
         },
@@ -166,6 +178,10 @@ JDT.Templates.Triggers.Buffs = {
             use_spellId = true,
             spellId = "", -- spellid
             duration = "10",
+            spellIds = {},
+			names = {},
+			debuffType = "HELPFUL",
+            unit = "player",
         },
         untrigger = {
         },
@@ -180,6 +196,12 @@ JDT.Templates.Triggers.Buffs = {
             duration = "2.5",
            -- destName = "Rakun",
            -- use_destName = true,
+           subeventSuffix = "_CAST_START",
+           spellIds = {},
+           names = {},
+           subeventPrefix = "SPELL",
+           debuffType = "HELPFUL",
+           unit = "player",
         },
     untrigger = {
     },
@@ -194,6 +216,11 @@ JDT.Templates.Triggers.UnitSpellcastSucceeded = {
         unit = "boss1",
         spellId = "12345",
 		use_spellId = true,
+        subeventSuffix = "_CAST_START",
+        spellIds = {},
+        names = {},
+        subeventPrefix = "SPELL",
+        debuffType = "HELPFUL",
     },
     untrigger = {
     }, 

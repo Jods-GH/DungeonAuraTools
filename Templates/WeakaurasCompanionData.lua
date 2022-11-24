@@ -2,7 +2,7 @@ local _, JDT = ...
 
 JDT.Templates = JDT.Templates  or {}
 
-JDT.Templates.WeakAurasCompanionData = {
+JDT.Templates.JodsCompanionData = {
     WeakAuras = {
         slugs = {          
         },
@@ -13,9 +13,9 @@ JDT.Templates.WeakAurasCompanionData = {
     },
   Plater = {
     slugs = {
+  },
     stash = {
     },
-  },
 }
 }
 JDT.Templates.WeakAurasCompanionSlugData = {
