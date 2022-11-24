@@ -43,10 +43,10 @@ SpellData/Affixes.lua
 
 #SpellData DragonFlight
 
-#SpellData/DragonFlight/AlgetharAcademy.lua
-#SpellData/DragonFlight/RubyLifePools.lua
-#SpellData/DragonFlight/TheAzureVault.lua
-#SpellData/DragonFlight/TheNokhudOffensive.lua
+SpellData/DragonFlight/AlgetharAcademy.lua
+SpellData/DragonFlight/RubyLifePools.lua
+SpellData/DragonFlight/TheAzureVault.lua
+SpellData/DragonFlight/TheNokhudOffensive.lua
 
 #SpellData Shadowlands
 SpellData/Shadowlands/Tazavesh.lua
