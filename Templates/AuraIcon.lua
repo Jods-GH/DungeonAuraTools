@@ -45,19 +45,22 @@
 						type = "subbackground",
 					}, -- [1]
 					{  ----------------------------------------- Text 1 %p display
-						text_text_format_p_time_precision = 1,
+						
 						text_text_format_s_format = "none",
 						text_text = "%p",
-						text_text_format_p_format = "timed",
 						text_selfPoint = "AUTO",
 						text_automaticWidth = "Auto",
 						text_fixedWidth = 64,
-						text_text_format_p_time_legacy_floor = false,
 						text_justify = "CENTER",
 						rotateText = "NONE",
 						anchorYOffset = 0,
 						type = "subtext",
+						text_text_format_p_time_legacy_floor = false,
+						text_text_format_p_format = "timed",
+						text_text_format_p_time_precision = 1,
 						text_text_format_p_time_dynamic_threshold = 3,
+						text_text_format_p_time_mod_rate = true,
+						text_text_format_p_time_format = 0,
 						text_color = {
 							1, -- [1]
 							1, -- [2]
@@ -72,11 +75,9 @@
 							1, -- [4]
 						},
 						text_shadowYOffset = 0,
-						text_text_format_p_time_mod_rate = true,
 						text_wordWrap = "WordWrap",
 						text_fontType = "OUTLINE",
 						text_anchorPoint = "CENTER",
-						text_text_format_p_time_format = 0,
 						text_visible = false,
 						text_fontSize = 17,
 						anchorXOffset = 0,
