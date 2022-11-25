@@ -77,6 +77,14 @@ body:
       4. See error
   validations:
     required: true
+    
+- type: textarea
+  attributes:
+    label: Saved Variables
+    description: Please add your DungeonAuraTools.lua from your Saved varibles.
+    placeholder: Click here to attach your Saved Variables via the editor button in the top right. You can find them in WTF\Account\<Account #>\SavedVariables\DungeonAuraTools.lua
+  validations:
+    required: true   
 
 - type: input
   attributes:
