@@ -82,7 +82,7 @@ body:
   attributes:
     label: Saved Variables
     description: Please add your DungeonAuraTools.lua from your Saved varibles.
-    placeholder: Click here to attach your Saved Variables via the editor button in the top right. You can find them in WTF\Account\<Account #>\SavedVariables\DungeonAuraTools.lua
+    placeholder: Click here to attach your Saved Variables by drag and dropping them into this field. You can find them in WTF\Account\<Account #>\SavedVariables\DungeonAuraTools.lua
   validations:
     required: true   
 
