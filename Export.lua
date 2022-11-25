@@ -28,11 +28,13 @@ JDT.exportCompanion = function(AuraUpdatesTable)
                 slug.name = exportstuff.d.id
                 slug.encoded = encoded
                 local slugname, version = exportstuff.d.url:match("wago.io/([^/]+)/([0-9]+)")
-                WeakaurasData.WeakAuras.slugs[slugname] = slug
-                WeakaurasData.WeakAuras.slugs[slugname].wagoVersion = exportstuff.d.version+1
-                WeakaurasData.WeakAuras.slugs[slugname].wagoSemver = "1.0.0-"..exportstuff.d.version+1
-                WeakaurasData.WeakAuras.slugs[slugname].logo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
-                WeakaurasData.WeakAuras.slugs[slugname].refreshLogo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
+                if slugname then
+                    WeakaurasData.WeakAuras.slugs[slugname] = slug
+                    WeakaurasData.WeakAuras.slugs[slugname].wagoVersion = exportstuff.d.version+1
+                    WeakaurasData.WeakAuras.slugs[slugname].wagoSemver = "1.0.0-"..exportstuff.d.version+1
+                    WeakaurasData.WeakAuras.slugs[slugname].logo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
+                    WeakaurasData.WeakAuras.slugs[slugname].refreshLogo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
+                end
             end
         end
     end
@@ -274,6 +276,12 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                if AuraTemplate.useProgress then
                                     local TextTemplate = CopyTable(JDT.Templates.TextRegions.Progress)
                                     TextTemplate.text_text = "%"..AuraTemplate.useProgress..".p"
+                                    TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_legacy_floor"] = false
+						            TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_format"] = "timed"
+						            TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_precision"] = 1
+						            TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_dynamic_threshold"] = 3
+						            TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_mod_rate"] = true
+						            TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_format"] = 0
                                     tinsert(SpellTable.subRegions,TextTemplate)
                                end
                                                             

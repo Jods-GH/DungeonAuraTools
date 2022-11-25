@@ -170,17 +170,14 @@ function DungeonAuraTools:OnInitialize()
                                                         end
                                                     end
                                                     if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then
-                                                        
-                                                        --[[print(AuraToCheck.id)
-                                                        if AuraToCheck.id == "[MECHAGON WORKSHOP] 04 Protokoll: Neunundneunzig [292290]" then
+                                                        --[[
+                                                        print(AuraToCheck.id)
+                                                        if AuraToCheck.id == "[SBG] 01 Einflüsterungen des dunklen Sterns [153094]" then
                                                             local function findOutDifferenceBetweenTwoTables(table1, table2)
                                                                 local difference = {}
                                                                 for k, v in pairs(table1) do
                                                                     if table2[k] == nil then
                                                                         difference[k] = v
-                                                                        print("difference in: "..k)
-                                                                        DevTools_Dump(v)
-                                                                        DevTools_Dump(table2[k])
                                                                     elseif type(v) == "table" and type(table2[k]) == "table" then
                                                                         local sub_diff = findOutDifferenceBetweenTwoTables(v, table2[k])
                                                                         if next(sub_diff) ~= nil then
@@ -188,9 +185,6 @@ function DungeonAuraTools:OnInitialize()
                                                                         end
                                                                     elseif v ~= table2[k] then
                                                                         difference[k] = v
-                                                                        print("difference in: "..k)
-                                                                        DevTools_Dump(v)
-                                                                        DevTools_Dump(table2[k])
                                                                     end
                                                                 end
                                                                 local difference2 = {}
@@ -221,8 +215,8 @@ function DungeonAuraTools:OnInitialize()
                                                             
                                                             DevTools_Dump(difference)
                                                             DevTools_Dump(difference2)
-                                                            ViragDevTool_AddData(difeference, "difference1")
-                                                            ViragDevTool_AddData(difeference2, "difference2")
+                                                            ViragDevTool_AddData(difference, "difference1")
+                                                            ViragDevTool_AddData(difference2, "difference2")
                                                             JDT.db.profile.testing = CompareData 
                                                             
                                                         end]]
