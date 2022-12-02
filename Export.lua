@@ -117,6 +117,8 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
             ExportTable.d.space = JDT.db.profile.GrowSpace
         end
     end
+    ExportTable.d.internalVersion = JDT.InternalWaVersion
+    ExportTable.d.url = JDT.ExpansionValues[ExpansionKey][1].."/"..version
     if JDT.db.profile.AnchorGroupsToAffixes and ExpansionKey ~= "Affixes" then
         ExportTable.d.xOffset = 0
         ExportTable.d.yOffset = 0
@@ -125,12 +127,10 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
         ExportTable.d.anchorFrameType = "SELECTFRAME"
         ExportTable.d.anchorPoint = "TOPRIGHT"
     else
-    ExportTable.d.xOffset  = JDT.db.profile.xOffset
-    ExportTable.d.yOffset = JDT.db.profile.yOffset
-    ExportTable.d.internalVersion = JDT.InternalWaVersion
-    ExportTable.d.url = JDT.ExpansionValues[ExpansionKey][1].."/"..version
-
+        ExportTable.d.xOffset  = JDT.db.profile.xOffset
+        ExportTable.d.yOffset = JDT.db.profile.yOffset
     end
+
         if ExpansionKey == "Affixes" then
             for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
                 for k,v in pairs(TypeValue) do 
@@ -160,7 +160,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
 
                                 --set general options
-                                SpellTable.subRegions[2].text_visible = JDT.db.profile.ShowTimer -- enable/disable %p
+                                if JDT.db.profile.ShowTimer then
+                                    SpellTable.subRegions[2].text_visible = JDT.db.profile.ShowTimer -- enable/disable %p
+                                end
 
 
 

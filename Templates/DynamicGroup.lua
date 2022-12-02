@@ -57,7 +57,7 @@
 			information = {
 			},
 			internalVersion = 59,
-			url = "https://wago.io/DF-Dungeons",
+			url = "https://wago.io/TESTINGDONOTUSEGROUP",
 			uid = "WOOOHOOO",
 			desc = "This Group was auto generated please consult DungeonAuraTools by accessing /DungeonAuraTools to change anything",
 	}
@@ -111,7 +111,7 @@
 			values = JDT.Templates.AlignDirections,
 			set = function(info,val)  JDT.db.profile.AlignDirection= val end, --Sets value of SavedVariables depending on toggles
 			get = function(info)
-				return  JDT.db.profile.AlignDirection or JDT.Templates.AlignDirections.RIGHT--Sets value of toggles depending on SavedVariables 
+				return  JDT.db.profile.AlignDirection or "CENTER"--Sets value of toggles depending on SavedVariables 
 			end
 		  },
 		  stagger= {
@@ -152,7 +152,7 @@
 			values = JDT.Templates.GridDirectionTypes,
 			set = function(info,val)  JDT.db.profile.GridDirection= val end, --Sets value of SavedVariables depending on toggles
 			get = function(info)
-				return  JDT.db.profile.GridDirection--Sets value of toggles depending on SavedVariables 
+				return  JDT.db.profile.GridDirection or "DR"--Sets value of toggles depending on SavedVariables 
 			end
 		  },
 		  GridSize= {
@@ -207,7 +207,7 @@
 			values = JDT.Templates.AlignDirections,
 			set = function(info,val)  JDT.db.profile.AlignDirection= val end, --Sets value of SavedVariables depending on toggles
 			get = function(info)
-				return  JDT.db.profile.AlignDirection--Sets value of toggles depending on SavedVariables 
+				return  JDT.db.profile.AlignDirection or "CENTER"--Sets value of toggles depending on SavedVariables 
 			end
 		  },
 		  stagger= {
@@ -247,7 +247,7 @@
 			values = JDT.Templates.AlignDirections,
 			set = function(info,val)  JDT.db.profile.AlignDirection= val end, --Sets value of SavedVariables depending on toggles
 			get = function(info)
-				return  JDT.db.profile.AlignDirection--Sets value of toggles depending on SavedVariables 
+				return  JDT.db.profile.AlignDirection or "CENTER" --Sets value of toggles depending on SavedVariables 
 			end
 		  },
 		  stagger= {
@@ -287,7 +287,7 @@
 			values = JDT.Templates.AlignDirections,
 			set = function(info,val)  JDT.db.profile.AlignDirection= val end, --Sets value of SavedVariables depending on toggles
 			get = function(info)
-				return  JDT.db.profile.AlignDirection--Sets value of toggles depending on SavedVariables 
+				return  JDT.db.profile.AlignDirection or "CENTER"--Sets value of toggles depending on SavedVariables 
 			end
 		  },
 		  stagger= {
@@ -327,7 +327,7 @@
 			values = JDT.Templates.AlignDirections,
 			set = function(info,val)  JDT.db.profile.AlignDirection= val end, --Sets value of SavedVariables depending on toggles
 			get = function(info)
-				return  JDT.db.profile.AlignDirection--Sets value of toggles depending on SavedVariables 
+				return  JDT.db.profile.AlignDirection or "CENTER"--Sets value of toggles depending on SavedVariables 
 			end
 		  },
 		  stagger= {
@@ -367,7 +367,7 @@
 			values = JDT.Templates.AlignDirections,
 			set = function(info,val)  JDT.db.profile.AlignDirection= val end, --Sets value of SavedVariables depending on toggles
 			get = function(info)
-				return  JDT.db.profile.AlignDirection--Sets value of toggles depending on SavedVariables 
+				return  JDT.db.profile.AlignDirection or "CENTER"--Sets value of toggles depending on SavedVariables 
 			end
 		  },
 		  stagger= {

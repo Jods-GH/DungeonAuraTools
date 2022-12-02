@@ -45,6 +45,15 @@ LocalisationData["IconWidthDescription"] = "Sets the width of the Icon"
 LocalisationData["IconHeight"] = "Icon height"
 LocalisationData["IconHeightDescription"] = "Sets the height of the Icon"
 LocalisationData["ExpansionOptions"] = "Expansion Options"
+LocalisationData["DebugMode"] = "Debug Mode"
+LocalisationData["DebugModeDescription"] = "Enable Debug Mode only use if you get asked to for Debug purposes"
+LocalisationData["DebugWarning"] = "WARNING you are about to enable Debug Mode this will cause a lot of spam in your chat. Only use if you get specifically asked to enable or use it to debug yourself"
+LocalisationData["internalVersionMismatch"] = "Warning Internal Wa Version does not match Please alert the Author"
+
+    --[[ 
+    LocalisationData[""] = ""
+    LocalisationData[""] = ""
+]]
 
 
 -- Grows

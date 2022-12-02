@@ -6,7 +6,7 @@ local SharedMedia = LibStub("LibSharedMedia-3.0")
 ---@class MyAddon : AceAddon-3.0, AceConsole-3.0, AceConfig-3.0, AceGUI-3.0, AceConfigDialog-3.0
 local DungeonAuraTools = LibStub("AceAddon-3.0"):NewAddon("DungeonAuraTools", "AceConsole-3.0", "AceEvent-3.0")
 JDT.AddonVersion = GetAddOnMetadata(appName, "Version")
-JDT.InternalWaVersion = 59 -- version of weakauras addon on creation might need to be updated eventually
+JDT.InternalWaVersion = 60 -- version of weakauras addon on creation might need to be updated eventually
 
 JDT.FontMedias = JDT.FontMedias or {} 
 for _,v in pairs(SharedMedia:List(SharedMedia.MediaType.FONT)) do
@@ -25,8 +25,6 @@ function DungeonAuraTools:OnInitialize()
 
     local DatatoPersist = {
         profile = {
-            ShowTimer = true,
-            PlaySound = true,
             data = JDT.SpellList
         }
     }
@@ -53,46 +51,20 @@ function DungeonAuraTools:OnInitialize()
 
     function JDT.CheckIfAuraUpdates () 
         local AuraCount = 0
-        for ExpansionKey, ExpansionValue in pairs(JDT.db.profile.data) do
-            if ExpansionKey ~= "Affixes" then
-                for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
-                    for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
-                            for TypeKey,TypeValue in pairs(BossNameValue.Auras) do
-                                for k,v in pairs(TypeValue) do 
-                                    if v.enabled == true and not v.uID then
-                                        AuraCount = AuraCount + 1 
-                                    end
-                            end
-                        end
-                    end
-                end
-            else
-                for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
-                    for k,v in pairs(TypeValue) do 
-                        if v.enabled == true and not v.uID  then
-                            AuraCount = AuraCount + 1             
-                        end
-                    end 
-                end
-            end 
-        end
-        if AuraCount  > 0 then
-            self:Print(AuraCount.." "..JDT.getLocalisation("NewAurasAddedMessage"))
-        end
+      
 
         -- don't use before read only or spaten will haunt my dreams WeakAuras.GetData("DungeonAuras_MistOfPandaria")
         local AuraUpdatesCount = 0
         local AuraUpdatesTable = {}
         for ExpansionKey, ExpansionValue in pairs(JDT.db.profile.data) do
                     if not (WeakAuras.GetData("DungeonAuras_"..ExpansionKey)) then
-                        local Shouldbeloaded = nil
                         if ExpansionKey ~= "Affixes" then
                             for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
                                 for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
                                         for TypeKey,TypeValue in pairs(BossNameValue.Auras) do
                                             for k,v in pairs(TypeValue) do 
                                                 if v.enabled == true  then
-                                                    Shouldbeloaded  =true
+                                                    AuraCount = AuraCount + 1 
                                                 end
                                             end
                                         end
@@ -102,16 +74,13 @@ function DungeonAuraTools:OnInitialize()
                             for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
                                 for k,v in pairs(TypeValue) do 
                                     if v.enabled == true then
-                                        Shouldbeloaded  =true           
+                                        AuraCount = AuraCount + 1        
                                     end
                                 end 
                             end
                         end 
-
-                            if Shouldbeloaded then
-                                self:Print(JDT.getLocalisation("NewAurasAddedMessage").." Group in question is: DungeonAuras_"..ExpansionKey)
-                            end
-                        
+                       
+                                                    
                     else
                         local ExportTable = CopyTable(JDT.DataToExport)
                         ExportTable.d = CopyTable(JDT.Templates.DynamicGroup)
@@ -148,13 +117,17 @@ function DungeonAuraTools:OnInitialize()
                         ExportTable.d.url = JDT.ExpansionValues[ExpansionKey]
                         end
                         if ExpansionKey ~= "Affixes" then
+
                             for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
+
                                 for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
+
                                         for TypeKey,TypeValue in pairs(BossNameValue.Auras) do
                                             for k,v in pairs(TypeValue) do 
-                                                if v.enabled == true  then   
+   
                                                     local AuraToCheck = JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)  
                                                     local InstalledAura = WeakAuras.GetData(AuraToCheck.id)
+                                                if v.enabled == true then 
                                                     if AuraToCheck and InstalledAura then 
                                                         if AuraToCheck.preferToUpdate ~= InstalledAura.preferToUpdate then -- adjust this value if needed (no idea what this value actually does though)
                                                         AuraToCheck.preferToUpdate = InstalledAura.preferToUpdate
@@ -168,61 +141,65 @@ function DungeonAuraTools:OnInitialize()
                                                         if AuraToCheck.semver ~= InstalledAura.semver then -- adjust this value if needed 
                                                             AuraToCheck.semver = InstalledAura.semver
                                                         end
+                                                        if AuraToCheck.internalVersion ~= InstalledAura.internalVersion then -- adjust this value if needed 
+                                                            self:Print(JDT.getLocalisation("internalVersionMismatch"))
+                                                        end
                                                     end
                                                     if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then
-                                                        --[[
-                                                        print(AuraToCheck.id)
-                                                        if AuraToCheck.id == "[SBG] 01 Einflüsterungen des dunklen Sterns [153094]" then
-                                                            local function findOutDifferenceBetweenTwoTables(table1, table2)
-                                                                local difference = {}
-                                                                for k, v in pairs(table1) do
-                                                                    if table2[k] == nil then
-                                                                        difference[k] = v
-                                                                    elseif type(v) == "table" and type(table2[k]) == "table" then
-                                                                        local sub_diff = findOutDifferenceBetweenTwoTables(v, table2[k])
-                                                                        if next(sub_diff) ~= nil then
-                                                                            difference[k] = sub_diff
+                                                        
+                                                        if JDT.db.profile.DebugMode == true then
+                                                            print(AuraToCheck.id)
+                                                                local function findOutDifferenceBetweenTwoTables(table1, table2)
+                                                                    local difference = {}
+                                                                    for k, v in pairs(table1) do
+                                                                        if table2[k] == nil then
+                                                                            difference[k] = v
+                                                                        elseif type(v) == "table" and type(table2[k]) == "table" then
+                                                                            local sub_diff = findOutDifferenceBetweenTwoTables(v, table2[k])
+                                                                            if next(sub_diff) ~= nil then
+                                                                                difference[k] = sub_diff
+                                                                            end
+                                                                        elseif v ~= table2[k] then
+                                                                            difference[k] = v
                                                                         end
-                                                                    elseif v ~= table2[k] then
-                                                                        difference[k] = v
                                                                     end
-                                                                end
-                                                                local difference2 = {}
-                                                                for k, v in pairs(table2) do
-                                                                    if table1[k] == nil then
-                                                                        difference2[k] = v
-                                                                    elseif type(v) == "table" and type(table1[k]) == "table" then
-                                                                        local sub_diff = findOutDifferenceBetweenTwoTables(v, table1[k])
-                                                                        if next(sub_diff) ~= nil then
-                                                                            difference2[k] = sub_diff
+                                                                    local difference2 = {}
+                                                                    for k, v in pairs(table2) do
+                                                                        if table1[k] == nil then
+                                                                            difference2[k] = v
+                                                                        elseif type(v) == "table" and type(table1[k]) == "table" then
+                                                                            local sub_diff = findOutDifferenceBetweenTwoTables(v, table1[k])
+                                                                            if next(sub_diff) ~= nil then
+                                                                                difference2[k] = sub_diff
+                                                                            end
+                                                                        elseif v ~= table1[k] then
+                                                                            difference2[k] = v
                                                                         end
-                                                                    elseif v ~= table1[k] then
-                                                                        difference2[k] = v
                                                                     end
+                                                                    return difference,difference2
                                                                 end
-                                                                return difference,difference2
-                                                            end
-
-                                                            local CompareData ={}
-                                                            CompareData.AuraToCheck = AuraToCheck
-                                                            CompareData.InstalledAura = InstalledAura
-                                                           
-                                                            ViragDevTool_AddData(AuraToCheck, "AuraToCheck")
-                                                            ViragDevTool_AddData(InstalledAura, "InstalledAura")
-                                        
+                                                                --[[
+                                                                local CompareData ={}
+                                                                CompareData.AuraToCheck = AuraToCheck
+                                                                CompareData.InstalledAura = InstalledAura
                                                             
-                                                            local difference,difference2 = findOutDifferenceBetweenTwoTables(AuraToCheck, InstalledAura)
-                                                            
-                                                            DevTools_Dump(difference)
-                                                            DevTools_Dump(difference2)
-                                                            ViragDevTool_AddData(difference, "difference1")
-                                                            ViragDevTool_AddData(difference2, "difference2")
-                                                            JDT.db.profile.testing = CompareData 
-                                                            
-                                                        end]]
+                                                                ViragDevTool_AddData(AuraToCheck, "AuraToCheck")
+                                                                ViragDevTool_AddData(InstalledAura, "InstalledAura")
+                                                                ViragDevTool_AddData(difference, "difference1")
+                                                                ViragDevTool_AddData(difference2, "difference2")
+                                                                JDT.db.profile.testing = CompareData 
+                                                                ]]
+                                                                local difference,difference2 = findOutDifferenceBetweenTwoTables(AuraToCheck, InstalledAura)
+                                                                
+                                                                DevTools_Dump(difference)
+                                                                DevTools_Dump(difference2)
+                                                        end
                                                         AuraUpdatesCount = AuraUpdatesCount +1 
                                                         AuraUpdatesTable[ExpansionKey] = true
                                                     end
+                                                elseif v.enabled == false and InstalledAura then 
+                                                    AuraUpdatesCount = AuraUpdatesCount +1 
+                                                    AuraUpdatesTable[ExpansionKey] = true
                                                 end
                                       
                                     end
@@ -233,9 +210,10 @@ function DungeonAuraTools:OnInitialize()
                         else
                             for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
                                 for k,v in pairs(TypeValue) do 
+                                    local AuraToCheck = JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue,ExpansionKey)
+                                    local InstalledAura = WeakAuras.GetData(AuraToCheck.id)
                                     if v.enabled == true then
-                                        local AuraToCheck = JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue,ExpansionKey)
-                                        local InstalledAura = WeakAuras.GetData(AuraToCheck.id)
+                                        
                                         if AuraToCheck and InstalledAura then 
                                             if AuraToCheck.preferToUpdate ~= InstalledAura.preferToUpdate then -- adjust this value if needed (no idea what this value actually does though)
                                             AuraToCheck.preferToUpdate = InstalledAura.preferToUpdate
@@ -254,13 +232,20 @@ function DungeonAuraTools:OnInitialize()
                                             --print(AuraToCheck.id)
                                             AuraUpdatesCount = AuraUpdatesCount +1  
                                             AuraUpdatesTable[ExpansionKey] = true
-                                        end         
+                                        end  
+                                    elseif v.enabled == false and InstalledAura then 
+                                        AuraUpdatesCount = AuraUpdatesCount +1 
+                                        AuraUpdatesTable[ExpansionKey] = true     
                                     end
+                                    
                                 end 
                             end
                         end 
                     end
 
+        end
+        if AuraCount  > 0 then
+            self:Print(AuraCount.." "..JDT.getLocalisation("NewAurasAddedMessage"))
         end
         if AuraUpdatesCount  > 0 then
             JDT.exportCompanion(AuraUpdatesTable)
