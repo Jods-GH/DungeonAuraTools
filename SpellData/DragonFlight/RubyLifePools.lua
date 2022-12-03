@@ -595,6 +595,7 @@ bosses.Trash = {
             Burnout = {
                 enabled = true,
                 spellId = 373614,
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,

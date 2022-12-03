@@ -151,29 +151,33 @@ function DungeonAuraTools:OnInitialize()
                                                             print(AuraToCheck.id)
                                                                 local function findOutDifferenceBetweenTwoTables(table1, table2)
                                                                     local difference = {}
-                                                                    for k, v in pairs(table1) do
-                                                                        if table2[k] == nil then
-                                                                            difference[k] = v
-                                                                        elseif type(v) == "table" and type(table2[k]) == "table" then
-                                                                            local sub_diff = findOutDifferenceBetweenTwoTables(v, table2[k])
-                                                                            if next(sub_diff) ~= nil then
-                                                                                difference[k] = sub_diff
+                                                                    if table1 then
+                                                                        for k, v in pairs(table1) do
+                                                                            if not table2 or table2[k] == nil then
+                                                                                difference[k] = v
+                                                                            elseif type(v) == "table" and type(table2[k]) == "table" then
+                                                                                local sub_diff = findOutDifferenceBetweenTwoTables(v, table2[k])
+                                                                                if next(sub_diff) ~= nil then
+                                                                                    difference[k] = sub_diff
+                                                                                end
+                                                                            elseif v ~= table2[k] then
+                                                                                difference[k] = v
                                                                             end
-                                                                        elseif v ~= table2[k] then
-                                                                            difference[k] = v
                                                                         end
                                                                     end
                                                                     local difference2 = {}
-                                                                    for k, v in pairs(table2) do
-                                                                        if table1[k] == nil then
-                                                                            difference2[k] = v
-                                                                        elseif type(v) == "table" and type(table1[k]) == "table" then
-                                                                            local sub_diff = findOutDifferenceBetweenTwoTables(v, table1[k])
-                                                                            if next(sub_diff) ~= nil then
-                                                                                difference2[k] = sub_diff
+                                                                    if table2 then
+                                                                        for k, v in pairs(table2) do
+                                                                            if table1[k] == nil then
+                                                                                difference2[k] = v
+                                                                            elseif type(v) == "table" and type(table1[k]) == "table" then
+                                                                                local sub_diff = findOutDifferenceBetweenTwoTables(v, table1[k])
+                                                                                if next(sub_diff) ~= nil then
+                                                                                    difference2[k] = sub_diff
+                                                                                end
+                                                                            elseif v ~= table1[k] then
+                                                                                difference2[k] = v
                                                                             end
-                                                                        elseif v ~= table1[k] then
-                                                                            difference2[k] = v
                                                                         end
                                                                     end
                                                                     return difference,difference2

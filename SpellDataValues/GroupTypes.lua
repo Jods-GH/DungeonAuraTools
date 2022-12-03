@@ -6394,7 +6394,7 @@ JDT.Templates.GroupTypes.InteruptableCastIntoReclaimSoul = {
         },
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
-            BuffTypes = "buff",
+            BuffTypes = "debuff",
         }
     },
     text = {
