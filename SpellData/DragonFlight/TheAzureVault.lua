@@ -384,7 +384,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread] ={
             SplinteringShards = {
                 enabled = true,
                 spellId = 349954, -- for spellname etc

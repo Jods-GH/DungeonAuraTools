@@ -1016,11 +1016,20 @@ JDT.Templates.GroupTypes.CastIntoPlayerGroupDebuffSpread =  {
         },
         {
             condition={
-               type = "simplecheck",
-               trigger= 3,
-               value = true,
-               linked = true,
+                type = "And",
+                checks = {
+                    {
+                        type = "simplecheck",
+                        trigger= 2,
+                        value = false,
+                    },
+                    {
+                        type = "simplecheck",
+                        trigger= 3,
+                        value = true,
+                    },
                 },
+            },
             changes = {
                 {
                     property = "sub.3.text_visible",
