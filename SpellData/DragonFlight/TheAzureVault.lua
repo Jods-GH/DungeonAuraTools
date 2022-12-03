@@ -513,5 +513,44 @@ bosses.Trash = {
                 }
             }
         },
+        [JDT.GroupTypes.InteruptableSleepCastIntoDebuff] ={
+            WakingBane= {
+                enabled = true,
+                spellId = 386546, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "386546",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "386546",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCastIntoMagicDot] ={
+            MysticVapors= {
+                enabled = true,
+                spellId = 387564, -- for spellname etc
+                showStacks = 2,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "387564",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "387564",
+
+                    },
+
+                }
+            },
+        },
     }
 }
