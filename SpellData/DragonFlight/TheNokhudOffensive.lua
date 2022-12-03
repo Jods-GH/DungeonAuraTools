@@ -832,5 +832,17 @@ bosses.Trash = {
                 }
             },
         },
+        [JDT.GroupTypes.InteruptableAoeFear] ={
+            BloodcurdlingShout= {
+                enabled = true,
+                spellId = 373395, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "373395",
+                    },
+                }
+            },
+        },
     }
 }
