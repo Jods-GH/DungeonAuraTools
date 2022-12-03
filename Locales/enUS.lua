@@ -281,6 +281,7 @@ LocalisationData["InteruptableCastIntoReclaimSoul"] = "Reclaim sould mechanic"
 LocalisationData["ChargeIntoBleed"] = "Charge that leaves a bleed"
 LocalisationData["CastIntoDot"] = "Cast that leaves a dot"
 LocalisationData["BewitchCastIntoCurse"] = "Cast that Bewitches (Curse despellable)"
+LocalisationData["VoidCastIntoMagicDot"] = "Void cast that leaves a dot (magic despellable)"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
