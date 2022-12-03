@@ -367,6 +367,17 @@ bosses.Trash = {
 
                 }
             },
+            CondensedFrost = {
+                enabled = true,
+                spellId = 377503,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "377503",
+                    }
+
+                }
+            },
 
         },
         [JDT.GroupTypes.RunOut] ={
@@ -430,17 +441,6 @@ bosses.Trash = {
 
                 }
             },
-            CondensedFrost = {
-                enabled = true,
-                spellId = 377503,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "377503",
-                    }
-
-                }
-            },
         },
         [JDT.GroupTypes.VoidCast] = {
             ForbiddenKnowledge = {
@@ -483,6 +483,8 @@ bosses.Trash = {
 
                 }
             },
+        },
+        [JDT.GroupTypes.Jump] ={
             NullStomp = {
                 enabled = true,
                 spellId = 386526, -- for spellname etc

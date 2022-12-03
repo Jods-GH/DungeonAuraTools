@@ -6425,12 +6425,8 @@ JDT.Templates.GroupTypes.InteruptableCastIntoReclaimSoul = {
                 },
                 changes = {
                     {
-                        property = "sub.3.text_visible",
-                        value = false
-                    },
-                    {
                         property= "sub.4.text_visible",
-                        value = true
+                        value = false
                     },
                     {
                         property= "sub.5.border_visible",
