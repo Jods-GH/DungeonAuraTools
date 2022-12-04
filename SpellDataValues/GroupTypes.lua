@@ -192,6 +192,7 @@ JDT.GroupTypes.HealBuff = "HealBuff"
 JDT.GroupTypes.BewitchCastIntoCurse = "BewitchCastIntoCurse"
 JDT.GroupTypes.CastIntoDot = "CastIntoDot"
 JDT.GroupTypes.VoidCastIntoMagicDot = "VoidCastIntoMagicDot"
+JDT.GroupTypes.DmgBuffButItsAdebuff = "DmgBuffButItsAdebuff"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -4211,6 +4212,23 @@ JDT.Templates.GroupTypes.DmgBuff = {
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.DmgBuffButItsAdebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Buffed"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
 JDT.Templates.GroupTypes.ArmorBuff = {
     AuraType = "AuraIcon",
     showStacks = 1,
