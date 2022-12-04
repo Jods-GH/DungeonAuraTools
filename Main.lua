@@ -125,6 +125,7 @@ function DungeonAuraTools:OnInitialize()
                                             for k,v in pairs(TypeValue) do 
                                                 if not v.triggerData then -- check if aura was moved to a different grouptype
                                                 AuraUpdatesCount = AuraUpdatesCount +1 
+                                                AuraUpdatesTable[ExpansionKey] = true
                                                 JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[TypeKey][k] = nil
                                                 self:Print("Removed Aura "..k.." from "..BossNameKey.." in "..DungeonKey.." in "..ExpansionKey.. "please Reload to fix Potential Import Problems")                         
                                
@@ -172,7 +173,7 @@ function DungeonAuraTools:OnInitialize()
                                                                         local difference2 = {}
                                                                         if table2 then
                                                                             for k, v in pairs(table2) do
-                                                                                if table1[k] == nil then
+                                                                                if not table1 or table1[k] == nil then
                                                                                     difference2[k] = v
                                                                                 elseif type(v) == "table" and type(table1[k]) == "table" then
                                                                                     local sub_diff = findOutDifferenceBetweenTwoTables(v, table1[k])

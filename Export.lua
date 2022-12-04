@@ -22,19 +22,17 @@ JDT.exportCompanion = function(AuraUpdatesTable)
     for k,v in pairs(JDT.db.profile.data) do
         if AuraUpdatesTable[k] then
             local exportstuff = JDT.buildDataToExport(k,v,true)
-            if #exportstuff.c ~= 0 then
-                local encoded = TableToString(exportstuff)
-                local slug = CopyTable(JDT.Templates.WeakAurasCompanionSlugData)
-                slug.name = exportstuff.d.id
-                slug.encoded = encoded
-                local slugname, version = exportstuff.d.url:match("wago.io/([^/]+)/([0-9]+)")
-                if slugname then
-                    WeakaurasData.WeakAuras.slugs[slugname] = slug
-                    WeakaurasData.WeakAuras.slugs[slugname].wagoVersion = exportstuff.d.version+1
-                    WeakaurasData.WeakAuras.slugs[slugname].wagoSemver = "1.0.0-"..exportstuff.d.version+1
-                    WeakaurasData.WeakAuras.slugs[slugname].logo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
-                    WeakaurasData.WeakAuras.slugs[slugname].refreshLogo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
-                end
+            local encoded = TableToString(exportstuff)
+            local slug = CopyTable(JDT.Templates.WeakAurasCompanionSlugData)
+            slug.name = exportstuff.d.id
+            slug.encoded = encoded
+            local slugname, version = exportstuff.d.url:match("wago.io/([^/]+)/([0-9]+)")
+            if slugname then
+                WeakaurasData.WeakAuras.slugs[slugname] = slug
+                WeakaurasData.WeakAuras.slugs[slugname].wagoVersion = exportstuff.d.version+1
+                WeakaurasData.WeakAuras.slugs[slugname].wagoSemver = "1.0.0-"..exportstuff.d.version+1
+                WeakaurasData.WeakAuras.slugs[slugname].logo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
+                WeakaurasData.WeakAuras.slugs[slugname].refreshLogo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
             end
         end
     end
