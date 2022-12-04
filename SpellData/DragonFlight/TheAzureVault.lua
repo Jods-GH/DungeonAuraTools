@@ -244,7 +244,7 @@ bosses.boss3 = {  --telash greywing
                         spellId = "388008",
                     },
                     {
-                        duration = "0",
+                        duration = "3",
                         spellId = "388008",
                     },
                 }
