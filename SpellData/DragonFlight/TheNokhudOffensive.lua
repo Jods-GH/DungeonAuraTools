@@ -87,14 +87,14 @@ bosses.boss2 = {
     additionalName = "] 02 ",
     Auras = { 
         [JDT.GroupTypes.DmgBuff] = {
-            UncontrollableEnergy = {
+            SurgeOfPower = {
                 enabled = true,
                 spellId = 382630,
                 showStacks = 1,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "382630",
+                        spellId = "382628",
                     }
 
                 }
@@ -840,6 +840,18 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "373395",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableAoeCast] ={
+            Tempest= {
+                enabled = true,
+                spellId = 386024, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "386024",
                     },
                 }
             },

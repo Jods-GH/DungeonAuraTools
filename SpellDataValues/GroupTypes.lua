@@ -191,6 +191,7 @@ JDT.GroupTypes.InteruptableCastIntoReclaimSoul = "InteruptableCastIntoReclaimSou
 JDT.GroupTypes.HealBuff = "HealBuff"
 JDT.GroupTypes.BewitchCastIntoCurse = "BewitchCastIntoCurse"
 JDT.GroupTypes.CastIntoDot = "CastIntoDot"
+JDT.GroupTypes.VoidCastIntoMagicDot = "VoidCastIntoMagicDot"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -1016,11 +1017,20 @@ JDT.Templates.GroupTypes.CastIntoPlayerGroupDebuffSpread =  {
         },
         {
             condition={
-               type = "simplecheck",
-               trigger= 3,
-               value = true,
-               linked = true,
+                type = "And",
+                checks = {
+                    {
+                        type = "simplecheck",
+                        trigger= 2,
+                        value = false,
+                    },
+                    {
+                        type = "simplecheck",
+                        trigger= 3,
+                        value = true,
+                    },
                 },
+            },
             changes = {
                 {
                     property = "sub.3.text_visible",
@@ -2980,6 +2990,7 @@ JDT.Templates.GroupTypes.InteruptableCastIntoMagicDot = {
 ), 
 }
 
+
 JDT.Templates.GroupTypes.CastIntoAtackspeedSlow = {
     AuraType = "AuraIcon",
     triggers = {
@@ -3549,7 +3560,7 @@ JDT.Templates.GroupTypes.InteruptableBigHealCast = {
     AuraType = "AuraIcon",
     triggers = {
         {
-            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, voidc
         },
     },
     text = {
@@ -3596,6 +3607,77 @@ JDT.Templates.GroupTypes.VoidCast = {
     },
     doSound = JDT.SoundTypes.avoid,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.VoidCastIntoMagicDot = {
+    AuraType = "AuraIcon",
+    triggers = {
+        [1] = {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        [2] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Avoid"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Dot"),  
+            isactive = false,
+        },    
+    },
+    type = 
+        {
+            {
+                type = "interrupt",
+                visible = true,
+            },
+            {
+                type = "magic",
+                visible = false,
+            },
+        },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                    {
+                        property = "sub.6.border_visible",
+                        value = false,
+                    },
+                    {
+                        property= "sub.7.text_visible",
+                        value = true
+                    },
+                    {
+                        property = "sub.8.border_visible",
+                        value = true,
+                    },
+                },
+        },
+    }
+), 
 }
 JDT.Templates.GroupTypes.BigStackingAoeWithCD = {
     AuraType = "AuraIcon",
@@ -6416,12 +6498,8 @@ JDT.Templates.GroupTypes.InteruptableCastIntoReclaimSoul = {
                 },
                 changes = {
                     {
-                        property = "sub.3.text_visible",
-                        value = false
-                    },
-                    {
                         property= "sub.4.text_visible",
-                        value = true
+                        value = false
                     },
                     {
                         property= "sub.5.border_visible",

@@ -367,6 +367,17 @@ bosses.Trash = {
 
                 }
             },
+            CondensedFrost = {
+                enabled = true,
+                spellId = 377503,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "377503",
+                    }
+
+                }
+            },
 
         },
         [JDT.GroupTypes.RunOut] ={
@@ -384,7 +395,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread] ={
             SplinteringShards = {
                 enabled = true,
                 spellId = 349954, -- for spellname etc
@@ -426,17 +437,6 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "389804",
-                    }
-
-                }
-            },
-            CondensedFrost = {
-                enabled = true,
-                spellId = 377503,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "377503",
                     }
 
                 }
@@ -483,6 +483,8 @@ bosses.Trash = {
 
                 }
             },
+        },
+        [JDT.GroupTypes.Jump] ={
             NullStomp = {
                 enabled = true,
                 spellId = 386526, -- for spellname etc
@@ -510,6 +512,45 @@ bosses.Trash = {
 
                 }
             }
+        },
+        [JDT.GroupTypes.InteruptableSleepCastIntoDebuff] ={
+            WakingBane= {
+                enabled = true,
+                spellId = 386546, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "386546",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "386546",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCastIntoMagicDot] ={
+            MysticVapors= {
+                enabled = true,
+                spellId = 387564, -- for spellname etc
+                showStacks = 2,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "387564",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "387564",
+
+                    },
+
+                }
+            },
         },
     }
 }
