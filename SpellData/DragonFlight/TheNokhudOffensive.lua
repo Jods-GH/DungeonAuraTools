@@ -40,6 +40,22 @@ bosses.boss1 = {
                 }
             }
         },
+        
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            Eruption = {
+                extraName = "Cast",
+                enabled = true,
+                spellId = 388283, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "388283",
+
+                    },
+
+                }
+            },
+        },
         [JDT.GroupTypes.RunOut] ={
             ShardsofStone = {
                 enabled = true,
@@ -86,7 +102,7 @@ bosses.boss2 = {
     EncounterId = "2636", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 02 ",
     Auras = { 
-        [JDT.GroupTypes.DmgBuff] = {
+        [JDT.GroupTypes.DmgBuffButItsAdebuff] = {
             SurgeOfPower = {
                 enabled = true,
                 spellId = 382630,
