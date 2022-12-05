@@ -18,7 +18,7 @@ JDT.options = {
           type = "toggle",
           set = function(info,val)  JDT.db.profile.DebugMode = val end, --Sets value of SavedVariables depending on toggles
           get = function(info)
-              return  JDT.db.profile.DebugMode or false --Sets value of toggles depending on SavedVariables 
+              return  JDT.db.profile.DebugMode --Sets value of toggles depending on SavedVariables 
           end,
           confirm = true,
           confirmText = JDT.getLocalisation("DebugWarning"), 
@@ -42,7 +42,7 @@ JDT.options = {
                 type = "toggle",
                 set = function(info,val)  JDT.db.profile.AnchorGroupsToAffixes = val end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.AnchorGroupsToAffixes or false --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.AnchorGroupsToAffixes --Sets value of toggles depending on SavedVariables 
                 end
               },
               xOffset= {
@@ -164,7 +164,7 @@ JDT.options = {
                 width = 2.5/3,
                 set = function(info,val)  JDT.db.profile.ShowTimer = val end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.ShowTimer or false --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.ShowTimer --Sets value of toggles depending on SavedVariables 
                 end
               },
               HideCooldownText = {
@@ -175,7 +175,7 @@ JDT.options = {
                 type = "toggle",
                 set = function(info,val)  JDT.db.profile.HideCooldownText = val end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.HideCooldownText or false --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.HideCooldownText --Sets value of toggles depending on SavedVariables 
                 end
               },
               CooldownTextFontSize= {
@@ -231,7 +231,7 @@ JDT.options = {
                 type = "toggle",
                 set = function(info,val)  JDT.db.profile.PlaySound = val end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.PlaySound  or true --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.PlaySound --Sets value of toggles depending on SavedVariables 
                 end
               },
               
