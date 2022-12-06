@@ -329,11 +329,11 @@ bosses.Trash = {
         [JDT.GroupTypes.VoidCast] = {
             ExcavatingBlast = {
                 enabled = true,
-                spellId = 391723,
+                spellId = 372696,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "391723",
+                        spellId = "372696",
                     },
 
                 }
