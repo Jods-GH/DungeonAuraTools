@@ -195,6 +195,7 @@ JDT.GroupTypes.VoidCastIntoMagicDot = "VoidCastIntoMagicDot"
 JDT.GroupTypes.DmgBuffButItsAdebuff = "DmgBuffButItsAdebuff"
 JDT.GroupTypes.ShieldCast = "ShieldCast"
 
+
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
