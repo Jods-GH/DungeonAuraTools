@@ -193,6 +193,7 @@ JDT.GroupTypes.BewitchCastIntoCurse = "BewitchCastIntoCurse"
 JDT.GroupTypes.CastIntoDot = "CastIntoDot"
 JDT.GroupTypes.VoidCastIntoMagicDot = "VoidCastIntoMagicDot"
 JDT.GroupTypes.DmgBuffButItsAdebuff = "DmgBuffButItsAdebuff"
+JDT.GroupTypes.ShieldCast = "ShieldCast"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -265,7 +266,7 @@ JDT.Templates.GroupTypes.SlowDot = {
     },
     text = {
         {   
-            value = JDT.getLocalisation("Slow dot"),
+            value = JDT.getLocalisation("Slowed"),
             isactive = true,
         }, 
     },
@@ -396,6 +397,22 @@ JDT.Templates.GroupTypes.ShieldInc =  {
     text = {
         {   
             value = JDT.getLocalisation("Shield inc"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soon,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.ShieldCast =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Shield"),
             isactive = true,
         }, 
     },
@@ -4784,6 +4801,7 @@ JDT.Templates.GroupTypes.CastIntoPlayerGroupDropVoid =  {
                type = "simplecheck",
                trigger= 3,
                value = true,
+               linked = true,
                 },
             changes = {
                 {

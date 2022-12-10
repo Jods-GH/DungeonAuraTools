@@ -283,6 +283,7 @@ LocalisationData["ChargeIntoBleed"] = "Charge that leaves a bleed"
 LocalisationData["CastIntoDot"] = "Cast that leaves a dot"
 LocalisationData["BewitchCastIntoCurse"] = "Cast that Bewitches (Curse despellable)"
 LocalisationData["VoidCastIntoMagicDot"] = "Void cast that leaves a dot (magic despellable)"
+LocalisationData["ShieldCast"] = "Shield Cast"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -433,6 +434,7 @@ LocalisationData["Clear"] = "Clear"
 LocalisationData["Root inc"] = "Root inc"
 LocalisationData["Slow inc"] = "Slow inc"
 LocalisationData["Claim Soul"] = "Claim Soul"
+LocalisationData["Shield"] = "Shield"
 
 
 
