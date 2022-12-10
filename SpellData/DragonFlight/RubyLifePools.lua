@@ -43,13 +43,18 @@ bosses.boss1 = {
                 }
             },
         },
-        [JDT.GroupTypes.Dance] ={
+        [JDT.GroupTypes.CastIntoCastSuccessDance] ={
             Chillstorm = {
                 enabled = true,
                 spellId = 372851, -- for spellname etc
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "372851",
+
+                    },
+                    {
+                        duration = "2",
                         spellId = "372851",
 
                     },
@@ -90,7 +95,24 @@ bosses.boss1 = {
             },
 
         }, 
+        [JDT.GroupTypes.VoidCastWithSuccess] = {
+            Hailbombs = {
+                enabled = true,
+                spellId = 396044,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "396044",
+                    },
+                    {
+                        spellId = "396044",
+                        duration = "2"
 
+                    },
+
+                }
+            }, 
+        },
     }
 }
 bosses.boss2 = { 
@@ -151,11 +173,13 @@ bosses.boss2 = {
         [JDT.GroupTypes.EnergyTrackSoonCast] ={
             RitualofBlazebinding = {
                 enabled = true,
-                spellId = 348350, -- for spellname etc
+                spellId = 372863, -- for spellname etc
                 triggerData = {
                     [1] = {
                         spellIdList = {"372863"},
-                        extraUnit = "boss1"
+                        extraUnit = "boss1",
+                        PowerRegen = 3.5,
+                        castDelay = 1,
 
                     },
                     [2] = {
@@ -170,6 +194,20 @@ bosses.boss2 = {
                 }
             }
         },
+        [JDT.GroupTypes.AddSummonCast] = {
+            RitualofBlazebinding = {
+                enabled = true,
+                extraName = "cast",
+                spellId = 384139,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "372863",
+                    },
+
+                }
+            },
+        },
         [JDT.GroupTypes.ExplodingCast] = {
             Burnout = {
                 enabled = true,
@@ -183,20 +221,7 @@ bosses.boss2 = {
                 }
             },
         },
-        [JDT.GroupTypes.UnavoidableAoe] ={
-            Inferno = {
-                enabled = true,
-                spellId = 384823, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "384823",
-
-                    },
-
-                }
-            }
-        },
+       
     }
 }
 bosses.boss3 = { 
@@ -306,6 +331,7 @@ bosses.Trash = {
             FlameBreath= {
                 enabled = true,
                 spellId = 381525,
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -329,11 +355,11 @@ bosses.Trash = {
         [JDT.GroupTypes.VoidCast] = {
             ExcavatingBlast = {
                 enabled = true,
-                spellId = 391723,
+                spellId = 372696,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "391723",
+                        spellId = "372696",
                     },
 
                 }
@@ -349,17 +375,6 @@ bosses.Trash = {
 
                 }
             }, 
-            Hailbombs = {
-                enabled = true,
-                spellId = 396044,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "396044",
-                    },
-
-                }
-            }, 
             MoltenBlood = {
                 enabled = true,
                 spellId = 392569, -- for spellname etc
@@ -368,6 +383,22 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "392569",
 
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SlowDot] = {
+            Thunderclap = {
+                enabled = true,
+                spellId = 392406,
+                type = JDT.AuraTypes.magic,
+                extraName = " debuff",
+                showStacks = 1,
+                triggerData = {
+                   {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "392406",
                     },
 
                 }
@@ -412,7 +443,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.ShieldInc] ={
+        [JDT.GroupTypes.ShieldCast] ={
             IceShield = {
                 enabled = true,
                 type = JDT.AuraTypes.interrupt,
@@ -427,7 +458,7 @@ bosses.Trash = {
                 }
             }
         },
-        [JDT.GroupTypes.RunOut] ={
+        [JDT.GroupTypes.OutrangeCast] ={
             TectonicSlam = {
                 enabled = true,
                 spellId = 372735, -- for spellname etc
@@ -572,6 +603,7 @@ bosses.Trash = {
             Flashfire = {
                 enabled = true,
                 spellId = 392451, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
