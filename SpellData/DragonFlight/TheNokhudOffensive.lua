@@ -69,6 +69,8 @@ bosses.boss1 = {
 
                 }
             },
+        },
+        [JDT.GroupTypes.VoidCast] = {
             TectonicStomp = {
                 enabled = true,
                 spellId = 385916, -- for spellname etc
@@ -77,6 +79,20 @@ bosses.boss1 = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "385916",
 
+                    },
+
+                }
+            }, 
+        },
+         [JDT.GroupTypes.AddSummonCombatlog] = {
+            NokhudSaboteur = {
+                enabled = true,
+                spellId = 386490,
+                extraName = " summon",
+                triggerData = {
+                  [1] =  {
+                        spellId = "386748",
+                        duration = "3",
                     },
 
                 }
@@ -245,16 +261,16 @@ bosses.boss3 = {
         [JDT.GroupTypes.EnergyTrackSoonCast] ={
             Earthsplitter = {
                 enabled = true,
-                spellId = 385339, -- for spellname etc
+                spellId = 385193, -- for spellname etc
                 triggerData = {
                     [1] = {
-                        spellIdList = {"385339"},
+                        spellIdList = {"385193"},
                         extraUnit = "boss2"
 
                     },
                     [2] = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "385339",
+                        spellId = "385193",
                     },
                     [3] ={
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
@@ -265,16 +281,16 @@ bosses.boss3 = {
             },
             GaleArrow = {
                 enabled = true,
-                spellId = 386016, -- for spellname etc
+                spellId = 382670, -- for spellname etc
                 triggerData = {
                     [1] = {
-                        spellIdList = {"386016"},
+                        spellIdList = {"382670"},
                         extraUnit = "boss1"
 
                     },
                     [2] = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "386016",
+                        spellId = "382670",
                     },
                     [3] ={
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
@@ -292,6 +308,42 @@ bosses.boss3 = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "386063",
+
+                    },
+
+                }
+            },
+        },
+
+        [JDT.GroupTypes.SpreadCastIntoCastSuccessAvoid] ={
+            GaleArrow = {
+                enabled = true,
+                extraName = " cast",
+                spellId = 382670, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "382670",
+
+                    },
+                    {
+                        duration = "2",
+                        spellId = "382670",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ShockWave] ={
+            Earthsplitter = {
+                enabled = true,
+                spellId = 385193, -- for spellname etc
+                extraName = " cast",
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "385193",
 
                     },
 
@@ -400,6 +452,55 @@ bosses.boss4 = {
                 }
             },
 
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            SiphonPower = {
+                enabled = true,
+                spellId = 376727,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "376727",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCastWithSuccess] = {
+            ThunderStrike = {
+                enabled = true,
+                spellId = 376829,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "376829",
+                    },
+                    {
+                        spellId = "376829",
+                        duration = "5"
+
+                    },
+
+                }
+            }, 
+        },
+        [JDT.GroupTypes.PlayerGroupDebuffSpread ] ={
+            RavenousLeap = {
+                enabled = true,
+                spellId = 376864, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "376864",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "376864",
+                    },
+
+                }
+            }
         },
     }
 }
@@ -566,7 +667,7 @@ bosses.Trash = {
             ChantoftheDead = {
                 enabled = true,
                 spellId = 387614,
-                type = JDT.AuraTypes.interrupt,
+                type = JDT.AuraTypes.stun,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -600,7 +701,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.SpreadCast] = {
+        [JDT.GroupTypes.SpreadCastNoTargetAnounce] = {
             RavagingSpear = {
                 enabled = true,
                 spellId = 372147,
@@ -612,6 +713,8 @@ bosses.Trash = {
 
                 }
             },
+        },
+        [JDT.GroupTypes.SpreadCast] = {  
             ChainLightning = {
                 enabled = true,
                 spellId = 387127,

@@ -194,6 +194,8 @@ JDT.GroupTypes.CastIntoDot = "CastIntoDot"
 JDT.GroupTypes.VoidCastIntoMagicDot = "VoidCastIntoMagicDot"
 JDT.GroupTypes.DmgBuffButItsAdebuff = "DmgBuffButItsAdebuff"
 JDT.GroupTypes.ShieldCast = "ShieldCast"
+JDT.GroupTypes.SpreadCastIntoCastSuccessAvoid = "SpreadCastIntoCastSuccessAvoid"
+JDT.GroupTypes.SpreadCastNoTargetAnounce = "SpreadCastNoTargetAnounce"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -3557,6 +3559,97 @@ JDT.Templates.GroupTypes.SpreadCast = {
     }
 ),
 }
+
+JDT.Templates.GroupTypes.SpreadCastNoTargetAnounce = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Spread"),
+            isactive = true,
+        }, 
+        
+    },
+    doSound = JDT.SoundTypes.spread,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+
+JDT.Templates.GroupTypes.SpreadCastIntoCastSuccessAvoid = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_SUCCESS",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Spread"),
+            isactive = true,
+        }, 
+        {   
+            value = "%1.destUnit",
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("Avoid"),
+            isactive = false,
+        }, 
+        
+    },
+    doSound = JDT.SoundTypes.spread,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "NumberCheck",
+               trigger= 1,
+               op = "~=",
+               variable = "destUnit",
+               value = "player",
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                },
+        },
+        {
+            condition={
+                type = "simplecheck",
+                trigger= 1,
+                value = false,
+                linked = true,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+),
+}
+
 JDT.Templates.GroupTypes.StunableHealCast = {
     AuraType = "AuraIcon",
     triggers = {

@@ -284,6 +284,9 @@ LocalisationData["CastIntoDot"] = "Cast that leaves a dot"
 LocalisationData["BewitchCastIntoCurse"] = "Cast that Bewitches (Curse despellable)"
 LocalisationData["VoidCastIntoMagicDot"] = "Void cast that leaves a dot (magic despellable)"
 LocalisationData["ShieldCast"] = "Shield Cast"
+LocalisationData["SpreadCastIntoCastSuccessAvoid"] = "Spread cast that leaves a void"
+LocalisationData["SpreadCastNoTargetAnounce"] = "Spread Casts"
+
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
