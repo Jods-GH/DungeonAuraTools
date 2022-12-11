@@ -197,6 +197,7 @@ JDT.GroupTypes.ShieldCast = "ShieldCast"
 JDT.GroupTypes.SpreadCastIntoCastSuccessAvoid = "SpreadCastIntoCastSuccessAvoid"
 JDT.GroupTypes.SpreadCastNoTargetAnounce = "SpreadCastNoTargetAnounce"
 
+
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);

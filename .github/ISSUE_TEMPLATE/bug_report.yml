@@ -22,7 +22,21 @@ body:
     placeholder: "WeakAuras 2.2.0"
   validations:
     required: true
-    
+
+- type: dropdown
+  id: flavor
+  attributes:
+    label: World of Warcraft Flavor
+    description: What version of World of Warcraft are are you running?
+    options:
+      - Retail (Default)
+      - Beta (Dragonflight)
+      - Classic
+      - The Burning Crusade
+      - Wrath of the Lich King Classic
+  validations:
+    required: true
+ 
 - type: input
   attributes:
     label: DungeonAuraTools Version
@@ -63,6 +77,14 @@ body:
       4. See error
   validations:
     required: true
+    
+- type: textarea
+  attributes:
+    label: Saved Variables
+    description: Please add your DungeonAuraTools.lua from your Saved varibles.
+    placeholder: Click here to attach your Saved Variables by drag and dropping them into this field. You can find them in WTF\Account\<Account #>\SavedVariables\DungeonAuraTools.lua
+  validations:
+    required: true   
 
 - type: input
   attributes:
