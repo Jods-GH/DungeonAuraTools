@@ -352,17 +352,6 @@ bosses.Trash = {
             },
         },
         [JDT.GroupTypes.SpreadCast] = {
-            ManaVoid = {
-                enabled = true,
-                spellId = 388863,
-                triggerData = {
-                  {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "388863",
-                    },
-
-                }
-            },
             ViciousAmbush = {
                 enabled = true,
                 spellId = 388942,
