@@ -483,6 +483,18 @@ bosses.Trash = {
 
                 }
             },
+            MysticBlast = {
+                enabled = true,
+                spellId = 396812, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396812",
+
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.SpinToWin] = {
             AstralWhirlwind = {
