@@ -3771,19 +3771,19 @@ JDT.Templates.GroupTypes.VoidCastIntoMagicDot = {
                         value = true
                     },
                     {
-                        property= "sub.5.text_visible",
+                        property= "sub.6.text_visible",
                         value = false
                     },
                     {
-                        property = "sub.6.border_visible",
+                        property = "sub.7.border_visible",
                         value = false,
                     },
                     {
-                        property= "sub.7.text_visible",
+                        property= "sub.8.text_visible",
                         value = true
                     },
                     {
-                        property = "sub.8.border_visible",
+                        property = "sub.9.border_visible",
                         value = true,
                     },
                 },
