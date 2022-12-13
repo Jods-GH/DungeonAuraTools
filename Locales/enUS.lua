@@ -286,6 +286,7 @@ LocalisationData["VoidCastIntoMagicDot"] = "Void cast that leaves a dot (magic d
 LocalisationData["ShieldCast"] = "Shield Cast"
 LocalisationData["SpreadCastIntoCastSuccessAvoid"] = "Spread cast that leaves a void"
 LocalisationData["SpreadCastNoTargetAnounce"] = "Spread Casts"
+LocalisationData["CastWithSafeBuffDuringCast"] = "Hide Mechanic"
 
 --[[ 
     LocalisationData[""] = ""

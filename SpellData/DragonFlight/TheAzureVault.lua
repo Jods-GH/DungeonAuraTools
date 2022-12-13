@@ -110,20 +110,6 @@ bosses.boss2 = {  --Azureblade
     EncounterId = "2585", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 02 ",
     Auras = {
-        [JDT.GroupTypes.Dance] ={
-            OverwhelmingEnergy = {
-                enabled = true,
-                spellId = 384132, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "384132",
-    
-                    },
-    
-                }
-            },
-        },
         [JDT.GroupTypes.AddSummonCast] = {
             SummonDraconicImage = {
                 enabled = true,
@@ -180,15 +166,16 @@ bosses.boss2 = {  --Azureblade
 
         }, 
         [JDT.GroupTypes.KillAddChanneling] = {
-            SealEmpowerment = {
+            OverwhelmingEnergy = {
                 enabled = true,
-                spellId = 379256,
+                spellId = 384132, -- for spellname etc
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "379256",
-                    }
-
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "384132",
+    
+                    },
+    
                 }
             },
 
@@ -230,7 +217,7 @@ bosses.boss3 = {  --telash greywing
                 }
             },
         },
-        [JDT.GroupTypes.CastWithSafeBuff] = {
+        [JDT.GroupTypes.CastWithSafeBuffDuringCast] = {
             AbsoluteZero = {
                 enabled = true,
                 spellId = 388008,
@@ -241,10 +228,6 @@ bosses.boss3 = {  --telash greywing
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "388008",
-                    },
-                    {
-                        duration = "3",
                         spellId = "388008",
                     },
                 }
@@ -286,7 +269,7 @@ bosses.boss4 = {  --Umbrelskul
             },
 
         },
-        [JDT.GroupTypes.UnavoidableAoe] ={
+        [JDT.GroupTypes.KnockCast] ={
             UnleashedDestruction = {
                 enabled = true,
                 spellId = 388804, -- for spellname etc
@@ -320,6 +303,33 @@ bosses.boss4 = {  --Umbrelskul
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            BestialRoar = {
+                enabled = true,
+                spellId = 396991, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396991",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Dance] ={
+            ForbiddenKnowledge = {
+                enabled = true,
+                spellId = 371358,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "371358",
+                    },
+
+                }
+            }, 
+        },
         [JDT.GroupTypes.RageBuffCast] = {
             ArcaneFury = {
                 enabled = true,
@@ -395,6 +405,43 @@ bosses.Trash = {
                 }
             },
         },
+        [JDT.GroupTypes.InteruptableCastIntoRoot] ={
+            ErraticGrowth = {
+                enabled = true,
+                spellId = 375596, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "375596",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "375596",
+
+                    },
+
+                }
+            },
+            IcyBindings = {
+                enabled = true,
+                spellId = 377488, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "377488",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "377488",
+
+                    },
+
+                }
+            },
+        },
+
         [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread] ={
             SplinteringShards = {
                 enabled = true,
@@ -443,17 +490,30 @@ bosses.Trash = {
             },
         },
         [JDT.GroupTypes.VoidCast] = {
-            ForbiddenKnowledge = {
+            WildEruption = {
                 enabled = true,
-                spellId = 371358,
+                spellId = 375652,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "371358",
+                        spellId = "375652",
                     },
 
                 }
             },
+            UnstablePower = {
+                enabled = true,
+                spellId =  374885,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = " 374885",
+                    },
+
+                }
+            },
+           
+            
         },
         [JDT.GroupTypes.ShieldInc] ={
             ConjuredBarrier = {

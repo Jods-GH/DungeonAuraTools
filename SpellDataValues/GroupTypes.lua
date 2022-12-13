@@ -196,6 +196,7 @@ JDT.GroupTypes.DmgBuffButItsAdebuff = "DmgBuffButItsAdebuff"
 JDT.GroupTypes.ShieldCast = "ShieldCast"
 JDT.GroupTypes.SpreadCastIntoCastSuccessAvoid = "SpreadCastIntoCastSuccessAvoid"
 JDT.GroupTypes.SpreadCastNoTargetAnounce = "SpreadCastNoTargetAnounce"
+JDT.GroupTypes.CastWithSafeBuffDuringCast = "CastWithSafeBuffDuringCast"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -3771,19 +3772,19 @@ JDT.Templates.GroupTypes.VoidCastIntoMagicDot = {
                         value = true
                     },
                     {
-                        property= "sub.5.text_visible",
+                        property= "sub.6.text_visible",
                         value = false
                     },
                     {
-                        property = "sub.6.border_visible",
+                        property = "sub.7.border_visible",
                         value = false,
                     },
                     {
-                        property= "sub.7.text_visible",
+                        property= "sub.8.text_visible",
                         value = true
                     },
                     {
-                        property = "sub.8.border_visible",
+                        property = "sub.9.border_visible",
                         value = true,
                     },
                 },
@@ -4458,6 +4459,55 @@ JDT.Templates.GroupTypes.CastWithSafeBuff =  {
     }
 ), 
 }
+
+JDT.Templates.GroupTypes.CastWithSafeBuffDuringCast =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Hide"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Save"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.hide,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = true,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = true
+                },
+            },
+        },
+        
+    }
+), 
+}
+
+
 JDT.Templates.GroupTypes.StayAwayCast = {
     AuraType = "AuraIcon",
     triggers = {

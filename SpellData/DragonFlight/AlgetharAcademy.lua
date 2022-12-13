@@ -352,17 +352,6 @@ bosses.Trash = {
             },
         },
         [JDT.GroupTypes.SpreadCast] = {
-            ManaVoid = {
-                enabled = true,
-                spellId = 388863,
-                triggerData = {
-                  {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "388863",
-                    },
-
-                }
-            },
             ViciousAmbush = {
                 enabled = true,
                 spellId = 388942,
@@ -478,6 +467,18 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "377912",
+
+                    },
+
+                }
+            },
+            MysticBlast = {
+                enabled = true,
+                spellId = 396812, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "396812",
 
                     },
 
