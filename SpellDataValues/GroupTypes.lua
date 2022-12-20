@@ -196,7 +196,7 @@ JDT.GroupTypes.DmgBuffButItsAdebuff = "DmgBuffButItsAdebuff"
 JDT.GroupTypes.ShieldCast = "ShieldCast"
 JDT.GroupTypes.SpreadCastIntoCastSuccessAvoid = "SpreadCastIntoCastSuccessAvoid"
 JDT.GroupTypes.SpreadCastNoTargetAnounce = "SpreadCastNoTargetAnounce"
-JDT.GroupTypes.CastWithSafeBuffDuringCast = "CastWithSafeBuffDuringCast"
+JDT.GroupTypes.CastWithSafeDeBuffDuringCast = "CastWithSafeDeBuffDuringCast"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -4460,12 +4460,12 @@ JDT.Templates.GroupTypes.CastWithSafeBuff =  {
 ), 
 }
 
-JDT.Templates.GroupTypes.CastWithSafeBuffDuringCast =  {
+JDT.Templates.GroupTypes.CastWithSafeDeBuffDuringCast =  {
     AuraType = "AuraIcon",
     triggers = {
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
-            BuffTypes = "buff",
+            BuffTypes = "debuff",
         },
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 

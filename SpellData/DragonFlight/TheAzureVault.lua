@@ -217,7 +217,7 @@ bosses.boss3 = {  --telash greywing
                 }
             },
         },
-        [JDT.GroupTypes.CastWithSafeBuffDuringCast] = {
+        [JDT.GroupTypes.CastWithSafeDeBuffDuringCast] = {
             AbsoluteZero = {
                 enabled = true,
                 spellId = 388008,
