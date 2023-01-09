@@ -13,11 +13,11 @@ JDT.SpellList.Affixes = {
         [JDT.GroupTypes.Trader] = {
             BusyTrader = {
                 enabled = true,
-                spellId = 356694,
+                spellId = 394754,
                 triggerData = {
                     {
                         duration = "300",
-                        spellId = "356694",
+                        spellId = "394754",
                     }
 
                 }
