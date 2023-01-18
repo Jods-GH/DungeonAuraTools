@@ -667,7 +667,7 @@ bosses.Trash = {
             ChantoftheDead = {
                 enabled = true,
                 spellId = 387614,
-                type = JDT.AuraTypes.stun,
+                type = JDT.AuraTypes.enrage,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,

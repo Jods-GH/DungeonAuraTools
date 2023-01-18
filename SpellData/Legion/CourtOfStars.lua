@@ -210,6 +210,23 @@ bosses.boss3 = {
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
+
+        [JDT.GroupTypes.InteruptShout] = {
+            ScreamofPain = {
+                enabled = true,
+                spellId = 397892,
+                triggerData = {
+                [1] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "397892",
+                    },
+                [2] =  {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                   },
+
+                }
+            },
+        },
         [JDT.GroupTypes.ImportantBellCast] = {
             ResonantSlash = {
                 enabled = true,
