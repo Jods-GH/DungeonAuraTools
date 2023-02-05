@@ -1822,7 +1822,7 @@ JDT.Templates.GroupTypes.SlowDebuffHighStacksWarning = {
                     changes = {
             
                         {
-                            property= "sub.4.glow_visible",
+                            property= "sub.4.glow",
                             value = true
                         },
                     },
@@ -5513,7 +5513,7 @@ JDT.Templates.GroupTypes.NoCastVoid = {
                     value = true
                 },
                 {
-                    property= "sub.5.glow_visible",
+                    property= "sub.5.glow",
                     value = true
                 },
              
@@ -6637,7 +6637,7 @@ JDT.Templates.GroupTypes.Thundering = {
                 },
                 changes = {
                     {
-                        property= "sub.5.glow_visible",
+                        property= "sub.5.glow",
                         value = true
                     },
                 },

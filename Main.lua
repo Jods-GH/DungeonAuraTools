@@ -52,6 +52,7 @@ function DungeonAuraTools:OnInitialize()
     function JDT.CheckIfAuraUpdates () 
         local AuraCount = 0
       
+    
 
         -- don't use before read only or spaten will haunt my dreams WeakAuras.GetData("DungeonAuras_MistOfPandaria")
         local AuraUpdatesCount = 0
@@ -262,8 +263,6 @@ function DungeonAuraTools:OnInitialize()
             self:Print(AuraUpdatesCount.." "..JDT.getLocalisation("AurasUpdatesMessage"))
 
         end
-        
-
     end
 end
 
@@ -297,9 +296,10 @@ function DungeonAuraTools:SlashCommand(msg) -- called when slash command is used
 end
 
 function DungeonAuraTools:PLAYER_ENTERING_WORLD(event, isLogin, isReload)
-    if isLogin == true or isReload == true then
+    if isLogin == true then
     JDT.createOptionsData() 
     JDT.CheckIfAuraUpdates()
+    
     end
     C_ChatInfo.RegisterAddonMessagePrefix(VersionCheckPrefix)
     local name,realm = UnitFullName("player")
