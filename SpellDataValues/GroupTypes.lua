@@ -4947,8 +4947,8 @@ JDT.Templates.GroupTypes.CastIntoPlayerGroupDropVoid =  {
                type = "simplecheck",
                trigger= 3,
                value = true,
-               linked = true,
                 },
+            linked = true,
             changes = {
                 {
                     property = "sub.3.text_visible",
