@@ -230,24 +230,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.CastIntoDot] = {
-            TaintedRipple = {
-                enabled = true,
-                spellId = 397878,
-                type = JDT.AuraTypes.magic,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "397878",
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "397878",
-                    },
 
-                }
-            },
-        },
         [JDT.GroupTypes.VoidCast] = {
             SurgingDeluge = {
                 enabled = true,
@@ -474,6 +457,7 @@ bosses.Trash = {
             TaintedRipple = {
                 enabled = true,
                 spellId = 397878,
+                type = JDT.AuraTypes.magic,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
