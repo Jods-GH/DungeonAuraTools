@@ -197,6 +197,8 @@ JDT.GroupTypes.ShieldCast = "ShieldCast"
 JDT.GroupTypes.SpreadCastIntoCastSuccessAvoid = "SpreadCastIntoCastSuccessAvoid"
 JDT.GroupTypes.SpreadCastNoTargetAnounce = "SpreadCastNoTargetAnounce"
 JDT.GroupTypes.CastWithSafeDeBuffDuringCast = "CastWithSafeDeBuffDuringCast"
+JDT.GroupTypes.WashAway = "WashAway"
+
 
 
 setmetatable(JDT.GroupTypes, {
@@ -6689,4 +6691,27 @@ JDT.Templates.GroupTypes.InteruptableCastIntoReclaimSoul = {
         },
     }
 ), 
+}
+
+JDT.Templates.GroupTypes.WashAway= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_AURA_APPLIED",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
+            customPreset = "WashAway"
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("splash inc"),
+            isactive = true,
+        }, 
+    },
+    glowtype = "Ants",
+    showGlow = true,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }

@@ -452,6 +452,41 @@ bosses.Trash = {
                 }
             },
         },
+        [JDT.GroupTypes.WashAway] = {
+            WashAway = {
+                enabled = true,
+                spellId = 397783,
+                triggerData = {
+                    {
+                        spellId = "397797",
+                        duration = "3.3"
+                    },
+                    {
+                        spellId = "397783",
+                        initialDelay = "3.3",
+                        RunAmount = "3",
+                        duration = "5",
+                    },
+                },
+            }
+        },
+        [JDT.GroupTypes.LosCastIntoDot ] = {
+            TaintedRipple = {
+                enabled = true,
+                spellId = 397878,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "397878",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "397878",
+                    },
+
+                }
+            },
+        },
         
     }
 }

@@ -287,7 +287,7 @@ LocalisationData["ShieldCast"] = "Shield Cast"
 LocalisationData["SpreadCastIntoCastSuccessAvoid"] = "Spread cast that leaves a void"
 LocalisationData["SpreadCastNoTargetAnounce"] = "Spread Casts"
 LocalisationData["CastWithSafeDeBuffDuringCast"] = "Hide Mechanic"
-
+LocalisationData["WashAway"] = "Ticked splash mechanic"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -439,7 +439,7 @@ LocalisationData["Root inc"] = "Root inc"
 LocalisationData["Slow inc"] = "Slow inc"
 LocalisationData["Claim Soul"] = "Claim Soul"
 LocalisationData["Shield"] = "Shield"
-
+LocalisationData["splash inc"] = "splash inc"
 
 
 --[[ 
