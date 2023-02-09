@@ -7,6 +7,15 @@
         "LE_EXPANSION_BATTLE_FOR_AZEROTH",
         "LE_EXPANSION_LEGION",
         "LE_EXPANSION_WARLORDS_OF_DRAENOR",
-        "LE_EXPANSION_MISTS_OF_PANDARIA"
+        "LE_EXPANSION_MISTS_OF_PANDARIA",
+        "GetAddOnMetadata",
+        "C_ChatInfo",
+        "IsInRaid",
+        "IsInGroup",
+        "IsInGuild",
+        "UnitFullName",
+        "CopyTable",
+        "tCompare",
+        "DevTools_Dump"
     ]
 }

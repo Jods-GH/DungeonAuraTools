@@ -59,3 +59,11 @@ JDT.Templates.CustomTriggers.Spiteful = function()
     }
     return trigger
 end
+
+JDT.Templates.CustomTriggers.WashAway = function()
+    local trigger = {
+        customTrigger = "function(s,e,RunAmount,_,spellId) \n    if e == \"UNIT_SPELLCAST_START\" and spellId == 397783 then \n        s[\"\"] = { \n            duration = 3.3, \n            expirationTime = GetTime()+3.3,\n            progressType = \"timed\", \n            autoHide = true, \n            changed = true, \n            show = true, \n        } \n        C_Timer.After(3.3, function() WeakAuras.ScanEvents(\"JODS_WASH_AWAY_EVENT\",1) end) \n        return true \n    elseif e == \"JODS_WASH_AWAY_EVENT\" then \n        if RunAmount<3 then \n            s[\"\"] = { \n                duration = 5, \n                expirationTime = GetTime()+5, \n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            } \n            C_Timer.After(5, function() WeakAuras.ScanEvents(\"JODS_WASH_AWAY_EVENT\",RunAmount+1) end) \n            return true \n        end \n    end   \nend",
+        customEvents = "UNIT_SPELLCAST_START:boss1, JODS_WASH_AWAY_EVENT",
+    }
+    return trigger
+end

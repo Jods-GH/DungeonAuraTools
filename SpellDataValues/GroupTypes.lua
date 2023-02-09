@@ -197,6 +197,8 @@ JDT.GroupTypes.ShieldCast = "ShieldCast"
 JDT.GroupTypes.SpreadCastIntoCastSuccessAvoid = "SpreadCastIntoCastSuccessAvoid"
 JDT.GroupTypes.SpreadCastNoTargetAnounce = "SpreadCastNoTargetAnounce"
 JDT.GroupTypes.CastWithSafeDeBuffDuringCast = "CastWithSafeDeBuffDuringCast"
+JDT.GroupTypes.WashAway = "WashAway"
+
 
 
 setmetatable(JDT.GroupTypes, {
@@ -1822,7 +1824,7 @@ JDT.Templates.GroupTypes.SlowDebuffHighStacksWarning = {
                     changes = {
             
                         {
-                            property= "sub.4.glow_visible",
+                            property= "sub.4.glow",
                             value = true
                         },
                     },
@@ -4945,8 +4947,8 @@ JDT.Templates.GroupTypes.CastIntoPlayerGroupDropVoid =  {
                type = "simplecheck",
                trigger= 3,
                value = true,
-               linked = true,
                 },
+            linked = true,
             changes = {
                 {
                     property = "sub.3.text_visible",
@@ -5513,7 +5515,7 @@ JDT.Templates.GroupTypes.NoCastVoid = {
                     value = true
                 },
                 {
-                    property= "sub.5.glow_visible",
+                    property= "sub.5.glow",
                     value = true
                 },
              
@@ -6637,7 +6639,7 @@ JDT.Templates.GroupTypes.Thundering = {
                 },
                 changes = {
                     {
-                        property= "sub.5.glow_visible",
+                        property= "sub.5.glow",
                         value = true
                     },
                 },
@@ -6689,4 +6691,27 @@ JDT.Templates.GroupTypes.InteruptableCastIntoReclaimSoul = {
         },
     }
 ), 
+}
+
+JDT.Templates.GroupTypes.WashAway= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_AURA_APPLIED",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
+            customPreset = "WashAway"
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("splash inc"),
+            isactive = true,
+        }, 
+    },
+    glowtype = "Ants",
+    showGlow = true,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
