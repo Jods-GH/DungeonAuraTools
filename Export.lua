@@ -226,7 +226,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                             
                                 end
                                 -- set sound
-                                if AuraTemplate.doSound and JDT.db.profile.PlaySound then -- set Sound
+                                if AuraTemplate.doSound and JDT.db.profile.PlaySound and  JDT.db.profile.SoundKey[JDT.TypesSound[AuraTemplate.doSound]] == true then -- set Sound  JDT.Util.Functions.GetTableKeyFromEntry(AuraTemplate.doSound,JDT.SoundTypes)
                                     SpellTable.actions.start.sound = AuraTemplate.doSound
                                     SpellTable.actions.start.do_sound = true
                                 end
