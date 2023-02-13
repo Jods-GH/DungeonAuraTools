@@ -592,7 +592,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.VoidCastIntoMagicDot] ={
+        [JDT.GroupTypes.InteruptCastIntoMagicDot] ={
             MysticVapors= {
                 enabled = true,
                 spellId = 387564, -- for spellname etc
