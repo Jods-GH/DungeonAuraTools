@@ -191,7 +191,7 @@ JDT.GroupTypes.InteruptableCastIntoReclaimSoul = "InteruptableCastIntoReclaimSou
 JDT.GroupTypes.HealBuff = "HealBuff"
 JDT.GroupTypes.BewitchCastIntoCurse = "BewitchCastIntoCurse"
 JDT.GroupTypes.CastIntoDot = "CastIntoDot"
-JDT.GroupTypes.VoidCastIntoMagicDot = "VoidCastIntoMagicDot"
+JDT.GroupTypes.InteruptCastIntoMagicDot = "InteruptCastIntoMagicDot"
 JDT.GroupTypes.DmgBuffButItsAdebuff = "DmgBuffButItsAdebuff"
 JDT.GroupTypes.ShieldCast = "ShieldCast"
 JDT.GroupTypes.SpreadCastIntoCastSuccessAvoid = "SpreadCastIntoCastSuccessAvoid"
@@ -3723,7 +3723,7 @@ JDT.Templates.GroupTypes.VoidCast = {
     doSound = JDT.SoundTypes.avoid,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
-JDT.Templates.GroupTypes.VoidCastIntoMagicDot = {
+JDT.Templates.GroupTypes.InteruptCastIntoMagicDot = {
     AuraType = "AuraIcon",
     triggers = {
         [1] = {
@@ -3736,7 +3736,7 @@ JDT.Templates.GroupTypes.VoidCastIntoMagicDot = {
     },
     text = {
         {   
-            value = JDT.getLocalisation("Avoid"),
+            value = JDT.getLocalisation("Interrupt"),
             isactive = true,
         }, 
         {   
