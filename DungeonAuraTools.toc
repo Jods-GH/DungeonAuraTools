@@ -13,6 +13,10 @@
 #Libs
 embeds.xml
 
+# Utilitys
+Util\UtilFunctions.lua
+UpdateCheck.lua
+
 # Locales
 Locales\enUS.lua
 Locales\deDE.lua
