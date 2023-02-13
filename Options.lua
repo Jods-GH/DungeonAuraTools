@@ -234,6 +234,18 @@ JDT.options = {
                     return  JDT.db.profile.PlaySound --Sets value of toggles depending on SavedVariables 
                 end
               },
+              SoundOptions={
+                name = JDT.getLocalisation("SoundOptions"),
+                type = "group",
+                --inline = true,
+                args={
+                      GroupOptionsSeperator={
+                        name = "SoundOptions",
+                        type = "header",
+                        order = 1,
+                      },
+              },
+            },
               
               ComingSoon = {
                 name = "More options coming soon",
@@ -261,6 +273,20 @@ JDT.options = {
     }
   }
 }
+
+
+for SoundKey in pairs (JDT.SoundTypes) do
+  JDT.options.args.generaloptions.args.SoundOptions.args[SoundKey] = {
+                name = SoundKey,
+                desc = JDT.getLocalisation("SoundTypeDescription"),
+                type = "toggle",
+                set = function(info,val)  JDT.db.profile.SoundKey[SoundKey] = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.SoundKey[SoundKey]  --Sets value of toggles depending on SavedVariables 
+                end
+  }
+end
+
 JDT.createOptionsData = function() -- Generates Type Groups depending on SPellData.lua
   JDT.options.args.spelloptions.args["ExpansionToggles"] = {
     type = "group",
@@ -269,6 +295,10 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
     args={
      
 }}
+
+JDT.db.profile.SoundKey = JDT.db.profile.SoundKey or {}
+
+
   for ExpansionKey,ExpansionValue in pairs(JDT.SpellList) do 
    
   if ExpansionKey == "Affixes" then
