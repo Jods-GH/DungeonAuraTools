@@ -530,17 +530,7 @@ bosses.Trash = {
 
                 }
             },
-            ShadowBoltVolley = {
-                enabled = true,
-                spellId = 214692,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "214692",
-                    },
-
-                }
-            },
+           
         },
         [JDT.GroupTypes.LosCastIntoDot ] = {
             FelDetonation = {
@@ -623,10 +613,43 @@ bosses.Trash = {
                 }
             },
         },
-      
-      
-       
-        
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            ShadowBoltVolley = {
+                enabled = true,
+                spellId = 214692,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "214692",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread] ={
+            ImpendingDoom = {
+                enabled = true,
+                spellId = 397907, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "397907",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "397907",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "397907",
+                    },
+
+                }
+            }
+        },
         
     }
 }

@@ -16,6 +16,10 @@
         "UnitFullName",
         "CopyTable",
         "tCompare",
-        "DevTools_Dump"
+        "DevTools_Dump",
+        "NONE",
+        "class",
+        "ADD",
+        "NEVER"
     ]
 }
