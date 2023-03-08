@@ -62,6 +62,7 @@ SpellData/BattleForAzeroth/OperationMechagon.lua
 SpellData/Legion/ReturnToKarazhan.lua
 SpellData/Legion/HallsOfValor.lua
 SpellData/Legion/CourtOfStars.lua
+SpellData/Legion/NeltharionsLair.lua
 
 #SpellData WarlordsOfDraenor
 SpellData/WarlordsOfDraenor/ShadowmoonBurialGrounds.lua
