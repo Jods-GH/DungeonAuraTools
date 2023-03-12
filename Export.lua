@@ -296,6 +296,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     if v.additionalStackText then
                                         StacksText.text_text =  StacksText.text_text.." "..v.additionalStackText
                                     end
+                                    if AuraTemplate.useHealth then
+                                        StacksText.text_anchorPoint = "INNER_TOPRIGHT"
+                                    end
                                     table.insert(SpellTable.subRegions,StacksText)
                                 elseif AuraTemplate.showStacks then
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
@@ -304,10 +307,25 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     if AuraTemplate.additionalStackText then
                                         StacksText.text_text =  StacksText.text_text.." "..AuraTemplate.additionalStackText
                                     end
+                                    if AuraTemplate.useHealth then
+                                        StacksText.text_anchorPoint = "INNER_TOPRIGHT"
+                                    end
                                     table.insert(SpellTable.subRegions,StacksText)
                                 end
                                 -- set Border and %c depending on JDT.Auratype
-                                if AuraTemplate.type then
+                                if AuraTemplate.customText then
+                                    SpellTable.customText = JDT.Templates.CustomTextTemplates[AuraTemplate.customText](v.customTextInfo)
+                                    if AuraTemplate.type then
+                                        local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+                                        BorderTable.border_color = JDT.Templates.Borders[AuraTemplate.type]
+                                        table.insert(SpellTable.subRegions,BorderTable)
+                                    elseif v.type then
+                                        local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+                                        BorderTable.border_color = JDT.Templates.Borders[v.type]
+                                        table.insert(SpellTable.subRegions,BorderTable)
+                                    end
+
+                                elseif AuraTemplate.type then
                                    
                                     if type(AuraTemplate.type) == "table" then
                                         for borderkey, bordevalue in ipairs(AuraTemplate.type) do

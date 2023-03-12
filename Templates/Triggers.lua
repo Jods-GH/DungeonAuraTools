@@ -57,6 +57,16 @@ setmetatable(JDT.Templates.Triggers.UnitTypes, {
     end,
 })
 
+JDT.Templates.Triggers.CombatLogTypes = {
+    summon = "_SUMMON",
+}
+
+setmetatable(JDT.Templates.Triggers.CombatLogTypes, {
+    __index = function(_, key)
+        error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
+    end,
+})
+
 JDT.Templates.Triggers.Buffs = {
         trigger = {
             type = "aura2",
@@ -211,8 +221,8 @@ JDT.Templates.Triggers.UnitSpellcastSucceeded = {
         type = "event",
         duration = "30",
         event = "Spell Cast Succeeded",
-        use_specific_unit = true,
-        use_unit = true,
+        use_specific_unit = false,
+        use_unit = false,
         unit = "boss1",
         spellId = "12345",
 		use_spellId = true,
@@ -225,3 +235,4 @@ JDT.Templates.Triggers.UnitSpellcastSucceeded = {
     untrigger = {
     }, 
 }
+

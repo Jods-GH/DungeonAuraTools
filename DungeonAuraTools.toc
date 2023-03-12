@@ -34,6 +34,7 @@ Templates/Glows.lua
 Templates/CustomTriggers.lua
 Templates/Conditions.lua
 Templates/WeakaurasCompanionData.lua
+Templates/CustomText.lua
 
 
 #SpellDataValues
