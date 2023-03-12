@@ -7061,7 +7061,7 @@ JDT.Templates.GroupTypes.StunDebuffWithStacksAsProgress= {
     },
     text = {
         {   
-            value = JDT.getLocalisation("stun inc").."%c",
+            value = JDT.getLocalisation("stun inc"),
             isactive = true,
         }, 
     },
