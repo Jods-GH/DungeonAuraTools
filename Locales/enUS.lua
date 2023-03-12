@@ -290,6 +290,19 @@ LocalisationData["SpreadCastIntoCastSuccessAvoid"] = "Spread cast that leaves a 
 LocalisationData["SpreadCastNoTargetAnounce"] = "Spread Casts"
 LocalisationData["CastWithSafeDeBuffDuringCast"] = "Hide Mechanic"
 LocalisationData["WashAway"] = "Ticked splash mechanic"
+LocalisationData["UnavoidableAoeBigAoeIfAdd"] = "Aoe that get's increased if add is alive"
+LocalisationData["BlightshardSkitter"] = "Blightshard Skitter spawn mechanic"
+LocalisationData["CrystallineGround"] = "Crystalline Ground mechanic"
+LocalisationData["CastIntoCastSuccessSpawn"] = "Cast that Spawns something"
+LocalisationData["MagmaSkulptors"] = "Kill add mechanic with chase"
+LocalisationData["RunAwayIfTargeted"] = "Run Away (if targeted) mechanic"
+LocalisationData["KillAddOrBossEating"] = "Kill add Mechanic (boss will consume the add and get buffed if you don't)"
+LocalisationData["CCCast"] = "Cast that CCs"
+LocalisationData["StunDebuffWithStacksAsProgress"] = "Debuff that Stuns at a certain amount of stacks"
+LocalisationData["FrontalWithAoE"] = "Frontal that also does AoE"
+LocalisationData["TransformCast"] = "Cast that transforms the caster"
+
+
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -330,6 +343,8 @@ LocalisationData["Orbs"] = "Orbs"
 LocalisationData["Laser"] = "Laser"
 LocalisationData["- dmg"] = "- Dmg"
 LocalisationData["Kill add"] = "Kill Add"
+LocalisationData["Kill adds"] = "Kill Adds"
+LocalisationData["next add"] = "Next Add"
 LocalisationData["Consoles"] = "Consoles"
 LocalisationData["Breath"] = "Breath"
 LocalisationData["Hooking"] = "Hooking"
@@ -442,6 +457,13 @@ LocalisationData["Slow inc"] = "Slow inc"
 LocalisationData["Claim Soul"] = "Claim Soul"
 LocalisationData["Shield"] = "Shield"
 LocalisationData["splash inc"] = "splash inc"
+LocalisationData["Run Away"] = "Run Away"
+LocalisationData["Front"] = "Front"
+LocalisationData["ccing"] = "CCing"
+LocalisationData["stun inc"] = "Stun inc"
+LocalisationData["Transform"] = "Transform"
+
+
 
 
 --[[ 
