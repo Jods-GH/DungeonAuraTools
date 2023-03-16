@@ -314,6 +314,8 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 end
                                 -- set Border and %c depending on JDT.Auratype
                                 if AuraTemplate.customText then
+                                    local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
+                                    table.insert(SpellTable.subRegions,CustomText)
                                     SpellTable.customText = JDT.Templates.CustomTextTemplates[AuraTemplate.customText](v.customTextInfo)
                                     if AuraTemplate.type then
                                         local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
