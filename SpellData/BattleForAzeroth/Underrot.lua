@@ -122,7 +122,52 @@ bosses.boss3 = {  -- Sporecaller Zancha
     EncounterId = "2112", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = { 
+        [JDT.GroupTypes.Frontal] = {
+            Shockwave = {
+                enabled = true,
+                spellId = 272457,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "272457",
+                    }
 
+                }
+            },
+        },
+        [JDT.GroupTypes.DanceOrSoakIfDebuff] ={
+            Upheaval = {
+                enabled = true,
+                spellId = 274213, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "274213",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "259718",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Dance] ={
+            FesteringHarvest = {
+                enabled = true,
+                spellId = 259732, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "259732",
+
+                    },
+
+                }
+            }
+        },
     }
 }
 bosses.boss4 = {  -- Unbound Abomination
