@@ -174,12 +174,54 @@ bosses.boss4 = {  -- Unbound Abomination
     EncounterId = "2123", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = { 
+        [JDT.GroupTypes.Frontal] = {
+            VileExpulsion = {
+                enabled = true,
+                spellId = 269843,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "269843",
+                    }
 
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            PutridBlood = {
+                enabled = true,
+                spellId = 269301, -- for spellname etc
+                showStacks = 1,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "269301",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.StackCast] = {
+            CleansingLight = {
+                enabled = true,
+                spellId = 269310,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "269310",
+                    }
+
+                }
+            },
+
+        },
     }
 }
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
-
+      
     }
 }
