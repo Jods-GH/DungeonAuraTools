@@ -209,6 +209,7 @@ JDT.GroupTypes.FrontalWithAoE = "FrontalWithAoE"
 JDT.GroupTypes.CCCast = "CCCast"
 JDT.GroupTypes.StunDebuffWithStacksAsProgress = "StunDebuffWithStacksAsProgress"
 JDT.GroupTypes.TransformCast = "TransformCast"
+JDT.GroupTypes.InterruptableCast = "InterruptableCast"
 
 
 
@@ -1959,6 +1960,24 @@ JDT.Templates.GroupTypes.InterruptableTargetedCast= {
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
     doSound = JDT.SoundTypes.targeted,
+    type = JDT.AuraTypes.interrupt,
+}
+
+JDT.Templates.GroupTypes.InterruptableCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("targeted"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    doSound = JDT.SoundTypes.interrupt,
     type = JDT.AuraTypes.interrupt,
 }
 

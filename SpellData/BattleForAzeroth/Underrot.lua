@@ -14,29 +14,126 @@ JDT.SpellList.BattleForAzeroth.Dungeons.Underrot= {
 local bosses = JDT.SpellList.BattleForAzeroth.Dungeons.Underrot.Bosses
 
 bosses.boss1 = {  -- Elder Leaxa
-    EncounterId = "", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    EncounterId = "2111", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 01 ",
+    Auras = { 
+        [JDT.GroupTypes.VoidCast] = {
+            CreepingRot = {
+                enabled = true,
+                spellId = 260894,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "260894",
+                    },
+
+                }
+            },
+            SanguineFeast = {
+                enabled = true,
+                spellId = 264757,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "264757",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableCast] = {
+            BloodBolt = {
+                enabled = true,
+                spellId = 260879,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "260879",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            BloodMirror = {
+                enabled = true,
+                spellId = 264603,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "264603",
+                    },
+
+                }
+            },
+        },
+        
+    }
+}
+bosses.boss2 = {  -- Cragmaw the Infested
+    EncounterId = "2118", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = "] 02 ",
+    Auras = { 
+        [JDT.GroupTypes.Charge] ={
+            Charge= {
+                enabled = true,
+                spellId = 260292, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "260292",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            Tantrum = {
+                enabled = true,
+                spellId = 260333, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "260333",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Frontal] = {
+            Indigestion = {
+                enabled = true,
+                spellId = 260793,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "260793",
+                    }
+
+                }
+            },
+
+        },
+    }
+}
+bosses.boss3 = {  -- Sporecaller Zancha
+    EncounterId = "2112", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = "] 03 ",
     Auras = { 
 
     }
 }
-bosses.boss2 = {  -- Elder Leaxa
-    EncounterId = "", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
-    additionalName = "] 01 ",
+bosses.boss4 = {  -- Unbound Abomination
+    EncounterId = "2123", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = "] 04 ",
     Auras = { 
 
     }
 }
-bosses.boss3 = {  -- Elder Leaxa
-    EncounterId = "", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
-    additionalName = "] 01 ",
-    Auras = { 
-
-    }
-}
-bosses.boss4 = {  -- Elder Leaxa
-    EncounterId = "", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
-    additionalName = "] 01 ",
+bosses.Trash = {
+    additionalName = "TRASH] ",
     Auras = { 
 
     }
