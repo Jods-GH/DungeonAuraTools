@@ -58,6 +58,7 @@ SpellData/Shadowlands/Tazavesh.lua
 
 #SpellData BattleForAzeroth
 SpellData/BattleForAzeroth/OperationMechagon.lua
+SpellData/BattleForAzeroth/Underrot.lua
 
 #SpellData Legion
 SpellData/Legion/ReturnToKarazhan.lua
