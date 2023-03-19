@@ -7,7 +7,7 @@ JDT.SpellList.BattleForAzeroth.Dungeons = JDT.SpellList.BattleForAzeroth.Dungeon
 
 JDT.SpellList.BattleForAzeroth.Dungeons.OperationMechagon = {
     groupName = "[MECHAGON",
-    zoneId = "g399", 
+    zoneId = "g399",  -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 1178,
     Bosses = {}
 }

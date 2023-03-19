@@ -7,7 +7,7 @@ JDT.SpellList.Legion.Dungeons = JDT.SpellList.Legion.Dungeons or {}
 
 JDT.SpellList.Legion.Dungeons.HallsOfValor = {
     groupName = "[HOV",
-    zoneId = "g240", 
+    zoneId = "g240",  -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 721, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }

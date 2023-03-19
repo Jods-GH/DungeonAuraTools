@@ -6,7 +6,7 @@ JDT.SpellList.WarlordOfDraenor.Dungeons = JDT.SpellList.WarlordOfDraenor.Dungeon
 
 JDT.SpellList.WarlordOfDraenor.Dungeons.ShadowmoonBurialGrounds = {
     groupName = "[SBG",
-    zoneId = "g223", 
+    zoneId = "g223", -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 537, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }

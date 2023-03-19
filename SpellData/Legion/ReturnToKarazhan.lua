@@ -7,7 +7,7 @@ JDT.SpellList.Legion.Dungeons = JDT.SpellList.Legion.Dungeons or {}
 
 JDT.SpellList.Legion.Dungeons.ReturnToKarazhan = {
     groupName = "[KARAZHAN ",
-    zoneId = "g260", 
+    zoneId = "g260", -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 860,
     Bosses = {}
 }

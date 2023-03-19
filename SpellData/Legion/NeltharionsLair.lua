@@ -7,7 +7,7 @@ JDT.SpellList.Legion.Dungeons = JDT.SpellList.Legion.Dungeons or {}
 
 JDT.SpellList.Legion.Dungeons.NeltharionsLair = {
     groupName = "[NL",
-    zoneId = "731", 
+    zoneId = "731", -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 767, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }

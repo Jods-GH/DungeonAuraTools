@@ -7,7 +7,7 @@ JDT.SpellList.Shadowlands.Dungeons = JDT.SpellList.Shadowlands.Dungeons or {}
 
 JDT.SpellList.Shadowlands.Dungeons.Tazavesh = {
     groupName = "[TAZAVESH",
-    zoneId = "g423", 
+    zoneId = "g423", -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 1194,
     Bosses = {}
 }

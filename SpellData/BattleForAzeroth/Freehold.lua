@@ -7,7 +7,7 @@ JDT.SpellList.BattleForAzeroth.Dungeons = JDT.SpellList.BattleForAzeroth.Dungeon
 
 JDT.SpellList.BattleForAzeroth.Dungeons.Freehold = {
     groupName = "[FH",
-    zoneId = "", 
+    zoneId = "936",  -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 1001, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }

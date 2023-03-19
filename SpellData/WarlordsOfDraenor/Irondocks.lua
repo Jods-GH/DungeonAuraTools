@@ -6,7 +6,7 @@ JDT.SpellList.WarlordOfDraenor.Dungeons = JDT.SpellList.WarlordOfDraenor.Dungeon
 
 JDT.SpellList.WarlordOfDraenor.Dungeons.Irondocks = {
     groupName = "[IRONDOCKS",
-    zoneId = "595", 
+    zoneId = "595", -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 558, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }

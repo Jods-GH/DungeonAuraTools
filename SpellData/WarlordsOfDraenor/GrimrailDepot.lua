@@ -7,7 +7,7 @@ JDT.SpellList.WarlordOfDraenor.Dungeons = JDT.SpellList.WarlordOfDraenor.Dungeon
 
 JDT.SpellList.WarlordOfDraenor.Dungeons.GrimrailDepot = {
     groupName = "[GRIMRAIL",
-    zoneId = "g225", 
+    zoneId = "g225", -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 536, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }
