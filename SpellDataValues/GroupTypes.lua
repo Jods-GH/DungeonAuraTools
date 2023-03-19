@@ -210,6 +210,7 @@ JDT.GroupTypes.CCCast = "CCCast"
 JDT.GroupTypes.StunDebuffWithStacksAsProgress = "StunDebuffWithStacksAsProgress"
 JDT.GroupTypes.TransformCast = "TransformCast"
 JDT.GroupTypes.InterruptableCast = "InterruptableCast"
+JDT.GroupTypes.PurgableImuneCast = "PurgableImuneCast"
 
 
 
@@ -7105,5 +7106,22 @@ JDT.Templates.GroupTypes.TransformCast= {
             isactive = true,
         }, 
     },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.PurgableImuneCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Can't die"),
+            isactive = true,
+        }, 
+    },
+    type = JDT.AuraTypes.purge,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

@@ -222,6 +222,242 @@ bosses.boss4 = {  -- Unbound Abomination
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
-      
+        [JDT.GroupTypes.Frontal] = {
+            RottenBile = {
+                enabled = true,
+                spellId = 265540,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265540",
+                    }
+
+                }
+            },
+            SavageCleave = {
+                enabled = true,
+                spellId = 265019,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265019",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            BloodMaw = {
+                enabled = true,
+                spellId = 265533, -- for spellname etc
+                showStacks = 1,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "265533",
+
+                    },
+
+                }
+            },
+            SavageCleave = {
+                enabled = true,
+                spellId = 265019,
+                extraName = " dot",
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "265019",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            Warcry = {
+                enabled = true,
+                spellId = 265081,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265081",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            DarkReconstitution = {
+                enabled = true,
+                spellId = 265089,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265089",
+                    },
+
+                }
+            },
+        },
+
+        [JDT.GroupTypes.PurgableImuneCast] = {
+            ["GiftofG'huun"] = {
+                enabled = true,
+                spellId = 265091,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265091",
+                    },
+
+                }
+            },
+        },
+
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            BloodBolt = {
+                enabled = true,
+                spellId = 265084, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265084",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableCastIntoRoot] = {
+            HookedSnare = {
+                enabled = true,
+                spellId = 265377,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265377",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "265377",
+                    }
+
+                }
+            },
+
+        }, 
+        [JDT.GroupTypes.TargetedCast] = {
+            BarbedSpear = {
+                enabled = true,
+                spellId = 265376,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265376",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigAoeCast] = {
+            HarrowingDespair = {
+                enabled = true,
+                spellId = 278755,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "278755",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpreadCast] = {
+            DarkOmen = {
+                enabled = true,
+                spellId = 265568,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265568",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoChase] = {
+            ThirstForBlood = {
+                enabled = true,
+                spellId = 266107,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "266107",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "266107",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "266107",
+                    },
+
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptShout] = {
+            SonicScreech = {
+                enabled = true,
+                spellId = 266106,
+                triggerData = {
+                {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "266106",
+                    },
+                {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                   },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            WaveofDecay = {
+                enabled = true,
+                spellId = 265668,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265668",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBewitchCastIntoDebuff] ={
+            DecayingMind= {
+                enabled = true,
+                spellId = 278961, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "278961",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "278961",
+
+                    },
+
+                }
+            },
+        },
+
+
     }
 }
