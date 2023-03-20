@@ -301,7 +301,11 @@ LocalisationData["CCCast"] = "Cast that CCs"
 LocalisationData["StunDebuffWithStacksAsProgress"] = "Debuff that Stuns at a certain amount of stacks"
 LocalisationData["FrontalWithAoE"] = "Frontal that also does AoE"
 LocalisationData["TransformCast"] = "Cast that transforms the caster"
-
+LocalisationData["InterruptableCast"] = "Cast (Interuptable)"
+LocalisationData["PurgableImuneCast"] = "Cast that makes a mob imune (Purgable)"
+LocalisationData["InteruptableVolleyIntoMagicDot"] = "Volley tha leaves a magic debuff behind (Interuptable)"
+LocalisationData["InteruptableVolleyIntoCurseDmgReduce"] = "AoE cast that leaves a dmg reducing debuff (Interuptable, Decursable)"
+LocalisationData["SummonTotemCastIntoStun"] = "Cast that summons a Totem which stuns after x Seconds"
 
 --[[ 
     LocalisationData[""] = ""
@@ -460,8 +464,9 @@ LocalisationData["splash inc"] = "splash inc"
 LocalisationData["Run Away"] = "Run Away"
 LocalisationData["Front"] = "Front"
 LocalisationData["ccing"] = "CCing"
-LocalisationData["stun inc"] = "Stun inc"
 LocalisationData["Transform"] = "Transform"
+LocalisationData["Can't die"] = "Can't die"
+LocalisationData["Totem inc"] = "Totem inc"
 
 
 

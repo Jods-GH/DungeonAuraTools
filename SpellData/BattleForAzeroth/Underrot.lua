@@ -245,6 +245,17 @@ bosses.Trash = {
 
                 }
             },
+            MaddeningGaze = {
+                enabled = true,
+                spellId = 272609,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272609",
+                    }
+
+                }
+            },
         },
         [JDT.GroupTypes.Dot] ={
             BloodMaw = {
@@ -437,6 +448,17 @@ bosses.Trash = {
 
                 }
             },
+            AbyssalReach = {
+                enabled = true,
+                spellId = 272592,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272592",
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.InteruptableBewitchCastIntoDebuff] ={
             DecayingMind= {
@@ -457,7 +479,101 @@ bosses.Trash = {
                 }
             },
         },
+        [JDT.GroupTypes.AddSummonCast] = {
+            RaiseDead = {
+                enabled = true,
+                spellId = 272183,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272183",
+                    },
 
+                }
+            },
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            WickedFrenzy = {
+                enabled = true,
+                spellId = 266209,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "266209",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolleyIntoMagicDot] = {
+            DeathBolt = {
+                enabled = true,
+                spellId = 272180,
+                showStacks = 2,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272180",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "272180",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            ShadowBoltVolley = {
+                enabled = true,
+                spellId = 265487,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265487",
+                    },
+
+                }
+            },
+        },
+
+        [JDT.GroupTypes.InteruptableVolleyIntoCurseDmgReduce] = {
+            DWitheringCurse = {
+                enabled = true,
+                spellId = 265433,
+                showStacks = 3,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265433",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "265433",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SummonTotemCastIntoStun] = {
+            SummonSpiritDrainTotem = {
+                enabled = true,
+                spellId = 265523,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265523",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265511",
+                    },
+
+                }
+            },
+        },
+
+        
 
     }
 }
