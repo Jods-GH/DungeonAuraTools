@@ -46,7 +46,7 @@ local configForLS = {
   }
 local configForDeflate = {level = 9}
 local compressedTablesCache = {}
-function TableToString(inTable)
+function TableToString(inTable) -- code from WeakAuras
     local serialized = LibSerialize:SerializeEx(configForLS, inTable)
     local compressed
     -- get from / add to cache

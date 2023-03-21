@@ -214,7 +214,9 @@ JDT.GroupTypes.PurgableImuneCast = "PurgableImuneCast"
 JDT.GroupTypes.InteruptableVolleyIntoMagicDot = "InteruptableVolleyIntoMagicDot"
 JDT.GroupTypes.InteruptableVolleyIntoCurseDmgReduce = "InteruptableVolleyIntoCurseDmgReduce"
 JDT.GroupTypes.SummonTotemCastIntoStun = "SummonTotemCastIntoStun"
-
+JDT.GroupTypes.CastStartNoSoak = "CastStartNoSoak"
+JDT.GroupTypes.CastStartSoak = "CastStartSoak"
+JDT.GroupTypes.CastIntoKillAddDebuff = "CastIntoKillAddDebuff"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -1733,6 +1735,44 @@ JDT.Templates.GroupTypes.VoidSoak= {
     doSound = JDT.SoundTypes.soak,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+
+JDT.Templates.GroupTypes.CastStartNoSoak= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_START",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Don't Soak"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.CastStartSoak= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_START",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soak,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+
 JDT.Templates.GroupTypes.OrbSoak= {
     AuraType = "AuraIcon",
     triggers = {
@@ -2614,6 +2654,27 @@ JDT.Templates.GroupTypes.KillAddDebuff= {
     },
     doSound = JDT.SoundTypes.add,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.CastIntoKillAddDebuff= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Kill add"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.add,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 
 JDT.Templates.GroupTypes.Consoles= {

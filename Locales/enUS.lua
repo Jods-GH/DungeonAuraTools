@@ -306,7 +306,9 @@ LocalisationData["PurgableImuneCast"] = "Cast that makes a mob imune (Purgable)"
 LocalisationData["InteruptableVolleyIntoMagicDot"] = "Volley tha leaves a magic debuff behind (Interuptable)"
 LocalisationData["InteruptableVolleyIntoCurseDmgReduce"] = "AoE cast that leaves a dmg reducing debuff (Interuptable, Decursable)"
 LocalisationData["SummonTotemCastIntoStun"] = "Cast that summons a Totem which stuns after x Seconds"
-
+LocalisationData["CastStartNoSoak"] = "Void mechanic to not Soak"
+LocalisationData["CastStartSoak"] = "Void mechanic to Soak"
+LocalisationData["CastIntoKillAddDebuff"] = "Cast that spawns an add which you have to kill"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -467,7 +469,7 @@ LocalisationData["ccing"] = "CCing"
 LocalisationData["Transform"] = "Transform"
 LocalisationData["Can't die"] = "Can't die"
 LocalisationData["Totem inc"] = "Totem inc"
-
+LocalisationData["Don't Soak"] = "Don't Soak"
 
 
 
