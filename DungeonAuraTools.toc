@@ -1,4 +1,4 @@
-## Interface: 100005
+## Interface: 100007
 ## Version: @project-version@
 ## Plain Title: DungeonAuraTools
 ## Title: |cffe5c75fD|r|cffFF657Fungeon|r|cffe5c75fA|r|cffFF657Fura|r|cffe5c75fT|r|cffFF657Fools|r 
@@ -58,6 +58,8 @@ SpellData/Shadowlands/Tazavesh.lua
 
 #SpellData BattleForAzeroth
 SpellData/BattleForAzeroth/OperationMechagon.lua
+SpellData/BattleForAzeroth/Underrot.lua
+SpellData/BattleForAzeroth/Freehold.lua
 
 #SpellData Legion
 SpellData/Legion/ReturnToKarazhan.lua

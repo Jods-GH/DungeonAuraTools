@@ -6,7 +6,7 @@ JDT.SpellList.Dragonflight.Dungeons = JDT.SpellList.Dragonflight.Dungeons or {}
 
 JDT.SpellList.Dragonflight.Dungeons.TheAzureVault = {
     groupName = "[TAV",
-    zoneId = "g428", 
+    zoneId = "g428", -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 1203, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }

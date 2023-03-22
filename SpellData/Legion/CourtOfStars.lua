@@ -7,7 +7,7 @@ JDT.SpellList.Legion.Dungeons = JDT.SpellList.Legion.Dungeons or {}
 
 JDT.SpellList.Legion.Dungeons.CourtOfStars = {
     groupName = "[COS",
-    zoneId = "g252", 
+    zoneId = "g252", -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 800, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }

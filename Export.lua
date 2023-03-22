@@ -21,7 +21,7 @@ JDT.exportCompanion = function(AuraUpdatesTable)
     local WeakaurasData = CopyTable(JDT.Templates.JodsCompanionData)
     for k,v in pairs(JDT.db.profile.data) do
         if AuraUpdatesTable[k] then
-            local exportstuff = JDT.buildDataToExport(k,v,true)
+            local exportstuff = JDT.buildDataToExport(k,v,true)           
             local encoded = TableToString(exportstuff)
             local slug = CopyTable(JDT.Templates.WeakAurasCompanionSlugData)
             slug.name = exportstuff.d.id
@@ -46,7 +46,7 @@ local configForLS = {
   }
 local configForDeflate = {level = 9}
 local compressedTablesCache = {}
-function TableToString(inTable)
+function TableToString(inTable) -- code from WeakAuras
     local serialized = LibSerialize:SerializeEx(configForLS, inTable)
     local compressed
     -- get from / add to cache
@@ -128,12 +128,12 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
         ExportTable.d.xOffset  = JDT.db.profile.xOffset
         ExportTable.d.yOffset = JDT.db.profile.yOffset
     end
-
+     
         if ExpansionKey == "Affixes" then
             for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
                 for k,v in pairs(TypeValue) do 
                     if v.enabled == true then
-                        JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue,ExpansionKey)              
+                        JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue,ExpansionKey)             
                     end
                 end 
             end
@@ -143,17 +143,47 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
                         for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
                             for k,v in pairs(TypeValue) do 
                                 if v.enabled == true then
-                                    JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)         
+                                    JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)       
                                 end
                             end
                     end
                 end
             end
         end
+        table.sort(ExportTable.c, JDT.sortExportAuraChildren)
     return ExportTable
 end
 
-JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey) 
+JDT.sortExportAuraChildren = function (a, b)
+    local aPrefix = a.id:match("%[(.-)%]")
+    local bPrefix = b.id:match("%[(.-)%]")
+    local aNoTrash,aHasTrash = string.gsub(aPrefix,"TRASH","")
+    local bNoTrash,bHasTrash = string.gsub(bPrefix,"TRASH","")
+
+    if (aHasTrash == 1) and (bHasTrash == 1)then
+        if aNoTrash == bNoTrash then
+            return a.id < b.id
+        else
+            return aNoTrash < bNoTrash
+        end
+    elseif (aHasTrash == 1) and not (bHasTrash == 1) then
+        if aNoTrash == bNoTrash then
+            return false
+        else
+            return aNoTrash < bNoTrash
+        end
+    elseif (bHasTrash== 1) and not (aHasTrash== 1) then
+        if aNoTrash == bNoTrash then
+            return true
+        else
+            return aNoTrash < bNoTrash
+        end
+    else
+        return a.id < b.id
+    end
+end
+
+JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey,numberOfAuras) 
                                 local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]
                                 local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
 

@@ -7,7 +7,7 @@ JDT.SpellList.MistOfPandaria.Dungeons = JDT.SpellList.MistOfPandaria.Dungeons or
 
 JDT.SpellList.MistOfPandaria.Dungeons.TempleOfTheJadeSerpent = {
     groupName = "[TOTJS",
-    zoneId = "g201", 
+    zoneId = "g201", -- https://wowpedia.fandom.com/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 313, -- https://wow.tools/dbc/?dbc=journalencounter&build=10.0.2.45632
     Bosses = {}
 }
