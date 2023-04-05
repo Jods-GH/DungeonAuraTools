@@ -40,9 +40,18 @@ function DungeonAuraTools:OnInitialize()
     self:RegisterChatCommand("dat", "SlashCommand")
     self:RegisterChatCommand("DungeonAuraTools", "SlashCommand")
   -- generates Data for Options Table
+  --[[
+AddonCompartmentFrame:RegisterAddon({
+    text = appName,
+    icon = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga",
+    registerForAnyClick = true,
+    func = function(btn, arg1, arg2, checked, mouseButton)
+        DungeonAuraTools:SlashCommand("AddonCompartmentFrame")
+    end,
+  })
+]]
     
 end
-
 
 
 function DungeonAuraTools:OnEnable()

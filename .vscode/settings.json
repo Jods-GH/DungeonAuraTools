@@ -20,6 +20,8 @@
         "NONE",
         "class",
         "ADD",
-        "NEVER"
+        "NEVER",
+        "AddonCompartmentFrame",
+        "GameTooltip"
     ]
 }
