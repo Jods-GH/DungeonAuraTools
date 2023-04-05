@@ -309,6 +309,8 @@ LocalisationData["SummonTotemCastIntoStun"] = "Cast that summons a Totem which s
 LocalisationData["CastStartNoSoak"] = "Void mechanic to not Soak"
 LocalisationData["CastStartSoak"] = "Void mechanic to Soak"
 LocalisationData["CastIntoKillAddDebuff"] = "Cast that spawns an add which you have to kill"
+LocalisationData["Suiciding"] = "Mob cast that kills them after completion"
+LocalisationData["CastIntoDontJumpWithDebuff"] = "Mob cast that applies a debuff that requires you to not jump"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -470,7 +472,9 @@ LocalisationData["Transform"] = "Transform"
 LocalisationData["Can't die"] = "Can't die"
 LocalisationData["Totem inc"] = "Totem inc"
 LocalisationData["Don't Soak"] = "Don't Soak"
-
+LocalisationData["no Jump inc"] = "no Jump inc"
+LocalisationData["don't Jump"] = "don't Jump"
+LocalisationData["MobSuicide"] = "MobSuicide"
 
 
 --[[ 

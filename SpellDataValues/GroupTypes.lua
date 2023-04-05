@@ -217,6 +217,9 @@ JDT.GroupTypes.SummonTotemCastIntoStun = "SummonTotemCastIntoStun"
 JDT.GroupTypes.CastStartNoSoak = "CastStartNoSoak"
 JDT.GroupTypes.CastStartSoak = "CastStartSoak"
 JDT.GroupTypes.CastIntoKillAddDebuff = "CastIntoKillAddDebuff"
+JDT.GroupTypes.CastIntoDontJumpWithDebuff = "CastIntoDontJumpWithDebuff"
+JDT.GroupTypes.MobSuicide = "MobSuicide"
+JDT.GroupTypes.CastIntoRemoveShield = "CastIntoRemoveShield"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -1374,6 +1377,55 @@ JDT.Templates.GroupTypes.CastIntoBreakShield = {
 
     },
     useTooltip = 1,
+    doSound = JDT.SoundTypes.breakshield,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+                {
+                    {
+                       condition={
+                          type = "simplecheck",
+                          trigger= 1,
+                          value = true,
+                           },
+                           changes = {
+                            {
+                                property = "sub.3.text_visible",
+                                value = false,
+                            },
+                            {
+                                property = "sub.4.text_visible",
+                                value = true,
+                            },
+                           },
+                   },
+               }
+), 
+ 
+}
+
+JDT.Templates.GroupTypes.CastIntoRemoveShield = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Remove shield"),
+            isactive =  true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Shield inc"),
+            isactive = false,
+        }, 
+
+    },
+    showStacks = 1,
     doSound = JDT.SoundTypes.breakshield,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
@@ -6023,6 +6075,54 @@ JDT.Templates.GroupTypes.CastIntoJumpWithDebuff =  {
     }
 ), 
 }
+JDT.Templates.GroupTypes.CastIntoDontJumpWithDebuff =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("no Jump inc"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("don't Jump"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 2,
+                   value = false,
+                    },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                },
+            }, 
+    }
+), 
+}
 JDT.Templates.GroupTypes.BuffOrDeathCast = {
     AuraType = "AuraIcon",
     triggers = {
@@ -7358,5 +7458,20 @@ JDT.Templates.GroupTypes.PurgableImuneCast= {
         }, 
     },
     type = JDT.AuraTypes.purge,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.MobSuicide = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Suiciding"),
+            isactive = true,
+        }, 
+    },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
