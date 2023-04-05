@@ -347,16 +347,25 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
                                     table.insert(SpellTable.subRegions,CustomText)
                                     SpellTable.customText = JDT.Templates.CustomTextTemplates[AuraTemplate.customText](v.customTextInfo)
-                                    if AuraTemplate.type then
-                                        local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
-                                        BorderTable.border_color = JDT.Templates.Borders[AuraTemplate.type]
-                                        table.insert(SpellTable.subRegions,BorderTable)
-                                    elseif v.type then
+                                    if v.type then
                                         local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
                                         BorderTable.border_color = JDT.Templates.Borders[v.type]
                                         table.insert(SpellTable.subRegions,BorderTable)
+                                    elseif AuraTemplate.type then
+                                        local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+                                        BorderTable.border_color = JDT.Templates.Borders[AuraTemplate.type]
+                                        table.insert(SpellTable.subRegions,BorderTable) 
                                     end
 
+                                elseif v.type then -- add border color and custom text if needed
+                                    local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
+                                    table.insert(SpellTable.subRegions,CustomText)
+                                    
+                                    SpellTable.customText = JDT.Templates.CustomTextIcons[v.type]
+
+                                    local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+                                    BorderTable.border_color = JDT.Templates.Borders[v.type]
+                                    table.insert(SpellTable.subRegions,BorderTable)
                                 elseif AuraTemplate.type then
                                    
                                     if type(AuraTemplate.type) == "table" then
@@ -380,17 +389,6 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     BorderTable.border_color = JDT.Templates.Borders[AuraTemplate.type]
                                     table.insert(SpellTable.subRegions,BorderTable)
                                     end
-                        
-                                    
-                                elseif v.type then -- add border color and custom text if needed
-                                    local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
-                                    table.insert(SpellTable.subRegions,CustomText)
-                                    
-                                    SpellTable.customText = JDT.Templates.CustomTextIcons[v.type]
-
-                                    local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
-                                    BorderTable.border_color = JDT.Templates.Borders[v.type]
-                                    table.insert(SpellTable.subRegions,BorderTable)
                                 end
                                 -- set %debuffclass if needed
                                 if AuraTemplate.useDebuffClass then

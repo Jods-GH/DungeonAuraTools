@@ -311,6 +311,7 @@ LocalisationData["CastStartSoak"] = "Void mechanic to Soak"
 LocalisationData["CastIntoKillAddDebuff"] = "Cast that spawns an add which you have to kill"
 LocalisationData["Suiciding"] = "Mob cast that kills them after completion"
 LocalisationData["CastIntoDontJumpWithDebuff"] = "Mob cast that applies a debuff that requires you to not jump"
+LocalisationData["CastIntoRemoveShield"] = "Cast that leaves a shield which has to be removed"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -475,7 +476,7 @@ LocalisationData["Don't Soak"] = "Don't Soak"
 LocalisationData["no Jump inc"] = "no Jump inc"
 LocalisationData["don't Jump"] = "don't Jump"
 LocalisationData["MobSuicide"] = "MobSuicide"
-
+LocalisationData["Remove shield"] = "Remove shield"
 
 --[[ 
 LocalisationData[""] = ""
