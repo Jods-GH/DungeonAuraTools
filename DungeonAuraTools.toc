@@ -53,6 +53,7 @@ SpellData/DragonFlight/RubyLifePools.lua
 SpellData/DragonFlight/TheAzureVault.lua
 SpellData/DragonFlight/TheNokhudOffensive.lua
 SpellData/DragonFlight/HallsOfInfusion.lua
+SpellData/DragonFlight/BrackenhideHollow.lua
 
 #SpellData Shadowlands
 SpellData/Shadowlands/Tazavesh.lua

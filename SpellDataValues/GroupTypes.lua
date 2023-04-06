@@ -220,6 +220,8 @@ JDT.GroupTypes.CastIntoKillAddDebuff = "CastIntoKillAddDebuff"
 JDT.GroupTypes.CastIntoDontJumpWithDebuff = "CastIntoDontJumpWithDebuff"
 JDT.GroupTypes.MobSuicide = "MobSuicide"
 JDT.GroupTypes.CastIntoRemoveShield = "CastIntoRemoveShield"
+JDT.GroupTypes.SummonTotemCastIntoKillWhileChanneling = "SummonTotemCastIntoKillWhileChanneling"
+JDT.GroupTypes.FreeCast = "FreeCast"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -2196,7 +2198,6 @@ JDT.Templates.GroupTypes.CastIntoDot= {
     triggers = {
          {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
-            target = JDT.Templates.Triggers.UnitTypes.player,
         },
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
@@ -2846,6 +2847,30 @@ JDT.Templates.GroupTypes.SummonTotemCastIntoStun= {
         }, 
         {   
             value = JDT.getLocalisation("Stun inc"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.adds,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+
+JDT.Templates.GroupTypes.SummonTotemCastIntoKillWhileChanneling= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Totem inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("kill totem"),
             isactive = true,
         }, 
     },
@@ -7473,5 +7498,21 @@ JDT.Templates.GroupTypes.MobSuicide = {
             isactive = true,
         }, 
     },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.FreeCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Freeing"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.add,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }

@@ -95,6 +95,9 @@ JDT.CheckIfAuraUpdates = function (self)
                                                         if AuraToCheck.semver ~= InstalledAura.semver then -- adjust this value if needed 
                                                             AuraToCheck.semver = InstalledAura.semver
                                                         end
+                                                        if AuraToCheck.tocversion ~= InstalledAura.tocversion then -- adjust this value if needed 
+                                                            AuraToCheck.tocversion = InstalledAura.tocversion
+                                                        end
                                                         if AuraToCheck.internalVersion ~= InstalledAura.internalVersion then -- Warn if there is a version mismatch
                                                             self:Print(JDT.getLocalisation("internalVersionMismatch"))
                                                         end
