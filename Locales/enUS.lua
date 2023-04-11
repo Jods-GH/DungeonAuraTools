@@ -309,6 +309,11 @@ LocalisationData["SummonTotemCastIntoStun"] = "Cast that summons a Totem which s
 LocalisationData["CastStartNoSoak"] = "Void mechanic to not Soak"
 LocalisationData["CastStartSoak"] = "Void mechanic to Soak"
 LocalisationData["CastIntoKillAddDebuff"] = "Cast that spawns an add which you have to kill"
+LocalisationData["MobSuicide"] = "Mob cast that kills them after completion"
+LocalisationData["CastIntoDontJumpWithDebuff"] = "Mob cast that applies a debuff that requires you to not jump"
+LocalisationData["CastIntoRemoveShield"] = "Cast that leaves a shield which has to be removed"
+LocalisationData["FreeCast"] = "Cast that frees another add from something"
+LocalisationData["SummonTotemCastIntoKillWhileChanneling"] = "Cast that summons a totem which needs to be killed"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -470,8 +475,12 @@ LocalisationData["Transform"] = "Transform"
 LocalisationData["Can't die"] = "Can't die"
 LocalisationData["Totem inc"] = "Totem inc"
 LocalisationData["Don't Soak"] = "Don't Soak"
-
-
+LocalisationData["no Jump inc"] = "no Jump inc"
+LocalisationData["don't Jump"] = "don't Jump"
+LocalisationData["Suiciding"] = "Suiciding"
+LocalisationData["Remove shield"] = "Remove shield"
+LocalisationData["Freeing"] = "Freeing"
+LocalisationData["kill totem"] = "kill totem"
 
 --[[ 
 LocalisationData[""] = ""
