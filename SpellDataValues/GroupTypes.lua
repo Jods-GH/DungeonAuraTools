@@ -2847,11 +2847,33 @@ JDT.Templates.GroupTypes.SummonTotemCastIntoStun= {
         }, 
         {   
             value = JDT.getLocalisation("Stun inc"),
-            isactive = true,
+            isactive = false,
         }, 
     },
     doSound = JDT.SoundTypes.adds,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                 
+                },
+        },
+    }
+), 
 }
 
 JDT.Templates.GroupTypes.SummonTotemCastIntoKillWhileChanneling= {
@@ -2871,11 +2893,33 @@ JDT.Templates.GroupTypes.SummonTotemCastIntoKillWhileChanneling= {
         }, 
         {   
             value = JDT.getLocalisation("kill totem"),
-            isactive = true,
+            isactive = false,
         }, 
     },
     doSound = JDT.SoundTypes.adds,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                 
+                },
+        },
+    }
+), 
 }
 
 JDT.Templates.GroupTypes.InteruptableVolley= {
