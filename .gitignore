@@ -53,3 +53,4 @@ Libs/AceGUI-3.0/widgets/AceGUIWidget-Label.lua
 Libs/AceLocale-3.0/AceLocale-3.0.lua
 Libs/LibStub/LibStub.toc
 Libs/LibStub/tests/test2.lua
+.vscode/*
