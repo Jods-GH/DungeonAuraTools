@@ -29,11 +29,11 @@ Ofcourse you can always manually adjust the settings on  a per Aura level via t
  
 
 
-If you want to have some sounds, use this addon: Sharedmedia_causese 
+If you want to have some sounds, use this addon: [Sharedmedia_causese](https://www.curseforge.com/wow/addons/sharedmedia_causese) 
 
 If you've discovered something that's clearly wrong, or if you get an error, please open a ticket via Github Issues
-If you want to talk about the addon or just hang out please join my Discord.
+If you want to talk about the addon or just hang out please join my [Discord](https://discord.com/invite/v3gYmYamGJ).
 
 Debuff/Interrupt highlight stolen from causese props to him
 
-If you like my work and want to support me you can Donate
+If you like my work and want to support me you can [Donate](https://www.paypal.com/donate/?hosted_button_id=PSQ4D3HXNZKMG)
