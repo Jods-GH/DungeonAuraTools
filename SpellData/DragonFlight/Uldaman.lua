@@ -127,7 +127,99 @@ bosses.boss2 = {  -- Bromach
     EncounterId = "2556", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 02 ",
     Auras = { 
-       
+        [JDT.GroupTypes.CastIntoBuff] ={
+            Bloodlust = {
+                enabled = true,
+                spellId = 369754, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "369754",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "369754",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.AddSummonCombatlog] = {
+            CalloftheDeep = {
+                enabled = true,
+                spellId = 369605,
+                triggerData = {
+                  {
+                        spellId = "369605",
+                        duration = "2",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            ThunderingSlam = {
+                enabled = true,
+                spellId = 369703, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "369703",
+
+                    },
+
+                }
+            },
+        }, 
+        [JDT.GroupTypes.SpreadCast] = {
+            ChainLightning = {
+                enabled = true,
+                spellId = 369675,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369675",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SummonTotemCastIntoKillWhileAlive] = {
+            QuakingTotem = {
+                enabled = true,
+                spellId = 369615,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "382303",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        npcID = "186696",
+            
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            StoneSpike = {
+                enabled = true,
+                spellId = 369674, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369674",
+
+                    },
+
+                }
+            },
+        },
+        
+
     }
 }
 bosses.boss3 = {  -- Sentinel Talondras
