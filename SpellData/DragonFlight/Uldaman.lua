@@ -263,7 +263,7 @@ bosses.boss3 = {  -- Sentinel Talondras
                 }
             }
         },
-        [JDT.Templates.GroupTypes.Dot] = {
+        [JDT.GroupTypes.Dot] = {
             EarthenShards = {
                 enabled = true,
                 spellId = 372718,
