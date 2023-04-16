@@ -53,6 +53,7 @@ JDT.CheckIfAuraUpdates = function (self)
                             ExportTable.d.space = JDT.db.profile.GrowSpace
                         end
                     end
+                    
                     if JDT.db.profile.AnchorGroupsToAffixes and ExpansionKey ~= "Affixes" then
                         ExportTable.d.xOffset = 0
                         ExportTable.d.yOffset = 0
@@ -61,9 +62,18 @@ JDT.CheckIfAuraUpdates = function (self)
                         ExportTable.d.anchorFrameType = "SELECTFRAME"
                         ExportTable.d.anchorPoint = "TOPRIGHT"
                     else
-                    ExportTable.d.xOffset  = JDT.db.profile.xOffset
-                    ExportTable.d.yOffset = JDT.db.profile.yOffset
-                    ExportTable.d.url = JDT.ExpansionValues[ExpansionKey]
+
+                        local installedGroup = WeakAuras.GetData(ExportTable.d.id)
+                        if installedGroup then 
+                            JDT.db.profile.xOffset = installedGroup.xOffset 
+                            JDT.db.profile.yOffset = installedGroup.yOffset
+                        end
+
+                        ExportTable.d.xOffset  = JDT.db.profile.xOffset
+                        ExportTable.d.yOffset = JDT.db.profile.yOffset
+                        ExportTable.d.url = JDT.ExpansionValues[ExpansionKey]
+                    
+                    
                     end
                     if ExpansionKey ~= "Affixes" then
                         for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
