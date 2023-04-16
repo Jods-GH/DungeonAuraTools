@@ -226,8 +226,79 @@ bosses.boss3 = {  -- Sentinel Talondras
     EncounterId = "2557", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = { 
-       
-        
+        [JDT.GroupTypes.KnockCast] ={
+            CrushingStomp = {
+                enabled = true,
+                spellId = 372701, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "372701",
+    
+                    },
+    
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDropVoid] ={
+            ResonatingOrb= {
+                enabled = true,
+                spellId = 372623, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "372623",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "382071",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "382071",
+                    },
+
+                }
+            }
+        },
+        [JDT.Templates.GroupTypes.Dot] = {
+            EarthenShards = {
+                enabled = true,
+                spellId = 372718,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                  {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "372718",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.EnergyTrackSoonCast] ={
+            TitanicEmpowerment = {
+                enabled = true,
+                spellId = 372719, -- for spellname etc
+                triggerData = {
+                    {
+                        spellIdList = {"372719"},
+                        extraUnit = "boss1"
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "372719",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        percentpower = 90
+                    }
+
+                }
+            }
+        },
     }
 }
 bosses.boss4 = {  -- Emberon
