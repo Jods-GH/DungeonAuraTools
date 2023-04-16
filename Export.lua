@@ -184,6 +184,7 @@ JDT.sortExportAuraChildren = function (a, b)
 end
 
 JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey,numberOfAuras) 
+                                assert(JDT.Templates.GroupTypes[TypeKey] , "Error: Template for Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName.." not found")
                                 local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]
                                 local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
 
@@ -213,7 +214,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 end
                                 
                                 -- set Fallback icon and display name
-                                local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
+                                local Spellname, _, Spellicon, _, _, _, SpellID = GetSpellInfo(v.spellId) 
                                 SpellTable.displayIcon = Spellicon
                                 SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname.." ["..SpellID.."]"-- set AuraName
                                 if v.extraName then -- add extra stuff if needed to not have duplicate id's
@@ -476,9 +477,6 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
 end
 
 -- Trigger generators need addition value for other trigger types
-
-
-
 JDT.generateTriggerfromGroupType = JDT.generateTriggerfromGroupType or {}
 
 JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
