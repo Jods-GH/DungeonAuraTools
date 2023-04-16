@@ -305,7 +305,46 @@ bosses.boss4 = {  -- Emberon
     EncounterId = "2558", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = { 
-        
+        [JDT.GroupTypes.SpreadCast] = {
+            UnstableEmbers = {
+                enabled = true,
+                spellId = 369110,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "369110",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            PurgingFlames = {
+                enabled = true,
+                spellId = 368990, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "368990",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Frontal] = {
+            SearingClap = {
+                enabled = true,
+                spellId = 369061,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "369061",
+                    }
+
+                }
+            },
+        },
     }
 }
 bosses.boss5 = {  -- Chrono-Lord Deios
