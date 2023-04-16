@@ -351,7 +351,85 @@ bosses.boss5 = {  -- Chrono-Lord Deios
     EncounterId = "2559", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = { 
-        
+        [JDT.GroupTypes.VoidCastWithSuccess] = {
+            EternityOrb = {
+                enabled = true,
+                spellId = 376292,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "376292",
+                    },
+                    {
+                        spellId = "376292",
+                        duration = "5.5"
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.KnockCast] ={
+            WingBuffet = {
+                enabled = true,
+                spellId = 376049, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "376049",
+    
+                    },
+    
+                }
+            }
+        },
+        [JDT.GroupTypes.Frontal] = {
+            SandBreath = {
+                enabled = true,
+                spellId = 375727,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "375727",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.PlayerGroupDebuffSpread] ={
+            TimeSink= {
+                enabled = true,
+                spellId = 377405, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "377405",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "377405",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.VoidSoak] ={
+            RewindTimeflow = {
+                enabled = true,
+                spellId = 376208, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "376208",
+
+                    },
+
+                }
+            }
+        },
     }
 }
 bosses.Trash = {
