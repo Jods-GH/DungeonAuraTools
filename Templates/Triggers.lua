@@ -3,13 +3,13 @@ local _, JDT = ...
 JDT.Templates = JDT.Templates  or {}
 JDT.Templates.Triggers = JDT.Templates.Triggers  or {}
 
-JDT.Templates.Triggers.ActivationTypes = {
+JDT.Templates.Triggers.ActivationTypes = { -- trigger activation types
     und = "all",
     oder = "any",
     custom = "custom",
 }
 
-JDT.Templates.Triggers.TriggerTypes = {
+JDT.Templates.Triggers.TriggerTypes = { -- trigger types should match the trigger types defined in JDT.Templates.Triggers
     buffs = "Buffs",
     cast = "Cast",
     tsu = "TSU",
@@ -67,7 +67,7 @@ setmetatable(JDT.Templates.Triggers.CombatLogTypes, {
     end,
 })
 
-JDT.Templates.Triggers.Buffs = {
+JDT.Templates.Triggers.Buffs = { -- Buffs and Debuffs
         trigger = {
             type = "aura2",
             subeventSuffix = "_CAST_START",
@@ -92,10 +92,7 @@ JDT.Templates.Triggers.Buffs = {
         },
     }
 
-
-
-
-    JDT.Templates.Triggers.Cast = {
+JDT.Templates.Triggers.Cast = { -- Casts
         trigger = {
             type = "unit",
             event = "Cast",
@@ -111,9 +108,9 @@ JDT.Templates.Triggers.Buffs = {
         },
         untrigger = {
         },
-    }
+    } --
 
-    JDT.Templates.Triggers.TSU = {
+JDT.Templates.Triggers.TSU = { --TSU
         trigger = {
             type = "custom",
             subeventSuffix = "_CAST_START",
@@ -136,7 +133,7 @@ JDT.Templates.Triggers.Buffs = {
         },
     }
 
-    JDT.Templates.Triggers.UnitResource = {
+JDT.Templates.Triggers.UnitResource = { -- Resources
         trigger = {
             type = "unit",
             use_absorbHealMode = true,
@@ -157,7 +154,7 @@ JDT.Templates.Triggers.Buffs = {
         },
     }
 
-    JDT.Templates.Triggers.UnitHealth = {
+JDT.Templates.Triggers.UnitHealth = { --Health
         trigger = {
             -- use_npcId = true, -- if npc id should be used
             -- npcId = "", -- npc id to use
@@ -179,7 +176,7 @@ JDT.Templates.Triggers.Buffs = {
         untrigger = {
         },
     }
-    JDT.Templates.Triggers.CombatLog = {
+JDT.Templates.Triggers.CombatLog = { --Combat log
         trigger = {
             type = "combatlog",
             event = "Combat Log",
@@ -197,7 +194,7 @@ JDT.Templates.Triggers.Buffs = {
         },
     }
 
-    JDT.Templates.Triggers.MonsterYell = {
+JDT.Templates.Triggers.MonsterYell = { --ChatMessage Monster Yell 
         trigger = {
             type = "event",
             event = "Chat Message",
@@ -216,7 +213,7 @@ JDT.Templates.Triggers.Buffs = {
     untrigger = {
     },
 }
-JDT.Templates.Triggers.UnitSpellcastSucceeded = {
+JDT.Templates.Triggers.UnitSpellcastSucceeded = { -- Unit Spell Cast Succeeded
     trigger = {
         type = "event",
         duration = "30",
