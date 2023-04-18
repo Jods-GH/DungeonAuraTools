@@ -17,7 +17,79 @@ bosses.boss1 = {  -- 	Chargath, Bane of Scales
     EncounterId = "2613", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 01 ",
     Auras = { 
-       
+        [JDT.GroupTypes.IncreasedDmgTakenChannel] = {
+            Fetter = {
+                enabled = true,
+                spellId = 388523,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "388523",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            CuttingSurge = {
+                enabled = true,
+                spellId = 373733,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "373733",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "373733",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            FieryFocus = {
+                enabled = true,
+                spellId = 375056, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "375056",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            GroundingSpear = {
+                enabled = true,
+                spellId = 373424,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "373424",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ShockWave] = {
+            MagmaWave = {
+                enabled = true,
+                spellId = 373742,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "373742",
+                    }
+
+                }
+            },
+
+        },
         
 
     }
@@ -27,7 +99,46 @@ bosses.boss2 = {  -- 	Forgemaster Gorek
     EncounterId = "2612", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 02 ",
     Auras = { 
-        
+        [JDT.GroupTypes.VoidCast] = {
+            BlazingAegis = {
+                enabled = true,
+                spellId = 374839, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "374839",
+
+                    },
+
+                }
+            }, 
+            HeatedSwings = {
+                enabled = true,
+                spellId = 374533, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "374533",
+
+                    },
+
+                }
+            }, 
+        },
+        [JDT.GroupTypes.Dance] ={
+            Forgestorm = {
+                enabled = true,
+                spellId = 374969, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "374969",
+
+                    },
+
+                }
+            },
+        },
     }
 }
 bosses.boss3 = {  -- Magmatusk
@@ -35,14 +146,110 @@ bosses.boss3 = {  -- Magmatusk
     additionalName = "] 03 ",
     Auras = { 
        
-        
+        [JDT.GroupTypes.Dance] ={
+            BlazingCharge = {
+                enabled = true,
+                spellId = 375439, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "375439",
+
+                    },
+
+                }
+            },
+        }, 
+        [JDT.GroupTypes.Frontal] = {
+            LavaSpray = {
+                enabled = true,
+                spellId = 375251,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "375251",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            VolatileMutation = {
+                enabled = true,
+                spellId = 374365, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "374365",
+
+                    },
+
+                }
+            },
+        },
     }
 }
 bosses.boss4 = {  -- Warlord Sargha
     EncounterId = "2611", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = { 
-       
+        [JDT.GroupTypes.AddSummonCast] = {
+            BurningEmber = {
+                enabled = true,
+                spellId = 377477,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "377473",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoBreakShield] = {
+            MagmaShield = {
+                enabled = true,
+                spellId = 376780,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "376780",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "376780",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            TheDragonsKiln = {
+                enabled = true,
+                spellId = 377204,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "377204",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            MoltenGold = {
+                enabled = true,
+                spellId = 377017, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "377017",
+
+                    },
+
+                }
+            }, 
+        },
     }
 }
 bosses.Trash = {
