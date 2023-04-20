@@ -73,38 +73,49 @@ function TableToString(inTable) -- code from WeakAuras
 
 
 JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVersion)
-    local ExportTable = CopyTable(JDT.DataToExport)
-    ExportTable.d = CopyTable(JDT.Templates.DynamicGroup)
-    ExpansionValue.id = "DungeonAuras_"..ExpansionKey-- AuraName
-    ExpansionValue.uid  = "DungeonAuras_"..ExpansionKey.."UID" --AuraUniqueId
-
-    ExpansionValue.wagoID = ExpansionValue.uid
+    local ExportTable = CopyTable(JDT.DataToExport) -- get a copy of the ExportTemplate
+    ExportTable.d = CopyTable(JDT.Templates.DynamicGroup) -- get a Copy of the DynamicGroup Template
+    -- set Aura Name
+    ExpansionValue.id = "DungeonAuras_"..ExpansionKey
+    ExportTable.d.id = ExpansionValue.id
+    -- set Aura Unique Identifier
+    ExpansionValue.uid  = "DungeonAuras_"..ExpansionKey.."UID" 
+    ExportTable.d.uid = ExpansionValue.uid 
+    -- set wagoID
+    ExpansionValue.wagoID = ExpansionValue.uid 
+    ExportTable.d.wagoID = ExpansionValue.wagoID
+    -- set update preference
     ExpansionValue.preferToUpdate = false
+    ExportTable.d.preferToUpdate = ExpansionValue.preferToUpdate
+    -- calculate and set version number
     local version = ExpansionValue.version or 0
     if shouldIncrimentVersion then
         version = version + 1
     end
+    --export table version
     ExpansionValue.version = version
-    ExpansionValue.source = "import"
+    ExpansionValue.semver = "1.0."..ExpansionValue.version
+    -- group version
+    ExportTable.d.version = ExpansionValue.version
+    ExportTable.d.semver = ExpansionValue.semver
+    -- set url so updating works (because of how WA internal updating works)
+    ExportTable.d.url = JDT.ExpansionValues[ExpansionKey][1].."/"..version 
+    -- calculate and set tocversion
     local _,_,_,tocversion = GetBuildInfo()
     ExpansionValue.tocversion = tocversion 
-    ExpansionValue.semver = "1.0."..ExpansionValue.version
-
-    ExportTable.d.wagoID = ExpansionValue.wagoID
-    ExportTable.d.preferToUpdate = ExpansionValue.preferToUpdate
-    ExportTable.d.version = ExpansionValue.version
-    ExportTable.d.source = ExpansionValue.source
     ExportTable.d.tocversion = ExpansionValue.tocversion
-    ExportTable.d.semver = ExpansionValue.semver
+    -- set source
+    ExpansionValue.source = "import"
+    ExportTable.d.source = ExpansionValue.source
+    assert(JDT.InternalWaVersion, "Internal WA Version not set!")
+    ExportTable.d.internalVersion = JDT.InternalWaVersion
 
-    ExportTable.d.id = ExpansionValue.id
-    ExportTable.d.uid = ExpansionValue.uid 
     if JDT.db.profile.GroupLimit then
         ExportTable.d.limit = JDT.db.profile.GroupLimit
     end
     if JDT.db.profile.GroupGrow then
         ExportTable.d.grow = JDT.db.profile.GroupGrow
-        if JDT.db.profile.GroupGrow == "GRID" then
+        if JDT.db.profile.GroupGrow == "GRID" then -- special handling for GRID type
             ExportTable.d.gridType = JDT.db.profile.GridDirection
             ExportTable.d.gridWidth = JDT.db.profile.GridSize
             ExportTable.d.rowSpace = JDT.db.profile.GridRowSpacing
@@ -115,9 +126,8 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
             ExportTable.d.space = JDT.db.profile.GrowSpace
         end
     end
-    ExportTable.d.internalVersion = JDT.InternalWaVersion
-    ExportTable.d.url = JDT.ExpansionValues[ExpansionKey][1].."/"..version
-    if JDT.db.profile.AnchorGroupsToAffixes and ExpansionKey ~= "Affixes" then
+    
+    if JDT.db.profile.AnchorGroupsToAffixes and ExpansionKey ~= "Affixes" then -- special handling for affix anchoring (kind of useless does not work as intended)
         ExportTable.d.xOffset = 0
         ExportTable.d.yOffset = 0
         ExportTable.d.anchorFrameFrame = "WeakAuras:".."DungeonAuras_Affixes"
@@ -129,7 +139,7 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
         ExportTable.d.yOffset = JDT.db.profile.yOffset
     end
      
-        if ExpansionKey == "Affixes" then
+        if ExpansionKey == "Affixes" then -- special handling because there is no "dungeons" subtable in this group
             for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
                 for k,v in pairs(TypeValue) do 
                     if v.enabled == true then
@@ -154,38 +164,38 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
     return ExportTable
 end
 
-JDT.sortExportAuraChildren = function (a, b)
+JDT.sortExportAuraChildren = function (a, b) -- sorts the auras in the export table: first by dungeon then by boss then trash after
     local aPrefix = a.id:match("%[(.-)%]")
     local bPrefix = b.id:match("%[(.-)%]")
     local aNoTrash,aHasTrash = string.gsub(aPrefix,"TRASH","")
     local bNoTrash,bHasTrash = string.gsub(bPrefix,"TRASH","")
 
-    if (aHasTrash == 1) and (bHasTrash == 1)then
-        if aNoTrash == bNoTrash then
-            return a.id < b.id
+    if (aHasTrash == 1) and (bHasTrash == 1)then -- checks if both auras have "TRASH" in their name
+        if aNoTrash == bNoTrash then -- if they do check if the dungeon name is the same
+            return a.id < b.id  -- if it is sort by aura id
         else
-            return aNoTrash < bNoTrash
+            return aNoTrash < bNoTrash  -- if it is not sort by dungeon name
         end
-    elseif (aHasTrash == 1) and not (bHasTrash == 1) then
-        if aNoTrash == bNoTrash then
-            return false
+    elseif (aHasTrash == 1) and not (bHasTrash == 1) then   -- checks if only aura a has "TRASH" in its name
+        if aNoTrash == bNoTrash then    -- if it does check if the dungeon name is the same
+            return false        -- if it is sort a first
         else
-            return aNoTrash < bNoTrash
+            return aNoTrash < bNoTrash  -- if it is not sort by dungeon name
         end
-    elseif (bHasTrash== 1) and not (aHasTrash== 1) then
-        if aNoTrash == bNoTrash then
-            return true
+    elseif (bHasTrash== 1) and not (aHasTrash== 1) then     -- checks if only aura b has "TRASH" in its name
+        if aNoTrash == bNoTrash then    -- if it does check if the dungeon name is the same
+            return true     -- if it is sort b first
         else
-            return aNoTrash < bNoTrash
+            return aNoTrash < bNoTrash  -- if it is not sort by dungeon name
         end
     else
-        return a.id < b.id
+        return a.id < b.id  -- if neither aura has "TRASH" in its name sort by aura id
     end
 end
 
 JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey,numberOfAuras) 
-                                assert(JDT.Templates.GroupTypes[TypeKey] , "Error: Template for Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName.." not found")
-                                local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]
+                                assert(JDT.Templates.GroupTypes[TypeKey] , "Error: Template for Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName.." not found") -- checks if Group type is set properly
+                                local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]  -- get template for aura
                                 local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
 
                                 --set general options
@@ -198,11 +208,11 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 --- create triggers 
                                 local TriggerTable =  CopyTable(JDT.Templates.Triggers.ActivationTemplate) 
                                 TriggerTable.disjunctive = AuraTemplate.activationType
-                                if AuraTemplate.activationType == JDT.Templates.Triggers.ActivationTypes.custom then
+                                if AuraTemplate.activationType == JDT.Templates.Triggers.ActivationTypes.custom then -- set activation type to custom and add custom trigger logic if needed
                                     TriggerTable.customTriggerLogic = AuraTemplate.customTriggerLogic
                                 end
                                                                
-                                for trigger = 1,#AuraTemplate.triggers, 1 do
+                                for trigger = 1,#AuraTemplate.triggers, 1 do -- iterate through all triggers and generate them
                                     local AuraTrigger = JDT.generateTriggerfromGroupType[AuraTemplate.triggers[trigger].triggerType](v.triggerData[trigger],AuraTemplate.triggers[trigger])
                                     tinsert(TriggerTable,AuraTrigger)
                                 end
@@ -245,7 +255,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     end
                                     
 
-                                    for number, unit in textvalue.value:gmatch("%%(%d+)%.(%a+)") do
+                                    for number, unit in textvalue.value:gmatch("%%(%d+)%.(%a+)") do -- if text  contains unit set replacement settings
                                         TextTemplate["text_text_format_"..number.."."..unit.."_abbreviate_max"] = 8
                                         TextTemplate["text_text_format_"..number.."."..unit.."_abbreviate"] = true
                                         TextTemplate["text_text_format_"..number.."."..unit.."_realm_name"] = "never"
@@ -258,7 +268,6 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 end
                                 -- set sound
                                 if AuraTemplate.doSound and JDT.db.profile.PlaySound and (JDT.db.profile.SoundKey and JDT.db.profile.SoundKey[JDT.TypesSound[AuraTemplate.doSound]] == true or not JDT.db.profile.SoundKey) then -- set Sound  JDT.Util.Functions.GetTableKeyFromEntry(AuraTemplate.doSound,JDT.SoundTypes)
-
                                     SpellTable.actions.start.sound = AuraTemplate.doSound
                                     SpellTable.actions.start.do_sound = true
                                 end
@@ -322,7 +331,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                -- set %s if needed 
                                 if v.showStacks then -- add Text for Stacks display if needed
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
-                                    StacksText.text_text = "%"..v.showStacks..".s"
+                                    StacksText.text_text = "%"..v.showStacks..".s" -- sets trigger number for stacks
                                     StacksText["text_text_format_"..v.showStacks..".s_format"] = "none"
                                     if v.additionalStackText then
                                         StacksText.text_text =  StacksText.text_text.." "..v.additionalStackText
@@ -333,7 +342,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     table.insert(SpellTable.subRegions,StacksText)
                                 elseif AuraTemplate.showStacks then
                                     local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
-                                    StacksText.text_text = "%"..AuraTemplate.showStacks..".s"
+                                    StacksText.text_text = "%"..AuraTemplate.showStacks..".s" -- sets trigger number for stacks
                                     StacksText["text_text_format_"..AuraTemplate.showStacks..".s_format"] = "none"
                                     if AuraTemplate.additionalStackText then
                                         StacksText.text_text =  StacksText.text_text.." "..AuraTemplate.additionalStackText
@@ -461,6 +470,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 v.uID = uId
                                 SpellTable.uid = v.uID
                                 end
+                                SpellTable.parent = ExportTable.d.id
+
+                                -- sets other table values depending on parent group
                                 SpellTable.wagoID = ExpansionValue.wagoID
                                 SpellTable.preferToUpdate = ExpansionValue.preferToUpdate
                                 SpellTable.version = ExpansionValue.version
@@ -470,7 +482,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 SpellTable.internalVersion = JDT.InternalWaVersion
                                 local version = ExpansionValue.version or 0
                                 SpellTable.url = JDT.ExpansionValues[ExpansionKey][1].."/"..version
-                                SpellTable.parent = ExportTable.d.id
+                                -- add aura into group
                                 table.insert(ExportTable.d.controlledChildren,SpellTable.id)
                                 table.insert(ExportTable.c,SpellTable)
                                 return SpellTable
