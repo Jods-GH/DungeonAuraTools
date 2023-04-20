@@ -482,6 +482,8 @@ LocalisationData["Suiciding"] = "Suiciding"
 LocalisationData["Remove shield"] = "Remove shield"
 LocalisationData["Freeing"] = "Freeing"
 LocalisationData["kill totem"] = "kill totem"
+LocalisationData["Look at Add"] = "Look at Add"
+
 
 --[[ 
 LocalisationData[""] = ""
