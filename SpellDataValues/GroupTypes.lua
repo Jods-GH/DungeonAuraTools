@@ -223,6 +223,8 @@ JDT.GroupTypes.CastIntoRemoveShield = "CastIntoRemoveShield"
 JDT.GroupTypes.SummonTotemCastIntoKillWhileChanneling = "SummonTotemCastIntoKillWhileChanneling"
 JDT.GroupTypes.FreeCast = "FreeCast"
 JDT.GroupTypes.SummonTotemCastIntoKillWhileAlive = "SummonTotemCastIntoKillWhileAlive"
+JDT.GroupTypes.LooktoAddCast = "LooktoAddCast"
+JDT.GroupTypes.KillAddAlive = "KillAddAlive"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -2690,6 +2692,24 @@ JDT.Templates.GroupTypes.KillAddOrBossEating= {
     customTriggerLogic = "function(t)\n return t[2] and not t[1] \n end",
     glowtype = "Ants",
     showGlow = true,
+}
+JDT.Templates.GroupTypes.KillAddAlive= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitHealth,
+            
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Kill add"),
+            isactive = true,
+        }, 
+    },
+    useHealth = 1,
+    doSound = JDT.SoundTypes.add,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 
 JDT.Templates.GroupTypes.KillAddDebuff= {
@@ -5829,6 +5849,24 @@ JDT.Templates.GroupTypes.LookAwayCast= {
         }, 
     },
     doSound = JDT.SoundTypes.turn,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.LooktoAddCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Look at Add"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.turn,
+    glowtype = "ActionButton",
+    showGlow = true,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 JDT.Templates.GroupTypes.InterruptableDrainCast = {

@@ -89,6 +89,9 @@ SpellData/WarlordsOfDraenor/Irondocks.lua
 #SpellData MistOfPandaria
 SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
 
+#Cataclysm
+#SpellData/Cataclysm/TheVortexPinnacle.lua
+
 # Core
 ExportData.lua
 Export.lua
