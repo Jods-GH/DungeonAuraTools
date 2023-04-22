@@ -315,6 +315,10 @@ LocalisationData["CastIntoRemoveShield"] = "Cast that leaves a shield which has 
 LocalisationData["FreeCast"] = "Cast that frees another add from something"
 LocalisationData["SummonTotemCastIntoKillWhileChanneling"] = "Cast that summons a totem which needs to be killed"
 LocalisationData["SummonTotemCastIntoKillWhileAlive"] = "Cast that summons a totem which needs to be killed"
+LocalisationData["DmgReductionShoutIntoDebuff"] = "Aoe Shout that reduces dmg done when being hit"
+LocalisationData["InteruptableVolleyIntoDiseaseDot"] = "Volley tha leaves a disease debuff behind (Interuptable)"
+LocalisationData["KillDebuffWithStacksAsProgress"] = "Debuff that Kills at a certain amount of stacks"
+
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -483,6 +487,7 @@ LocalisationData["Remove shield"] = "Remove shield"
 LocalisationData["Freeing"] = "Freeing"
 LocalisationData["kill totem"] = "kill totem"
 LocalisationData["Look at Add"] = "Look at Add"
+LocalisationData["death inc"] = "death inc"
 
 
 --[[ 
