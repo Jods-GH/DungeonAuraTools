@@ -258,7 +258,7 @@ LocalisationData["CastOnlyTargetDisplay"] = "Targeted cast mechanic"
 LocalisationData["InteruptableBewitchCastIntoDebuff"] = "Bewitch mechanic (Interuptable)"
 LocalisationData["FrontalIntoDot"] = "Frontal that leaves a dot"
 LocalisationData["SpinCastIntoBleed"] = "Spin mechanic that leaves a bleed"
-LocalisationData["CastIntoAtackspeedSlowMagic"] = "Atack speed slow"
+LocalisationData["CastIntoAtackspeedSlowMagic"] = "Atack speed slow (magic despell)"
 LocalisationData["CastIntoCastStartDance"] = "Dance Mechanic"
 LocalisationData["SpellcastSucceededAvoid"] = "Avoid Mechanic"
 LocalisationData["InteruptableKillAddWithStackingBuff"] = "Dmg stacking add cast (Interuptable)"
@@ -318,6 +318,9 @@ LocalisationData["SummonTotemCastIntoKillWhileAlive"] = "Cast that summons a tot
 LocalisationData["DmgReductionShoutIntoDebuff"] = "Aoe Shout that reduces dmg done when being hit"
 LocalisationData["InteruptableVolleyIntoDiseaseDot"] = "Volley tha leaves a disease debuff behind (Interuptable)"
 LocalisationData["KillDebuffWithStacksAsProgress"] = "Debuff that Kills at a certain amount of stacks"
+LocalisationData["StunCast"] = "Stun cast"
+LocalisationData["StormCastIntoEnrageBuff"] = "AoE mechanic (deragable)"
+LocalisationData["CastIntoAtackspeedSlowDisease"] = "Atack speed slow (Disease despell)"
 
 --[[ 
     LocalisationData[""] = ""

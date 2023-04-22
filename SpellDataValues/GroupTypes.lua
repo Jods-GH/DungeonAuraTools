@@ -228,6 +228,9 @@ JDT.GroupTypes.KillAddAlive = "KillAddAlive"
 JDT.GroupTypes.DmgReductionShoutIntoDebuff = "DmgReductionShoutIntoDebuff" 
 JDT.GroupTypes.KillDebuffWithStacksAsProgress = "KillDebuffWithStacksAsProgress"
 JDT.GroupTypes.InteruptableVolleyIntoDiseaseDot = "InteruptableVolleyIntoDiseaseDot"
+JDT.GroupTypes.CastIntoAtackspeedSlowDisease = "CastIntoAtackspeedSlowDisease"
+JDT.GroupTypes.StormCastIntoEnrageBuff = "StormCastIntoEnrageBuff"
+JDT.GroupTypes.StunCast = "StunCast"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -3782,6 +3785,65 @@ JDT.Templates.GroupTypes.CastIntoAtackspeedSlowMagic = {
     }
 ), 
 }
+JDT.Templates.GroupTypes.CastIntoAtackspeedSlowDisease = {
+    AuraType = "AuraIcon",
+    triggers = {
+        [1] = {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        [2] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("-AS"),
+            isactive = true,
+        },  
+    },
+    type = 
+    {
+        {
+            type = "interrupt",
+            visible = true,
+        },
+        {
+            type = "disease",
+            visible = false,
+        },
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property= "sub.4.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.5.border_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.6.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.7.border_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+), 
+}
 
 JDT.Templates.GroupTypes.DashIntoDebuff = {
     AuraType = "AuraIcon",
@@ -6029,12 +6091,28 @@ JDT.Templates.GroupTypes.InteruptableStunCast = {
     },
     text = {
         {   
-            value = JDT.getLocalisation("Stun"),
+            value = JDT.getLocalisation("Stun inc"),
             isactive = true,
         }, 
     },
     doSound = JDT.SoundTypes.interrupt,
     type = JDT.AuraTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.StunCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Stun inc"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.cc,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 JDT.Templates.GroupTypes.CastIntoSpreadifDebuffed =  {
@@ -6725,6 +6803,55 @@ JDT.Templates.GroupTypes.StunableStormCastIntoBuff = {
     }
 ), 
 }
+
+JDT.Templates.GroupTypes.StormCastIntoEnrageBuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("AoE inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("AoE"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.highEnergy,
+    type = JDT.AuraTypes.enrage,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 1,
+                   value = false,
+                    },
+                changes = {
+                    {
+                        property= "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+
+                },
+            }, 
+    }
+), 
+}
+
 JDT.Templates.GroupTypes.BewitchCastIntoCurse = {
     AuraType = "AuraIcon",
     triggers = {
