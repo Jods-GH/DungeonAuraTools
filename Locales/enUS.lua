@@ -321,6 +321,7 @@ LocalisationData["KillDebuffWithStacksAsProgress"] = "Debuff that Kills at a cer
 LocalisationData["StunCast"] = "Stun cast"
 LocalisationData["StormCastIntoEnrageBuff"] = "AoE mechanic (deragable)"
 LocalisationData["CastIntoAtackspeedSlowDisease"] = "Atack speed slow (Disease despell)"
+LocalisationData["HasteDeBuff"] = "Debuff that reduces Haste"
 
 --[[ 
     LocalisationData[""] = ""
@@ -491,6 +492,7 @@ LocalisationData["Freeing"] = "Freeing"
 LocalisationData["kill totem"] = "kill totem"
 LocalisationData["Look at Add"] = "Look at Add"
 LocalisationData["death inc"] = "death inc"
+LocalisationData["- Haste"] = "- Haste"
 
 
 --[[ 

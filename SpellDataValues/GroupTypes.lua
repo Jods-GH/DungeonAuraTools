@@ -231,6 +231,7 @@ JDT.GroupTypes.InteruptableVolleyIntoDiseaseDot = "InteruptableVolleyIntoDisease
 JDT.GroupTypes.CastIntoAtackspeedSlowDisease = "CastIntoAtackspeedSlowDisease"
 JDT.GroupTypes.StormCastIntoEnrageBuff = "StormCastIntoEnrageBuff"
 JDT.GroupTypes.StunCast = "StunCast"
+JDT.GroupTypes.HasteDeBuff = "HasteDeBuff"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -1971,6 +1972,22 @@ JDT.Templates.GroupTypes.HasteBuff = {
     text = {
         {   
             value = JDT.getLocalisation("+ Haste"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.HasteDeBuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("- Haste"),
             isactive = true,
         }, 
     },
