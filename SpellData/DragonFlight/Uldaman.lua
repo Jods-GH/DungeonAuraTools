@@ -435,6 +435,297 @@ bosses.boss5 = {  -- Chrono-Lord Deios
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
+        [JDT.GroupTypes.BuffCast] = {
+            BlessingofTyr = {
+                enabled = true,
+                spellId = 382578,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "382578",
+                    },
 
+                }
+            },
+            Hasten = {
+                enabled = true,
+                spellId = 377500,
+                type = JDT.AuraTypes.purge,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "377500",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoStopAtackingShield] ={
+            SpikedCarapace= {
+                enabled = true,
+                spellId = 369823, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369823",
+    
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369823",
+    
+                    },
+    
+                }
+            },
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            DifficultTerrain = {
+                enabled = true,
+                spellId = 369337,
+                type = JDT.AuraTypes.snare,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "369337",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            Chomp = {
+                enabled = true,
+                spellId = 369828, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "369828",
+
+                    },
+
+                }
+            },
+            RendingSlash = {
+                enabled = true,
+                spellId = 369408, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "369408",
+
+                    },
+
+                }
+            },
+            VenomousFangs = {
+                enabled = true,
+                spellId = 369419, -- for spellname etc
+                type = JDT.AuraTypes.poison,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "369419",
+
+                    },
+
+                }
+            },
+        },
+        
+        [JDT.GroupTypes.HasteDeBuff] = {
+            StolenTime = {
+                enabled = true,
+                spellId = 377510,
+                type = JDT.AuraTypes.magic,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "377510",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            RecklessRage = {
+                enabled = true,
+                spellId = 369806,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369806",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            BrutalSlam = {
+                enabled = true,
+                spellId = 369811, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369811",
+
+                    },
+
+                }
+            },
+            Earthquake = {
+                enabled = true,
+                spellId = 369328, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369328",
+
+                    },
+
+                }
+            },
+            SonicBurst = {
+                enabled = true,
+                spellId = 369411, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369411",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpreadCast] = {
+            ChainLightning = {
+                enabled = true,
+                spellId = 369675,
+                triggerData = {
+                  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369675",
+                    },
+
+                }
+            },
+            Cleave = {
+                enabled = true,
+                spellId = 369409,
+                triggerData = {
+                  {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369409",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SlowDebuff] ={
+            DiseasedBite = {
+                enabled = true,
+                spellId = 369818, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "369818",
+
+                    },
+
+                }
+            },
+            TimeBlade = {
+                enabled = true,
+                spellId = 377486, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "377486",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            StoneSpike = {
+                enabled = true,
+                spellId = 369674,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369674",
+                    }
+
+                }
+            },
+            ThrowRock = {
+                enabled = true,
+                spellId = 369853,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369853",
+                    }
+
+                }
+            },
+            StoneBolt = {
+                enabled = true,
+                spellId = 369399,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369399",
+                    }
+
+                }
+            },
+            
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            HailofStone = {
+                enabled = true,
+                spellId = 369465, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369465",
+
+                    },
+
+                }
+            },
+            ThunderousClap = {
+                enabled = true,
+                spellId = 381593, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "381593",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            FissuringSlam = {
+                enabled = true,
+                spellId = 369335,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "369335",
+                    },
+
+                }
+            },
+        },
     }
 }

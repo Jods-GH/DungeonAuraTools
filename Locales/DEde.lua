@@ -1,13 +1,13 @@
 local appName, JDT = ...
 local AceLocale = LibStub ('AceLocale-3.0')
-local LocalisationData = AceLocale:NewLocale(appName, "deDE")
+local L = AceLocale:NewLocale(appName, "deDE")
 
-if LocalisationData then
+if L then
 
 
 -- LocalisationData[""] =
+--@localization(locale="deDE", format="lua_additive_table", handle-subnamespaces="concat")@
 
 
-
-JDT.localisation = LocalisationData
+JDT.localisation = L
 end

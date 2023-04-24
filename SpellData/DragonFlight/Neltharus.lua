@@ -256,5 +256,297 @@ bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
 
+        [JDT.GroupTypes.Frontal] = {
+            VolcanicGuard = {
+                enabled = true,
+                spellId = 382708,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "382708",
+                    }
+
+                }
+            },
+            MagmaFist= {
+                enabled = true,
+                spellId = 372311,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372311",
+                    }
+
+                }
+            },
+            ScorchingBreath = {
+                enabled = true,
+                spellId = 372201,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372201",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.CCCast] = {
+            BindingSpear = {
+                enabled = true,
+                spellId = 372561,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372561",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ChargeIntoBleed] ={
+            BoldAmbush= {
+                enabled = true,
+                spellId = 372566, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372566",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "372566",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            EmberReach = {
+                enabled = true,
+                spellId = 372615,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372615",
+                    }
+
+                }
+            },
+            BoneToss = {
+                enabled = true,
+                spellId = 372226,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372226",
+                    }
+
+                }
+            },
+            PierceMarrow = {
+                enabled = true,
+                spellId = 372262,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372262",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            MendingClay = {
+                enabled = true,
+                spellId = 372223,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372223",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] = {
+            ImbuedMagma = {
+                enabled = true,
+                spellId = 372472,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "372472",
+                    },
+    
+                }
+            },
+        },
+        [JDT.GroupTypes.KnockCast] ={ 
+            BrutalStrike = {
+                enabled = true,
+                spellId = 378847, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "378847",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            ExplosiveConcoction = {
+                enabled = true,
+                spellId = 378827, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "378827",
+
+                    },
+
+                }
+            }, 
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            MagmaConflagration = {
+                enabled = true,
+                spellId = 378818,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "378818",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "378818",
+                    },
+
+                }
+            },
+            DragonboneAxe = {
+                enabled = true,
+                spellId = 372225,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372225",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "372225",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TransformCast] = {
+            MoltenCore = {
+                enabled = true,
+                spellId = 378282,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "378282",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            MoteofCombustion = {
+                enabled = true,
+                spellId = 384161, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "384161",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "384161",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "384161",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            Forgestomp = {
+                enabled = true,
+                spellId = 384623, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "384623",
+
+                    },
+
+                }
+            },
+            ForgewroughtFury = {
+                enabled = true,
+                spellId = 384663, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "384663",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            ScorchingFusillade = {
+                enabled = true,
+                spellId = 373084, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "373084",
+
+                    },
+
+                }
+            },
+            ConflagrantBattery = {
+                enabled = true,
+                spellId = 372296, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "372296",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ExplodingCast] = {
+            BlazingDetonation = {
+                enabled = true,
+                spellId = 376200,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "376200",
+                    }
+
+                }
+            },
+        },
     }
 }

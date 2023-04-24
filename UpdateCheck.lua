@@ -93,6 +93,7 @@ JDT.CheckIfAuraUpdates = function (self)
                                                     local InstalledAura = WeakAuras.GetData(AuraToCheck.id)
                                                 if v.enabled == true then 
                                                     if AuraToCheck and InstalledAura then 
+                                                        assert(AuraToCheck.internalVersion == InstalledAura.internalVersion , JDT.getLocalisation("internalVersionMismatch")) 
                                                         if AuraToCheck.preferToUpdate ~= InstalledAura.preferToUpdate then -- adjust this value if needed (no idea what this value actually does though)
                                                         AuraToCheck.preferToUpdate = InstalledAura.preferToUpdate
                                                         end

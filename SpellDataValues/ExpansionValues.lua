@@ -7,6 +7,7 @@ JDT.ExpansionValues.BattleForAzeroth = { [1] = "https://wago.io/DungeonAuras_Bat
 JDT.ExpansionValues.Legion = { [1] = "https://wago.io/DungeonAuras_Legion", [2] = LE_EXPANSION_LEGION, [3] = "Legion",[4]="Legion-Dungeons"}
 JDT.ExpansionValues.WarlordOfDraenor = { [1] = "https://wago.io/DungeonAuras_WarlordOfDraenor", [2] = 	LE_EXPANSION_WARLORDS_OF_DRAENOR, [3] = "Warlords of Draenor",[4]="WOD-Dungeons"}
 JDT.ExpansionValues.MistOfPandaria = { [1] = "https://wago.io/DungeonAuras_MistOfPandaria", [2] = LE_EXPANSION_MISTS_OF_PANDARIA,[3] = "Mists of Pandaria",[4]="MOP-Dungeons"} 
+JDT.ExpansionValues.Cataclysm = { [1] = "https://wago.io/DungeonAuras_Cataclysm", [2] = LE_EXPANSION_CATACLYSM,[3] = "Cataclysm",[4]="CATA-Dungeons"} 
 JDT.ExpansionValues.Affixes = { [1] = "https://wago.io/DungeonAuras_Affixes", [2] = "", [3] = "Affixes",[4]="Affixes"}
 
 setmetatable(JDT.ExpansionValues, {

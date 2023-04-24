@@ -20,6 +20,16 @@ UpdateCheck.lua
 # Locales
 Locales\enUS.lua
 Locales\deDE.lua
+Locales\esES.lua
+Locales\itIT.lua
+Locales\frFR.lua
+Locales\esMX.lua
+Locales\koKR.lua
+Locales\ptBR.lua
+Locales\ruRU.lua
+Locales\zhCN.lua
+Locales\zhTW.lua
+
 Locales.lua
 
 #Templates
@@ -78,6 +88,9 @@ SpellData/WarlordsOfDraenor/Irondocks.lua
 
 #SpellData MistOfPandaria
 SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
+
+#Cataclysm
+#SpellData/Cataclysm/TheVortexPinnacle.lua
 
 # Core
 ExportData.lua
