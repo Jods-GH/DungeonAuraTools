@@ -32,7 +32,7 @@ bosses.boss1 = {  -- 	Altairus
                 }
             },
         },
-        [JDT.Templates.GroupTypes.SlowDot] = {
+        [JDT.GroupTypes.SlowDot] = {
             DownwindOfAltairus = {
                 enabled = true,
                 spellId = 88286,
@@ -224,6 +224,243 @@ bosses.boss3 = {  -- 	Grand Vizier Ertan
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
+        [JDT.GroupTypes.BuffCast] = {
+            Rally = {
+                enabled = true,
+                spellId = 87761,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "87761",
+                    },
 
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            ChillingBreath = {
+                enabled = true,
+                spellId = 411012,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411012",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.HealZoneCast] ={
+            HealingWell = {
+                enabled = true,
+                spellId = 411910, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411910",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.InterruptableSuppresion] = {
+            Cyclone = {
+                enabled = true,
+                spellId = 410870,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "410870",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.KnockCast] ={ -- this is the wrong type needs to be changed
+            Turbulence = {
+                enabled = true,
+                spellId = 411002, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411002",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.MinusDmgTakenPurgeable] ={
+            VaporForm = {
+                enabled = true,
+                spellId = 88186, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "88186",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.RunOut] ={
+            PressurizedBlast = {
+                enabled = true,
+                spellId = 410999, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "410999",
+
+                    },
+
+                }
+            },
+            Cloudburst = {
+                enabled = true,
+                spellId = 88170, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "88170",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ShieldCast] ={
+            CloudGuard = {
+                enabled = true,
+                spellId = 411000, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411000",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.SpinToWin] = {
+            StormSurge = {
+                enabled = true,
+                spellId = 88055,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "88055",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            LightningBolt = {
+                enabled = true,
+                spellId = 88032,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "88032",
+                    }
+
+                }
+            },
+            WindBolt = {
+                enabled = true,
+                spellId = 410760,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "410760",
+                    }
+
+                }
+            },
+            HolySmite = {
+                enabled = true,
+                spellId = 88959,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "88959",
+                    }
+
+                }
+            },
+            LightningLash = {
+                enabled = true,
+                spellId = 87762,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "87762",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            RushingWind = {
+                enabled = true,
+                spellId = 410873,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "410873",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "410873",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            IcyBuffet = {
+                enabled = true,
+                spellId = 88194, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "88194",
+
+                    },
+
+                }
+            },
+            CrashingStone = {
+                enabled = true,
+                spellId = 413387, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413387",
+
+                    },
+
+                }
+            },
+            OverloadGroundingField = {
+                enabled = true,
+                spellId = 413385, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413385",
+
+                    },
+
+                }
+            },
+        },
+        
     }
 }

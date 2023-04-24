@@ -105,7 +105,6 @@ LocalisationData["GridColumnnSpacingDescription"] = "The space between each Colu
 LocalisationData["GrowOptions"] = "Grow Options"
 LocalisationData["SpecificGrowOptions"] = "grow specific options"
 
-
     --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -140,8 +139,10 @@ LocalisationData["RoomSplit"] = "Splitting the Room"
 LocalisationData["KickOrDie"] = "Important Interupt (will kill you if missed)" 
 LocalisationData["LaserCombatlogSuccess"] = "Laser Mechanic"
 LocalisationData["MinusDmgTakenCCable"] = "Damage reduction channel (CCable)"
+LocalisationData["MinusDmgTakenPurgeable"] = "Damage reduction channel (Purgeable)"
 LocalisationData["CarryingDeBuff"] = "Debuff that needs to be Carried"
 LocalisationData["KillAddChanneling"] = "Add that needs to be killed"
+LocalisationData["KillAddAlive"] = "Add that needs to be killed"
 LocalisationData["ShockWave"] = "Shockwave mechanics"
 LocalisationData["AddSummonCombatlog"] = "Summoning Adds"
 LocalisationData["AddSummonCast"] = "Summoning Adds"
@@ -322,6 +323,8 @@ LocalisationData["StunCast"] = "Stun cast"
 LocalisationData["StormCastIntoEnrageBuff"] = "AoE mechanic (deragable)"
 LocalisationData["CastIntoAtackspeedSlowDisease"] = "Atack speed slow (Disease despell)"
 LocalisationData["HasteDeBuff"] = "Debuff that reduces Haste"
+LocalisationData["HealZoneCast"] = "Cast that leaves a Zone which heals"
+LocalisationData["LooktoAddCast"] = "Cast that requires you to look at the Add"
 
 --[[ 
     LocalisationData[""] = ""
@@ -493,7 +496,7 @@ LocalisationData["kill totem"] = "kill totem"
 LocalisationData["Look at Add"] = "Look at Add"
 LocalisationData["death inc"] = "death inc"
 LocalisationData["- Haste"] = "- Haste"
-
+LocalisationData["Healzone"] = "Healzone"
 
 --[[ 
 LocalisationData[""] = ""

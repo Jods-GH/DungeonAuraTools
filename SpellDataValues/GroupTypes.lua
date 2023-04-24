@@ -232,6 +232,8 @@ JDT.GroupTypes.CastIntoAtackspeedSlowDisease = "CastIntoAtackspeedSlowDisease"
 JDT.GroupTypes.StormCastIntoEnrageBuff = "StormCastIntoEnrageBuff"
 JDT.GroupTypes.StunCast = "StunCast"
 JDT.GroupTypes.HasteDeBuff = "HasteDeBuff"
+JDT.GroupTypes.HealZoneCast = "HealZoneCast"
+JDT.GroupTypes.MinusDmgTakenPurgeable = "MinusDmgTakenPurgeable"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -2674,6 +2676,22 @@ JDT.Templates.GroupTypes.MinusDmgTakenCCable = {
     doSound = JDT.SoundTypes.cc,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.MinusDmgTakenPurgeable = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("- dmg"),
+            isactive = true,
+        }, 
+    },
+    type = JDT.AuraTypes.purge,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 
 JDT.Templates.GroupTypes.DmgReductionShoutIntoDebuff = {
     AuraType = "AuraIcon",
@@ -4393,7 +4411,21 @@ JDT.Templates.GroupTypes.SpreadCastIntoCastSuccessAvoid = {
     }
 ),
 }
-
+JDT.Templates.GroupTypes.HealZoneCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Healzone"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 JDT.Templates.GroupTypes.StunableHealCast = {
     AuraType = "AuraIcon",
     triggers = {
