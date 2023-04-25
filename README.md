@@ -20,14 +20,15 @@ To open the options window, type /jdt or /DungeonAuraTools into your chat an
 
 Options for Changing your Auras when they were generated:
 
-Icon width and height
-showing Timers and hiding cooldown Spinners
-Choosing the fonts and text size
-enable or disable sounds
-X and Y- offset of the groups
-Limit the amount of Auras showing at any given time
-Grow directions and other grow related options
-Anchroing Auras to the Affix group.
+* Icon width and height
+* showing Timers and hiding cooldown Spinners
+* Choosing the fonts and text size
+* enable or disable sounds
+* X and Y- offset of the groups
+* Limit the amount of Auras showing at any given time
+* Grow directions and other grow related options
+* Anchroing Auras to the Affix group.
+
 
 Ofcourse you can always manually adjust the settings on  a per Aura level via the normal WeakAuras options!
  
