@@ -1,3 +1,9 @@
+[![Discord][SVG-Discord]][Discord]
+[![PayPal][SVG-PayPal]][PayPal]
+[![Wago][SVG-Wago]][Wago]
+[![Translate][SVG-Translate]][Translate]
+[![Release][SVG-Release]][Release]
+
 # DungeonAuraTools
 Dungeon Aura Tools dynamicly creates Dungeon WeakAuras based on user selections to indicate buffs, debuffs, casts and other relevant information.
 
@@ -37,3 +43,21 @@ If you want to talk about the addon or just hang out please join my [Discord](ht
 Debuff/Interrupt highlight stolen from causese props to him
 
 If you like my work and want to support me you can [Donate](https://www.paypal.com/donate/?hosted_button_id=PSQ4D3HXNZKMG)
+
+[//]: # (Links)
+
+[Discord]: https://discord.com/invite/v3gYmYamGJ (Join the Discord)
+[PayPal]: https://www.paypal.com/donate/?hosted_button_id=PSQ4D3HXNZKMG (Donate via PayPal)
+[Wago]: https://wago.io/p/Jodsderechte (Check out my Weakauras)
+[Release]: https://github.com/Jodsderechte/DungeonAuraTools/releases/latest (Latest release)
+[Translate]: https://legacy.curseforge.com/wow/addons/dungeon-aura-tools/localization (Help Translate)
+
+
+[//]: # (Images)
+
+[SVG-Discord]: https://img.shields.io/badge/Discord-7289da?logo=discord&logoColor=fff&style=flat-square
+[SVG-PayPal]: https://custom-icon-badges.demolab.com/badge/-Donate-lightgrey?style=flat-square&logo=paypal&color=007CB1
+[SVG-Wago]: https://custom-icon-badges.demolab.com/badge/-WeakAuras-lightgrey?style=flat-square&logo=weakauras&color=22283D
+[SVG-Release]: https://badgen.net/github/release/Jodsderechte/DungeonAuraTools?style=flat-square
+[SVG-Translate]: https://custom-icon-badges.demolab.com/badge/-Help_Translate-lightgrey?style=flat-square&logo=translate&color=ffbda3
+
