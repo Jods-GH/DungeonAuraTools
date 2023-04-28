@@ -32,6 +32,7 @@ JDT.SoundTypes.bloodlust = "Interface\\Addons\\SharedMedia_Causese\\sound\\Blood
 JDT.SoundTypes.melee = "Interface\\Addons\\SharedMedia_Causese\\sound\\Melee.ogg"
 JDT.SoundTypes.turn = "Interface\\Addons\\SharedMedia_Causese\\sound\\Turn.ogg"
 JDT.SoundTypes.breakshield = "Interface\\Addons\\SharedMedia_Causese\\sound\\Break.ogg"
+JDT.SoundTypes.dispell = "Interface\\Addons\\SharedMedia_Causese\\sound\\Dispell.ogg"
 
 JDT.TypesSound = tInvert(JDT.SoundTypes)
 

@@ -325,6 +325,10 @@ LocalisationData["CastIntoAtackspeedSlowDisease"] = "Atack speed slow (Disease d
 LocalisationData["HasteDeBuff"] = "Debuff that reduces Haste"
 LocalisationData["HealZoneCast"] = "Cast that leaves a Zone which heals"
 LocalisationData["LooktoAddCast"] = "Cast that requires you to look at the Add"
+LocalisationData["RunOutDebuffOrRooted"] = "Debuff that requires you to run far enough away or be Rooted"
+LocalisationData["InteruptableVolleyIntoDmgReduce"] = "AoE cast that leaves a dmg reducing debuff (Interuptable)"
+LocalisationData["Afflicted"] = "AoE cast that leaves a haste reducing debuff (Dispellable by all Types)"
+
 
 --[[ 
     LocalisationData[""] = ""
@@ -497,6 +501,8 @@ LocalisationData["Look at Add"] = "Look at Add"
 LocalisationData["death inc"] = "death inc"
 LocalisationData["- Haste"] = "- Haste"
 LocalisationData["Healzone"] = "Healzone"
+LocalisationData["- haste"] = "- haste"
+LocalisationData["Despell/Heal"] = "Despell/Heal"
 
 --[[ 
 LocalisationData[""] = ""
