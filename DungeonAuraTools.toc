@@ -1,7 +1,9 @@
-## Interface: 100007
+## Interface: 100100
 ## Version: @project-version@
 ## Plain Title: DungeonAuraTools
 ## Title: |cffe5c75fD|r|cffFF657Fungeon|r|cffe5c75fA|r|cffFF657Fura|r|cffe5c75fT|r|cffFF657Fools|r 
+## IconTexture: Interface\AddOns\DungeonAuraTools\Files\DungeonAuraTools.tga
+## AddonCompartmentFunc: JDT_AddonCompartmentFunction
 ## Notes: Compact Addon to Manage all my Stuff for Dungeons
 ## Author: Jods
 ## SavedVariables: DungeonAuraTools

@@ -120,6 +120,61 @@ JDT.SpellList.Affixes = {
                 }
             },
         },
+        --[[ --new affixes for season 2
+        [JDT.GroupTypes.RunOutDebuffOrRooted] = {
+            Entangled = {
+                enabled = true,
+                affixId = 134,
+                spellId = 408556,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "408556",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolleyIntoDmgReduce] = {
+            Incorporeal= {
+                enabled = true,
+                affixId = 136,
+                spellId = 408805,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "408805",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "408805",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Afflicted] = {
+            Afflicted= {
+                enabled = true,
+                affixId = 135,
+                spellId = 409492,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "409492",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "409492",
+                    },
+
+                }
+            },
+        },
+        ]]
+        
+       
+         
 
     }
 }
