@@ -49,12 +49,12 @@ Templates/WeakaurasCompanionData.lua
 Templates/CustomText.lua
 
 
-#SpellDataValues
+#Types
 
-SpellDataValues/AuraTypes.lua
-SpellDataValues/SoundTypes.lua
-SpellDataValues/GroupTypes.lua
-SpellDataValues/ExpansionValues.lua
+Types/AuraTypes.lua
+Types/SoundTypes.lua
+Types/GroupTypes.lua
+Types/ExpansionValues.lua
 
 SpellData/Affixes.lua
 
