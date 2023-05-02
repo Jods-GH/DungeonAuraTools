@@ -45,7 +45,7 @@ JDT.SpellList.Affixes = {
             },
 
         },
-        
+        --[[
         [JDT.GroupTypes.Thundering] = {
             Thundering= {
                 enabled = true,
@@ -73,6 +73,7 @@ JDT.SpellList.Affixes = {
             },
 
         },
+        ]]
         [JDT.GroupTypes.HealBuff] = {
             Sanguine = {
                 enabled = true,
@@ -120,7 +121,7 @@ JDT.SpellList.Affixes = {
                 }
             },
         },
-        --[[ --new affixes for season 2
+         --new affixes for season 2
         [JDT.GroupTypes.RunOutDebuffOrRooted] = {
             Entangled = {
                 enabled = true,
@@ -171,7 +172,6 @@ JDT.SpellList.Affixes = {
                 }
             },
         },
-        ]]
         
        
          
