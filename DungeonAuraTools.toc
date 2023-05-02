@@ -32,7 +32,7 @@ Locales\ruRU.lua
 Locales\zhCN.lua
 Locales\zhTW.lua
 
-Locales.lua
+Locales\Locales.lua
 
 #Templates
 Templates/AuraIcon.lua
@@ -47,7 +47,7 @@ Templates/CustomTriggers.lua
 Templates/Conditions.lua
 Templates/WeakaurasCompanionData.lua
 Templates/CustomText.lua
-
+Templates/ExportData.lua
 
 #Types
 
@@ -95,7 +95,6 @@ SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
 #SpellData/Cataclysm/TheVortexPinnacle.lua
 
 # Core
-ExportData.lua
 Export.lua
 Main.lua
 Options.lua
