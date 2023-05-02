@@ -17,7 +17,7 @@ embeds.xml
 
 # Utilitys
 Util\UtilFunctions.lua
-UpdateCheck.lua
+Util\UpdateCheck.lua
 
 # Locales
 Locales\enUS.lua
