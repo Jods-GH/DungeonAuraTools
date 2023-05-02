@@ -40,16 +40,6 @@ function DungeonAuraTools:OnInitialize()
     self:RegisterChatCommand("dat", "SlashCommand")
     self:RegisterChatCommand("DungeonAuraTools", "SlashCommand")
   -- generates Data for Options Table
-  --[[
-AddonCompartmentFrame:RegisterAddon({
-    text = appName,
-    icon = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga",
-    registerForAnyClick = true,
-    func = function(btn, arg1, arg2, checked, mouseButton)
-        DungeonAuraTools:SlashCommand("AddonCompartmentFrame")
-    end,
-  })
-]]
     
 end
 
@@ -60,6 +50,10 @@ end
 
 function DungeonAuraTools:OnDisable()
 	-- Called when the addon is disabled
+end
+
+function JDT_AddonCompartmentFunction()
+    DungeonAuraTools:SlashCommand("AddonCompartmentFrame")
 end
 
 local VersionCheckPrefix = "DAT_VERSION"
