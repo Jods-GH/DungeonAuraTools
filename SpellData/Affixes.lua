@@ -45,7 +45,7 @@ JDT.SpellList.Affixes = {
             },
 
         },
-        --[[
+        
         [JDT.GroupTypes.Thundering] = {
             Thundering= {
                 enabled = true,
@@ -73,7 +73,7 @@ JDT.SpellList.Affixes = {
             },
 
         },
-        ]]
+       
         [JDT.GroupTypes.HealBuff] = {
             Sanguine = {
                 enabled = true,
@@ -122,6 +122,7 @@ JDT.SpellList.Affixes = {
             },
         },
          --new affixes for season 2
+         
         [JDT.GroupTypes.RunOutDebuffOrRooted] = {
             Entangled = {
                 enabled = true,
@@ -136,8 +137,9 @@ JDT.SpellList.Affixes = {
                 }
             },
         },
+       
         [JDT.GroupTypes.InteruptableVolleyIntoDmgReduce] = {
-            Incorporeal= {
+            Incorporeal = {
                 enabled = true,
                 affixId = 136,
                 spellId = 408805,
@@ -154,8 +156,9 @@ JDT.SpellList.Affixes = {
                 }
             },
         },
+         
         [JDT.GroupTypes.Afflicted] = {
-            Afflicted= {
+            Afflicted = {
                 enabled = true,
                 affixId = 135,
                 spellId = 409492,
@@ -173,7 +176,6 @@ JDT.SpellList.Affixes = {
             },
         },
         
-       
          
 
     }

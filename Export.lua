@@ -202,8 +202,15 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 if JDT.db.profile.ShowTimer then
                                     SpellTable.subRegions[2].text_visible = JDT.db.profile.ShowTimer -- enable/disable %p
                                 end
-
-
+                                
+                                -- set Fallback icon and display name
+                                assert(v.spellId, "Error: Spellid not found in Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName) -- checks if spellid is set properly
+                                local Spellname, _, Spellicon, _, _, _, SpellID = GetSpellInfo(v.spellId) 
+                                SpellTable.displayIcon = Spellicon
+                                SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname.." ["..SpellID.."]"-- set AuraName
+                                if v.extraName then -- add extra stuff if needed to not have duplicate id's
+                                    SpellTable.id= SpellTable.id..v.extraName 
+                                end
 
                                 --- create triggers 
                                 local TriggerTable =  CopyTable(JDT.Templates.Triggers.ActivationTemplate) 
@@ -213,6 +220,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 end
                                                                
                                 for trigger = 1,#AuraTemplate.triggers, 1 do -- iterate through all triggers and generate them
+                                    assert(v.triggerData and v.triggerData[trigger] , "Error: Triggerinfo for trigger"..trigger.." in Aura "..v.spellId.." in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName.." not found") -- checks if trigger data is set properly
                                     local AuraTrigger = JDT.generateTriggerfromGroupType[AuraTemplate.triggers[trigger].triggerType](v.triggerData[trigger],AuraTemplate.triggers[trigger])
                                     tinsert(TriggerTable,AuraTrigger)
                                 end
@@ -221,14 +229,6 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 -- create Conditions
                                 if AuraTemplate.conditions then
                                     SpellTable.conditions = AuraTemplate.conditions
-                                end
-                                
-                                -- set Fallback icon and display name
-                                local Spellname, _, Spellicon, _, _, _, SpellID = GetSpellInfo(v.spellId) 
-                                SpellTable.displayIcon = Spellicon
-                                SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname.." ["..SpellID.."]"-- set AuraName
-                                if v.extraName then -- add extra stuff if needed to not have duplicate id's
-                                    SpellTable.id= SpellTable.id..v.extraName 
                                 end
 
                                 -- set CooldownTexts and Iconsize depending on options
