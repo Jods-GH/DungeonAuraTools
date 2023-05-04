@@ -45,6 +45,10 @@ Debuff/Interrupt highlight stolen from causese props to him
 
 If you like my work and want to support me you can [Donate](https://www.paypal.com/donate/?hosted_button_id=PSQ4D3HXNZKMG)
 
+## Contributing
+Simply fork the repo and make any changes to the appropriate section, submit a pull request afterwards mentioning the issue it fixes via [closing Statements](https://docs.github.com/en/issues/tracking-your-work-with-issues/closing-an-issue).
+
+
 [//]: # (Links)
 
 [Discord]: https://discord.com/invite/v3gYmYamGJ (Join the Discord)
