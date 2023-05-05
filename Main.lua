@@ -5,7 +5,7 @@ local AceDBOptions = LibStub("AceDBOptions-3.0")
 local SharedMedia = LibStub("LibSharedMedia-3.0") 
 ---@class MyAddon : AceAddon-3.0, AceConsole-3.0, AceConfig-3.0, AceGUI-3.0, AceConfigDialog-3.0
 local DungeonAuraTools = LibStub("AceAddon-3.0"):NewAddon("DungeonAuraTools", "AceConsole-3.0", "AceEvent-3.0")
-JDT.AddonVersion = GetAddOnMetadata(appName, "Version")
+JDT.AddonVersion = C_AddOns.GetAddOnMetadata(appName, "Version")
 JDT.InternalWaVersion = 65 -- version of weakauras addon on creation might need to be updated eventually
 
 JDT.FontMedias = JDT.FontMedias or {} 
