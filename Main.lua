@@ -19,6 +19,7 @@ function DungeonAuraTools:OnInitialize()
     self:Print(JDT.getLocalisation("AccessOptionsMessage"))
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("CHAT_MSG_ADDON")
+    JDT.self = self
     local DatatoPersist = {
         profile = {
             data = JDT.SpellList
@@ -88,7 +89,7 @@ function DungeonAuraTools:PLAYER_ENTERING_WORLD(event, isLogin, isReload)
     
 end
 function DungeonAuraTools:CHAT_MSG_ADDON(event, prefix, version , channel, sender, target, zoneChannelID, localID, name, instanceID)
-    if prefix == VersionCheckPrefix and sender == JDT.PlayerName then
+    if prefix == VersionCheckPrefix and sender ~= JDT.PlayerName then
         if version and version > JDT.AddonVersion then
             self:Print(JDT.getLocalisation("VersionCheckMessage"))
         end

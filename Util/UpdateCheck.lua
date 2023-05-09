@@ -98,7 +98,6 @@ JDT.CheckIfAuraUpdates = function (self)
                                                     if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then
                                                         
                                                         if JDT.db.profile.DebugMode == true then
-                                                            print(AuraToCheck.id)
                                                                 
                                                                 --[[
                                                                 local CompareData ={}
@@ -112,9 +111,9 @@ JDT.CheckIfAuraUpdates = function (self)
                                                                 JDT.db.profile.testing = CompareData 
                                                                 ]]
                                                                 local difference,difference2 = JDT.findOutDifferenceBetweenTwoTables(AuraToCheck, InstalledAura)
-                                                                
-                                                                DevTools_Dump(difference)
-                                                                DevTools_Dump(difference2)
+                                                                JDT.DebugPrint(AuraToCheck.id)
+                                                                JDT.DebugDump(difference)
+                                                                JDT.DebugDump(difference2)
                                                         end
                                                         AuraUpdatesCount = AuraUpdatesCount +1 
                                                         AuraUpdatesTable[ExpansionKey] = true
@@ -143,7 +142,6 @@ JDT.CheckIfAuraUpdates = function (self)
                                     if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then             
                                         --print(AuraToCheck.id)
                                         if JDT.db.profile.DebugMode == true then
-                                            print(AuraToCheck.id)
                                                
                                                 --[[
                                                 local CompareData ={}
@@ -157,8 +155,9 @@ JDT.CheckIfAuraUpdates = function (self)
                                                 JDT.db.profile.testing = CompareData 
                                                 ]]
                                                 local difference,difference2 = JDT.findOutDifferenceBetweenTwoTables(AuraToCheck, InstalledAura)
-                                                DevTools_Dump(difference)
-                                                DevTools_Dump(difference2)
+                                                JDT.DebugPrint(AuraToCheck.id)
+                                                JDT.DebugDump(difference)
+                                                JDT.DebugDump(difference2)
                                         end
                                         AuraUpdatesCount = AuraUpdatesCount +1  
                                         AuraUpdatesTable[ExpansionKey] = true
