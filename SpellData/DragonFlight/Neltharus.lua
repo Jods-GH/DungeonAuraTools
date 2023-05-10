@@ -90,7 +90,20 @@ bosses.boss1 = {  -- 	Chargath, Bane of Scales
             },
 
         },
-        
+        [JDT.GroupTypes.NoSoakDebuff] = {
+            SlagEruption= {
+                enabled = true,
+                spellId = 389059,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "389059",
+                    }
+
+                }
+            },
+
+        },
 
     }
 }

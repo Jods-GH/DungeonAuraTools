@@ -237,6 +237,7 @@ JDT.GroupTypes.MinusDmgTakenPurgeable = "MinusDmgTakenPurgeable"
 JDT.GroupTypes.RunOutDebuffOrRooted = "RunOutDebuffOrRooted"
 JDT.GroupTypes.InteruptableVolleyIntoDmgReduce = "InteruptableVolleyIntoDmgReduce"
 JDT.GroupTypes.Afflicted = "Afflicted"
+JDT.GroupTypes.NoSoakDebuff =  "NoSoakDebuff"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -1829,6 +1830,24 @@ JDT.Templates.GroupTypes.CastStartNoSoak= {
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
             subeventSuffix = "_CAST_START",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Don't Soak"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.NoSoakDebuff= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
         },
     },
     text = {
