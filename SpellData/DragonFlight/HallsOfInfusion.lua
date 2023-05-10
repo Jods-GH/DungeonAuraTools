@@ -507,19 +507,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.InterruptableSuppresion] ={
-            ContainmentBeam = {
-                enabled = true,
-                spellId = 374020, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "374020",
-
-                    },
-
-                }
-            },
+        [JDT.GroupTypes.InterruptableSuppresion] ={ 
             BindingWinds = {
                 enabled = true,
                 spellId = 391610, -- for spellname etc
@@ -688,6 +676,18 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "385036",
                     }
+
+                }
+            },
+            ContainmentBeam = {
+                enabled = true,
+                spellId = 374020, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "374020",
+
+                    },
 
                 }
             },
