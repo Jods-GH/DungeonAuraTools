@@ -328,8 +328,8 @@ LocalisationData["LooktoAddCast"] = "Cast that requires you to look at the Add"
 LocalisationData["RunOutDebuffOrRooted"] = "Debuff that requires you to run far enough away or be Rooted"
 LocalisationData["InteruptableVolleyIntoDmgReduce"] = "AoE cast that leaves a dmg reducing debuff (Interuptable)"
 LocalisationData["Afflicted"] = "AoE cast that leaves a haste reducing debuff (Dispellable by all Types)"
-
-
+LocalisationData["NoSoakDebuff"] = "Soak mechanic that requires you to not soak if a debuff is present"
+LocalisationData["ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn"] = "Mechanic that requires you to break a chain or wait with a debuff"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -503,6 +503,7 @@ LocalisationData["- Haste"] = "- Haste"
 LocalisationData["Healzone"] = "Healzone"
 LocalisationData["- haste"] = "- haste"
 LocalisationData["Despell/Heal"] = "Despell/Heal"
+LocalisationData["Break Chain"] = "Break Chain"
 
 --[[ 
 LocalisationData[""] = ""

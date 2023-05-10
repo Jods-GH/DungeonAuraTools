@@ -25,11 +25,40 @@ bosses.boss1 = {  -- 	Chargath, Bane of Scales
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "388523",
+                        exactSpellId = "true", 
                     }
 
                 }
             },
 
+        },
+        
+        [JDT.GroupTypes.ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn] = {
+            GroundingSpear = {
+                enabled = true,
+                spellId = 373424,
+                additionalStackText = "/3",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss, --chaincast
+                        spellId = "373424",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player, -- explosion debuff
+                        spellId = "389059",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss, -- debuff on enemy increasing dmg taken at stacks
+                        spellId = "374655",
+                        exactSpellId = "true",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player, --Chain debuff on player
+                        spellId = "374482",
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.TargetedCastIntoDot] = {
             CuttingSurge = {
@@ -63,19 +92,6 @@ bosses.boss1 = {  -- 	Chargath, Bane of Scales
                 }
             },
         },
-        [JDT.GroupTypes.TargetedCast] = {
-            GroundingSpear = {
-                enabled = true,
-                spellId = 373424,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "373424",
-                    }
-
-                }
-            },
-        },
         [JDT.GroupTypes.ShockWave] = {
             MagmaWave = {
                 enabled = true,
@@ -84,20 +100,6 @@ bosses.boss1 = {  -- 	Chargath, Bane of Scales
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "373742",
-                    }
-
-                }
-            },
-
-        },
-        [JDT.GroupTypes.NoSoakDebuff] = {
-            SlagEruption= {
-                enabled = true,
-                spellId = 389059,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "389059",
                     }
 
                 }
