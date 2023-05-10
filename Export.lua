@@ -494,20 +494,33 @@ JDT.generateTriggerfromGroupType = JDT.generateTriggerfromGroupType or {}
 JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.debuffType = JDT.Templates.Triggers.BuffTypes[AuraTemplate.BuffTypes] -- sets harmful or helpful to define buff/debuff
-    if type(triggerData.spellId) =="table" then
-        for index, value in ipairs(triggerData.spellId) do
-            tinsert(AuraTrigger.trigger.auranames,value)
+    if not triggerData.exactSpellId then
+        if type(triggerData.spellId) =="table" then
+            for index, value in ipairs(triggerData.spellId) do
+                tinsert(AuraTrigger.trigger.auranames,value)
+            end
+        else
+            AuraTrigger.trigger.auranames = { --set spellid for trigger
+            triggerData.spellId, -- [1]
+            }
         end
     else
-        AuraTrigger.trigger.auranames = { --set spellid for trigger
-        triggerData.spellId, -- [1]
-        }
+        if type(triggerData.spellId) =="table" then
+            for index, value in ipairs(triggerData.spellId) do
+                tinsert(AuraTrigger.trigger.auraspellids,value)
+            end
+            AuraTrigger.trigger.useExactSpellId = true
+            AuraTrigger.trigger.useName = false
+        else
+            AuraTrigger.trigger.auraspellids = { --set spellid for trigger
+            triggerData.spellId, -- [1]
+            }
+            AuraTrigger.trigger.useExactSpellId = true
+            AuraTrigger.trigger.useName = false
+        end
     end
     if triggerData.ignoreSelf then
         AuraTrigger.trigger.ignoreSelf = triggerData.ignoreSelf
-    end
-    if triggerData.exactSpellId then
-        AuraTrigger.trigger.use_spellId = triggerData.exactSpellId
     end
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
@@ -525,7 +538,7 @@ JDT.generateTriggerfromGroupType.Cast = function(triggerData,AuraTemplate)
         AuraTrigger.trigger.use_destUnit = true
     end
     if triggerData.exactSpellId then
-        AuraTrigger.trigger.use_exact_spellId = triggerData.exactSpellId
+        AuraTrigger.trigger.use_exact_spellId = true
     end
     return AuraTrigger
 end
