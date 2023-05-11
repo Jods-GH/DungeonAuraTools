@@ -239,6 +239,7 @@ JDT.GroupTypes.InteruptableVolleyIntoDmgReduce = "InteruptableVolleyIntoDmgReduc
 JDT.GroupTypes.Afflicted = "Afflicted"
 JDT.GroupTypes.NoSoakDebuff =  "NoSoakDebuff"
 JDT.GroupTypes.ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn = "ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn"
+JDT.GroupTypes.CastIntoDanceWhileDebuffed = "CastIntoDanceWhileDebuffed"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -957,6 +958,26 @@ JDT.Templates.GroupTypes.CastIntoCastSuccessDance= {
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
             subeventSuffix = "_CAST_SUCCESS",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dance"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.dance,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+JDT.Templates.GroupTypes.CastIntoDanceWhileDebuffed= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
         },
     },
     text = {
