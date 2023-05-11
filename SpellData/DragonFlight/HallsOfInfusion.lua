@@ -17,6 +17,21 @@ bosses.boss1 = {  -- Watcher Irideus
     EncounterId = "2615", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 01 ",
     Auras = { 
+        [JDT.GroupTypes.Dot] = {
+            PurifyingBlast= {
+                enabled = true,
+                spellId = 389443,
+                type = JDT.AuraTypes.magic,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "389443",
+                    },
+
+                }
+            },
+        },
         [JDT.GroupTypes.CastIntoRemoveShield] = {
             AblativeBarrier = {
                 enabled = true,
@@ -57,11 +72,15 @@ bosses.boss1 = {  -- Watcher Irideus
                 }
             }
         },
-        [JDT.GroupTypes.Dance] ={
+        [JDT.GroupTypes.CastIntoDanceWhileDebuffed] ={
             SparkVolley= {
                 enabled = true,
                 spellId = 384351, -- for spellname etc
                 triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "384351",
+                    },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "384351",
@@ -136,22 +155,7 @@ bosses.boss2 = {  -- Gulping Goliath
                 }
             },
         },
-        [JDT.GroupTypes.Dot] ={
-            GulpSwogToxin = {
-                enabled = true,
-                spellId = 374389, -- for spellname etc
-                showStacks = 1,
-                type = JDT.AuraTypes.poison,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "374389",
-
-                    },
-
-                }
-            }
-        },
+        
         [JDT.GroupTypes.Dance] ={
             OverpoweringCroak= {
                 enabled = true,
@@ -412,6 +416,7 @@ bosses.Trash = {
             DemoralizingShout = {
                 enabled = true,
                 spellId = 374339,
+                type = JDT.AuraTypes.interrupt,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -485,6 +490,7 @@ bosses.Trash = {
             Expulse = {
                 enabled = true,
                 spellId = 374045, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -536,11 +542,12 @@ bosses.Trash = {
             },
         },
         [JDT.GroupTypes.KillDebuffWithStacksAsProgress] = {
-            HardLightBaton = {
+            GulpSwogToxin = {
                 enabled = true,
                 spellId = 374389,
                 customTextInfo = "10",
                 type = JDT.AuraTypes.poison,
+                showStacks = 1,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
