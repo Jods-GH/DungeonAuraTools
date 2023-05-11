@@ -86,7 +86,7 @@ JDT.CheckIfAuraUpdates = function (self)
                                             AuraUpdatesCount = AuraUpdatesCount +1 
                                             AuraUpdatesTable[ExpansionKey] = true
                                             JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[TypeKey][k] = nil
-                                            self:Print("Removed Aura "..k.." from "..BossNameKey.." in "..DungeonKey.." in "..ExpansionKey.. "please Reload to fix Potential Import Problems")                         
+                                            self:Print("Removed Aura "..k.." from "..BossNameKey.." in "..DungeonKey.." in "..ExpansionKey.. " please Reload to fix Potential Import Problems")                         
                            
                                             else  
                                                     local AuraToCheck = JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)  

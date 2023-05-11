@@ -375,7 +375,7 @@ bosses.Trash = {
             WindBolt = {
                 enabled = true,
                 spellId = 410760,
-                type = JDT.AuraTypes.Interrupt,
+                type = JDT.AuraTypes.interrupt,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
