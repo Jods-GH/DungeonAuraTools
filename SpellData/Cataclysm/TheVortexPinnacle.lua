@@ -331,6 +331,18 @@ bosses.Trash = {
 
                 }
             },
+            OverloadGroundingField = {
+                enabled = true,
+                spellId = 413385, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413385",
+
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.ShieldCast] ={
             CloudGuard = {
@@ -449,18 +461,7 @@ bosses.Trash = {
 
                 }
             },
-            OverloadGroundingField = {
-                enabled = true,
-                spellId = 413385, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "413385",
-
-                    },
-
-                }
-            },
+            
         },
         
     }
