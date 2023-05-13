@@ -331,6 +331,7 @@ LocalisationData["Afflicted"] = "AoE cast that leaves a haste reducing debuff (D
 LocalisationData["NoSoakDebuff"] = "Soak mechanic that requires you to not soak if a debuff is present"
 LocalisationData["ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn"] = "Mechanic that requires you to break a chain or wait with a debuff"
 LocalisationData["CastIntoDanceWhileDebuffed"] = "Cast that requires you to dance while debuffed"
+LocalisationData["HasteBuffButItsADebuff"] = "Haste Buff that is a debuff"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
