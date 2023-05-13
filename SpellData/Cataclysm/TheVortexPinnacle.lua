@@ -13,13 +13,73 @@ JDT.SpellList.Cataclysm.Dungeons.VortexPinnacle = {
 }
 local bosses = JDT.SpellList.Cataclysm.Dungeons.VortexPinnacle.Bosses
 
---Rira Hackclaw
-bosses.boss1 = {  -- 	Altairus
-    EncounterId = "1041", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+
+bosses.boss1 = {  -- 	Grand Vizier Ertan
+    EncounterId = "1043", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 01 ",
     Auras = { 
        
-        [JDT.GroupTypes.HasteBuff] = {
+        [JDT.GroupTypes.Dance] ={
+            CycloneShield = {
+                enabled = true,
+                spellId = 86267, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "86267",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            LightningBolt = {
+                enabled = true,
+                spellId = 188196, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "188196",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            SummonTempest = {
+                enabled = true,
+                spellId = 413151,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "413151",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.LooktoAddCast] = {
+            LethalCurrent = {
+                enabled = true,
+                spellId = 411001,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "411001",
+                    },
+
+                }
+            },
+        },
+    }
+}
+bosses.boss2 = {  -- 	Altairus
+    EncounterId = "1041", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = "] 02 ",
+    Auras = { 
+       
+        [JDT.GroupTypes.HasteBuffButItsADebuff] = {
             UpwindofAltairus = {
                 enabled = true,
                 spellId = 88282,
@@ -45,28 +105,27 @@ bosses.boss1 = {  -- 	Altairus
                 }
             },
         },
-        
-        [JDT.GroupTypes.Frontal] = {
-            ChillingBreath = {
+        [JDT.GroupTypes.SpellcastSucceededDance] ={
+            Downburst = {
                 enabled = true,
-                spellId = 88308,
+                spellId = 413295, -- for spellname etc
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "88308",
-                    }
+                        spellId = "413295",
+                        duration = "3.5"
+
+                    },
 
                 }
-            },
-
+            }
         },
        
     }
 }
 
-bosses.boss2 = {  -- Asaad
+bosses.boss3 = {  -- Asaad
     EncounterId = "1042", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
-    additionalName = "] 02 ",
+    additionalName = "] 03 ",
     Auras = { 
         [JDT.GroupTypes.CastWithSafeDeBuffDuringCast] ={
             UnstableGroundingField = {
@@ -158,66 +217,6 @@ bosses.boss2 = {  -- Asaad
         },
         
        
-    }
-}
-bosses.boss3 = {  -- 	Grand Vizier Ertan
-    EncounterId = "1043", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
-    additionalName = "] 03 ",
-    Auras = { 
-       
-        [JDT.GroupTypes.Dance] ={
-            CycloneShield = {
-                enabled = true,
-                spellId = 86267, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "86267",
-                    },
-
-                }
-            }
-        },
-        [JDT.GroupTypes.InterruptableTargetedCast] ={
-            LightningBolt = {
-                enabled = true,
-                spellId = 188196, -- for spellname etc
-                triggerData = {
-                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "188196",
-
-                    },
-
-                }
-            },
-        },
-        [JDT.GroupTypes.AddSummonCast] = {
-            SummonTempest = {
-                enabled = true,
-                spellId = 413151,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "413151",
-                    },
-
-                }
-            },
-        },
-        [JDT.GroupTypes.LooktoAddCast] = {
-            LethalCurrent = {
-                enabled = true,
-                spellId = 411001,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "411001",
-                    },
-
-                }
-            },
-        },
     }
 }
 
