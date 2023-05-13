@@ -411,6 +411,20 @@ bosses.Trash = {
 
                 }
             },
+            GulpSwogToxin = {
+                enabled = true,
+                spellId = 374389,
+                customTextInfo = "10",
+                type = JDT.AuraTypes.poison,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "374389",
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.DmgReductionShoutIntoDebuff] = {
             DemoralizingShout = {
@@ -536,22 +550,6 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "395694",
-                    },
-
-                }
-            },
-        },
-        [JDT.GroupTypes.KillDebuffWithStacksAsProgress] = {
-            GulpSwogToxin = {
-                enabled = true,
-                spellId = 374389,
-                customTextInfo = "10",
-                type = JDT.AuraTypes.poison,
-                showStacks = 1,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "374389",
                     },
 
                 }
