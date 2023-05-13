@@ -240,6 +240,7 @@ JDT.GroupTypes.Afflicted = "Afflicted"
 JDT.GroupTypes.NoSoakDebuff =  "NoSoakDebuff"
 JDT.GroupTypes.ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn = "ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn"
 JDT.GroupTypes.CastIntoDanceWhileDebuffed = "CastIntoDanceWhileDebuffed"
+JDT.GroupTypes.HasteBuffButItsADebuff = "HasteBuffButItsADebuff"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -2041,6 +2042,23 @@ JDT.Templates.GroupTypes.HasteBuff = {
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.HasteBuffButItsADebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("+ Haste"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
 JDT.Templates.GroupTypes.HasteDeBuff = {
     AuraType = "AuraIcon",
     triggers = {
