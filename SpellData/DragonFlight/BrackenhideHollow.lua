@@ -517,6 +517,7 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 375416,
                 type = JDT.AuraTypes.bleed,
+                showStacks = 1,
                 triggerData = {
                    {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
