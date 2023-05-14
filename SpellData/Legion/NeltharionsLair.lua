@@ -74,7 +74,7 @@ bosses.boss1 = {  -- Rokmora
             }
         },
         [JDT.GroupTypes.BlightshardSkitter] ={
-            CrystallineGround = {
+            BlightshardSkitter = {
                 enabled = true,
                 spellId = 187793, -- for spellname etc
                 triggerData = {

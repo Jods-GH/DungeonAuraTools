@@ -1711,7 +1711,7 @@ JDT.Templates.GroupTypes.UnavoidableAoeBigAoeIfAdd = {
         }, 
         {   
             value = JDT.getLocalisation("Big Aoe"),
-            isactive = true,
+            isactive = false,
         }, 
     },
     doSound = JDT.SoundTypes.selfcd,
