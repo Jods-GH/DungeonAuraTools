@@ -1716,7 +1716,8 @@ JDT.Templates.GroupTypes.UnavoidableAoeBigAoeIfAdd = {
         }, 
     },
     doSound = JDT.SoundTypes.selfcd,
-    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1]\n end",
     glowtype = "Ants",
     showGlow = false,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
