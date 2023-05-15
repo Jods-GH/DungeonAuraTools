@@ -7911,7 +7911,7 @@ JDT.Templates.GroupTypes.RunAwayIfTargeted = {
         }, 
         {   
             value = JDT.getLocalisation("Run Away"),
-            isactive = true,
+            isactive = false,
         }, 
     },
     doSound = JDT.SoundTypes.avoid,
