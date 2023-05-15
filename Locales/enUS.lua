@@ -332,6 +332,7 @@ LocalisationData["NoSoakDebuff"] = "Soak mechanic that requires you to not soak 
 LocalisationData["ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn"] = "Mechanic that requires you to break a chain or wait with a debuff"
 LocalisationData["CastIntoDanceWhileDebuffed"] = "Cast that requires you to dance while debuffed"
 LocalisationData["HasteBuffButItsADebuff"] = "Haste Buff that is a debuff"
+LocalisationData["VolleyIntoDisease"] = "Volley tha leaves a disease debuff behind"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""

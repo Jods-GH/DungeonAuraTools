@@ -241,6 +241,7 @@ JDT.GroupTypes.NoSoakDebuff =  "NoSoakDebuff"
 JDT.GroupTypes.ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn = "ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn"
 JDT.GroupTypes.CastIntoDanceWhileDebuffed = "CastIntoDanceWhileDebuffed"
 JDT.GroupTypes.HasteBuffButItsADebuff = "HasteBuffButItsADebuff"
+JDT.GroupTypes.VolleyIntoDisease = "VolleyIntoDisease"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -3467,6 +3468,29 @@ JDT.Templates.GroupTypes.InteruptableVolleyIntoDmgReduce= {
         },
     }
 ), 
+}
+
+JDT.Templates.GroupTypes.VolleyIntoDisease= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Volley"),
+            isactive = true,
+        }, 
+        
+    },
+    doSound = JDT.SoundTypes.debuff,
+    type = JDT.AuraTypes.disease,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 
 JDT.Templates.GroupTypes.CollapsingStar= {

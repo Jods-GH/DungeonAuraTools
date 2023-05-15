@@ -838,7 +838,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.InteruptableVolleyIntoDiseaseDot] = {
+        [JDT.GroupTypes.VolleyIntoDisease] = {
             WitheringContagion = {
                 enabled = true,
                 spellId = 382802,
