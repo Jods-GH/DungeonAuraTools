@@ -71,6 +71,20 @@ bosses.boss1 = {  -- Scycaptain Kragg
                 }
             },
         },
+        [JDT.GroupTypes.SpellcastSucceededAvoid] ={
+            VileBombardment = {
+                enabled = true,
+                spellId = 256035, -- for spellname etc
+                triggerData = {
+                    {
+                        spellId = "256052",
+                        duration = "4",
+                        delay = "13",
+                    },
+
+                }
+            }
+        },
     }
 }
 
@@ -277,6 +291,22 @@ bosses.boss4 = {  -- Lord Harlan Sweete
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
+
+        [JDT.GroupTypes.AvoidCombatLogSuccess] ={
+            VileBombardment = {
+                enabled = true,
+                spellId = 256035, -- for spellname etc
+                triggerData = {
+                    {
+                        spellId = "257272",
+                        duration = "4",
+                        delay = "12",
+
+                    },
+
+                }
+            }
+        },
 
         [JDT.GroupTypes.Frontal] = {
             BrutalBackhand = {

@@ -579,6 +579,11 @@ JDT.generateTriggerfromGroupType.CombatLog = function(triggerData,AuraTemplate)
     if AuraTemplate.subeventSuffix then
         AuraTrigger.trigger.subeventSuffix = AuraTemplate.subeventSuffix
     end
+    if triggerData.delay then
+        AuraTrigger.trigger.use_delay = true
+		AuraTrigger.trigger.delay = triggerData.delay
+    end
+    
     return AuraTrigger
 end
 
@@ -596,5 +601,9 @@ JDT.generateTriggerfromGroupType.UnitSpellcastSucceeded = function(triggerData,A
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
     AuraTrigger.trigger.duration = triggerData.duration
+    if triggerData.delay then
+        AuraTrigger.trigger.use_delay = true
+		AuraTrigger.trigger.delay = triggerData.delay
+    end
     return AuraTrigger
 end
