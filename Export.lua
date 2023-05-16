@@ -235,7 +235,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                 if JDT.db.profile.CooldownTextFontSize then
                                     SpellTable.subRegions[2].text_fontSize = JDT.db.profile.CooldownTextFontSize
                                 end
-                                if JDT.db.profile.HideCooldownText then
+                                if AuraTemplate.HideCooldownText then
+                                    SpellTable.cooldownTextDisabled = AuraTemplate.HideCooldownText
+                                elseif JDT.db.profile.HideCooldownText then
                                     SpellTable.cooldownTextDisabled = JDT.db.profile.HideCooldownText 
                                 end
                                 if JDT.db.profile.IconWidth and JDT.db.profile.IconHeight then

@@ -7874,6 +7874,7 @@ JDT.Templates.GroupTypes.BlightshardSkitter= {
     },
     useHealth = 1,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    HideCooldownText = true,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
         {
          {
@@ -7891,7 +7892,10 @@ JDT.Templates.GroupTypes.BlightshardSkitter= {
                         property= "sub.4.text_visible",
                         value = true
                     },
-
+                    {
+                        property= "cooldownText",
+                        value = false,
+                    },
                 },
         },
     }
