@@ -826,7 +826,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.InteruptableVolley] = {
+        [JDT.GroupTypes.UnavoidableAoeBigAoeIfDebuff] = {
             SiphonDecay = {
                 enabled = true,
                 spellId = 382883,
@@ -834,6 +834,10 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "382883",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "382802",
                     },
 
                 }
