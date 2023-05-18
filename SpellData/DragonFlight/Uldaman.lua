@@ -544,7 +544,7 @@ bosses.Trash = {
                 showStacks = 1,
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "377510",
                     },
 
