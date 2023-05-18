@@ -242,6 +242,7 @@ JDT.GroupTypes.ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn = "ChainCastIntoSo
 JDT.GroupTypes.CastIntoDanceWhileDebuffed = "CastIntoDanceWhileDebuffed"
 JDT.GroupTypes.HasteBuffButItsADebuff = "HasteBuffButItsADebuff"
 JDT.GroupTypes.VolleyIntoDisease = "VolleyIntoDisease"
+JDT.GroupTypes.UnavoidableAoeBigAoeIfDebuff = "UnavoidableAoeBigAoeIfDebuff"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -1747,7 +1748,60 @@ JDT.Templates.GroupTypes.UnavoidableAoeBigAoeIfAdd = {
     }
 ), 
 }
-
+JDT.Templates.GroupTypes.UnavoidableAoeBigAoeIfDebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+            
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("AoE"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Big Aoe"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.selfcd,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1]\n end",
+    glowtype = "Ants",
+    showGlow = false,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+                {
+                    {
+                       condition={
+                          type = "simplecheck",
+                          trigger= 2,
+                          value = true,
+                           },
+                           changes = {
+                            {
+                                property = "sub.3.text_visible",
+                                value = false,
+                            },
+                            {
+                                property = "sub.4.text_visible",
+                                value = true,
+                            },
+                            {
+                                property = "sub.5.glow",
+                                value = true,
+                            },
+                           },
+                   },
+                  
+    }
+), 
+}
 
 JDT.Templates.GroupTypes.BossCastIntoStack = {
     AuraType = "AuraIcon",
