@@ -462,6 +462,7 @@ bosses.Trash = {
             SwiftWind = {
                 enabled = true,
                 spellId = 372711,
+                showStacks = 2,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
