@@ -389,7 +389,7 @@ JDT.Templates.GroupTypes.FrontalWithAoE = {
             isactive = true,
         }, 
     },
-    doSound = JDT.SoundTypes.frontal,
+    doSound = JDT.SoundTypes.avoid,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 JDT.Templates.GroupTypes.FrontalIntoDot = {
