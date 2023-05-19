@@ -585,6 +585,10 @@ JDT.generateTriggerfromGroupType.CombatLog = function(triggerData,AuraTemplate)
         AuraTrigger.trigger.use_delay = true
 		AuraTrigger.trigger.delay = triggerData.delay
     end
+    if triggerData.destUnit then
+        AuraTrigger.trigger.destUnit= triggerData.destUnit
+		AuraTrigger.trigger.use_destUnit = true
+    end
     
     return AuraTrigger
 end
