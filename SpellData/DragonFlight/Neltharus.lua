@@ -251,19 +251,22 @@ bosses.boss4 = {  -- Warlord Sargha
                 }
             },
         },
-        [JDT.GroupTypes.VoidCast] = {
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
             MoltenGold = {
                 enabled = true,
-                spellId = 377017, -- for spellname etc
+                spellId = 377017,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "377017",
-
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "377017",
                     },
 
                 }
-            }, 
+            },
         },
     }
 }
