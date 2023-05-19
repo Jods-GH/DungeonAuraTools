@@ -223,6 +223,21 @@ bosses.boss3 = {  -- Asaad
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
+        [JDT.GroupTypes.ArmorDeBuff] = {
+            SunderArmor = {
+                enabled = true,
+                spellId = 76622,
+                showStacks = 1,
+                additionalStackText = " /5",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "76622",
+                    }
+
+                }
+            },
+        },
         [JDT.GroupTypes.BuffCast] = {
             Rally = {
                 enabled = true,
@@ -357,6 +372,25 @@ bosses.Trash = {
                 }
             }
         },
+        [JDT.GroupTypes.CastIntoDot] ={
+            IcyBuffet = {
+                enabled = true,
+                spellId = 88194, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "88194",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "88194",
+
+                    },
+
+                }
+            }
+        },
         [JDT.GroupTypes.SpinToWin] = {
             StormSurge = {
                 enabled = true,
@@ -375,6 +409,7 @@ bosses.Trash = {
             LightningBolt = {
                 enabled = true,
                 spellId = 88032,
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -406,14 +441,20 @@ bosses.Trash = {
 
                 }
             },
-            LightningLash = {
+        },
+        [JDT.GroupTypes.TargetedCastWithSafeDeBuffDuringCast] = {
+            RushingWind = {
                 enabled = true,
                 spellId = 87762,
                 triggerData = {
                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "87762",
+                    },
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "87762",
-                    }
+                    },
 
                 }
             },
@@ -422,6 +463,7 @@ bosses.Trash = {
             RushingWind = {
                 enabled = true,
                 spellId = 410873,
+                showStacks = 2,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -436,18 +478,6 @@ bosses.Trash = {
             },
         },
         [JDT.GroupTypes.UnavoidableAoe] ={
-            IcyBuffet = {
-                enabled = true,
-                spellId = 88194, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "88194",
-
-                    },
-
-                }
-            },
             CrashingStone = {
                 enabled = true,
                 spellId = 413387, -- for spellname etc
