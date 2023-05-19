@@ -345,6 +345,21 @@ bosses.boss4 = {  -- Emberon
                 }
             },
         },
+        [JDT.GroupTypes.Dot] = {
+            ImbuedMagma = {
+                enabled = true,
+                spellId = 369006,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "369006",
+                    },
+    
+                }
+            },
+        },
+        
     }
 }
 bosses.boss5 = {  -- Chrono-Lord Deios
@@ -692,6 +707,7 @@ bosses.Trash = {
             HailofStone = {
                 enabled = true,
                 spellId = 369465, -- for spellname etc
+                type = JDT.AuraTypes.stun,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -701,6 +717,9 @@ bosses.Trash = {
 
                 }
             },
+            
+        },
+        [JDT.GroupTypes.LosCast] ={
             ThunderousClap = {
                 enabled = true,
                 spellId = 381593, -- for spellname etc
