@@ -243,6 +243,8 @@ JDT.GroupTypes.CastIntoDanceWhileDebuffed = "CastIntoDanceWhileDebuffed"
 JDT.GroupTypes.HasteBuffButItsADebuff = "HasteBuffButItsADebuff"
 JDT.GroupTypes.VolleyIntoDisease = "VolleyIntoDisease"
 JDT.GroupTypes.UnavoidableAoeBigAoeIfDebuff = "UnavoidableAoeBigAoeIfDebuff"
+JDT.GroupTypes.TargetedCastWithSafeDeBuffDuringCast = "TargetedCastWithSafeDeBuffDuringCast"
+JDT.GroupTypes.FirstHitAuraApplied = "FirstHitAuraApplied"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -5540,6 +5542,53 @@ JDT.Templates.GroupTypes.CastWithSafeDeBuffDuringCast =  {
     }
 ), 
 }
+JDT.Templates.GroupTypes.TargetedCastWithSafeDeBuffDuringCast =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+            target = JDT.Templates.Triggers.UnitTypes.player,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Hide"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Save"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.hide,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = true,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = true
+                },
+            },
+        },
+        
+    }
+), 
+}
 
 
 JDT.Templates.GroupTypes.StayAwayCast = {
@@ -5578,6 +5627,25 @@ JDT.Templates.GroupTypes.StayAwayCastIntoSpellAuraApplied= {
     doSound = JDT.SoundTypes.move,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+
+JDT.Templates.GroupTypes.FirstHitAuraApplied= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_AURA_APPLIED",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("First Hit"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.move,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
 JDT.Templates.GroupTypes.CastIntoChase =  {
     AuraType = "AuraIcon",
     triggers = {

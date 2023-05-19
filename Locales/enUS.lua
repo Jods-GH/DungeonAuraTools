@@ -334,6 +334,8 @@ LocalisationData["CastIntoDanceWhileDebuffed"] = "Cast that requires you to danc
 LocalisationData["HasteBuffButItsADebuff"] = "Haste Buff that is a debuff"
 LocalisationData["VolleyIntoDisease"] = "Volley tha leaves a disease debuff behind"
 LocalisationData["UnavoidableAoeBigAoeIfDebuff"] = "Aoe mechanic that deals increased damage if the player has a debuff"
+LocalisationData["TargetedCastWithSafeDeBuffDuringCast"] = "Hide Mechanic"
+LocalisationData["FirstHitAuraApplied"] = "Aura that tells you when the first hit will happen"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -508,6 +510,7 @@ LocalisationData["Healzone"] = "Healzone"
 LocalisationData["- haste"] = "- haste"
 LocalisationData["Despell/Heal"] = "Despell/Heal"
 LocalisationData["Break Chain"] = "Break Chain"
+LocalisationData["First Hit"] = "First Hit"
 
 --[[ 
 LocalisationData[""] = ""

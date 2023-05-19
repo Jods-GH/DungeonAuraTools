@@ -246,6 +246,22 @@ bosses.boss2 = {  -- Council o' Captains
                 }
             },
         },
+        [JDT.GroupTypes.Dot] ={
+            CuttingSurge  = {
+                enabled = true,
+                spellId = 267523, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "267523",
+
+                    },
+
+                }
+            }
+        },
+       
     }
 }
 bosses.boss3 = {  -- Ring of Booty
@@ -285,7 +301,62 @@ bosses.boss4 = {  -- Lord Harlan Sweete
     EncounterId = "2096", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = { 
+        [JDT.GroupTypes.FirstHitAuraApplied] ={
+            CannonBarrage  = {
+                enabled = true,
+                spellId = 257305, -- for spellname etc
+                triggerData = {
+                    {
+                        spellId = "257305",
+                        duration = "3.8",
+                        destUnit = "player",
+                    },
 
+                }
+            }
+        },
+        [JDT.GroupTypes.DodgeCast] = {
+            SwiftwindSaber = {
+                enabled = true,
+                spellId = 413145,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "413145",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpellcastSucceededAdds] ={
+            AvastYe= {
+                enabled = true,
+                spellId = 257316, -- for spellname etc
+                triggerData = {
+                    {
+                        spellId = "257316",
+                        duration = "3.2"
+    
+                    },
+    
+                }
+            }
+        },
+        [JDT.GroupTypes.Dot] ={
+            WhirlingDagger  = {
+                enabled = true,
+                spellId = 413136, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "413136",
+
+                    },
+
+                }
+            }
+        },
     }
 }
 bosses.Trash = {
