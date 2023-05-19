@@ -265,6 +265,7 @@ bosses.boss3 = {  -- Naraxas
         RancidMaw = {
             enabled = true,
             spellId = 205549, -- for spellname etc
+            extraName = " avoid",
             triggerData = {
                 {
                     spellId = "205549",
