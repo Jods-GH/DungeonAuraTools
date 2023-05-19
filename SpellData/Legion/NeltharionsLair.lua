@@ -247,6 +247,33 @@ bosses.boss3 = {  -- Naraxas
             }
         }
     },
+    [JDT.GroupTypes.SpellcastSucceededAdds] ={
+        CallMinions= {
+            enabled = true,
+            spellId = 199817, -- for spellname etc
+            triggerData = {
+                {
+                    spellId = "199817",
+                    duration = "6"
+
+                },
+
+            }
+        }
+    },
+    [JDT.GroupTypes.SpellcastSucceededAvoid] ={
+        RancidMaw = {
+            enabled = true,
+            spellId = 205549, -- for spellname etc
+            triggerData = {
+                {
+                    spellId = "205549",
+                    duration = "2",
+                },
+
+            }
+        }
+    },
     
     }
 }
