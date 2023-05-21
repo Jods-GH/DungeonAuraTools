@@ -528,18 +528,7 @@ bosses.Trash = {
             },
         },
         [JDT.GroupTypes.Dance] ={
-            ScorchingFusillade = {
-                enabled = true,
-                spellId = 373084, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "373084",
-
-                    },
-
-                }
-            },
+           
             ConflagrantBattery = {
                 enabled = true,
                 spellId = 372296, -- for spellname etc
@@ -562,6 +551,20 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "376200",
                     }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpreadCast] = {
+            ScorchingFusillade = {
+                enabled = true,
+                spellId = 373084, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "373084",
+
+                    },
 
                 }
             },
