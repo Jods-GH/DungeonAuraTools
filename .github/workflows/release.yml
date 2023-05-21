@@ -37,6 +37,7 @@ jobs:
           fetch-depth: 0  # gets git history for changelogs
           
       - name: Generate Changelog
+        id: Changelog
         run: .github/generate_changelog.sh
         #using Discord webhook to send release information
       - name: Discord Webhook Action
@@ -45,7 +46,7 @@ jobs:
           webhook-url: ${{ secrets.WEBHOOK_URL }}
           embed-title: New Release publlished
           embed-url: https://github.com/Jodsderechte/DungeonAuraTools/releases/latest
-          embed-description: CHANGELOG.md
+          embed-description:  ${{ steps.Changelog.outputs.CHANGELOG.md }}
       # once cloned, we just run the GitHub Action for the packager project
       - name: Package and release
         uses: BigWigsMods/packager@v2
