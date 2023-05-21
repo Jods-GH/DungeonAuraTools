@@ -50,12 +50,14 @@ JDT.Templates.Triggers.UnitTypes = {
     nameplate = "nameplate",
     smartGroup = "group",
 }
-
+JDT.Templates.Triggers.CheckUnits =  CopyTable(JDT.Templates.Triggers.UnitTypes)
 setmetatable(JDT.Templates.Triggers.UnitTypes, {
     __index = function(_, key)
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
     end,
 })
+
+
 
 JDT.Templates.Triggers.CombatLogTypes = {
     summon = "_SUMMON",
@@ -220,7 +222,7 @@ JDT.Templates.Triggers.UnitSpellcastSucceeded = { -- Unit Spell Cast Succeeded
         event = "Spell Cast Succeeded",
         use_specific_unit = false,
         use_unit = false,
-        unit = "boss1",
+        unit = "DONOTUSE",
         spellId = "12345",
 		use_spellId = true,
         subeventSuffix = "_CAST_START",
