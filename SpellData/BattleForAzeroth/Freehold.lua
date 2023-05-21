@@ -80,6 +80,7 @@ bosses.boss1 = {  -- Scycaptain Kragg
                         spellId = "256052",
                         duration = "4",
                         delay = "13",
+                        unit = "boss1"
                     },
 
                 }
@@ -367,6 +368,7 @@ bosses.Trash = {
             VileBombardment = {
                 enabled = true,
                 spellId = 256035, -- for spellname etc
+                loadInBossfight = false,
                 triggerData = {
                     {
                         spellId = "257272",

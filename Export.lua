@@ -611,5 +611,13 @@ JDT.generateTriggerfromGroupType.UnitSpellcastSucceeded = function(triggerData,A
         AuraTrigger.trigger.use_delay = true
 		AuraTrigger.trigger.delay = triggerData.delay
     end
+    
+    if triggerData.unit then
+        AuraTrigger.trigger.use_unit = true
+        AuraTrigger.trigger.unit = triggerData.unit
+        if not JDT.Templates.Triggers.CheckUnits[triggerData.unit] then
+            AuraTrigger.trigger.use_specific_unit = true
+        end
+    end
     return AuraTrigger
 end
