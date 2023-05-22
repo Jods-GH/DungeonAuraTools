@@ -527,8 +527,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.Dance] ={
-           
+        [JDT.GroupTypes.Dance] ={          
             ConflagrantBattery = {
                 enabled = true,
                 spellId = 372296, -- for spellname etc

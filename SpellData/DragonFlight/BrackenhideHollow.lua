@@ -459,7 +459,7 @@ bosses.Trash = {
             },
         },
         [JDT.GroupTypes.CastIntoAtackspeedSlowDisease] = {
-            SwiftWind = {
+            Withering = {
                 enabled = true,
                 spellId = 372711,
                 showStacks = 2,
