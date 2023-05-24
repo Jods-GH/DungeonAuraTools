@@ -138,7 +138,7 @@ JDT.SpellList.Affixes = {
             },
         },
        
-        [JDT.GroupTypes.InteruptableVolleyIntoDmgReduce] = {
+        [JDT.GroupTypes.StunableVolleyIntoDmgReduce] = {
             Incorporeal = {
                 enabled = true,
                 affixId = 136,
