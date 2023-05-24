@@ -245,6 +245,8 @@ JDT.GroupTypes.VolleyIntoDisease = "VolleyIntoDisease"
 JDT.GroupTypes.UnavoidableAoeBigAoeIfDebuff = "UnavoidableAoeBigAoeIfDebuff"
 JDT.GroupTypes.TargetedCastWithSafeDeBuffDuringCast = "TargetedCastWithSafeDeBuffDuringCast"
 JDT.GroupTypes.FirstHitAuraApplied = "FirstHitAuraApplied"
+JDT.GroupTypes.ImportantMoveBuff = "ImportantMoveBuff"
+JDT.GroupTypes.StunableVolleyIntoDmgReduce = "StunableVolleyIntoDmgReduce"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -305,6 +307,26 @@ JDT.Templates.GroupTypes.HealBuff = {
             isactive = true,
         },  
     },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.ImportantMoveBuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = "-"..JDT.getLocalisation("Move"),
+            isactive = true,
+        },  
+    },
+    glowtype = "ActionButton",
+    showGlow = true,
+    doSound = JDT.SoundTypes.move,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
@@ -3495,6 +3517,61 @@ JDT.Templates.GroupTypes.InteruptableVolleyIntoDmgReduce= {
     },
     doSound = JDT.SoundTypes.interrupt,
     type = JDT.AuraTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.6.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.7.border_visible",
+                        value = false
+                    },
+                },
+        },
+    }
+), 
+}
+
+JDT.Templates.GroupTypes.StunableVolleyIntoDmgReduce= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Volley"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("- dmg"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.cc,
+    type = JDT.AuraTypes.stun,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
         {
