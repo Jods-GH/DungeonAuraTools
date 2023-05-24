@@ -202,6 +202,21 @@ bosses.boss3 = {  -- Magmatusk
                 }
             },
         },
+        [JDT.GroupTypes.ImportantMoveBuff] ={
+            LavaEmpowerment = {
+                enabled = true,
+                spellId = 391457, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "391457",
+
+                    },
+
+                }
+            },
+        },
+          
     }
 }
 bosses.boss4 = {  -- Warlord Sargha
