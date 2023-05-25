@@ -46,7 +46,7 @@ jobs:
           webhook-url: ${{ secrets.WEBHOOK_URL }}
           embed-title: New Release publlished
           embed-url: https://github.com/Jodsderechte/DungeonAuraTools/releases/latest
-          embed-description:  ${{ steps.Changelog.outputs.CHANGELOG.md }}
+          embed-description:  ${{ steps.Changelog.outputs }}
       # once cloned, we just run the GitHub Action for the packager project
       - name: Package and release
         uses: BigWigsMods/packager@v2
