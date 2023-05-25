@@ -194,300 +194,300 @@ JDT.sortExportAuraChildren = function (a, b) -- sorts the auras in the export ta
 end
 
 JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey,numberOfAuras) 
-                                assert(JDT.Templates.GroupTypes[TypeKey] , "Error: Template for Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName.." not found") -- checks if Group type is set properly
-                                local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]  -- get template for aura
-                                local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
+    assert(JDT.Templates.GroupTypes[TypeKey] , "Error: Template for Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName.." not found") -- checks if Group type is set properly
+    local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]  -- get template for aura
+    local SpellTable = CopyTable(JDT.Templates[AuraTemplate.AuraType]) --- copy from template
 
-                                --set general options
-                                if JDT.db.profile.ShowTimer then
-                                    SpellTable.subRegions[2].text_visible = JDT.db.profile.ShowTimer -- enable/disable %p
-                                end
-                                
-                                -- set Fallback icon and display name
-                                assert(v.spellId, "Error: Spellid not found in Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName) -- checks if spellid is set properly
-                                local Spellname, _, Spellicon, _, _, _, SpellID = GetSpellInfo(v.spellId) 
-                                SpellTable.displayIcon = Spellicon
-                                SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname.." ["..SpellID.."]"-- set AuraName
-                                if v.extraName then -- add extra stuff if needed to not have duplicate id's
-                                    SpellTable.id= SpellTable.id..v.extraName 
-                                end
+    --set general options
+    if JDT.db.profile.ShowTimer then
+        SpellTable.subRegions[2].text_visible = JDT.db.profile.ShowTimer -- enable/disable %p
+    end
+    
+    -- set Fallback icon and display name
+    assert(v.spellId, "Error: Spellid not found in Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName) -- checks if spellid is set properly
+    local Spellname, _, Spellicon, _, _, _, SpellID = GetSpellInfo(v.spellId) 
+    SpellTable.displayIcon = Spellicon
+    SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname.." ["..SpellID.."]"-- set AuraName
+    if v.extraName then -- add extra stuff if needed to not have duplicate id's
+        SpellTable.id= SpellTable.id..v.extraName 
+    end
 
-                                --- create triggers 
-                                local TriggerTable =  CopyTable(JDT.Templates.Triggers.ActivationTemplate) 
-                                TriggerTable.disjunctive = AuraTemplate.activationType
-                                if AuraTemplate.activationType == JDT.Templates.Triggers.ActivationTypes.custom then -- set activation type to custom and add custom trigger logic if needed
-                                    TriggerTable.customTriggerLogic = AuraTemplate.customTriggerLogic
-                                end
-                                                               
-                                for trigger = 1,#AuraTemplate.triggers, 1 do -- iterate through all triggers and generate them
-                                    assert(v.triggerData and v.triggerData[trigger] , "Error: Triggerinfo for trigger"..trigger.." in Aura "..v.spellId.." in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName.." not found") -- checks if trigger data is set properly
-                                    local AuraTrigger = JDT.generateTriggerfromGroupType[AuraTemplate.triggers[trigger].triggerType](v.triggerData[trigger],AuraTemplate.triggers[trigger])
-                                    tinsert(TriggerTable,AuraTrigger)
-                                end
-                                SpellTable.triggers = TriggerTable
-
-                                -- create Conditions
-                                if AuraTemplate.conditions then
-                                    SpellTable.conditions = AuraTemplate.conditions
-                                end
-
-                                -- set CooldownTexts and Iconsize depending on options
-                                if JDT.db.profile.CooldownTextFontSize then
-                                    SpellTable.subRegions[2].text_fontSize = JDT.db.profile.CooldownTextFontSize
-                                end
-                                if AuraTemplate.HideCooldownText then
-                                    SpellTable.cooldownTextDisabled = AuraTemplate.HideCooldownText
-                                elseif JDT.db.profile.HideCooldownText then
-                                    SpellTable.cooldownTextDisabled = JDT.db.profile.HideCooldownText 
-                                end
-                                if JDT.db.profile.IconWidth and JDT.db.profile.IconHeight then
-                                    SpellTable.width = JDT.db.profile.IconWidth -- width of icon
-				                    SpellTable.height = JDT.db.profile.IconHeight -- height of icon
-                                end
-                                -- set Text to display below Aura (telling you what to do)
-                                for textkey,textvalue in pairs(AuraTemplate.text) do
-                                    local TextTemplate = CopyTable(JDT.Templates.TextRegions.TextToDisplay)
-                                    TextTemplate.text_text = textvalue.value
-                                    TextTemplate.text_visible = textvalue.isactive
-                                    if JDT.db.profile.FontOptions then
-                                        TextTemplate.text_font = JDT.db.profile.FontOptions
-                                    end
-                                    if JDT.db.profile.TextFontSize  then
-                                        TextTemplate.text_fontSize = JDT.db.profile.TextFontSize
-                                    end
+    --- create triggers 
+    local TriggerTable =  CopyTable(JDT.Templates.Triggers.ActivationTemplate) 
+    TriggerTable.disjunctive = AuraTemplate.activationType
+    if AuraTemplate.activationType == JDT.Templates.Triggers.ActivationTypes.custom then -- set activation type to custom and add custom trigger logic if needed
+        TriggerTable.customTriggerLogic = AuraTemplate.customTriggerLogic
+    end
                                     
+    for trigger = 1,#AuraTemplate.triggers, 1 do -- iterate through all triggers and generate them
+        assert(v.triggerData and v.triggerData[trigger] , "Error: Triggerinfo for trigger"..trigger.." in Aura "..v.spellId.." in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName.." not found") -- checks if trigger data is set properly
+        local AuraTrigger = JDT.generateTriggerfromGroupType[AuraTemplate.triggers[trigger].triggerType](v.triggerData[trigger],AuraTemplate.triggers[trigger])
+        tinsert(TriggerTable,AuraTrigger)
+    end
+    SpellTable.triggers = TriggerTable
 
-                                    for number, unit in textvalue.value:gmatch("%%(%d+)%.(%a+)") do -- if text  contains unit set replacement settings
-                                        TextTemplate["text_text_format_"..number.."."..unit.."_abbreviate_max"] = 8
-                                        TextTemplate["text_text_format_"..number.."."..unit.."_abbreviate"] = true
-                                        TextTemplate["text_text_format_"..number.."."..unit.."_realm_name"] = "never"
-                                        TextTemplate["text_text_format_"..number.."."..unit.."_color"] = "class"
-                                        TextTemplate["text_text_format_"..number.."."..unit.."_format"] = "Unit"
-                                      end
-                                                                     
-                                    tinsert(SpellTable.subRegions,TextTemplate)
-                            
-                                end
-                                -- set sound
-                                if AuraTemplate.doSound and JDT.db.profile.PlaySound and (JDT.db.profile.SoundKey and JDT.db.profile.SoundKey[JDT.TypesSound[AuraTemplate.doSound]] == true or not JDT.db.profile.SoundKey) then -- set Sound  JDT.Util.Functions.GetTableKeyFromEntry(AuraTemplate.doSound,JDT.SoundTypes)
-                                    SpellTable.actions.start.sound = AuraTemplate.doSound
-                                    SpellTable.actions.start.do_sound = true
-                                end
-                                -- set glow
-                                if AuraTemplate.glowtype then -- add glow
-                                    local GlowTemplate =  CopyTable(JDT.Templates.Glows[AuraTemplate.glowtype])
-                                    if AuraTemplate.useGlowColor then
-                                        GlowTemplate.useGlowColor = AuraTemplate.useGlowColor
-                                    end
-                                    if AuraTemplate.showGlow then
-                                        GlowTemplate.glow = AuraTemplate.showGlow
-                                    end
-                                    tinsert(SpellTable.subRegions,GlowTemplate)
-                                elseif v.glowtype then
-                                    local GlowTemplate =  CopyTable(JDT.Templates.Glows[v.glowtype])
-                                    if v.useGlowColor then
-                                        GlowTemplate.useGlowColor = v.useGlowColor
-                                    end
-                                    if v.showGlow then
-                                        GlowTemplate.glow = v.showGlow 
-                                    end
-                                    tinsert(SpellTable.subRegions,GlowTemplate)
-                                end
-                                -- set %tooltip value if needed
-                                if AuraTemplate.useTooltip then
-                                    local TextTemplate = CopyTable(JDT.Templates.TextRegions.TooltipDisplay)
-                                    TextTemplate.text_text = "%"..AuraTemplate.useTooltip..".tooltip1"
-                                    TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_format"] = "BigNumber"
-                                    TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_big_number_format"] = "AbbreviateNumbers"
+    -- create Conditions
+    if AuraTemplate.conditions then
+        SpellTable.conditions = AuraTemplate.conditions
+    end
 
-                                    tinsert(SpellTable.subRegions,TextTemplate)
-                                end
-                                -- set %health value if needed
-                                if AuraTemplate.useHealth then
-                                    local TextTemplate = CopyTable(JDT.Templates.TextRegions.HealthDisplay)
-                                    TextTemplate.text_text = "%"..AuraTemplate.useHealth..".health"
-                                    TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_format"] = "BigNumber"
-                                    TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_big_number_format"] = "AbbreviateNumbers"
-                                    tinsert(SpellTable.subRegions,TextTemplate)
-                                end
-                                -- set %count value if needed
-                                if AuraTemplate.useCount then
-                                    local TextTemplate = CopyTable(JDT.Templates.TextRegions.Count)
-                                    tinsert(SpellTable.subRegions,TextTemplate)
-                                end
-                                -- set %p if needed
-                               if AuraTemplate.useProgress then
-                                    local TextTemplate = CopyTable(JDT.Templates.TextRegions.Progress)
-                                    TextTemplate.text_text = "%"..AuraTemplate.useProgress..".p"
-                                    TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_legacy_floor"] = false
-						            TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_format"] = "timed"
-						            TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_precision"] = 1
-						            TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_dynamic_threshold"] = 3
-						            TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_mod_rate"] = true
-						            TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_format"] = 0
-                                    tinsert(SpellTable.subRegions,TextTemplate)
-                               end
-                                                            
+    -- set CooldownTexts and Iconsize depending on options
+    if JDT.db.profile.CooldownTextFontSize then
+        SpellTable.subRegions[2].text_fontSize = JDT.db.profile.CooldownTextFontSize
+    end
+    if AuraTemplate.HideCooldownText then
+        SpellTable.cooldownTextDisabled = AuraTemplate.HideCooldownText
+    elseif JDT.db.profile.HideCooldownText then
+        SpellTable.cooldownTextDisabled = JDT.db.profile.HideCooldownText 
+    end
+    if JDT.db.profile.IconWidth and JDT.db.profile.IconHeight then
+        SpellTable.width = JDT.db.profile.IconWidth -- width of icon
+        SpellTable.height = JDT.db.profile.IconHeight -- height of icon
+    end
+    -- set Text to display below Aura (telling you what to do)
+    for textkey,textvalue in pairs(AuraTemplate.text) do
+        local TextTemplate = CopyTable(JDT.Templates.TextRegions.TextToDisplay)
+        TextTemplate.text_text = textvalue.value
+        TextTemplate.text_visible = textvalue.isactive
+        if JDT.db.profile.FontOptions then
+            TextTemplate.text_font = JDT.db.profile.FontOptions
+        end
+        if JDT.db.profile.TextFontSize  then
+            TextTemplate.text_fontSize = JDT.db.profile.TextFontSize
+        end
+        
 
-                                                            
-                               -- set %s if needed 
-                                if v.showStacks then -- add Text for Stacks display if needed
-                                    local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
-                                    StacksText.text_text = "%"..v.showStacks..".s" -- sets trigger number for stacks
-                                    StacksText["text_text_format_"..v.showStacks..".s_format"] = "none"
-                                    if v.additionalStackText then
-                                        StacksText.text_text =  StacksText.text_text.." "..v.additionalStackText
-                                    end
-                                    if AuraTemplate.useHealth then
-                                        StacksText.text_anchorPoint = "INNER_TOPRIGHT"
-                                    end
-                                    table.insert(SpellTable.subRegions,StacksText)
-                                elseif AuraTemplate.showStacks then
-                                    local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
-                                    StacksText.text_text = "%"..AuraTemplate.showStacks..".s" -- sets trigger number for stacks
-                                    StacksText["text_text_format_"..AuraTemplate.showStacks..".s_format"] = "none"
-                                    if AuraTemplate.additionalStackText then
-                                        StacksText.text_text =  StacksText.text_text.." "..AuraTemplate.additionalStackText
-                                    end
-                                    if AuraTemplate.useHealth then
-                                        StacksText.text_anchorPoint = "INNER_TOPRIGHT"
-                                    end
-                                    table.insert(SpellTable.subRegions,StacksText)
-                                end
-                                -- set Border and %c depending on JDT.Auratype
-                                if AuraTemplate.customText then
-                                    local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
-                                    table.insert(SpellTable.subRegions,CustomText)
-                                    SpellTable.customText = JDT.Templates.CustomTextTemplates[AuraTemplate.customText](v.customTextInfo)
-                                    if v.type then
-                                        local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
-                                        BorderTable.border_color = JDT.Templates.Borders[v.type]
-                                        table.insert(SpellTable.subRegions,BorderTable)
-                                    elseif AuraTemplate.type then
-                                        local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
-                                        BorderTable.border_color = JDT.Templates.Borders[AuraTemplate.type]
-                                        table.insert(SpellTable.subRegions,BorderTable) 
-                                    end
+        for number, unit in textvalue.value:gmatch("%%(%d+)%.(%a+)") do -- if text  contains unit set replacement settings
+            TextTemplate["text_text_format_"..number.."."..unit.."_abbreviate_max"] = 8
+            TextTemplate["text_text_format_"..number.."."..unit.."_abbreviate"] = true
+            TextTemplate["text_text_format_"..number.."."..unit.."_realm_name"] = "never"
+            TextTemplate["text_text_format_"..number.."."..unit.."_color"] = "class"
+            TextTemplate["text_text_format_"..number.."."..unit.."_format"] = "Unit"
+            end
+                                            
+        tinsert(SpellTable.subRegions,TextTemplate)
 
-                                elseif v.type then -- add border color and custom text if needed
-                                    local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
-                                    table.insert(SpellTable.subRegions,CustomText)
-                                    
-                                    SpellTable.customText = JDT.Templates.CustomTextIcons[v.type]
+    end
+    -- set sound
+    if AuraTemplate.doSound and JDT.db.profile.PlaySound and (JDT.db.profile.SoundKey and JDT.db.profile.SoundKey[JDT.TypesSound[AuraTemplate.doSound]] == true or not JDT.db.profile.SoundKey) then -- set Sound  JDT.Util.Functions.GetTableKeyFromEntry(AuraTemplate.doSound,JDT.SoundTypes)
+        SpellTable.actions.start.sound = AuraTemplate.doSound
+        SpellTable.actions.start.do_sound = true
+    end
+    -- set glow
+    if AuraTemplate.glowtype then -- add glow
+        local GlowTemplate =  CopyTable(JDT.Templates.Glows[AuraTemplate.glowtype])
+        if AuraTemplate.useGlowColor then
+            GlowTemplate.useGlowColor = AuraTemplate.useGlowColor
+        end
+        if AuraTemplate.showGlow then
+            GlowTemplate.glow = AuraTemplate.showGlow
+        end
+        tinsert(SpellTable.subRegions,GlowTemplate)
+    elseif v.glowtype then
+        local GlowTemplate =  CopyTable(JDT.Templates.Glows[v.glowtype])
+        if v.useGlowColor then
+            GlowTemplate.useGlowColor = v.useGlowColor
+        end
+        if v.showGlow then
+            GlowTemplate.glow = v.showGlow 
+        end
+        tinsert(SpellTable.subRegions,GlowTemplate)
+    end
+    -- set %tooltip value if needed
+    if AuraTemplate.useTooltip then
+        local TextTemplate = CopyTable(JDT.Templates.TextRegions.TooltipDisplay)
+        TextTemplate.text_text = "%"..AuraTemplate.useTooltip..".tooltip1"
+        TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_format"] = "BigNumber"
+        TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_big_number_format"] = "AbbreviateNumbers"
 
-                                    local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
-                                    BorderTable.border_color = JDT.Templates.Borders[v.type]
-                                    table.insert(SpellTable.subRegions,BorderTable)
-                                elseif AuraTemplate.type then
-                                   
-                                    if type(AuraTemplate.type) == "table" then
-                                        for borderkey, bordevalue in ipairs(AuraTemplate.type) do
-                                            local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
-                                            CustomText.text_text = "%c"..borderkey
-                                            CustomText.text_visible = bordevalue.visible
-                                            CustomText["text_text_format_c"..borderkey.."_format"] = "none"
-                                            table.insert(SpellTable.subRegions,CustomText)
-                                            local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
-                                            BorderTable.border_color = JDT.Templates.Borders[bordevalue.type]
-                                            BorderTable.border_visible = bordevalue.visible
-                                            table.insert(SpellTable.subRegions,BorderTable)
-                                        end
-                                        SpellTable.customText = JDT.Templates.CustomTextIcons.generator(AuraTemplate.type)
-                                    else
-                                    local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
-                                    table.insert(SpellTable.subRegions,CustomText)
-                                    SpellTable.customText = JDT.Templates.CustomTextIcons[AuraTemplate.type]
-                                    local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
-                                    BorderTable.border_color = JDT.Templates.Borders[AuraTemplate.type]
-                                    table.insert(SpellTable.subRegions,BorderTable)
-                                    end
-                                end
-                                -- set %debuffclass if needed
-                                if AuraTemplate.useDebuffClass then
-                                    local CustomText = CopyTable(JDT.Templates.TextRegions.DebuffClassIcon)
-                                    CustomText.text_visible = AuraTemplate.debuffClassDefaultValue
-                                    table.insert(SpellTable.subRegions,CustomText)
-                                end
-
-                                 -- set load conditions
-                                 if DungeonValue.zoneId then 
-                                    SpellTable.load.use_zoneIds = true
-                                    SpellTable.load.zoneIds = DungeonValue.zoneId
-                                end
-                                if BossNameValue.EncounterId then
-                                    SpellTable.load.use_encounterid = true
-                                    SpellTable.load.encounterid = BossNameValue.EncounterId
-                                end
-                                if ExpansionValue.instanceSizeType then
-                                    SpellTable.load.use_size = true
-                                    if type(ExpansionValue.instanceSizeType) ~= "table" then
-                                    SpellTable.load.size = {
-                                        single = ExpansionValue.instanceSizeType,
-                                        multi = {
-                                        },
-                                    }
-                                    else
-                                        SpellTable.load.size = {
-                                            single = "",
-                                            multi = ExpansionValue.instanceSizeType,
-                                        }
-                                    end
-                                end
-
-                                if ExpansionValue.instanceDifficulty then
-                                    SpellTable.load.use_difficulty = true
-                                    SpellTable.load.difficulty = {
-                                        single = ExpansionValue.instanceDifficulty,
-                                    }
-                                end
-
-                                if v.affixId then
-                                    SpellTable.load.use_affixes = true
-                                    SpellTable.load.affixes = {
-                                        single = v.affixId,
-                                    }
-                                end
+        tinsert(SpellTable.subRegions,TextTemplate)
+    end
+    -- set %health value if needed
+    if AuraTemplate.useHealth then
+        local TextTemplate = CopyTable(JDT.Templates.TextRegions.HealthDisplay)
+        TextTemplate.text_text = "%"..AuraTemplate.useHealth..".health"
+        TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_format"] = "BigNumber"
+        TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_big_number_format"] = "AbbreviateNumbers"
+        tinsert(SpellTable.subRegions,TextTemplate)
+    end
+    -- set %count value if needed
+    if AuraTemplate.useCount then
+        local TextTemplate = CopyTable(JDT.Templates.TextRegions.Count)
+        tinsert(SpellTable.subRegions,TextTemplate)
+    end
+    -- set %p if needed
+    if AuraTemplate.useProgress then
+        local TextTemplate = CopyTable(JDT.Templates.TextRegions.Progress)
+        TextTemplate.text_text = "%"..AuraTemplate.useProgress..".p"
+        TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_legacy_floor"] = false
+        TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_format"] = "timed"
+        TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_precision"] = 1
+        TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_dynamic_threshold"] = 3
+        TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_mod_rate"] = true
+        TextTemplate["text_text_format_"..AuraTemplate.useProgress..".p_time_format"] = 0
+        tinsert(SpellTable.subRegions,TextTemplate)
+    end
                                 
-                                if v.RoleLoad then
-                                    if type(v.RoleLoad) == "table" then
-                                        SpellTable.load.use_role = false
-                                        SpellTable.load.role.multi =  v.RoleLoad
-                                    else
-                                        SpellTable.load.use_role = true
-                                        SpellTable.load.role.single =  v.RoleLoad
-                                    end
-                                end
+
                                 
-                                if v.loadInBossfight ~= nil then
-                                    SpellTable.load.use_encounter = v.loadInBossfight
-                                end
-                            
+    -- set %s if needed 
+    if v.showStacks then -- add Text for Stacks display if needed
+        local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
+        StacksText.text_text = "%"..v.showStacks..".s" -- sets trigger number for stacks
+        StacksText["text_text_format_"..v.showStacks..".s_format"] = "none"
+        if v.additionalStackText then
+            StacksText.text_text =  StacksText.text_text.." "..v.additionalStackText
+        end
+        if AuraTemplate.useHealth then
+            StacksText.text_anchorPoint = "INNER_TOPRIGHT"
+        end
+        table.insert(SpellTable.subRegions,StacksText)
+    elseif AuraTemplate.showStacks then
+        local StacksText = CopyTable(JDT.Templates.TextRegions.Stacks)
+        StacksText.text_text = "%"..AuraTemplate.showStacks..".s" -- sets trigger number for stacks
+        StacksText["text_text_format_"..AuraTemplate.showStacks..".s_format"] = "none"
+        if AuraTemplate.additionalStackText then
+            StacksText.text_text =  StacksText.text_text.." "..AuraTemplate.additionalStackText
+        end
+        if AuraTemplate.useHealth then
+            StacksText.text_anchorPoint = "INNER_TOPRIGHT"
+        end
+        table.insert(SpellTable.subRegions,StacksText)
+    end
+    -- set Border and %c depending on JDT.Auratype
+    if AuraTemplate.customText then
+        local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
+        table.insert(SpellTable.subRegions,CustomText)
+        SpellTable.customText = JDT.Templates.CustomTextTemplates[AuraTemplate.customText](v.customTextInfo)
+        if v.type then
+            local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+            BorderTable.border_color = JDT.Templates.Borders[v.type]
+            table.insert(SpellTable.subRegions,BorderTable)
+        elseif AuraTemplate.type then
+            local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+            BorderTable.border_color = JDT.Templates.Borders[AuraTemplate.type]
+            table.insert(SpellTable.subRegions,BorderTable) 
+        end
+
+    elseif v.type then -- add border color and custom text if needed
+        local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
+        table.insert(SpellTable.subRegions,CustomText)
+        
+        SpellTable.customText = JDT.Templates.CustomTextIcons[v.type]
+
+        local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+        BorderTable.border_color = JDT.Templates.Borders[v.type]
+        table.insert(SpellTable.subRegions,BorderTable)
+    elseif AuraTemplate.type then
+        
+        if type(AuraTemplate.type) == "table" then
+            for borderkey, bordevalue in ipairs(AuraTemplate.type) do
+                local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
+                CustomText.text_text = "%c"..borderkey
+                CustomText.text_visible = bordevalue.visible
+                CustomText["text_text_format_c"..borderkey.."_format"] = "none"
+                table.insert(SpellTable.subRegions,CustomText)
+                local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+                BorderTable.border_color = JDT.Templates.Borders[bordevalue.type]
+                BorderTable.border_visible = bordevalue.visible
+                table.insert(SpellTable.subRegions,BorderTable)
+            end
+            SpellTable.customText = JDT.Templates.CustomTextIcons.generator(AuraTemplate.type)
+        else
+        local CustomText = CopyTable(JDT.Templates.TextRegions.CustomText)
+        table.insert(SpellTable.subRegions,CustomText)
+        SpellTable.customText = JDT.Templates.CustomTextIcons[AuraTemplate.type]
+        local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
+        BorderTable.border_color = JDT.Templates.Borders[AuraTemplate.type]
+        table.insert(SpellTable.subRegions,BorderTable)
+        end
+    end
+    -- set %debuffclass if needed
+    if AuraTemplate.useDebuffClass then
+        local CustomText = CopyTable(JDT.Templates.TextRegions.DebuffClassIcon)
+        CustomText.text_visible = AuraTemplate.debuffClassDefaultValue
+        table.insert(SpellTable.subRegions,CustomText)
+    end
+
+        -- set load conditions
+        if DungeonValue.zoneId then 
+        SpellTable.load.use_zoneIds = true
+        SpellTable.load.zoneIds = DungeonValue.zoneId
+    end
+    if BossNameValue.EncounterId then
+        SpellTable.load.use_encounterid = true
+        SpellTable.load.encounterid = BossNameValue.EncounterId
+    end
+    if ExpansionValue.instanceSizeType then
+        SpellTable.load.use_size = true
+        if type(ExpansionValue.instanceSizeType) ~= "table" then
+        SpellTable.load.size = {
+            single = ExpansionValue.instanceSizeType,
+            multi = {
+            },
+        }
+        else
+            SpellTable.load.size = {
+                single = "",
+                multi = ExpansionValue.instanceSizeType,
+            }
+        end
+    end
+
+    if ExpansionValue.instanceDifficulty then
+        SpellTable.load.use_difficulty = true
+        SpellTable.load.difficulty = {
+            single = ExpansionValue.instanceDifficulty,
+        }
+    end
+
+    if v.affixId then
+        SpellTable.load.use_affixes = true
+        SpellTable.load.affixes = {
+            single = v.affixId,
+        }
+    end
+    
+    if v.RoleLoad then
+        if type(v.RoleLoad) == "table" then
+            SpellTable.load.use_role = false
+            SpellTable.load.role.multi =  v.RoleLoad
+        else
+            SpellTable.load.use_role = true
+            SpellTable.load.role.single =  v.RoleLoad
+        end
+    end
+    
+    if v.loadInBossfight ~= nil then
+        SpellTable.load.use_encounter = v.loadInBossfight
+    end
 
 
-                                -- generates uID's for Children and Links ParentGroup to Children and vice versa
-                                if v.uID then
-                                    SpellTable.uid = v.uID
-                                else
-                                local uId = WeakAuras.GenerateUniqueID()
-                                v.uID = uId
-                                SpellTable.uid = v.uID
-                                end
-                                SpellTable.parent = ExportTable.d.id
 
-                                -- sets other table values depending on parent group
-                                SpellTable.wagoID = ExpansionValue.wagoID
-                                SpellTable.preferToUpdate = ExpansionValue.preferToUpdate
-                                SpellTable.version = ExpansionValue.version
-                                SpellTable.source = ExpansionValue.source
-                                SpellTable.tocversion = ExpansionValue.tocversion
-                                SpellTable.semver = ExpansionValue.semver
-                                SpellTable.internalVersion = JDT.InternalWaVersion
-                                local version = ExpansionValue.version or 0
-                                SpellTable.url = JDT.ExpansionValues[ExpansionKey][1].."/"..version
-                                -- add aura into group
-                                table.insert(ExportTable.d.controlledChildren,SpellTable.id)
-                                table.insert(ExportTable.c,SpellTable)
-                                return SpellTable
+    -- generates uID's for Children and Links ParentGroup to Children and vice versa
+    if v.uID then
+        SpellTable.uid = v.uID
+    else
+    local uId = WeakAuras.GenerateUniqueID()
+    v.uID = uId
+    SpellTable.uid = v.uID
+    end
+    SpellTable.parent = ExportTable.d.id
+
+    -- sets other table values depending on parent group
+    SpellTable.wagoID = ExpansionValue.wagoID
+    SpellTable.preferToUpdate = ExpansionValue.preferToUpdate
+    SpellTable.version = ExpansionValue.version
+    SpellTable.source = ExpansionValue.source
+    SpellTable.tocversion = ExpansionValue.tocversion
+    SpellTable.semver = ExpansionValue.semver
+    SpellTable.internalVersion = JDT.InternalWaVersion
+    local version = ExpansionValue.version or 0
+    SpellTable.url = JDT.ExpansionValues[ExpansionKey][1].."/"..version
+    -- add aura into group
+    table.insert(ExportTable.d.controlledChildren,SpellTable.id)
+    table.insert(ExportTable.c,SpellTable)
+    return SpellTable
 end
 
 -- Trigger generators need addition value for other trigger types

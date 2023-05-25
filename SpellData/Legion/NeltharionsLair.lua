@@ -261,7 +261,7 @@ bosses.boss3 = {  -- Naraxas
             }
         }
     },
-    [JDT.GroupTypes.SpellcastSucceededAvoid] ={
+    [JDT.GroupTypes.AvoidCombatLogSuccess] ={
         RancidMaw = {
             enabled = true,
             spellId = 205549, -- for spellname etc
