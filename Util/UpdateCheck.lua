@@ -132,41 +132,48 @@ JDT.CheckIfAuraUpdates = function (self)
                     else
                         for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
                             for k,v in pairs(TypeValue) do 
-                                local AuraToCheck = JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue,ExpansionKey)
-                                local InstalledAura = WeakAuras.GetData(AuraToCheck.id)
-                                if v.enabled == true then
-                                    
-                                    if AuraToCheck and InstalledAura then 
-                                        JDT.adjustAuras(AuraToCheck,InstalledAura)
-                                    end
-                                    if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then             
-                                        --print(AuraToCheck.id)
-                                        if JDT.db.profile.DebugMode == true then
-                                               
-                                                --[[
-                                                local CompareData ={}
-                                                CompareData.AuraToCheck = AuraToCheck
-                                                CompareData.InstalledAura = InstalledAura
-                                            
-                                                ViragDevTool_AddData(AuraToCheck, "AuraToCheck")
-                                                ViragDevTool_AddData(InstalledAura, "InstalledAura")
-                                                ViragDevTool_AddData(difference, "difference1")
-                                                ViragDevTool_AddData(difference2, "difference2")
-                                                JDT.db.profile.testing = CompareData 
-                                                ]]
-                                                local difference,difference2 = JDT.findOutDifferenceBetweenTwoTables(AuraToCheck, InstalledAura)
-                                                JDT.DebugPrint(AuraToCheck.id)
-                                                JDT.DebugDump(difference)
-                                                JDT.DebugDump(difference2)
-                                        end
-                                        AuraUpdatesCount = AuraUpdatesCount +1  
-                                        AuraUpdatesTable[ExpansionKey] = true
-                                    end  
-                                elseif v.enabled == false and InstalledAura then 
+                                if not v.triggerData then -- check if aura was moved to a different grouptype
                                     AuraUpdatesCount = AuraUpdatesCount +1 
-                                    AuraUpdatesTable[ExpansionKey] = true     
+                                    AuraUpdatesTable[ExpansionKey] = true
+                                    JDT.db.profile.data[ExpansionKey].Auras[TypeKey][k] = nil
+                                    self:Print("Removed Aura "..k.." from Affixes please Reload to fix Potential Import Problems")                         
+                   
+                                    else  
+                                    local AuraToCheck = JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue,ExpansionKey)
+                                    local InstalledAura = WeakAuras.GetData(AuraToCheck.id)
+                                    if v.enabled == true then
+                                        
+                                        if AuraToCheck and InstalledAura then 
+                                            JDT.adjustAuras(AuraToCheck,InstalledAura)
+                                        end
+                                        if not InstalledAura or tCompare(AuraToCheck, InstalledAura , 10) ~= true then             
+                                            --print(AuraToCheck.id)
+                                            if JDT.db.profile.DebugMode == true then
+                                                
+                                                    --[[
+                                                    local CompareData ={}
+                                                    CompareData.AuraToCheck = AuraToCheck
+                                                    CompareData.InstalledAura = InstalledAura
+                                                
+                                                    ViragDevTool_AddData(AuraToCheck, "AuraToCheck")
+                                                    ViragDevTool_AddData(InstalledAura, "InstalledAura")
+                                                    ViragDevTool_AddData(difference, "difference1")
+                                                    ViragDevTool_AddData(difference2, "difference2")
+                                                    JDT.db.profile.testing = CompareData 
+                                                    ]]
+                                                    local difference,difference2 = JDT.findOutDifferenceBetweenTwoTables(AuraToCheck, InstalledAura)
+                                                    JDT.DebugPrint(AuraToCheck.id)
+                                                    JDT.DebugDump(difference)
+                                                    JDT.DebugDump(difference2)
+                                            end
+                                            AuraUpdatesCount = AuraUpdatesCount +1  
+                                            AuraUpdatesTable[ExpansionKey] = true
+                                        end  
+                                    elseif v.enabled == false and InstalledAura then 
+                                        AuraUpdatesCount = AuraUpdatesCount +1 
+                                        AuraUpdatesTable[ExpansionKey] = true     
+                                    end
                                 end
-                                
                             end 
                         end
                     end 
