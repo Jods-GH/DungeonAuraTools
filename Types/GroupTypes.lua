@@ -247,6 +247,7 @@ JDT.GroupTypes.TargetedCastWithSafeDeBuffDuringCast = "TargetedCastWithSafeDeBuf
 JDT.GroupTypes.FirstHitAuraApplied = "FirstHitAuraApplied"
 JDT.GroupTypes.ImportantMoveBuff = "ImportantMoveBuff"
 JDT.GroupTypes.StunableVolleyIntoDmgReduce = "StunableVolleyIntoDmgReduce"
+JDT.GroupTypes.FriendlyChainCastIntoChainDebuffIntoPostChainDebuff = "FriendlyChainCastIntoChainDebuffIntoPostChainDebuff"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -6512,12 +6513,38 @@ JDT.Templates.GroupTypes.VoidCastWithSuccess = {
     },
     text = {
         {   
-            value = JDT.getLocalisation("Avoid"),
+            value = JDT.getLocalisation("Avoid inc"),
             isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Avoid"),
+            isactive = false,
         }, 
     },
     doSound = JDT.SoundTypes.avoid,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = true
+                },
+             
+             },
+      
+        }
+    })
 }
 
 JDT.Templates.GroupTypes.BreathMonsterYell = {
@@ -8430,6 +8457,101 @@ JDT.Templates.GroupTypes.ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn = {
                     },
                     {
                         property= "sub.5.text_visible",
+                        value = true
+                    },
+                },
+            }, 
+    }
+), 
+}
+JDT.Templates.GroupTypes.FriendlyChainCastIntoChainDebuffIntoPostChainDebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, --chaincast
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, -- Friendly chain debuff
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, --Chain debuff on player
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, -- post chain debuff
+            BuffTypes = "debuff",
+        },
+        
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Chain inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Break Chain"),
+            isactive = false,
+        }, 
+        {   
+            value = "%1.destUnit",
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("Can't Chain"),
+            isactive = false,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 2,
+                   value = true,
+                    },
+                changes = {
+                    {
+                        property= "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = true
+                    },
+                },
+            }, 
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 3,
+                   value = true,
+                    },
+                changes = {
+                    {
+                        property= "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                },
+            }, 
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 4,
+                   value = true,
+                    },
+                changes = {
+                    {
+                        property= "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.6.text_visible",
                         value = true
                     },
                 },
