@@ -338,6 +338,7 @@ LocalisationData["UnavoidableAoeBigAoeIfDebuff"] = "Aoe mechanic that deals incr
 LocalisationData["TargetedCastWithSafeDeBuffDuringCast"] = "Hide Mechanic"
 LocalisationData["FirstHitAuraApplied"] = "Aura that tells you when the first hit will happen"
 LocalisationData["ImportantMoveBuff"] = "Aura that requires you to move"
+LocalisationData["FriendlyChainCastIntoChainDebuffIntoPostChainDebuff"] = "Chain cast that you need to avoid if it's on your Group Member"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -513,6 +514,8 @@ LocalisationData["- haste"] = "- haste"
 LocalisationData["Despell/Heal"] = "Despell/Heal"
 LocalisationData["Break Chain"] = "Break Chain"
 LocalisationData["First Hit"] = "First Hit"
+LocalisationData["Can't Chain"] = "Can't Chain"
+LocalisationData["Avoid inc"] = "Avoid inc"
 
 --[[ 
 LocalisationData[""] = ""

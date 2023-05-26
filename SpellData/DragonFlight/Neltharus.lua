@@ -288,7 +288,44 @@ bosses.boss4 = {  -- Warlord Sargha
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
+        [JDT.GroupTypes.FriendlyChainCastIntoChainDebuffIntoPostChainDebuff] ={
+            BurningCHain = {
+                enabled = true,
+                spellId = 371966, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,--chaincast
+                        spellId = "371966",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player, -- Friendly chain debuff
+                        spellId = "374451",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player, --Chain debuff on player
+                        spellId = "374451",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,  -- post chain debuff
+                        spellId = "371966",
+                    },
 
+                }
+            },
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            MoltenVulnerability = {
+                enabled = true,
+                spellId = 378221,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "378221",
+                    },
+
+                }
+            },
+        },
         [JDT.GroupTypes.Frontal] = {
             VolcanicGuard = {
                 enabled = true,
@@ -409,6 +446,7 @@ bosses.Trash = {
             ImbuedMagma = {
                 enabled = true,
                 spellId = 372472,
+                JDT.AuraTypes.magic,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
@@ -426,6 +464,18 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "378847",
+
+                    },
+
+                }
+            },
+            CandescentTempest = {
+                enabled = true,
+                spellId = 381663, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "381663",
 
                     },
 
