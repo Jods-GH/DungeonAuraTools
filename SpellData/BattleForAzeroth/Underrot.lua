@@ -184,6 +184,22 @@ bosses.boss3 = {  -- Sporecaller Zancha
                 }
             }
         },
+        [JDT.GroupTypes.Dot] ={
+            DecayingSpores = {
+                enabled = true,
+                spellId = 273226, -- for spellname etc
+                showStacks = 1,
+                type = JDT.AuraTypes.disease,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "273226",
+
+                    },
+
+                }
+            },
+        },
     }
 }
 bosses.boss4 = {  -- Unbound Abomination
@@ -301,6 +317,20 @@ bosses.Trash = {
 
                 }
             },
+            wickedEmbrace = {
+                enabled = true,
+                spellId = 266265, -- for spellname etc
+                showStacks = 1,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "266265",
+
+                    },
+
+                }
+            },
         },
         [JDT.GroupTypes.RageBuffCast] = {
             Warcry = {
@@ -328,7 +358,20 @@ bosses.Trash = {
                 }
             },
         },
+        [JDT.GroupTypes.RunOut] ={
+            SpiritDrain = {
+                enabled = true,
+                spellId = 265511, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265511",
 
+                    },
+
+                }
+            },
+        },
         [JDT.GroupTypes.PurgableImuneCast] = {
             ["GiftofG'huun"] = {
                 enabled = true,
