@@ -116,6 +116,22 @@ bosses.boss2 = {  -- Cragmaw the Infested
             },
 
         },
+        [JDT.GroupTypes.Dot] ={
+            SerratedFangs = {
+                enabled = true,
+                spellId = 260455, -- for spellname etc
+                showStacks = 1,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "260455",
+
+                    },
+
+                }
+            },
+        },
     }
 }
 bosses.boss3 = {  -- Sporecaller Zancha
