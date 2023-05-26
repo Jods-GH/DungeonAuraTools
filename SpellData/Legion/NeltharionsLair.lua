@@ -157,15 +157,19 @@ bosses.boss3 = {  -- Naraxas
     EncounterId = "1792", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = { 
-        [JDT.GroupTypes.VoidCast] = {
+        [JDT.GroupTypes.VoidCastWithSuccess] = {
             RancidMaw = {
                 enabled = true,
                 spellId = 205549, -- for spellname etc
                 triggerData = {
-                    [1] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "205549",
 
+                    },
+                    {
+                        spellId = "205549",
+                        duration = "2",
                     },
 
                 }
@@ -256,20 +260,6 @@ bosses.boss3 = {  -- Naraxas
                     spellId = "199817",
                     duration = "6"
 
-                },
-
-            }
-        }
-    },
-    [JDT.GroupTypes.AvoidCombatLogSuccess] ={
-        RancidMaw = {
-            enabled = true,
-            spellId = 205549, -- for spellname etc
-            extraName = " avoid",
-            triggerData = {
-                {
-                    spellId = "205549",
-                    duration = "2",
                 },
 
             }
@@ -421,6 +411,8 @@ bosses.boss4 = {  -- Dargrul the Underking
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
+        
+        
         [JDT.GroupTypes.Dot] ={
             BoneChomp = {
                 enabled = true,
