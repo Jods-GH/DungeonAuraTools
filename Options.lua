@@ -1,4 +1,5 @@
 local appName, JDT = ...
+
 ---@type AceConfigOptionsTable
 JDT.options = {
   name = "Addon Options",
@@ -10,19 +11,39 @@ JDT.options = {
         order = 0,
         func = function() JDT.exportAuras() end
         },
-        DebugMode = {
-          name = JDT.getLocalisation("DebugMode"),
-          desc = JDT.getLocalisation("DebugModeDescription"),
-          order = 30,
-          width = "full",
-          type = "toggle",
-          set = function(info,val)  JDT.db.profile.DebugMode = val end, --Sets value of SavedVariables depending on toggles
-          get = function(info)
-              return  JDT.db.profile.DebugMode --Sets value of toggles depending on SavedVariables 
+      DebugMode = {
+        name = JDT.getLocalisation("DebugMode"),
+        desc = JDT.getLocalisation("DebugModeDescription"),
+        order = 30,
+        width = "full",
+        type = "toggle",
+        set = function(info,val)  JDT.db.profile.DebugMode = val end, --Sets value of SavedVariables depending on toggles
+        get = function(info)
+            return  JDT.db.profile.DebugMode --Sets value of toggles depending on SavedVariables 
+        end,
+        confirm = true,
+        confirmText = JDT.getLocalisation("DebugWarning"), 
+      },
+      ToggleAnchor = {
+        name = JDT.getLocalisation("ToggleAnchor"),
+        desc = JDT.getLocalisation("ToggleAnchorDescription"),
+        order = 30,
+        width = "full",
+        type = "toggle",
+        set = function(info,val) 
+          JDT.RefreshAnchor(JDT.AnchorRefreshTypes.all)
+            if val == true then
+              JDT.Anchor:Show()  
+              JDT.StartDummyCooldown()          
+            else
+                JDT.Anchor:Hide()
+            end
+            JDT.db.profile.ToggleAnchor = val
           end,
-          confirm = true,
-          confirmText = JDT.getLocalisation("DebugWarning"), 
-    },
+        get = function(info)
+          return  JDT.db.profile.ToggleAnchor --Sets value of toggles depending on SavedVariables 
+        end,
+      },
       generaloptions={
         name = JDT.getLocalisation("GeneralOptions"),
         type = "group",
@@ -53,9 +74,12 @@ JDT.options = {
                 softMin = math.floor(-GetScreenWidth()/2),
                 softMax = math.ceil(GetScreenWidth()/2),
                 bigStep = 1,
-                set = function(info,val)  JDT.db.profile.xOffset = val end, --Sets value of SavedVariables depending on toggles
+                set = function(info,val)  
+                  JDT.db.profile.xOffset = val
+                  JDT.RefreshAnchor(JDT.AnchorRefreshTypes.xOffset)
+                 end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.xOffset  or 0--Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.xOffset --Sets value of toggles depending on SavedVariables 
                 end
     
               },
@@ -67,9 +91,12 @@ JDT.options = {
                 softMin = math.floor(-GetScreenHeight()/2),
                 softMax = math.ceil(GetScreenHeight()/2),
                 bigStep = 1,
-                set = function(info,val)  JDT.db.profile.yOffset = val end, --Sets value of SavedVariables depending on toggles
+                set = function(info,val)  
+                  JDT.db.profile.yOffset = val
+                  JDT.RefreshAnchor(JDT.AnchorRefreshTypes.yOffset)
+                 end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.yOffset or 0 --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.yOffset --Sets value of toggles depending on SavedVariables 
                 end
               },
               GroupLimit= {
@@ -85,7 +112,7 @@ JDT.options = {
                 bigStep = 1,
                 set = function(info,val)  JDT.db.profile.GroupLimit = val end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.GroupLimit or 7 --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.GroupLimit --Sets value of toggles depending on SavedVariables 
                 end
               },
               GrowOptionsSeperator={
@@ -132,9 +159,12 @@ JDT.options = {
                 min = 1,
                 step = 1,
                 bigStep = 1,
-                set = function(info,val)  JDT.db.profile.IconWidth = val end, --Sets value of SavedVariables depending on toggles
+                set = function(info,val)  
+                  JDT.db.profile.IconWidth = val 
+                  JDT.RefreshAnchor(JDT.AnchorRefreshTypes.IconWidth)
+                end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.IconWidth or 80  --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.IconWidth --Sets value of toggles depending on SavedVariables 
                 end
               },
               
@@ -150,9 +180,13 @@ JDT.options = {
                 min = 1,
                 step = 1,
                 bigStep = 1,
-                set = function(info,val)  JDT.db.profile.IconHeight = val end, --Sets value of SavedVariables depending on toggles
+                set = function(info,val)  
+                  JDT.db.profile.IconHeight = val
+                  JDT.RefreshAnchor(JDT.AnchorRefreshTypes.IconHeight)
+                 end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.IconHeight or 80  --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.IconHeight  --Sets value of toggles depending on SavedVariables 
+                    
                 end
               },
               
@@ -189,9 +223,10 @@ JDT.options = {
                 min = 1,
                 step = 1,
                 bigStep = 1,
-                set = function(info,val)  JDT.db.profile.CooldownTextFontSize = val end, --Sets value of SavedVariables depending on toggles
+                set = function(info,val)  JDT.db.profile.CooldownTextFontSize = val 
+                  JDT.RefreshAnchor(JDT.AnchorRefreshTypes.CooldownTextFontSize)end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.CooldownTextFontSize or 17  --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.CooldownTextFontSize  --Sets value of toggles depending on SavedVariables 
                 end
               },
               
@@ -203,9 +238,10 @@ JDT.options = {
                 type = "select",
                 width = 1.25,
                 values = JDT.FontMedias,
-                set = function(info,val)  JDT.db.profile.FontOptions = val end, --Sets value of SavedVariables depending on toggles
+                set = function(info,val)  JDT.db.profile.FontOptions = val
+                  JDT.RefreshAnchor(JDT.AnchorRefreshTypes.Font) end, --Sets value of SavedVariables depending on toggles
                 get = function(info) 
-                  return  JDT.db.profile.FontOptions or "Friz Quadrata TT"--Sets value of toggles depending on SavedVariables 
+                  return  JDT.db.profile.FontOptions --Sets value of toggles depending on SavedVariables 
                 end
               },
               TextFontSize= {
@@ -219,11 +255,12 @@ JDT.options = {
                 min = 1,
                 step = 1,
                 bigStep = 1,
-                set = function(info,val)  JDT.db.profile.TextFontSize = val end, --Sets value of SavedVariables depending on toggles
+                set = function(info,val)  JDT.db.profile.TextFontSize = val 
+                  JDT.RefreshAnchor(JDT.AnchorRefreshTypes.TextFontSize) end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
-                    return  JDT.db.profile.TextFontSize or 17  --Sets value of toggles depending on SavedVariables 
+                    return  JDT.db.profile.TextFontSize --Sets value of toggles depending on SavedVariables 
                 end
-    
+               
               },
               PlaySound = {
                 name = JDT.getLocalisation("PlaySound"),
