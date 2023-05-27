@@ -63,7 +63,7 @@ JDT.DummyCooldown = function() -- function that handles the display of cooldowns
     if JDT.Anchor:IsShown() then
         JDT.AnchorCooldown:SetCooldown(GetTime(), 10)
         JDT.DummyCooldownText()
-        C_Timer.After(11, function()  JDT.DummyCooldownStuff() end)
+        C_Timer.After(11, function()  JDT.DummyCooldown() end)
     end
 end
 
