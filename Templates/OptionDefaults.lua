@@ -12,8 +12,11 @@ JDT.OptionDefaults = {
 	  CooldownTextFontSize = 17,
 	  FontOptions = "Friz Quadrata TT",
 	  TextFontSize = 17,
+	  SoundKey = {},
 	}
   }
 
-
+  for SoundKey in pairs (JDT.SoundTypes) do
+	JDT.OptionDefaults.profile.SoundKey[SoundKey] = true
+  end
 

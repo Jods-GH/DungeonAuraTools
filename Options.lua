@@ -196,18 +196,20 @@ JDT.options = {
                 type = "toggle",
                 order = 53,
                 width = 2.5/3,
-                set = function(info,val)  JDT.db.profile.ShowTimer = val end, --Sets value of SavedVariables depending on toggles
+                set = function(info,val)  JDT.db.profile.ShowTimer = val 
+                  JDT.DummyCooldownText() end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
                     return  JDT.db.profile.ShowTimer --Sets value of toggles depending on SavedVariables 
                 end
               },
-              HideCooldownText = {
+              HideCooldownText = { -- "text" is misleading here it's the whole cd widget
                 name = JDT.getLocalisation("HideCooldownText"),
                 desc = JDT.getLocalisation("HideCooldownTextDescription"),
                 order = 54,
                 width = 2.5/3,
                 type = "toggle",
-                set = function(info,val)  JDT.db.profile.HideCooldownText = val end, --Sets value of SavedVariables depending on toggles
+                set = function(info,val)  JDT.db.profile.HideCooldownText = val 
+                  JDT.RefreshAnchor(JDT.AnchorRefreshTypes.HideCD)end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
                     return  JDT.db.profile.HideCooldownText --Sets value of toggles depending on SavedVariables 
                 end

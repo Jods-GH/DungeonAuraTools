@@ -38,22 +38,6 @@ JDT.CreateAnchor = function()
     return Anchor,text,cooldown,cooldownText
 end
 
-JDT.AnchorRefreshTypes = {
-    xOffset = "xOffset",
-    yOffset = "yOffset",
-    all = "all",
-    IconWidth = "IconWidth",
-    IconHeight = "IconHeight",
-    Font = "Font",
-    TextFontSize = "TextFontSize",
-    CooldownTextFontSize = "CooldownTextFontSize",
-}
-
-setmetatable(JDT.AnchorRefreshTypes, {
-    __index = function(_, key)
-        error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
-    end,
-})
 
 JDT.StartDummyCooldown = function() -- starter function incase we need to do different stuff aswell
     JDT.DummyCooldown()
@@ -77,6 +61,8 @@ JDT.DummyCooldownText = function() -- functino handling the display of cooldown 
         else
             JDT.AnchorCooldownText:SetText("")
         end
+    else
+        JDT.AnchorCooldownText:SetText("")
     end
 end
 
@@ -86,6 +72,25 @@ JDT.UpdateAnchorPositions = function() -- handles the setting of anchor position
     JDT.db.profile.yOffset = y-GetScreenHeight()/2
     AceConfigRegistry:NotifyChange(appName)
 end
+
+JDT.AnchorRefreshTypes = {
+    xOffset = "xOffset",
+    yOffset = "yOffset",
+    all = "all",
+    IconWidth = "IconWidth",
+    IconHeight = "IconHeight",
+    Font = "Font",
+    TextFontSize = "TextFontSize",
+    CooldownTextFontSize = "CooldownTextFontSize",
+    HideCD = "HideCD",
+}
+
+setmetatable(JDT.AnchorRefreshTypes, {
+    __index = function(_, key)
+        error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
+    end,
+})
+
 JDT.RefreshAnchor = function(type) -- refreshes the Anchors display if needed
     JDT.DebugPrint("updatingAnchor: "..type)
     if not JDT.Anchor then
@@ -113,6 +118,13 @@ JDT.RefreshAnchor = function(type) -- refreshes the Anchors display if needed
         if type == JDT.AnchorRefreshTypes.all or type == JDT.AnchorRefreshTypes.CooldownTextFontSize or type == JDT.AnchorRefreshTypes.Font then -- cooldown text size and font
             JDT.AnchorCooldownText:SetFont(SharedMedia:Fetch("font", JDT.db.profile.FontOptions), JDT.db.profile.CooldownTextFontSize, "OUTLINE")
         end
+        if type == JDT.AnchorRefreshTypes.all or type == JDT.AnchorRefreshTypes.HideCD then
+            if JDT.db.profile.HideCooldownText then
+                JDT.AnchorCooldown:Hide()
+            else
+                JDT.AnchorCooldown:Show()
+            end
+        end
 
         --[[
         if type == JDT.AnchorRefreshTypes.all or type == JDT.AnchorRefreshTypes. then
@@ -121,8 +133,6 @@ JDT.RefreshAnchor = function(type) -- refreshes the Anchors display if needed
         JDT.RefreshAnchor(JDT.AnchorRefreshTypes.yOffset,val)
         ]]
 
-        
-        JDT.AnchorCooldown:SetCooldown(GetTime(), 10) -- restarting the cooldown
         JDT.Anchor:SetScale(UIParent:GetEffectiveScale())  -- setting the UIScale since this might change between load of the addon and runtime
         return
     end
