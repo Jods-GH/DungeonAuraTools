@@ -20,12 +20,7 @@ function DungeonAuraTools:OnInitialize()
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("CHAT_MSG_ADDON")
     JDT.self = self
-    local DatatoPersist = {
-        profile = {
-            data = JDT.SpellList
-        }
-    }
-    JDT.db = LibStub("AceDB-3.0"):New("DungeonAuraTools",DatatoPersist, true) -- Generates Saved Variables with default Values (if they don't already exist)
+    JDT.db = LibStub("AceDB-3.0"):New("DungeonAuraTools",JDT.OptionDefaults, true) -- Generates Saved Variables with default Values (if they don't already exist)
     local OptionTable = {
         type = "group",
         args = {
@@ -41,7 +36,7 @@ function DungeonAuraTools:OnInitialize()
     self:RegisterChatCommand("dat", "SlashCommand")
     self:RegisterChatCommand("DungeonAuraTools", "SlashCommand")
   -- generates Data for Options Table
-    
+    JDT.db.profile.ToggleAnchor = false -- sets the anchor to hidden on startup
 end
 
 
@@ -70,8 +65,14 @@ end
 function DungeonAuraTools:SlashCommand(msg) -- called when slash command is used
     if msg == "export" then
         JDT.exportAuras()
+    elseif msg == "font" then
+        print(JDT.db.profile.TextFontSize)
+        print(JDT.db.profile.FontOptions)
+        print(SharedMedia:Fetch("font", JDT.db.profile.FontOptions))
+    elseif msg == "anchor" then
+        JDT.options.args.ToggleAnchor:set(not JDT.db.profile.ToggleAnchor)
     else
-    JDT.CreateOptionsFrame() 
+        JDT.CreateOptionsFrame() 
     end
 end
 

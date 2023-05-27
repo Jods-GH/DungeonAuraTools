@@ -51,6 +51,8 @@ LocalisationData["DebugWarning"] = "WARNING you are about to enable Debug Mode t
 LocalisationData["internalVersionMismatch"] = "Warning Internal Wa Version does not match Please alert the Author"
 LocalisationData["SoundTypeDescription"] = "Toggles all Soundfiles of the given type of being played by any Aura"
 LocalisationData["SoundOptions"] = "Sound Options"
+LocalisationData["ToggleAnchor"] = "ToggleAnchor"
+LocalisationData["ToggleAnchorDescription"] = "Toggle the display of an Anchor preview for generated auras"
 
     --[[ 
     LocalisationData[""] = ""

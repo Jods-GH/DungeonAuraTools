@@ -18,7 +18,7 @@
 			space = 2,
 			columnSpace = 1,
 			radius = 200,
-			selfPoint = "TOP",
+			selfPoint = "CENTER",
 			align = "CENTER",
 			stagger = 0,
 			backdropColor = {
