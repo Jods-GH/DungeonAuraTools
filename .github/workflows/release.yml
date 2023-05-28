@@ -21,6 +21,7 @@ jobs:
 
     # specify the environment variables used by the packager, matching the secrets from the project on GitHub
     env:
+      MESSAGE: "New Release Published:"
       CF_API_KEY: ${{ secrets.CF_API_KEY }}
       WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
       WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
@@ -45,12 +46,16 @@ jobs:
         id: readChanglog
         with:
           path: CHANGELOG.md
-        #using Discord webhook to send release information
+   
+      - name: Get Version
+        id: get_version
+        uses: battila7/get-version-action@v2
+       #using Discord webhook to send release information
       - name: Discord Webhook Action
         uses: tsickert/discord-webhook@v5.3.0
         with:
           webhook-url: ${{ secrets.WEBHOOK_URL }}
-          embed-title: New Release publlished
+          embed-title: ${{ env.MESSAGE }}${{ steps.get_version.outputs.version }}
           embed-url: https://github.com/Jodsderechte/DungeonAuraTools/releases/latest
           embed-description:  ${{ steps.readChanglog.outputs.text }}
       # once cloned, we just run the GitHub Action for the packager project
