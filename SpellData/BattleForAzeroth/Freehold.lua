@@ -396,6 +396,7 @@ bosses.Trash = {
             FrostBlast = {
                 enabled = true,
                 spellId = 257784,
+                type = JDT.AuraTypes.interrupt,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
