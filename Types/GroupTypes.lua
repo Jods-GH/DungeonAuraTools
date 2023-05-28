@@ -2145,7 +2145,7 @@ JDT.Templates.GroupTypes.HasteDeBuff = {
     triggers = {
          {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
-            BuffTypes = "buff",
+            BuffTypes = "debuff",
         },
     },
     text = {
