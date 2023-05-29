@@ -333,18 +333,6 @@ bosses.Trash = {
 
                 }
             },
-            Cloudburst = {
-                enabled = true,
-                spellId = 88170, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "88170",
-
-                    },
-
-                }
-            },
             OverloadGroundingField = {
                 enabled = true,
                 spellId = 413385, -- for spellname etc
@@ -352,6 +340,20 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "413385",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            Cloudburst = {
+                enabled = true,
+                spellId = 88170, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "88170",
 
                     },
 
