@@ -19,6 +19,7 @@ function DungeonAuraTools:OnInitialize()
     self:Print(JDT.getLocalisation("AccessOptionsMessage"))
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("CHAT_MSG_ADDON")
+    self:RegisterEvent("ZONE_CHANGED_NEW_AREA")
     JDT.self = self
     JDT.db = LibStub("AceDB-3.0"):New("DungeonAuraTools",JDT.OptionDefaults, true) -- Generates Saved Variables with default Values (if they don't already exist)
     local OptionTable = {
@@ -95,4 +96,28 @@ function DungeonAuraTools:CHAT_MSG_ADDON(event, prefix, version , channel, sende
             self:Print(JDT.getLocalisation("VersionCheckMessage"))
         end
     end 
+end
+
+local mapidToZone = {}
+for expansion in pairs(JDT.SpellList) do
+    if expansion ~= "Affixes" then
+        for dungeon in pairs(JDT.SpellList[expansion].Dungeons) do
+            mapidToZone[JDT.SpellList[expansion].Dungeons[dungeon].zoneId] = {
+                    expansion = expansion,
+                    dungeon = dungeon,
+                }
+        end
+    end
+end
+
+function DungeonAuraTools:ZONE_CHANGED_NEW_AREA(event)
+    local mapid = C_Map.GetBestMapForUnit("player")
+    if mapid then
+        local mapGroupId = C_Map.GetMapGroupID(mapid)
+        if mapGroupId  then
+            -- ViragDevTool_AddData(JDT.SpellList[mapidToZone["g"..mapGroupId].expansion].Dungeons[mapidToZone["g"..mapGroupId].dungeon])
+        else
+            -- ViragDevTool_AddData(JDT.SpellList[mapidToZone[mapid].expansion].Dungeons[mapidToZone[mapid].dungeon])
+        end
+    end
 end
