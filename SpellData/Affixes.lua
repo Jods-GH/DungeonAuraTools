@@ -164,8 +164,6 @@ JDT.SpellList.Affixes = {
                 spellId = 409492,
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "409492",
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,

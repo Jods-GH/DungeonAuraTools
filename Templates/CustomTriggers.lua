@@ -67,3 +67,11 @@ JDT.Templates.CustomTriggers.WashAway = function()
     }
     return trigger
 end
+
+JDT.Templates.CustomTriggers.Afflicted = function()
+    local trigger = {
+        customTrigger = "function(s, event, ...) -- credits to sune https://wago.io/S2Affixes\n if event == \"COMBAT_LOG_EVENT_UNFILTERED\" then\nlocal subEvent = select(2, ...)\nif subEvent == \"SPELL_CAST_START\" then\nlocal spellID = select(12, ...)\nlocal guid = select(4, ...)\nif spellID == 409492 then\ns[guid] = {\n show = true,\n changed = true, \n autoHide = true,\n progressType = \"timed\",\n duration = 10,\n expirationTime = 10 + GetTime(), \nicon = 237555,  \n} \n return true \n end \n elseif subEvent == \"SPELL_DISPEL\" or subEvent == \"SPELL_STOLEN\" then \n  local spellID = select(15, ...) \n local guid = select(8, ...)\n if (spellID == 409465 or spellID == 409470 or spellID == 409472) and s[guid] then\n s[guid].changed = true\ns[guid].show = false \nreturn true \nend \nend\n elseif event == \"UNIT_SPELLCAST_STOP\"  and ... then\nlocal unit, _, spellID = ... \nlocal guid = UnitGUID(unit)\nif spellID == 409492 and s[guid] then\n s[guid].changed = true\n s[guid].show = false\n  return true\n  end\nend\nend",
+        customEvents = "CLEU:SPELL_CAST_START:SPELL_DISPEL:SPELL_STOLEN UNIT_SPELLCAST_STOP",
+    }
+    return trigger
+end

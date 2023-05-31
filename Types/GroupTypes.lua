@@ -2703,7 +2703,8 @@ JDT.Templates.GroupTypes.Afflicted= {
     AuraType = "AuraIcon",
     triggers = {
         {
-            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+            triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
+            customPreset = "Afflicted"
         },
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
@@ -8528,6 +8529,7 @@ JDT.Templates.GroupTypes.FriendlyChainCastIntoChainDebuffIntoPostChainDebuff = {
                    trigger= 3,
                    value = true,
                     },
+                linked = true,
                 changes = {
                     {
                         property= "sub.3.text_visible",
@@ -8545,6 +8547,7 @@ JDT.Templates.GroupTypes.FriendlyChainCastIntoChainDebuffIntoPostChainDebuff = {
                    trigger= 4,
                    value = true,
                     },
+                linked = true,
                 changes = {
                     {
                         property= "sub.3.text_visible",
