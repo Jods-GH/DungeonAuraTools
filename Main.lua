@@ -131,10 +131,10 @@ function DungeonAuraTools:ZONE_CHANGED_NEW_AREA(event)
         local mapid = C_Map.GetBestMapForUnit("player")
         if mapid then
             local mapGroupId = C_Map.GetMapGroupID(mapid)
-            if mapGroupId and mapidToZone["g"..mapGroupId] then
-                WeakAuras.Import(CreateAurasForDungeon(mapidToZone["g"..mapGroupId].expansion,mapidToZone["g"..mapGroupId].dungeon))
+            if mapGroupId and mapidToZone["g"..mapGroupId] and not WeakAuras.GetData("DungeonAuras_"..mapidToZone["g"..mapGroupId].dungeon) then
+                    WeakAuras.Import(CreateAurasForDungeon(mapidToZone["g"..mapGroupId].expansion,mapidToZone["g"..mapGroupId].dungeon)) 
                 -- ViragDevTool_AddData(JDT.SpellList[mapidToZone["g"..mapGroupId].expansion].Dungeons[mapidToZone["g"..mapGroupId].dungeon])
-            elseif mapidToZone[mapid] then    
+            elseif mapidToZone[mapid] and not WeakAuras.GetData("DungeonAuras_"..mapidToZone[mapid].dungeon) then    
                 WeakAuras.Import(CreateAurasForDungeon(mapidToZone[mapid].expansion,mapidToZone[mapid].dungeon))
                 -- ViragDevTool_AddData(JDT.SpellList[mapidToZone[mapid].expansion].Dungeons[mapidToZone[mapid].dungeon])
             end
