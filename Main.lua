@@ -22,6 +22,7 @@ function DungeonAuraTools:OnInitialize()
     self:RegisterEvent("ZONE_CHANGED_NEW_AREA")
     JDT.self = self
     JDT.db = LibStub("AceDB-3.0"):New("DungeonAuraTools",JDT.OptionDefaults, true) -- Generates Saved Variables with default Values (if they don't already exist)
+
     local OptionTable = {
         type = "group",
         args = {
@@ -110,14 +111,33 @@ for expansion in pairs(JDT.SpellList) do
     end
 end
 
+local CreateAurasForDungeon = function(ExpansionKey,DungeonKey)
+    local ExportTable = JDT.CreateGroupToExport(DungeonKey,JDT.db.profile.data[ExpansionKey])
+    for  BossNameKey, BossNameValue in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses) do  
+        for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
+            for k,v in pairs(TypeValue) do 
+                if v.enabled == true then
+                    JDT.buildAura(ExportTable,JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey],BossNameValue,TypeKey,v,JDT.db.profile.data[ExpansionKey],ExpansionKey)       
+                end
+            end
+        end
+    end
+    table.sort(ExportTable.c, JDT.sortExportAuraChildren)
+    return ExportTable
+end
+
 function DungeonAuraTools:ZONE_CHANGED_NEW_AREA(event)
-    local mapid = C_Map.GetBestMapForUnit("player")
-    if mapid then
-        local mapGroupId = C_Map.GetMapGroupID(mapid)
-        if mapGroupId  then
-            -- ViragDevTool_AddData(JDT.SpellList[mapidToZone["g"..mapGroupId].expansion].Dungeons[mapidToZone["g"..mapGroupId].dungeon])
-        else
-            -- ViragDevTool_AddData(JDT.SpellList[mapidToZone[mapid].expansion].Dungeons[mapidToZone[mapid].dungeon])
+    if JDT.db.profile.ExportOnDungeonEntry then
+        local mapid = C_Map.GetBestMapForUnit("player")
+        if mapid then
+            local mapGroupId = C_Map.GetMapGroupID(mapid)
+            if mapGroupId and mapidToZone["g"..mapGroupId] then
+                WeakAuras.Import(CreateAurasForDungeon(mapidToZone["g"..mapGroupId].expansion,mapidToZone["g"..mapGroupId].dungeon))
+                -- ViragDevTool_AddData(JDT.SpellList[mapidToZone["g"..mapGroupId].expansion].Dungeons[mapidToZone["g"..mapGroupId].dungeon])
+            elseif mapidToZone[mapid] then    
+                WeakAuras.Import(CreateAurasForDungeon(mapidToZone[mapid].expansion,mapidToZone[mapid].dungeon))
+                -- ViragDevTool_AddData(JDT.SpellList[mapidToZone[mapid].expansion].Dungeons[mapidToZone[mapid].dungeon])
+            end
         end
     end
 end

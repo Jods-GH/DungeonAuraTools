@@ -53,7 +53,8 @@ LocalisationData["SoundTypeDescription"] = "Toggles all Soundfiles of the given 
 LocalisationData["SoundOptions"] = "Sound Options"
 LocalisationData["ToggleAnchor"] = "ToggleAnchor"
 LocalisationData["ToggleAnchorDescription"] = "Toggle the display of an Anchor preview for generated auras"
-
+LocalisationData["ExportOnDungeonEntry"] = "Export on Dungeon Entry"
+LocalisationData["ExportOnDungeonEntryDescription"] = "Exports Dungeon Auras whenever you enter a Dungeon"
     --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""

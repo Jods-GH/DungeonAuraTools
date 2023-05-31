@@ -69,10 +69,35 @@ function TableToString(inTable) -- code from WeakAuras
     local encoded = "!WA:2!"
     encoded = encoded .. LibDeflate:EncodeForPrint(compressed)
     return encoded
-  end
+end
+JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVersion) 
+    local ExportTable = JDT.CreateGroupToExport(ExpansionKey,ExpansionValue,shouldIncrimentVersion)
+    if ExpansionKey == "Affixes" then -- special handling because there is no "dungeons" subtable in this group
+        for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
+            for k,v in pairs(TypeValue) do 
+                if v.enabled == true then
+                    JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue,ExpansionKey)             
+                end
+            end 
+        end
+    else
+        for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
+            for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
+                    for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
+                        for k,v in pairs(TypeValue) do 
+                            if v.enabled == true then
+                                JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)       
+                            end
+                        end
+                end
+            end
+        end
+    end
+    table.sort(ExportTable.c, JDT.sortExportAuraChildren)
+    return ExportTable
+end
 
-
-JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVersion)
+JDT.CreateGroupToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVersion)
     local ExportTable = CopyTable(JDT.DataToExport) -- get a copy of the ExportTemplate
     ExportTable.d = CopyTable(JDT.Templates.DynamicGroup) -- get a Copy of the DynamicGroup Template
     -- set Aura Name
@@ -99,7 +124,7 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
     ExportTable.d.version = ExpansionValue.version
     ExportTable.d.semver = ExpansionValue.semver
     -- set url so updating works (because of how WA internal updating works)
-    ExportTable.d.url = JDT.ExpansionValues[ExpansionKey][1].."/"..version 
+    ExportTable.d.url = "https://wago.io/DungeonAuras_"..ExpansionKey.."/"..version 
     -- calculate and set tocversion
     local _,_,_,tocversion = GetBuildInfo()
     ExpansionValue.tocversion = tocversion 
@@ -138,29 +163,6 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
         ExportTable.d.xOffset  = JDT.db.profile.xOffset
         ExportTable.d.yOffset = JDT.db.profile.yOffset
     end
-     
-        if ExpansionKey == "Affixes" then -- special handling because there is no "dungeons" subtable in this group
-            for TypeKey,TypeValue in pairs(ExpansionValue.Auras) do
-                for k,v in pairs(TypeValue) do 
-                    if v.enabled == true then
-                        JDT.buildAura(ExportTable,{groupName= ExpansionValue.groupName},{additionalName = ""},TypeKey,v,ExpansionValue,ExpansionKey)             
-                    end
-                end 
-            end
-        else
-            for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
-                for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
-                        for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
-                            for k,v in pairs(TypeValue) do 
-                                if v.enabled == true then
-                                    JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)       
-                                end
-                            end
-                    end
-                end
-            end
-        end
-        table.sort(ExportTable.c, JDT.sortExportAuraChildren)
     return ExportTable
 end
 

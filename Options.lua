@@ -27,7 +27,7 @@ JDT.options = {
       ToggleAnchor = {
         name = JDT.getLocalisation("ToggleAnchor"),
         desc = JDT.getLocalisation("ToggleAnchorDescription"),
-        order = 30,
+        order = 40,
         width = "full",
         type = "toggle",
         set = function(info,val) 
@@ -42,6 +42,19 @@ JDT.options = {
           end,
         get = function(info)
           return  JDT.db.profile.ToggleAnchor --Sets value of toggles depending on SavedVariables 
+        end,
+      },
+      ExportOnDungeonEntry = {
+        name = JDT.getLocalisation("ExportOnDungeonEntry"),
+        desc = JDT.getLocalisation("ExportOnDungeonEntryDescription"),
+        order = 50,
+        width = "full",
+        type = "toggle",
+        set = function(info,val) 
+            JDT.db.profile.ExportOnDungeonEntry = val
+          end,
+        get = function(info)
+          return  JDT.db.profile.ExportOnDungeonEntry --Sets value of toggles depending on SavedVariables 
         end,
       },
       generaloptions={
