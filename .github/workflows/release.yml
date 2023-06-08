@@ -46,7 +46,17 @@ jobs:
         id: readChanglog
         with:
           path: CHANGELOG.md
-          
+      - name: Pushes test file
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: GITHUB_OAUTH
+        with:
+          source_file: 'README.md'
+          destination_repo: 'Jodsderechte/Jodsderechte.github.io'
+          destination_folder: 'CrossOriginStuff/DungeonAuraTools'
+          user_email: ${{ secrets.USER_MAIL }}
+          user_name: ${{ secrets.USER_NAME }}
+          commit_message: 'Update DungeonAuraTools for newest Release'    
        #using Discord webhook to send release information
       - name: Discord Webhook Action
         uses: tsickert/discord-webhook@v5.3.0
