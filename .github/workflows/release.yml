@@ -46,7 +46,7 @@ jobs:
         id: readChanglog
         with:
           path: CHANGELOG.md
-      - name: Pushes test file
+      - name: Pushes readme to Website repo
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
           API_TOKEN_GITHUB: GITHUB_OAUTH
