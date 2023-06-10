@@ -30,7 +30,7 @@ jobs:
         with:
           source_file: 'README.md'
           destination_repo: 'Jodsderechte/Jodsderechte.github.io'
-          destination_folder: 'Addons/DungeonAuraTools'
+          destination_folder: 'CrossOriginStuff/DungeonAuraTools/'
           user_email: ${{ secrets.USER_MAIL }}
           user_name: ${{ secrets.USER_NAME }}
           commit_message: 'Update DungeonAuraTools for newest Release'
