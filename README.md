@@ -11,7 +11,7 @@ Dungeon Aura Tools dynamically creates Dungeon WeakAuras based on user selection
 Supports all important Dungeon spells and some M+ Affixes.
 
 ## Quick Start:
-To open the options window, type /jdt or /DungeonAuraTools into your chat and hit enter.
+To open the options window, type /Jdt or /DungeonAuraTools into your chat and hit enter.
 
 ## Options for Changing your Auras when they were generated:
 
