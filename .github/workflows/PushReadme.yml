@@ -16,7 +16,7 @@ on:
 jobs:
 
   # "request" is a job, you can name it anything you want
-  setup:
+  pushData:
     runs-on: ubuntu-latest
     outputs:
       wa_List: ${{ env.steps.readWaList.outputs.content }}
