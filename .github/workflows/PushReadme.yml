@@ -26,7 +26,7 @@ jobs:
       - name: Pushes readme to Website repo
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
-          API_TOKEN_GITHUB: ${{secrets.GITHUB_TOKEN}} 
+          API_TOKEN_GITHUB: ${{secrets.API_TOKEN_GITHUB}} 
         with:
           source_file: 'README.md'
           destination_repo: 'Jodsderechte/Jodsderechte.github.io'
