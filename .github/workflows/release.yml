@@ -45,18 +45,7 @@ jobs:
         uses: pCYSl5EDgo/cat@master
         id: readChanglog
         with:
-          path: CHANGELOG.md
-      - name: Pushes readme to Website repo
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        env:
-          API_TOKEN_GITHUB: GITHUB_OAUTH
-        with:
-          source_file: 'README.md'
-          destination_repo: 'Jodsderechte/Jodsderechte.github.io'
-          destination_folder: 'Addons/DungeonAuraTools'
-          user_email: ${{ secrets.USER_MAIL }}
-          user_name: ${{ secrets.USER_NAME }}
-          commit_message: 'Update DungeonAuraTools for newest Release'    
+          path: CHANGELOG.md   
        #using Discord webhook to send release information
       - name: Discord Webhook Action
         uses: tsickert/discord-webhook@v5.3.0
