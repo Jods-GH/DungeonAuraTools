@@ -3,6 +3,7 @@
 [![Wago][SVG-Wago]][Wago]
 [![Translate][SVG-Translate]][Translate]
 [![Release][SVG-Release]][Release]
+[![Curseforge][SVG-Curseforge]][Curseforge]
 
 # DungeonAuraTools
 Dungeon Aura Tools dynamically creates Dungeon WeakAuras based on user selections to indicate buffs, debuffs, casts, and other relevant information.
@@ -47,10 +48,10 @@ Simply fork the repo and make any changes to the appropriate section, submit a p
 [Wago]: https://wago.io/p/Jodsderechte (Check out my Weakauras)
 [Release]: https://github.com/Jodsderechte/DungeonAuraTools/releases/latest (Latest release)
 [Translate]: https://legacy.curseforge.com/wow/addons/dungeon-aura-tools/localization (Help Translate)
-
+[Curseforge]: https://legacy.curseforge.com/wow/addons/dungeon-aura-tools
 
 [//]: # (Images)
-
+[SVG-Curseforge]: https://cf.way2muchnoise.eu/short_662863.svg
 [SVG-Discord]: https://img.shields.io/badge/Discord-7289da?logo=discord&logoColor=fff&style=flat-square
 [SVG-PayPal]: https://custom-icon-badges.demolab.com/badge/-Donate-lightgrey?style=flat-square&logo=paypal&color=007CB1
 [SVG-Wago]: https://custom-icon-badges.demolab.com/badge/-WeakAuras-lightgrey?style=flat-square&logo=weakauras&color=22283D
