@@ -18,8 +18,6 @@ jobs:
   # "request" is a job, you can name it anything you want
   pushData:
     runs-on: ubuntu-latest
-    outputs:
-      wa_List: ${{ env.steps.readWaList.outputs.content }}
     steps:  
       - name: Clone project
         uses: actions/checkout@v3
