@@ -1,6 +1,11 @@
 local appName, JDT = ...
 local SharedMedia = LibStub("LibSharedMedia-3.0") 
 local AceConfigRegistry = LibStub("AceConfigRegistry-3.0")
+---creates the Anchor Frame
+---@return Frame Anchor
+---@return FontString TextBelowAnchor
+---@return Cooldown|CooldownFrameTemplate CDFrame
+---@return FontString CDText
 JDT.CreateAnchor = function()
     -- main frame
     local Anchor = CreateFrame("Frame") 
@@ -38,20 +43,20 @@ JDT.CreateAnchor = function()
     return Anchor,text,cooldown,cooldownText
 end
 
-
-JDT.StartDummyCooldown = function() -- starter function incase we need to do different stuff aswell
+---starter function incase we need to do different stuff aswell
+JDT.StartDummyCooldown = function()
     JDT.DummyCooldown()
 end
-
-JDT.DummyCooldown = function() -- function that handles the display of cooldowns
+---function that handles the display of cooldowns
+JDT.DummyCooldown = function() 
     if JDT.Anchor:IsShown() then
         JDT.AnchorCooldown:SetCooldown(GetTime(), 10)
         JDT.DummyCooldownText()
         C_Timer.After(11, function()  JDT.DummyCooldown() end)
     end
 end
-
-JDT.DummyCooldownText = function() -- functino handling the display of cooldown text
+---functino handling the display of cooldown text
+JDT.DummyCooldownText = function()
     if JDT.Anchor:IsShown() and JDT.db.profile.ShowTimer then
         local starttime,_= JDT.AnchorCooldown:GetCooldownTimes()
         local duration = Round(10-(GetTime()-starttime/1000)) -- this is some weird math we have to do since GetTime() returns seconds and GetCooldownTimes() returns miliseconds
@@ -65,8 +70,8 @@ JDT.DummyCooldownText = function() -- functino handling the display of cooldown 
         JDT.AnchorCooldownText:SetText("")
     end
 end
-
-JDT.UpdateAnchorPositions = function() -- handles the setting of anchor position if it was moved by hand and updates the config display
+---handles the setting of anchor position if it was moved by hand and updates the config display
+JDT.UpdateAnchorPositions = function()
     local x,y = JDT.Anchor:GetCenter()
     JDT.db.profile.xOffset = x-GetScreenWidth()/2
     JDT.db.profile.yOffset = y-GetScreenHeight()/2
@@ -85,13 +90,16 @@ JDT.AnchorRefreshTypes = {
     HideCD = "HideCD",
 }
 
+
 setmetatable(JDT.AnchorRefreshTypes, {
     __index = function(_, key)
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
     end,
 })
 
-JDT.RefreshAnchor = function(type) -- refreshes the Anchors display if needed
+---refreshes the Anchors display if needed
+---@param type string
+JDT.RefreshAnchor = function(type)
     JDT.DebugPrint("updatingAnchor: "..type)
     if not JDT.Anchor then
         JDT.Anchor,JDT.AnchorText,JDT.AnchorCooldown,JDT.AnchorCooldownText  = JDT.CreateAnchor()

@@ -1,5 +1,7 @@
 local _, JDT = ...
-
+---@class JDT.GroupTypes
+---@field Frontal string
+---@field dot string
 JDT.GroupTypes = JDT.GroupTypes  or {}
 
 JDT.GroupTypes.Frontal = "Frontal"
@@ -255,7 +257,6 @@ setmetatable(JDT.GroupTypes, {
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
     end,
 })
-
 
 
 
@@ -8495,7 +8496,7 @@ JDT.Templates.GroupTypes.FriendlyChainCastIntoChainDebuffIntoPostChainDebuff = {
             isactive = false,
         }, 
         {   
-            value = "%1.destUnit",
+            value = JDT.getLocalisation("on").." %1.destUnit",
             isactive = false,
         }, 
         {   

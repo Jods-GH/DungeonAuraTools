@@ -110,7 +110,10 @@ for expansion in pairs(JDT.SpellList) do
         end
     end
 end
-
+---Creates auras for a provided Dungeon
+---@param ExpansionKey string
+---@param DungeonKey string
+---@return table
 local CreateAurasForDungeon = function(ExpansionKey,DungeonKey)
     local ExportTable = JDT.CreateGroupToExport(DungeonKey,JDT.db.profile.data[ExpansionKey])
     for  BossNameKey, BossNameValue in pairs(JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses) do  
