@@ -299,7 +299,7 @@ bosses.Trash = {
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player, -- Friendly chain debuff
-                        spellId = "374451",
+                        exactSpellId = "374451",
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player, --Chain debuff on player
@@ -307,7 +307,7 @@ bosses.Trash = {
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,  -- post chain debuff
-                        spellId = "371966",
+                        exactSpellId = "371966",
                     },
 
                 }
