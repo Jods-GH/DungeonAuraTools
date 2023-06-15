@@ -1,10 +1,12 @@
 local _, JDT = ...
+---Function to start exporting of all Auras
 JDT.exportAuras = function()
     if WeakAuras and WeakAuras.Import then
         JDT.CallbackFunc("running export")
     end
 end
-
+---Callback function for WeakAuras Import
+---@param result any
 JDT.CallbackFunc = function (result)
     local value 
     JDT.CallbackKey,value = next(JDT.db.profile.data,JDT.CallbackKey)
@@ -17,6 +19,8 @@ JDT.CallbackFunc = function (result)
         end
     end
 end
+---Builds the companion data to export and send them to WeakAuras
+---@param AuraUpdatesTable table
 JDT.exportCompanion = function(AuraUpdatesTable)
     local WeakaurasData = CopyTable(JDT.Templates.JodsCompanionData)
     for k,v in pairs(JDT.db.profile.data) do
@@ -46,6 +50,9 @@ local configForLS = {
   }
 local configForDeflate = {level = 9}
 local compressedTablesCache = {}
+---Converts a table to a string
+---@param inTable table
+---@return string
 function TableToString(inTable) -- code from WeakAuras
     local serialized = LibSerialize:SerializeEx(configForLS, inTable)
     local compressed
@@ -70,6 +77,12 @@ function TableToString(inTable) -- code from WeakAuras
     encoded = encoded .. LibDeflate:EncodeForPrint(compressed)
     return encoded
 end
+
+---builds the export table
+---@param ExpansionKey string
+---@param ExpansionValue table
+---@param shouldIncrimentVersion boolean?
+---@return table
 JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVersion) 
     local ExportTable = JDT.CreateGroupToExport(ExpansionKey,ExpansionValue,shouldIncrimentVersion)
     if ExpansionKey == "Affixes" then -- special handling because there is no "dungeons" subtable in this group
@@ -96,7 +109,11 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
     table.sort(ExportTable.c, JDT.sortExportAuraChildren)
     return ExportTable
 end
-
+---Create the Parent group for exporting
+---@param ExpansionKey string
+---@param ExpansionValue table
+---@param shouldIncrimentVersion boolean?
+---@return table
 JDT.CreateGroupToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVersion)
     local ExportTable = CopyTable(JDT.DataToExport) -- get a copy of the ExportTemplate
     ExportTable.d = CopyTable(JDT.Templates.DynamicGroup) -- get a Copy of the DynamicGroup Template
@@ -165,8 +182,11 @@ JDT.CreateGroupToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVe
     end
     return ExportTable
 end
-
-JDT.sortExportAuraChildren = function (a, b) -- sorts the auras in the export table: first by dungeon then by boss then trash after
+---sorts the auras in the export table: first by dungeon then by boss then trash after
+---@param a table
+---@param b table
+---@return boolean shouldsort
+JDT.sortExportAuraChildren = function (a, b)
     local aPrefix = a.id:match("%[(.-)%]")
     local bPrefix = b.id:match("%[(.-)%]")
     local aNoTrash,aHasTrash = string.gsub(aPrefix,"TRASH","")
@@ -194,7 +214,16 @@ JDT.sortExportAuraChildren = function (a, b) -- sorts the auras in the export ta
         return a.id < b.id  -- if neither aura has "TRASH" in its name sort by aura id
     end
 end
-
+---comment
+---@param ExportTable table
+---@param DungeonValue table
+---@param BossNameValue table
+---@param TypeKey table
+---@param v table
+---@param ExpansionValue table
+---@param ExpansionKey string
+---@param numberOfAuras integer
+---@return table
 JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey,numberOfAuras) 
     assert(JDT.Templates.GroupTypes[TypeKey] , "Error: Template for Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName.." not found") -- checks if Group type is set properly
     local AuraTemplate = JDT.Templates.GroupTypes[TypeKey]  -- get template for aura
@@ -492,9 +521,12 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
     return SpellTable
 end
 
--- Trigger generators need addition value for other trigger types
+--- Trigger generators need addition value for other trigger types
 JDT.generateTriggerfromGroupType = JDT.generateTriggerfromGroupType or {}
-
+---Creates Buff triggers
+---@param triggerData table
+---@param AuraTemplate table
+---@return table
 JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.debuffType = JDT.Templates.Triggers.BuffTypes[AuraTemplate.BuffTypes] -- sets harmful or helpful to define buff/debuff
@@ -529,7 +561,10 @@ JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end
-
+---Creates Cast triggers
+---@param triggerData table
+---@param AuraTemplate table
+---@return table
 JDT.generateTriggerfromGroupType.Cast = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     if triggerData.spellId then
@@ -546,7 +581,10 @@ JDT.generateTriggerfromGroupType.Cast = function(triggerData,AuraTemplate)
     end
     return AuraTrigger
 end
-
+---Creates TSU triggers
+---@param triggerData table
+---@param AuraTemplate table
+---@return table
 JDT.generateTriggerfromGroupType.TSU= function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     local Trigger = JDT.Templates.CustomTriggers[AuraTemplate.customPreset](triggerData)
@@ -558,14 +596,20 @@ JDT.generateTriggerfromGroupType.TSU= function(triggerData,AuraTemplate)
 
     return AuraTrigger
 end
-
+---Creates UnitResource triggers
+---@param triggerData table
+---@param AuraTemplate table
+---@return table
 JDT.generateTriggerfromGroupType.UnitResource = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.percentpower = AuraTemplate.percentpower--set power to check for trigger
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end
-
+---Creates UnitHealth triggers
+---@param triggerData table
+---@param AuraTemplate table
+---@return table
 JDT.generateTriggerfromGroupType.UnitHealth = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     if triggerData.npcID then
@@ -575,7 +619,10 @@ JDT.generateTriggerfromGroupType.UnitHealth = function(triggerData,AuraTemplate)
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end
-
+---Creates CombatLog triggers
+---@param triggerData table
+---@param AuraTemplate table
+---@return table
 JDT.generateTriggerfromGroupType.CombatLog = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
@@ -594,7 +641,10 @@ JDT.generateTriggerfromGroupType.CombatLog = function(triggerData,AuraTemplate)
     
     return AuraTrigger
 end
-
+---Creates MonsterYell triggers
+---@param triggerData table
+---@param AuraTemplate table
+---@return table
 JDT.generateTriggerfromGroupType.MonsterYell = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.duration = triggerData.duration
@@ -604,7 +654,10 @@ JDT.generateTriggerfromGroupType.MonsterYell = function(triggerData,AuraTemplate
     end
     return AuraTrigger
 end
-
+---Creates UnitSpellcastSucceeded triggers
+---@param triggerData table
+---@param AuraTemplate table
+---@return table
 JDT.generateTriggerfromGroupType.UnitSpellcastSucceeded = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
