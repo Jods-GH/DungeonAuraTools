@@ -69,6 +69,8 @@ function DungeonAuraTools:SlashCommand(msg) -- called when slash command is used
         JDT.exportAuras()
     elseif msg == "version" then
         print(JDT.AddonVersion)
+    elseif msg == "InternalVersion" then
+        print(JDT.InternalWaVersion)    
     else
         JDT.CreateOptionsFrame() 
     end
