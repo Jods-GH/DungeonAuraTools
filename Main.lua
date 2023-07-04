@@ -67,12 +67,8 @@ end
 function DungeonAuraTools:SlashCommand(msg) -- called when slash command is used
     if msg == "export" then
         JDT.exportAuras()
-    elseif msg == "font" then
-        print(JDT.db.profile.TextFontSize)
-        print(JDT.db.profile.FontOptions)
-        print(SharedMedia:Fetch("font", JDT.db.profile.FontOptions))
-    elseif msg == "anchor" then
-        JDT.options.args.ToggleAnchor:set(not JDT.db.profile.ToggleAnchor)
+    elseif msg == "version" then
+        print(JDT.AddonVersion)
     else
         JDT.CreateOptionsFrame() 
     end
