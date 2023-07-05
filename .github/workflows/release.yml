@@ -45,17 +45,17 @@ jobs:
         uses: pCYSl5EDgo/cat@master
         id: readChanglog
         with:
-          path: CHANGELOG.md   
-       #using Discord webhook to send release information
+          path: CHANGELOG.md  
+      # once cloned, we just run the GitHub Action for the packager project
+      - name: Package and release
+        uses: BigWigsMods/packager@v2
+    #using Discord webhook to send release information
       - name: Discord Webhook Action
         uses: tsickert/discord-webhook@v5.3.0
+        if: success()
         with:
           webhook-url: ${{ secrets.WEBHOOK_URL }}
           embed-title: ${{ env.MESSAGE }}
           embed-url: https://github.com/Jodsderechte/DungeonAuraTools/releases/latest
           embed-description:  ${{ steps.readChanglog.outputs.text }}
-      # once cloned, we just run the GitHub Action for the packager project
-      - name: Package and release
-        uses: BigWigsMods/packager@v2
-    
       
