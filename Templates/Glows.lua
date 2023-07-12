@@ -22,6 +22,7 @@ JDT.Templates.Glows.ActionButton = {
 					glowThickness = 1,
 					glowLines = 8,
 					glowBorder = false,
+					glowDuration=1,
 				}
 
 JDT.Templates.Glows.Ants = 	{
@@ -43,4 +44,5 @@ JDT.Templates.Glows.Ants = 	{
 					glowThickness = 1,
 					glowLines = 8,
 					glowBorder = false,
+					glowDuration=1, 
 				} 			
