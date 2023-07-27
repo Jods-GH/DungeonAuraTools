@@ -59,7 +59,7 @@ Types/ExpansionValues.lua
 SpellData/Affixes.lua
 
 #SpellData DragonFlight
-
+SpellData/DragonFlight/DawnOfTheInfinite.lua
 SpellData/DragonFlight/AlgetharAcademy.lua
 SpellData/DragonFlight/RubyLifePools.lua
 SpellData/DragonFlight/TheAzureVault.lua
