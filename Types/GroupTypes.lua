@@ -254,6 +254,7 @@ JDT.GroupTypes.DmgReductionBuffButItsADebuff = "DmgReductionBuffButItsADebuff"
 JDT.GroupTypes.SpeedBuffButItsADebuff = "SpeedBuffButItsADebuff"
 JDT.GroupTypes.FrontalSoakWithDebuff = "FrontalSoakWithDebuff"
 JDT.GroupTypes.CastIntoTransferableDebuffThatControls = "CastIntoTransferableDebuffThatControls"
+JDT.GroupTypes.SoakCast = "SoakCast"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -2090,6 +2091,23 @@ JDT.Templates.GroupTypes.VoidSoak= {
     text = {
         {   
             value = JDT.getLocalisation("Soak Void"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soak,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.SoakCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak"),
             isactive = true,
         }, 
     },
