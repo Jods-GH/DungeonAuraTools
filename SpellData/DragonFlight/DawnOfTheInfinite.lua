@@ -580,7 +580,149 @@ bosses.boss7 = {  -- Time-Lost Battlefield
     EncounterId = "2672", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 07 ",
     Auras = { 
-        
+        [JDT.GroupTypes.Frontal] = {
+            Shockwave = {
+                enabled = true,
+                spellId = 408228,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "408228",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.SpinToWin] = {
+            Bladestorm = {
+                enabled = true,
+                spellId = 410236,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "410236",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            ForTheHorde = {
+                enabled = true,
+                spellId = 418046,
+                triggerData = {
+                    {   
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "418046", 
+                    }
+
+                }
+            },
+            ForTheAlliance = {
+                enabled = true,
+                spellId = 418047,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "418047", 
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoHealingReducedDebuff] = {
+            Decapitate = {
+                enabled = true,
+                spellId = 410254,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "410254",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "410497",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            AxeThrow = {
+                enabled = true,
+                spellId = 406962,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "406962",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            SerratedAxe = {
+                enabled = true,
+                spellId = 407120,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "407120",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "407120",
+                    },
+
+                }
+            },
+            Immolate = { -- alliance
+                enabled = true,
+                spellId = 407121,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "407121",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "407121",
+                    },
+
+                }
+            },
+            Fireball = { -- horde
+                enabled = true,
+                spellId = 417030,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "417030",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "417030",
+                    },
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            RainofFire = {
+                enabled = true,
+                spellId = 407122, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "407122",
+
+                    },
+
+                }
+            },
+            
+        },
     }
 }
 
