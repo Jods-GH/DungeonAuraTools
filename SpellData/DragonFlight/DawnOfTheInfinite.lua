@@ -515,7 +515,64 @@ bosses.boss6 = {  -- Morchie
     EncounterId = "2671", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 06 ",
     Auras = { 
-        
+        [JDT.GroupTypes.Frontal] = {
+            SandBlast = {
+                enabled = true,
+                spellId = 404916,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "404916",
+                    }
+                }
+            },
+            DragonsBreath = {
+                enabled = true,
+                spellId = 404364,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "404364",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            FamiliarFaces = {
+                enabled = true,
+                spellId = 405279,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "405279",
+                    },
+                }
+            },
+            MoreProblems = {
+                enabled = true,
+                spellId = 403891,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "403891",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TrapSpawn] ={
+            TimeTraps = {
+                enabled = true,
+                spellId = 406481, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "406481",
+
+                    },
+
+                }
+            },
+        },
     }
 }
 
