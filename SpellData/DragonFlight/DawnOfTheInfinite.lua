@@ -728,10 +728,119 @@ bosses.boss7 = {  -- Time-Lost Battlefield
 
 bosses.boss8 = {  -- Chrono-Lord Deios
     EncounterId = "2673", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
-    additionalName = "] 07 ",
+    additionalName = "] 08 ",
     Auras = { 
-        
+        [JDT.GroupTypes.Orbs] = {
+            InfinityOrb = {
+                enabled = true,
+                spellId = 410904,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "410904",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] = {
+            InfinityNova= {
+                enabled = true,
+                spellId = 410908,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "410908",
+                    },
+
+                }
+            },
+            TemporalBreath= {
+                enabled = true,
+                spellId = 416139,
+                extraName = " dot",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "416139",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            SummonInfiniteKeeper = {
+                enabled = true,
+                spellId = 416152,
+                triggerData = {
+                    {   
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "416152", 
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            TemporalBreath = {
+                enabled = true,
+                spellId = 416139,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "416139",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            InfiniteCorruption = {
+                enabled = true,
+                spellId = 416264, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "416264",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            ChronalBurn = {
+                enabled = true,
+                spellId = 412027,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "412027",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "412027",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            InfiniteBlast = {
+                enabled = true,
+                spellId = 411763,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411763",
+                    }
+
+                }
+            },
+        },
     }
+    
 }
 
 bosses.Trash = {
