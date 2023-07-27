@@ -418,7 +418,96 @@ bosses.boss5 = {  -- Tyr, the Infinite Keeper
     EncounterId = "2670", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 05 ",
     Auras = { 
-        
+        [JDT.GroupTypes.SoakCast] ={
+            DividingStrike = {
+                enabled = true,
+                spellId = 400641, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "400641",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Frontal] = {
+            InfiniteAnnihilation = {
+                enabled = true,
+                spellId = 401482,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "401482",
+                    }
+
+                }
+            },
+            TitanicBlow = {
+                enabled = true,
+                spellId = 401248,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "401248",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            SiphonOathstone = {
+                enabled = true,
+                spellId = 400642, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "400642",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.HasteBuffButItsADebuff] = {
+            StolenTime = {
+                enabled = true,
+                spellId = 406543,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "406543",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            SparkofTyr = {
+                enabled = true,
+                spellId = 400649, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "400649",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "400649",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "400649",
+                    },
+
+                }
+            }
+        },
     }
 }
 

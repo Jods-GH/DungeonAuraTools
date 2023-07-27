@@ -348,6 +348,7 @@ LocalisationData["SpeedBuffButItsADebuff"] = "Speed Buff"
 LocalisationData["DmgReductionBuffButItsADebuff"] = "Dmg reduction buff"
 LocalisationData["FrontalSoakWithDebuff"] = "Frontal that removes a debuff"
 LocalisationData["CastIntoTransferableDebuffThatControls"] = "Debuff that requires special maintenance and Controls the player if it expires"
+LocalisationData["SoakCast"] = "Cast that requires you to Soak"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
