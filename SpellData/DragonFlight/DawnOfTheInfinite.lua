@@ -307,7 +307,110 @@ bosses.boss4 = {  -- Iridikron the Stonescaled
     EncounterId = "2669", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = { 
-        
+        [JDT.GroupTypes.TargetedCastWithSafeDeBuffDuringCast] = {
+            ExtinctionBlast = {
+                enabled = true,
+                spellId = 409261,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "414330",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "409261",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidSoak] ={
+            StonecrackerBarrage = {
+                enabled = true,
+                spellId = 414535, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "414535",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.HasteBuffButItsADebuff] = {
+            TimelineAcceleration = {
+                enabled = true,
+                spellId = 414496,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "414496",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoBreakShield] = {
+            Earthsurge = {
+                enabled = true,
+                spellId = 409456,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "409456",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "409456",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            PulverizingExhalation= {
+                enabled = true,
+                spellId = 409635,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "409635",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastWithSafeDeBuffDuringCast] = {
+            CataclysmicObliteration = {
+                enabled = true,
+                spellId = 414184,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "414330",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "414184",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            MoltenVulnerability = {
+                enabled = true,
+                spellId = 378221,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "378221",
+                    },
+
+                }
+            },
+        },
     }
 }
 
