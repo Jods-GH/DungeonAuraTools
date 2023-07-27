@@ -252,7 +252,8 @@ JDT.GroupTypes.StunableVolleyIntoDmgReduce = "StunableVolleyIntoDmgReduce"
 JDT.GroupTypes.FriendlyChainCastIntoChainDebuffIntoPostChainDebuff = "FriendlyChainCastIntoChainDebuffIntoPostChainDebuff"
 JDT.GroupTypes.SpellcastSucceededSoak = "SpellcastSucceededSoak"
 JDT.GroupTypes.RunOutWithTargetDebuff = "RunOutWithTargetDebuff"
-
+JDT.GroupTypes.DmgReductionBuffButItsADebuff = "DmgReductionBuffButItsADebuff"
+JDT.GroupTypes.SpeedBuffButItsADebuff = "SpeedBuffButItsADebuff"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -333,6 +334,7 @@ JDT.Templates.GroupTypes.ImportantMoveBuff = {
     doSound = JDT.SoundTypes.move,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+
 
 JDT.Templates.GroupTypes.SlowDot = {
     AuraType = "AuraIcon",
@@ -2204,6 +2206,39 @@ JDT.Templates.GroupTypes.HasteDeBuff = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
+JDT.Templates.GroupTypes.SpeedBuffButItsADebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("+ Speed"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.DmgReductionBuffButItsADebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("- dmg taken"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 
 JDT.Templates.GroupTypes.SlowDebuff = {
     AuraType = "AuraIcon",

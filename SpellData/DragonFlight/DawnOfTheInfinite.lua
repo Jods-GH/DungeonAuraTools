@@ -119,6 +119,90 @@ bosses.boss2 = {  -- Manifested Timeways
     EncounterId = "2667", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 02 ",
     Auras = { 
+        [JDT.GroupTypes.Frontal] = {
+            Unwind = {
+                enabled = true,
+                spellId = 414303,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "414303",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            FragmentsofTime = {
+                enabled = true,
+                spellId = 405431, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "405431",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoDanceWhileDebuffed] ={
+            Chronofaded= {
+                enabled = true,
+                spellId = 405696, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "405696",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "405696",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.GoMeleeCast ] ={
+            Radiant = {
+                enabled = true,
+                spellId = 414307, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "414307",
+    
+                    },
+    
+                }
+            }
+        },
+        [JDT.GroupTypes.DmgReductionBuffButItsADebuff] ={
+            DecayingTime = {
+                enabled = true,
+                spellId = 403910, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "403910",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.SpeedBuffButItsADebuff] ={
+            AcceleratingTime = {
+                enabled = true,
+                spellId = 403912, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "403912",
+                    },
+                }
+            }
+        },
+        
         
     }
 }
