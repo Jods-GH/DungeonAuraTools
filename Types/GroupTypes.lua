@@ -1,7 +1,5 @@
 local _, JDT = ...
 ---@class JDT.GroupTypes
----@field Frontal string
----@field dot string
 JDT.GroupTypes = JDT.GroupTypes  or {}
 
 JDT.GroupTypes.Frontal = "Frontal"
@@ -254,6 +252,8 @@ JDT.GroupTypes.SpellcastSucceededSoak = "SpellcastSucceededSoak"
 JDT.GroupTypes.RunOutWithTargetDebuff = "RunOutWithTargetDebuff"
 JDT.GroupTypes.DmgReductionBuffButItsADebuff = "DmgReductionBuffButItsADebuff"
 JDT.GroupTypes.SpeedBuffButItsADebuff = "SpeedBuffButItsADebuff"
+JDT.GroupTypes.FrontalSoakWithDebuff = "FrontalSoakWithDebuff"
+JDT.GroupTypes.CastIntoTransferableDebuffThatControls = "CastIntoTransferableDebuffThatControls"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -450,6 +450,51 @@ JDT.Templates.GroupTypes.FrontalIntoDot = {
                type = "simplecheck",
                trigger= 1,
                value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+), 
+}
+JDT.Templates.GroupTypes.FrontalSoakWithDebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Frontal"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Soak"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.frontal,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 2,
+               value = true,
                 },
                 changes = {
                     {
@@ -1161,6 +1206,81 @@ JDT.Templates.GroupTypes.CastIntoDebuffSpread =  {
                trigger= 2,
                value = true,
                 },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = true
+                },
+            },
+        },
+    }
+), 
+}
+
+JDT.Templates.GroupTypes.CastIntoTransferableDebuffThatControls =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Debuff inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Control inc"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("Transfer"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.spread,
+    glowtype = "ActionButton",
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                 type = "NumberCheck",
+                 trigger= 2,
+                 op = "<",
+                 variable = "expirationTime",
+                 value = "3",
+                    },       
+                    changes = {
+                    {
+                         property = "sub.6.glow",
+                         value = true,
+                    },
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = true
+                    },
+                    },
+            },
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 2,
+               value = true,
+                },
+                linked = true,
             changes = {
                 {
                     property = "sub.3.text_visible",
@@ -4819,8 +4939,8 @@ JDT.Templates.GroupTypes.SpreadCastIntoCastSuccessAvoid = {
                 type = "simplecheck",
                 trigger= 1,
                 value = false,
-                linked = true,
                 },
+                linked = true,
                 changes = {
                     {
                         property = "sub.3.text_visible",

@@ -346,6 +346,8 @@ LocalisationData["RunOutWithTargetDebuff"] = "Debuff that requires you to run ou
 LocalisationData["SpellcastSucceededSoak"] = "Soak that needs to happen after cast is finished"
 LocalisationData["SpeedBuffButItsADebuff"] = "Speed Buff"
 LocalisationData["DmgReductionBuffButItsADebuff"] = "Dmg reduction buff"
+LocalisationData["FrontalSoakWithDebuff"] = "Frontal that removes a debuff"
+LocalisationData["CastIntoTransferableDebuffThatControls"] = "Debuff that requires special maintenance and Controls the player if it expires"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -525,7 +527,11 @@ LocalisationData["Can't Chain"] = "Can't Chain"
 LocalisationData["Avoid inc"] = "Avoid inc"
 LocalisationData["- dmg taken"] = "- dmg taken"
 LocalisationData["+ Speed"] = "+ Speed"
---[[ 
+LocalisationData["Debuff inc"] = "Debuff inc"
+LocalisationData["Control inc"] = "Control inc"
+LocalisationData["Transfer"] = "Transfer"
+
+--[[
 LocalisationData[""] = ""
 LocalisationData[""] = ""
 ]]

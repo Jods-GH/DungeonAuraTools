@@ -210,7 +210,96 @@ bosses.boss3 = {  -- Blight of Galakrond
     EncounterId = "2668", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = { 
-        
+        [JDT.GroupTypes.FrontalSoakWithDebuff] ={
+            BlightReclamation = {
+                enabled = true,
+                spellId = 407159, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "407159",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "407406",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoTransferableDebuffThatControls] ={
+            Corrosion = {
+                enabled = true,
+                spellId = 407406, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "406886",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "407406",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Dance] ={
+            NecroticWinds = {
+                enabled = true,
+                spellId = 407978, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "407978",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.Frontal] = {
+            IncineratingBlightbreath = {
+                enabled = true,
+                spellId = 408141,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "408141",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ChainToKill] ={
+            Necrofrost = {
+                enabled = true,
+                spellId = 408029, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "408029",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "408029",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "408029",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        npcID = "204262",
+
+                    },
+
+                }
+            }
+        },
     }
 }
 
