@@ -344,6 +344,8 @@ LocalisationData["ImportantMoveBuff"] = "Aura that requires you to move"
 LocalisationData["FriendlyChainCastIntoChainDebuffIntoPostChainDebuff"] = "Chain cast that you need to avoid if it's on your Group Member"
 LocalisationData["RunOutWithTargetDebuff"] = "Debuff that requires you to run out"
 LocalisationData["SpellcastSucceededSoak"] = "Soak that needs to happen after cast is finished"
+LocalisationData["SpeedBuffButItsADebuff"] = "Speed Buff"
+LocalisationData["DmgReductionBuffButItsADebuff"] = "Dmg reduction buff"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -521,7 +523,8 @@ LocalisationData["Break Chain"] = "Break Chain"
 LocalisationData["First Hit"] = "First Hit"
 LocalisationData["Can't Chain"] = "Can't Chain"
 LocalisationData["Avoid inc"] = "Avoid inc"
-
+LocalisationData["- dmg taken"] = "- dmg taken"
+LocalisationData["+ Speed"] = "+ Speed"
 --[[ 
 LocalisationData[""] = ""
 LocalisationData[""] = ""
