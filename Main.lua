@@ -93,6 +93,8 @@ function DungeonAuraTools:CHAT_MSG_ADDON(event, prefix, version , channel, sende
     if prefix == VersionCheckPrefix and sender ~= JDT.PlayerName then
         if version and version > JDT.AddonVersion then
             self:Print(JDT.getLocalisation("VersionCheckMessage"))
+            self:Print(JDT.getLocalisation("VersionDetectedMessage").." "..version)
+            self:Print(JDT.getLocalisation("OwnVersionMessage").." "..JDT.AddonVersion)
         end
     end 
 end
