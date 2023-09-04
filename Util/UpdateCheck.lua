@@ -239,4 +239,7 @@ JDT.adjustAuras = function(AuraToCheck,InstalledAura)
     if AuraToCheck.tocversion ~= InstalledAura.tocversion then -- adjust this value if needed 
         AuraToCheck.tocversion = InstalledAura.tocversion
     end
+    if AuraToCheck.preferToUpdate ~= InstalledAura.preferToUpdate then -- adjust this value if needed 
+        AuraToCheck.preferToUpdate = InstalledAura.preferToUpdate
+    end
 end
