@@ -1,12 +1,12 @@
 
 		local _, JDT = ...
 		JDT.Templates = JDT.Templates  or {}
-		JDT.Templates.AuraIcon = {
+		JDT.Templates.Type = JDT.Templates.Type or {}
+		JDT.Templates.Type.AuraIcon = {
 	
 				iconSource = -1,
 				authorOptions = {
 				},
-				preferToUpdate = false,
 				customText = "",  -- Custom Text function to display debuff type
 				yOffset = 0,
 				anchorPoint = "CENTER",

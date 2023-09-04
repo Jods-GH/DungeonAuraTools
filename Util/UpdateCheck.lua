@@ -227,9 +227,6 @@ end
 
 JDT.adjustAuras = function(AuraToCheck,InstalledAura) 
     assert(AuraToCheck.internalVersion == InstalledAura.internalVersion , JDT.getLocalisation("internalVersionMismatch")) 
-    if AuraToCheck.preferToUpdate ~= InstalledAura.preferToUpdate then -- adjust this value if needed (no idea what this value actually does though)
-         AuraToCheck.preferToUpdate = InstalledAura.preferToUpdate
-    end
     if AuraToCheck.version ~= InstalledAura.version then -- adjust this value if needed 
          AuraToCheck.version = InstalledAura.version
     end
