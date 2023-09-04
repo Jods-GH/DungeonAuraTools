@@ -1,6 +1,7 @@
 local _, JDT = ...
 JDT.Templates = JDT.Templates  or {}
-JDT.Templates.AuraBar = {
+JDT.Templates.Type = JDT.Templates.Type or {}
+JDT.Templates.Type.AuraBar = {
     sparkWidth = 10,
     iconSource = -1,
     xOffset = 0,
@@ -25,9 +26,9 @@ JDT.Templates.AuraBar = {
     internalVersion = 64,
     selfPoint = "CENTER",
     barColor = {
-        1, -- [1]
-        0, -- [2]
-        0, -- [3]
+        0.69803923368454, -- [1]
+        0.72156864404678, -- [2]
+        0.73333334922791, -- [3]
         1, -- [4]
     },
     desaturate = false,
@@ -69,16 +70,16 @@ JDT.Templates.AuraBar = {
             text_text_format_p_time_dynamic_threshold = 60,
             text_wordWrap = "WordWrap",
             text_visible = true,
-            text_anchorPoint = "INNER_LEFT",
+            text_anchorPoint = "INNER_RIGHT",
             text_text_format_p_time_format = 0,
             text_text_format_p_format = "timed",
-            text_fontSize = 12,
-            anchorXOffset = 0,
+            text_fontSize = 17,
+            anchorXOffset = -10,
             text_fontType = "None",
         }, -- [3]
         
     },
-    height = 30,
+    height = 80,
     load = {
         size = {
             multi = {
@@ -119,7 +120,7 @@ JDT.Templates.AuraBar = {
     sparkOffsetX = 0,
     config = {
     },
-    icon_side = "RIGHT",
+    icon_side = "LEFT",
     sparkColor = {
         1, -- [1]
         1, -- [2]
@@ -127,7 +128,7 @@ JDT.Templates.AuraBar = {
         1, -- [4]
     },
     sparkHeight = 30,
-    texture = "Blizzard",
+    texture =  "Clean",
     sparkHidden = "NEVER",
     sparkTexture = "Interface\\CastingBar\\UI-CastingBar-Spark",
     spark = false,
@@ -135,10 +136,10 @@ JDT.Templates.AuraBar = {
     id = "BARTEMPLATE",
     zoom = 0,
     alpha = 1,
-    width = 250,
+    width = 400,
     authorOptions = {
     },
-    uid = "UiPcTCiWDhz",
+    uid = "BARTEMPLATE",
     inverse = false,
     actions = {
         start = {

@@ -9,12 +9,11 @@ JDT.AddonVersion = C_AddOns.GetAddOnMetadata(appName, "Version")
 JDT.InternalWaVersion = 66 -- version of weakauras addon on creation might need to be updated eventually
 
 JDT.FontMedias = JDT.FontMedias or {} 
-for _,v in pairs(SharedMedia:List(SharedMedia.MediaType.FONT)) do
-    JDT.FontMedias[v] = v
-end
-
 
 function DungeonAuraTools:OnInitialize()
+    for _,v in pairs(SharedMedia:List(SharedMedia.MediaType.FONT)) do
+        JDT.FontMedias[v] = v
+    end
 	-- Called when the addon is loaded
     self:Print(JDT.getLocalisation("AccessOptionsMessage"))
     self:RegisterEvent("PLAYER_ENTERING_WORLD")

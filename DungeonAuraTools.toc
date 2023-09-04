@@ -7,7 +7,7 @@
 ## Notes: Compact Addon to Manage all my Stuff for Dungeons
 ## Author: Jods
 ## SavedVariables: DungeonAuraTools
-## OptionalDeps: Ace3, WeakAuras, WeakAurasOptions, Plater, ViragDevTool, LibSharedMedia-3.0
+## OptionalDeps: Ace3, WeakAuras, WeakAurasOptions, ViragDevTool, LibSharedMedia-3.0
 ## X-Curse-Project-ID: 662863
 ## X-WoWI-ID: 26384
 ## X-Wago-ID: XrNkX86a
@@ -34,28 +34,34 @@ Locales\zhTW.lua
 
 Locales\Locales.lua
 
-#Templates
+#Aura Templates
 Templates/AuraIcon.lua
+Templates/AuraBar.lua
 Templates/DynamicGroup.lua
+#Specific Templates
 Templates/BorderColors.lua
 Templates/CustomTextIcons.lua
+Templates/Glows.lua
+#General Templates
 Templates/TextRegions.lua
 Templates/Triggers.lua
 Templates/Actions.lua
-Templates/Glows.lua
-Templates/CustomTriggers.lua
 Templates/Conditions.lua
-Templates/WeakaurasCompanionData.lua
+#Custom Templates
 Templates/CustomText.lua
+Templates/CustomTriggers.lua
+#Export Templates
+Templates/WeakaurasCompanionData.lua
 Templates/ExportData.lua
 
 #Types
-
+Types/Types.lua
 Types/AuraTypes.lua
 Types/SoundTypes.lua
 Types/GroupTypes.lua
 Types/ExpansionValues.lua
 
+#Affixes
 SpellData/Affixes.lua
 
 #SpellData DragonFlight

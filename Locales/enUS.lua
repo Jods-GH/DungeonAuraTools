@@ -57,6 +57,9 @@ LocalisationData["ToggleAnchor"] = "ToggleAnchor"
 LocalisationData["ToggleAnchorDescription"] = "Toggle the display of an Anchor preview for generated auras"
 LocalisationData["ExportOnDungeonEntry"] = "Export on Dungeon Entry"
 LocalisationData["ExportOnDungeonEntryDescription"] = "Exports Dungeon Auras whenever you enter a Dungeon"
+LocalisationData["AuraType"] = "Aura Type"
+LocalisationData["AuraTypeDescription"] = "The type of Aura that should be used for this Spell e.G. Icon or Bar"
+
     --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
