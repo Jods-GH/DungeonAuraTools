@@ -2,6 +2,30 @@ local _, JDT = ...
 
 JDT.Templates = JDT.Templates  or {}
 JDT.Templates.TextRegions = JDT.Templates.TextRegions or {}
+JDT.Templates.AnchorForTextPriority = JDT.Templates.AnchorForTextPriority or {}
+JDT.Templates.AnchorForTextPriority = {
+    aurabar = {
+		Main = "INNER_LEFT",
+		AuraType = "INNER_BOTTOMLEFT",
+		[1] = "INNER_CENTER",
+		[2] = "INNER_BOTTOM",
+		[3] = "INNER_TOP",
+    },
+    icon = {
+        Main = "OUTER_BOTTOM",
+		AuraType = "INNER_BOTTOMLEFT",
+		[1] = "INNER_BOTTOMRIGHT",
+		[2] = "INNER_TOPRIGHT",
+		[3] = "INNER_TOPLEFT",
+    }   
+}
+setmetatable(JDT.Templates.AnchorForTextPriority, {
+    __index = function(_, key)
+        error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
+    end,
+})
+
+
 JDT.Templates.TextRegions.CustomText = { ------------------------------------------  %c (custom text function is declared further up in customText)
 						text_shadowXOffset = 0,
 						text_text = "%c",
@@ -78,7 +102,7 @@ JDT.Templates.TextRegions.Stacks = { ------------------------------------------ 
 						anchorXOffset = 0,
 						text_visible = true,
 					}
-					JDT.Templates.TextRegions.Progress = { ------------------------------------------ TEXT %s
+JDT.Templates.TextRegions.Progress = { ------------------------------------------ TEXT %s
 						text_shadowXOffset = 0,
 						text_text = "%p",
 						text_shadowColor = {
@@ -116,7 +140,7 @@ JDT.Templates.TextRegions.Stacks = { ------------------------------------------ 
 						text_visible = true,
 					}
 
-					JDT.Templates.TextRegions.destUnit = { ------------------------------------ TEXT 2 TEXT TO DISPLAY
+JDT.Templates.TextRegions.destUnit = { ------------------------------------ TEXT 2 TEXT TO DISPLAY
 					text_text_format_p_time_precision = 1,
 					text_text = "Tex to Display", --------------- actual text value
 					text_text_format_p_format = "timed",
@@ -159,7 +183,7 @@ JDT.Templates.TextRegions.Stacks = { ------------------------------------------ 
 					["text_text_format_1.unit_format"] = "Unit",
 				} 
 
-				JDT.Templates.TextRegions.unitCaster = { ------------------------------------ TEXT 2 TEXT TO DISPLAY
+JDT.Templates.TextRegions.unitCaster = { ------------------------------------ TEXT 2 TEXT TO DISPLAY
 				text_text_format_p_time_precision = 1,
 				text_text = "Tex to Display", --------------- actual text value
 				text_text_format_p_format = "timed",
@@ -390,6 +414,4 @@ JDT.Templates.TextRegions.DebuffClassIcon =	{
 	text_fontSize = 17,
 	text_text_format_p_time_dynamic_threshold = 60,
 }	
-
-
 
