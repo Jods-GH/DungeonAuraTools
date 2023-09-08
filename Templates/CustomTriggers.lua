@@ -75,3 +75,11 @@ JDT.Templates.CustomTriggers.Afflicted = function()
     }
     return trigger
 end
+
+JDT.Templates.CustomTriggers.RestlessSoul= function()
+    local trigger = {
+        customTrigger = 'function(s,event,unit,...) \n if event == "UNIT_SPELLCAST_SUCCEEDED" and select(2,...) == 196078 then\n s[""] = { \n duration = 16,\n expirationTime = GetTime()+16,\n progressType = "timed",\n autoHide = true,\n changed = true,\n show = true,\n stacks = 7,\n }\n aura_env.guidList = {}\n return true\n elseif event == "COMBAT_LOG_EVENT_UNFILTERED" then\n local _,_,_,_,_,_,destGUID,_,_,_,_ = ...\n if destGUID then\n local _,_,_,_,_,npc_id,_ = strsplit("-",destGUID)\n if npc_id == "99664" and not aura_env.guidList[destGUID] then\n if s[""] then\n s[""].stacks = s[""].stacks-1\n s[""].changed = true\n if s[""].stacks == 0 then\n s[""].show = false\n end\n end\n aura_env.guidList[destGUID] = true\n return true \n end\n end\n end\n end',
+        CustomEvents = "UNIT_SPELLCAST_SUCCEEDED:boss1 , COMBAT_LOG_EVENT_UNFILTERED:UNIT_DIED",
+    }
+    return trigger
+end
