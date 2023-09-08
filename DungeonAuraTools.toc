@@ -88,6 +88,8 @@ SpellData/Legion/ReturnToKarazhan.lua
 SpellData/Legion/HallsOfValor.lua
 SpellData/Legion/CourtOfStars.lua
 SpellData/Legion/NeltharionsLair.lua
+SpellData/Legion/BlackRookHold.lua
+SpellData/Legion/DarkHearthThicked.lua
 
 #SpellData WarlordsOfDraenor
 SpellData/WarlordsOfDraenor/ShadowmoonBurialGrounds.lua
