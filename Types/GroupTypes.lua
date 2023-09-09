@@ -261,6 +261,15 @@ JDT.GroupTypes.InterruptableCastWithStackBuff = "InterruptableCastWithStackBuff"
 JDT.GroupTypes.PlayerGroupDebuff = "PlayerGroupDebuff"
 JDT.GroupTypes.SoakableTargetedDebuffWithCantSoakDebuff = "SoakableTargetedDebuffWithCantSoakDebuff"
 JDT.GroupTypes.TargetableVoidCast = "TargetableVoidCast"
+JDT.GroupTypes.CastStartAvoid = "CastStartAvoid"
+JDT.GroupTypes.VulnerableAfterUnitDied = "VulnerableAfterUnitDied"
+JDT.GroupTypes.UnavoidableAoeBigAoeIfBuffMissing = "UnavoidableAoeBigAoeIfBuffMissing"
+JDT.GroupTypes.StunableAuraCastIntoBuff = "StunableAuraCastIntoBuff"
+JDT.GroupTypes.SwarmDebuffAddNeedsToBeKilledWhileActive = "SwarmDebuffAddNeedsToBeKilledWhileActive"
+JDT.GroupTypes.CastIntoAoeBuff = "CastIntoAoeBuff"
+JDT.GroupTypes.CastIntoTankBusterWhileBuffIsActive = "CastIntoTankBusterWhileBuffIsActive"
+JDT.GroupTypes.CastIntoFrontalWhileBuffed = "CastIntoFrontalWhileBuffed"
+JDT.GroupTypes.CastIntoSpinToWinWhileBuffed = "CastIntoSpinToWinWhileBuffed"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -472,6 +481,51 @@ JDT.Templates.GroupTypes.FrontalIntoDot = {
     }
 ), 
 }
+JDT.Templates.GroupTypes.CastIntoFrontalWhileBuffed = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Frontal inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Frontal"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.frontal,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+), 
+}
 JDT.Templates.GroupTypes.FrontalSoakWithDebuff = {
     AuraType = "AuraIcon",
     triggers = {
@@ -548,6 +602,52 @@ JDT.Templates.GroupTypes.SpinToWin= {
     },
     doSound = JDT.SoundTypes.avoid,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.CastIntoSpinToWinWhileBuffed = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Spin inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Spin"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+), 
 }
 
 JDT.Templates.GroupTypes.ShieldInc =  {
@@ -2050,6 +2150,62 @@ JDT.Templates.GroupTypes.UnavoidableAoeBigAoeIfDebuff = {
     }
 ), 
 }
+
+JDT.Templates.GroupTypes.UnavoidableAoeBigAoeIfBuffMissing = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+            
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("AoE"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Big Aoe"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.selfcd,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1]\n end",
+    glowtype = "Ants",
+    showGlow = false,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+                {
+                    {
+                       condition={
+                          type = "simplecheck",
+                          trigger= 2,
+                          value = false,
+                           },
+                           changes = {
+                            {
+                                property = "sub.3.text_visible",
+                                value = false,
+                            },
+                            {
+                                property = "sub.4.text_visible",
+                                value = true,
+                            },
+                            {
+                                property = "sub.5.glow",
+                                value = true,
+                            },
+                           },
+                   },
+                  
+    }
+), 
+}
+
 
 JDT.Templates.GroupTypes.BossCastIntoStack = {
     AuraType = "AuraIcon",
@@ -5915,6 +6071,50 @@ JDT.Templates.GroupTypes.TankBusterCast = {
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
+JDT.Templates.GroupTypes.CastIntoTankBusterWhileBuffIsActive = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Tank Buster inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Tank Buster"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+        {
+            condition={
+               type = "simplecheck",
+               trigger= 2,
+               value = true,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+), 
+}
 JDT.Templates.GroupTypes.TankBusterCastWithDebuffCheck = {
     AuraType = "AuraIcon",
     triggers = {
@@ -5943,7 +6143,6 @@ JDT.Templates.GroupTypes.TankBusterCastWithDebuffCheck = {
                trigger= 2,
                value = true,
                 },
-                linked = true,
                 changes = {
                     {
                         property = "sub.4.glow",
@@ -7537,6 +7736,55 @@ JDT.Templates.GroupTypes.CastIntoAoeDebuffWithNextTick =  {
     }
 ), 
 }
+
+JDT.Templates.GroupTypes.CastIntoAoeBuff =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+            
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+        
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("AoE inc"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("AoE"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.aoe,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 1,
+                   value = true,
+                    },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = false
+                    },
+                },
+            }, 
+    }
+), 
+}
+
 JDT.Templates.GroupTypes.ChannelDmgWithNextTick =  {
     AuraType = "AuraIcon",
     triggers = {
@@ -7811,6 +8059,66 @@ JDT.Templates.GroupTypes.StunableStormCastIntoBuff = {
                         value = true
                     },
 
+                },
+            }, 
+    }
+), 
+}
+
+JDT.Templates.GroupTypes.StunableAuraCastIntoBuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Aura inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("protected"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.cc,
+    type = JDT.AuraTypes.stun,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    glowtype = "Ants",
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 1,
+                   value = false,
+                    },
+                changes = {
+                    {
+                        property= "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.5.glow",
+                        value = true
+                    },
+                    {
+                        property= "sub.6.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.7.border_visible",
+                        value = false
+                    },
                 },
             }, 
     }
@@ -9235,4 +9543,138 @@ JDT.Templates.GroupTypes.CastSuccessDashWithCountdownIfDebuffed= {
             },
         }
     ), 
+}
+
+JDT.Templates.GroupTypes.VulnerableAfterUnitDied= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {   
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = JDT.Templates.Triggers.CombatLogTypes.died,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Vulnerable"),
+            isactive = true,
+        },  
+    },
+    doSound = JDT.SoundTypes.avoid,
+    glowtype = "Pixel",
+    glowColor = {
+        1, -- [1]
+        0, -- [2]
+        0, -- [3]
+        1, -- [4]
+    },
+    showGlow = true,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+
+JDT.Templates.GroupTypes.SwarmDebuffAddNeedsToBeKilledWhileActive= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs, 
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitHealth,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("swarm inc"),
+            isactive = true,
+        },  
+        {   
+            value = JDT.getLocalisation("targeted"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("on You"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("on").." %3.unit",
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.add,
+    useHealth = 4,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "NumberCheck",
+                   trigger= 1,
+                   op = "==",
+                   variable = "destUnit",
+                   value = "player",
+                    },
+                    changes = {
+                        {
+                            property = "sub.3.text_visible",
+                            value = false
+                        },
+                        {
+                            property= "sub.4.text_visible",
+                            value = true
+                        },
+                        {
+                            property = "sound",
+							value = {
+								sound_type = "Play",
+								sound = JDT.SoundTypes.targeted,
+								sound_channel = "Master",
+							},
+						}, 
+                    },
+            },
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 2,
+                   value = true,
+                },
+                linked = true,
+                changes = {
+                    {
+                        property= "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = true
+                    },
+                },
+            }, 
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 3,
+                   value = true,
+                },
+                linked = true,
+                changes = {
+                    {
+                        property= "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.6.text_visible",
+                        value = true
+                    },
+                },
+            }, 
+    }
+), 
 }

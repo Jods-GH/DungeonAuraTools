@@ -61,6 +61,9 @@ setmetatable(JDT.Templates.Triggers.UnitTypes, {
 
 JDT.Templates.Triggers.CombatLogTypes = {
     summon = "_SUMMON",
+    castStart = "_CAST_START",
+    castSuccess = "_CAST_SUCCESS",
+    died = "UNIT_DIED",
 }
 
 setmetatable(JDT.Templates.Triggers.CombatLogTypes, {

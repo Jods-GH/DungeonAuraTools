@@ -360,3 +360,443 @@ bosses.boss3 = {  -- 	Smashspite the Hateful
         },
     }  
 }
+bosses.boss4 = {  -- 	Lord Kur'talos Ravencrest
+    EncounterId = "1835", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
+    additionalName = "] 04 ",
+    Auras = { 
+        [JDT.GroupTypes.TargetableVoidCast] ={
+            WhirlingBlade = {
+                enabled = true,
+                spellId = 198641, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "198641",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.CastStartAvoid] ={
+            DarkBlast = {
+                enabled = true,
+                spellId = 198820, -- for spellname etc
+                triggerData = {
+                    {
+                        spellId = "198820",
+                        duration = "1.5"
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.VulnerableAfterUnitDied] ={
+            LegacyoftheRavencrest = {
+                enabled = true,
+                spellId = 199368, -- for spellname etc
+                triggerData = {
+                    {
+                        spellId = "98965",
+                        duration = "23.3"
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoeBigAoeIfBuffMissing] ={
+            ShadowBoltVolley = {
+                enabled = true,
+                spellId = 202019, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "202019",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "199368",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            CloudOfHypnosis = {
+                enabled = true,
+                spellId = 199143,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "199143",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            DreadlordsGuile = {
+                enabled = true,
+                spellId = 199193, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "199193",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.SwarmDebuffAddNeedsToBeKilledWhileActive] ={
+            StingingSwarm = {
+                enabled = true,
+                spellId = 201733, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "201733",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "201733",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "201733",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        npcID = "101008",
+                    }
+
+                }
+            }
+        },
+    }  
+}
+
+
+
+bosses.Trash = {
+    additionalName = "TRASH] ",
+    Auras = { 
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            DarkMending = {
+                enabled = true,
+                spellId = 225573,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "225573",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            ArrowBarrage= {
+                 enabled = true,
+                 spellId = 200345,
+                 triggerData = {
+                     {
+                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                         spellId = "200345",
+                     }
+                 }
+             },
+             BokeBreakingStrike= {
+                enabled = true,
+                spellId = 200261,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200261",
+                    }
+                }
+            },
+         },
+         [JDT.GroupTypes.VoidCast] = {
+            ThrowPricelessArtifact = {
+                enabled = true,
+                spellId = 201176,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "201176",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] = {
+            SouldBlade = {
+                enabled = true,
+                spellId = 200084,
+                type = JDT.AuraTypes.magic,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "200084",
+                    },
+                }
+            },
+            SouldVenom = {
+                enabled = true,
+                spellId = 225908,
+                type = JDT.AuraTypes.magic,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "225908",
+                    },
+                }
+            },
+            BloodThirstyLeap = {
+                enabled = true,
+                spellId = 225962,
+                type = JDT.AuraTypes.bleed,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "225962",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.StunableAuraCastIntoBuff] = {
+            SacrificeSoul = {
+                enabled = true,
+                spellId = 200105,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "200105",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200105",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            StrikeDown = {
+                enabled = true,
+                spellId = 225732,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "225732",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastWithTargetAnounce] ={
+            GlaiveToss = {
+                enabled = true,
+                spellId = 196916, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "196916",
+                    },
+                }
+            },
+            PhasedExplosion = {
+                enabled = true,
+                spellId = 200256, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200256",
+                    },
+                }
+            },
+            RavensDive = {
+                enabled = true,
+                spellId = 214001, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "214001",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            SpiritBlast = {
+                enabled = true,
+                spellId = 196883, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "196883",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.PlayerGroupDebuff] ={
+            SoulEchoes = {
+                enabled = true,
+                spellId = 194966, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "194966",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "194966",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.ExplodingCombatlogStart] ={
+            InternalRupture = {
+                enabled = true,
+                glowtype = "Ants",
+                showGlow = true,
+                spellId = 225917, -- for spellname etc
+                triggerData = {
+                    {
+                        duration = "3",
+                        spellId = "225917",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoAoeBuff] ={
+            KnifeDance = {
+                enabled = true,
+                spellId = 200291, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200291",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200291",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoTankBusterWhileBuffIsActive] = {
+            BrutalAssault = {
+                enabled = true,
+                spellId = 201139,
+                RoleLoad = {
+                    HEALER = true,
+					TANK = true,
+                },
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "201139",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "201139",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoFrontalWhileBuffed] ={
+            AncientPotionIndigestion= {
+                enabled = true,
+                spellId = 200913, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200913",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200913",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoSpinToWinWhileBuffed] ={
+            AncientPotionHyperactive= {
+                enabled = true,
+                spellId = 201063, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "201063",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "201063",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoChaseWithBuffEffect] = {
+            SicBats = {
+                enabled = true,
+                spellId = 203163,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "203163",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "203163",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "203163",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227913",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.BuffCast] = {
+            Felfrenzy = {
+                enabled = true,
+                spellId = 227913,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "227913",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.TankBusterCast] = {
+            CoupDeGrace = {
+                enabled = true,
+                spellId = 214003,
+                RoleLoad = {
+                    HEALER = true,
+					TANK = true,
+                },
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "214003",
+                    },
+                }
+            },
+        },
+    }
+}
+
