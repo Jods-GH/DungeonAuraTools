@@ -303,8 +303,14 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
 
     end
     -- set sound
-    if AuraTemplate.doSound and JDT.db.profile.PlaySound and (JDT.db.profile.SoundKey and JDT.db.profile.SoundKey[JDT.TypesSound[AuraTemplate.doSound]] == true or not JDT.db.profile.SoundKey) then -- set Sound  JDT.Util.Functions.GetTableKeyFromEntry(AuraTemplate.doSound,JDT.SoundTypes)
-        SpellTable.actions.start.sound = AuraTemplate.doSound
+    if AuraTemplate.doSound and JDT.db.profile.PlaySound and (JDT.db.profile.SoundKey and JDT.db.profile.SoundKey[AuraTemplate.doSound.key] == true or not JDT.db.profile.SoundKey) then -- set Sound  JDT.Util.Functions.GetTableKeyFromEntry(AuraTemplate.doSound,JDT.SoundTypes)
+        local UserSound = JDT.db.profile.SoundOptions[AuraTemplate.doSound.key]
+        if UserSound and UserSound ~= AuraTemplate.doSound.sound then
+            local UserSoundPath = JDT.SharedMediaLib:Fetch(JDT.SharedMediaLib.MediaType.SOUND, UserSound,true)
+            SpellTable.actions.start.sound = UserSoundPath
+        else
+            SpellTable.actions.start.sound = AuraTemplate.doSound.sound
+        end
         SpellTable.actions.start.do_sound = true
     end
     -- set glow

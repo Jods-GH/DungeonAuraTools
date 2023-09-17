@@ -7,7 +7,7 @@
 ## Notes: Compact Addon to Manage all my Stuff for Dungeons
 ## Author: Jods
 ## SavedVariables: DungeonAuraTools
-## OptionalDeps: Ace3, WeakAuras, WeakAurasOptions, ViragDevTool, LibSharedMedia-3.0
+## OptionalDeps: Ace3, WeakAuras, WeakAurasOptions, ViragDevTool, LibSharedMedia-3.0, SharedMedia_Causese
 ## X-Curse-Project-ID: 662863
 ## X-WoWI-ID: 26384
 ## X-Wago-ID: XrNkX86a
