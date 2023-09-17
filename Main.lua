@@ -2,18 +2,27 @@ local appName, JDT = ...
 local AceConfig = LibStub("AceConfig-3.0")
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 local AceDBOptions = LibStub("AceDBOptions-3.0")
-local SharedMedia = LibStub("LibSharedMedia-3.0") 
+JDT.SharedMediaLib = LibStub("LibSharedMedia-3.0") 
 ---@class MyAddon : AceAddon-3.0, AceConsole-3.0, AceConfig-3.0, AceGUI-3.0, AceConfigDialog-3.0
 local DungeonAuraTools = LibStub("AceAddon-3.0"):NewAddon("DungeonAuraTools", "AceConsole-3.0", "AceEvent-3.0")
 JDT.AddonVersion = C_AddOns.GetAddOnMetadata(appName, "Version")
 JDT.InternalWaVersion = 66 -- version of weakauras addon on creation might need to be updated eventually
 
-JDT.FontMedias = JDT.FontMedias or {} 
+JDT.Sharedmedia = JDT.Sharedmedia or {}
+JDT.Sharedmedia.font = JDT.Sharedmedia.font or {} 
+JDT.Sharedmedia.sound= JDT.Sharedmedia.sound or  {} 
+
+local function SharedMediaSetup(mediatype)
+
+    local mediaList = JDT.SharedMediaLib:List(mediatype)
+    for _,v in pairs(mediaList) do
+        JDT.Sharedmedia[mediatype][v] = v
+    end
+end
 
 function DungeonAuraTools:OnInitialize()
-    for _,v in pairs(SharedMedia:List(SharedMedia.MediaType.FONT)) do
-        JDT.FontMedias[v] = v
-    end
+    SharedMediaSetup(JDT.SharedMediaLib.MediaType.FONT)
+    SharedMediaSetup(JDT.SharedMediaLib.MediaType.SOUND)
 	-- Called when the addon is loaded
     self:Print(JDT.getLocalisation("AccessOptionsMessage"))
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
@@ -55,14 +64,22 @@ end
 
 local VersionCheckPrefix = "DAT_VERSION"
 local function sendVersion ()
-			if IsInRaid() then
-				C_ChatInfo.SendAddonMessage(VersionCheckPrefix, JDT.AddonVersion, (not IsInRaid(LE_PARTY_CATEGORY_HOME) and IsInRaid(LE_PARTY_CATEGORY_INSTANCE)) and "INSTANCE_CHAT" or "RAID")
-			elseif IsInGroup() then
-				C_ChatInfo.SendAddonMessage(VersionCheckPrefix, JDT.AddonVersion, (not IsInGroup(LE_PARTY_CATEGORY_HOME) and IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) and "INSTANCE_CHAT" or "PARTY")
-			elseif IsInGuild() then
-				C_ChatInfo.SendAddonMessage(VersionCheckPrefix, JDT.AddonVersion, "GUILD")
-			end
+    if IsInRaid() then
+        C_ChatInfo.SendAddonMessage(VersionCheckPrefix, JDT.AddonVersion, (not IsInRaid(LE_PARTY_CATEGORY_HOME) and IsInRaid(LE_PARTY_CATEGORY_INSTANCE)) and "INSTANCE_CHAT" or "RAID")
+    elseif IsInGroup() then
+        C_ChatInfo.SendAddonMessage(VersionCheckPrefix, JDT.AddonVersion, (not IsInGroup(LE_PARTY_CATEGORY_HOME) and IsInGroup(LE_PARTY_CATEGORY_INSTANCE)) and "INSTANCE_CHAT" or "PARTY")
+    elseif IsInGuild() then
+        C_ChatInfo.SendAddonMessage(VersionCheckPrefix, JDT.AddonVersion, "GUILD")
+    end
 end
+
+function SharedMediaCallback(name,mediatype,key)
+    if mediatype == JDT.SharedMediaLib.MediaType.FONT or mediatype == JDT.SharedMediaLib.MediaType.SOUND then
+        SharedMediaSetup(mediatype)
+    end
+end
+
+
 function DungeonAuraTools:SlashCommand(msg) -- called when slash command is used
     if msg == "export" then
         JDT.exportAuras()
@@ -76,6 +93,9 @@ function DungeonAuraTools:SlashCommand(msg) -- called when slash command is used
 end
 
 function DungeonAuraTools:PLAYER_ENTERING_WORLD(event, isLogin, isReload)
+    JDT.SharedMediaLib:RegisterCallback("LibSharedMedia_Registered", function(...)
+        SharedMediaCallback(...)
+    end)
     if isLogin == true or isReload == true then
         if isLogin == true and not IsInInstance() then
             JDT.CheckIfAuraUpdates(self)

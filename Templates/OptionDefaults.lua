@@ -13,6 +13,7 @@ JDT.OptionDefaults = {
 	  FontOptions = "Friz Quadrata TT",
 	  TextFontSize = 17,
 	  SoundKey = {},
+	  SoundOptions = JDT.SoundDefaults,
 	  ExportOnDungeonEntry = false,
 	}
   }

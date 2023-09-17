@@ -1,5 +1,5 @@
 local appName, JDT = ...
-
+local SharedMedia = LibStub("LibSharedMedia-3.0") 
 ---@type AceConfigOptionsTable
 JDT.options = {
   name = "Addon Options",
@@ -242,7 +242,7 @@ JDT.options = {
                 order = 56,
                 type = "select",
                 width = 1.25,
-                values = JDT.FontMedias,
+                values = JDT.Sharedmedia.font,
                 set = function(info,val)  JDT.db.profile.FontOptions = val
                   JDT.RefreshAnchor(JDT.AnchorRefreshTypes.Font) end, --Sets value of SavedVariables depending on toggles
                 get = function(info) 
@@ -314,13 +314,33 @@ JDT.options = {
 -- generates Sound Options
 for SoundKey in pairs (JDT.SoundTypes) do
   JDT.options.args.generaloptions.args.SoundOptions.args[SoundKey] = {
-                name = SoundKey,
-                desc = JDT.getLocalisation("SoundTypeDescription"),
-                type = "toggle",
-                set = function(info,val)  JDT.db.profile.SoundKey[SoundKey] = val end, --Sets value of SavedVariables depending on toggles
-                get = function(info)
-                    return  JDT.db.profile.SoundKey[SoundKey]  --Sets value of toggles depending on SavedVariables 
-                end
+    name = SoundKey,
+    type = "group",
+    inline = true,
+    args = {
+      SoundToggle = {
+        name = JDT.getLocalisation("SoundToggle"),
+        desc = JDT.getLocalisation("SoundToggleDescription"),
+        type = "toggle",
+        set = function(info,val)  JDT.db.profile.SoundKey[SoundKey] = val end, --Sets value of SavedVariables depending on toggles
+        get = function(info)
+            return  JDT.db.profile.SoundKey[SoundKey]  --Sets value of toggles depending on SavedVariables 
+        end
+      },
+      SoundOptions= {
+        name = JDT.getLocalisation("SoundOption"),
+        desc = JDT.getLocalisation("SoundOptionDescription"),
+        order = 56,
+        type = "select",
+        width = 1.25,
+        values = JDT.Sharedmedia.sound,
+        set = function(info,val)  JDT.db.profile.SoundOptions[SoundKey] = val
+        end, --Sets value of SavedVariables depending on toggles
+        get = function(info) 
+          return  JDT.db.profile.SoundOptions[SoundKey] --Sets value of toggles depending on SavedVariables 
+        end
+      },
+    }
   }
 end
 

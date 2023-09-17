@@ -53,12 +53,16 @@ LocalisationData["DebugWarning"] = "WARNING you are about to enable Debug Mode t
 LocalisationData["internalVersionMismatch"] = "Warning Internal Wa Version does not match Please alert the Author"
 LocalisationData["SoundTypeDescription"] = "Toggles all Soundfiles of the given type of being played by any Aura"
 LocalisationData["SoundOptions"] = "Sound Options"
-LocalisationData["ToggleAnchor"] = "ToggleAnchor"
+LocalisationData["ToggleAnchor"] = "Toggle Anchor"
 LocalisationData["ToggleAnchorDescription"] = "Toggle the display of an Anchor preview for generated auras"
 LocalisationData["ExportOnDungeonEntry"] = "Export on Dungeon Entry"
 LocalisationData["ExportOnDungeonEntryDescription"] = "Exports Dungeon Auras whenever you enter a Dungeon"
 LocalisationData["AuraType"] = "Aura Type"
 LocalisationData["AuraTypeDescription"] = "The type of Aura that should be used for this Spell e.G. Icon or Bar"
+LocalisationData["SoundOption"] = "Sound Option"
+LocalisationData["SoundOptionDescription"] = "Sets the Sound of all the auras using this sound queue"
+LocalisationData["SoundToggle"] = "Toggle Sound type"
+LocalisationData["SoundToggleDescription"] = "Toggle the Sound of a given Type"
 
     --[[ 
     LocalisationData[""] = ""
