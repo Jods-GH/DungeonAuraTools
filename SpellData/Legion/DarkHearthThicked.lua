@@ -292,6 +292,278 @@ bosses.boss4 = {  -- 	Shade of Xavius
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
-        
+        [JDT.GroupTypes.ToppableDot] = {
+            GriviousRip = {
+                 enabled = true,
+                 spellId = 225484,
+                 triggerData = {
+                     {
+                         unit = JDT.Templates.Triggers.UnitTypes.player,
+                         spellId = "225484",
+                     }
+                 }
+             },
+         },
+         [JDT.GroupTypes.PlayerGroupDebuffSpread ] ={
+            NightmareToxin = {
+                enabled = true,
+                spellId = 200684, -- for spellname etc
+                type = JDT.AuraTypes.poison,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "200684",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "200684",
+                    },
+                }
+            },
+            CurseOfIsolation = {
+                enabled = true,
+                spellId = 201842, -- for spellname etc
+                extraName = " debuff",
+                type = JDT.AuraTypes.curse,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "201842",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "201842",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.InteruptableTargetedCastIntoHealingReducedMagicDebuff] ={
+            Despair = {
+                enabled = true,
+                spellId = 200642, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200642",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "200642",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            StarShower = {
+                enabled = true,
+                spellId = 200658,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200658",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoeBigAoeIfDebuff] = {
+            MaddeningRoar = {
+                enabled = true,
+                spellId = 200580,
+                showStacks = 2,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200580",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "200580",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Charge] ={
+            PropellingCharge= {
+                enabled = true,
+                spellId = 200768, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200768",
+                    },
+                }
+            },
+            BloodAssault= {
+                enabled = true,
+                spellId = 201227, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "201227",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableCast] = {
+            UnnervingScreech = {
+                enabled = true,
+                spellId = 200631,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "200631",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            SpewCorruption = {
+                enabled = true,
+                spellId = 218755,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "218755",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.Fixate] = {
+            Fixate = {
+                enabled = true,
+                spellId = 198477,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "198477",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.HealDebuff] = {
+            poisonSpear = {
+                enabled = true,
+                spellId = 198904,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "198904",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            RootBurst = {
+                enabled = true,
+                spellId = 201129, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "201129",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableAoeFear] ={
+            TormentingEye= {
+                enabled = true,
+                spellId = 204243, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "204243",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.ExplodingCombatlogStart] ={
+            Deadburst = {
+                enabled = true,
+                spellId = 100529, -- for spellname etc
+                triggerData = {
+                    {
+                        duration = "2.2",
+                        spellId = "100529",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.AvoidCombatLogSuccess] ={
+            BloodBomb = {
+                enabled = true,
+                spellId = 201272, -- for spellname etc
+                triggerData = {
+                    {
+                        spellId = "201272",
+                        duration = "3"
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            BloodBolt = {
+                enabled = true,
+                spellId = 201298,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "201298",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.KillAddChanneling] = {
+            BloodMetamorphosis = {
+                enabled = true,
+                spellId = 225562,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "225562",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            DreadInferno = {
+                enabled = true,
+                spellId = 201399, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "201399",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.Dot] ={
+            ScorchingShot  = {
+                enabled = true,
+                spellId = 201902, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "201902",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.TargetedCastWithTargetAnounce] ={
+            CurseOfIsolation= {
+                enabled = true,
+                spellId = 225568, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "225568",
+                    },
+                }
+            },
+        },
     }
 }
