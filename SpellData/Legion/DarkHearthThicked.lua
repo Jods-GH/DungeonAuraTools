@@ -143,13 +143,66 @@ bosses.boss2 = {  -- Oakheart
                 }
             },
         },
+       
     }  
 }
 bosses.boss3 = {  -- 	Dresaron
     EncounterId = "1838", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = { 
-        
+        [JDT.GroupTypes.StayCloseCast] = {
+            DownDraft = {
+                enabled = true,
+                spellId = 199345,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "199345",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            EarthShakingRoar= {
+                enabled = true,
+                spellId = 199389,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "199389",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            BreathOfCorruption = {
+                enabled = true,
+                spellId = 191325,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "191325",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            BreathOfCorruptionDot  = {
+                enabled = true,
+                spellId = 191325, -- for spellname etc
+                extraName = " debuff",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "191325",
+
+                    },
+
+                }
+            }
+        },
     }  
 }
 bosses.boss4 = {  -- 	Shade of Xavius
