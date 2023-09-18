@@ -53,9 +53,7 @@ bosses.boss1 = {  -- The Amalgam of Souls
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "195254",
-
                     },
-
                 }
             },
         },

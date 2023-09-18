@@ -665,7 +665,6 @@ bosses.Trash = {
 
                 }
             },
-
         },
         [JDT.GroupTypes.DragCast] = {
             BarbedTongue = {

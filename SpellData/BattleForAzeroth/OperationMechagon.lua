@@ -217,10 +217,8 @@ bosses.boss4 = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "301351",
                     }
-
                 }
             },
-
         },
         [JDT.GroupTypes.TankBusterCastWithDebuffCheck] = {
             ReinforcementRelay = {

@@ -324,14 +324,11 @@ bosses.boss3 = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "382670",
-
                     },
                     {
                         duration = "2",
                         spellId = "382670",
-
                     },
-
                 }
             },
         },
