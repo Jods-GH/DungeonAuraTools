@@ -25,9 +25,7 @@ bosses.boss1 = {  -- Scycaptain Kragg
                     {
                         spellId = "268717",
                         duration = "2.5"
-
                     },
-
                 }
             }
         },
@@ -158,9 +156,7 @@ bosses.boss2 = {  -- Council o' Captains
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "256589",
-
                     },
-
                 }
             },
         },
@@ -197,7 +193,6 @@ bosses.boss2 = {  -- Council o' Captains
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "256979",
                     }
-
                 }
             },
         },
@@ -256,9 +251,7 @@ bosses.boss2 = {  -- Council o' Captains
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "267523",
-
                     },
-
                 }
             }
         },
@@ -441,9 +434,7 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "274400",
-
                     },
-
                 }
             },
         },

@@ -271,6 +271,9 @@ JDT.GroupTypes.CastIntoTankBusterWhileBuffIsActive = "CastIntoTankBusterWhileBuf
 JDT.GroupTypes.CastIntoFrontalWhileBuffed = "CastIntoFrontalWhileBuffed"
 JDT.GroupTypes.CastIntoSpinToWinWhileBuffed = "CastIntoSpinToWinWhileBuffed"
 JDT.GroupTypes.ToppableDot = "ToppableDot"
+JDT.GroupTypes.StayCloseCast = "StayCloseCast"
+JDT.GroupTypes.InteruptableTargetedCastIntoHealingReducedMagicDebuff = "InteruptableTargetedCastIntoHealingReducedMagicDebuff"
+JDT.GroupTypes.Fixate = "Fixate"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -313,6 +316,24 @@ JDT.Templates.GroupTypes.HealDebuff = {
             isactive = true,
         },  
     },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.Fixate = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = "-"..JDT.getLocalisation("fixated"),
+            isactive = true,
+        },  
+    },
+    glowtype = "Ants",
+    showGlow = true,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 JDT.Templates.GroupTypes.HealBuff = {
@@ -2228,21 +2249,21 @@ JDT.Templates.GroupTypes.UnavoidableAoeBigAoeIfBuffMissing = {
 JDT.Templates.GroupTypes.BossCastIntoStack = {
     AuraType = "AuraIcon",
     triggers = {
-        [1] = {
+        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
         },
-        [2] ={
+        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
             BuffTypes = "debuff",
         },
-        [3] ={
+        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
             BuffTypes = "debuff",
         },
     },
     text = {
         {   
-            value = JDT.getLocalisation("Soak"),
+            value = JDT.getLocalisation("Stack inc"),
             isactive = true,
         }, 
         {   
@@ -3165,6 +3186,79 @@ JDT.Templates.GroupTypes.TargetedCastIntoHealingReducedDebuff= {
         },
     })
 }
+JDT.Templates.GroupTypes.InteruptableTargetedCastIntoHealingReducedMagicDebuff= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("targeted"),
+            isactive = false,
+        },
+        {   
+            value = "-"..JDT.getLocalisation("Healing"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.interrupt,
+    type = 
+        {
+            {
+                type = JDT.AuraTypes.interrupt,
+                visible = true,
+            },
+            {
+                type = JDT.AuraTypes.magic,
+                visible = false,
+            },
+        },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.6.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.7.border_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.8.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.9.border_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+), 
+}
+
 JDT.Templates.GroupTypes.InteruptableTargetedCastIntoDmgTakenDebuff= {
     AuraType = "AuraIcon",
     triggers = {
@@ -5067,6 +5161,23 @@ JDT.Templates.GroupTypes.GoMeleeCast = {
     text = {
         {   
             value = JDT.getLocalisation("Go Melee"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.move,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.StayCloseCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Stay Close"),
             isactive = true,
         }, 
     },
