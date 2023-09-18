@@ -331,6 +331,23 @@ JDT.Templates.GroupTypes.HealBuff = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
+JDT.Templates.GroupTypes.ToppableDot = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Heal up"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
 JDT.Templates.GroupTypes.ImportantMoveBuff = {
     AuraType = "AuraIcon",
     triggers = {
