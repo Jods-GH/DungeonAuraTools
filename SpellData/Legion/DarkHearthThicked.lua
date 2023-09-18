@@ -18,19 +18,31 @@ bosses.boss1 = {  -- Archdruid Glaidalis
     EncounterId = "1836", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 01 ",
     Auras = { 
-        [JDT.GroupTypes.Frontal] = {
-           SoulHarvest = {
+        [JDT.GroupTypes.ToppableDot] = {
+           GriviousTear = {
                 enabled = true,
-                spellId = 194956,
+                spellId = 196376,
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "194956",
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "196376",
                     }
-
                 }
             },
         },
+        [JDT.GroupTypes.Charge] = {
+            PrimalRage = {
+                enabled = true,
+                spellId = 198376,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "198376",
+                    }
+                }
+            },
+        },
+        
     }  
 }
 
