@@ -209,7 +209,81 @@ bosses.boss4 = {  -- 	Shade of Xavius
     EncounterId = "1839", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = { 
-       
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            GrowingParanoia = {
+                enabled = true,
+                spellId = 200289, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "200289",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "200289",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "200289",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.HealDebuff] = {
+            FesteringRip = {
+                enabled = true,
+                spellId = 200182,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "200182",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            FeedOnTheWeek = {
+                enabled = true,
+                spellId = 200238,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "200238",
+                    }
+                }
+            },
+            NightmareBolt = {
+                enabled = true,
+                spellId = 212834,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "212834",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.BossCastIntoStack] ={
+            WakingNightmare = {
+                enabled = true,
+                spellId = 200243, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "200243",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "200243",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "200243",
+                    },
+                }
+            }
+        },
     }  
 }
 
