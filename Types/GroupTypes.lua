@@ -270,6 +270,7 @@ JDT.GroupTypes.CastIntoAoeBuff = "CastIntoAoeBuff"
 JDT.GroupTypes.CastIntoTankBusterWhileBuffIsActive = "CastIntoTankBusterWhileBuffIsActive"
 JDT.GroupTypes.CastIntoFrontalWhileBuffed = "CastIntoFrontalWhileBuffed"
 JDT.GroupTypes.CastIntoSpinToWinWhileBuffed = "CastIntoSpinToWinWhileBuffed"
+JDT.GroupTypes.ToppableDot = "ToppableDot"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)

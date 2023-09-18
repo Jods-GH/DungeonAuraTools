@@ -50,7 +50,99 @@ bosses.boss2 = {  -- Oakheart
     EncounterId = "1837", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 02 ",
     Auras = { 
-        
+        [JDT.GroupTypes.CastIntoRoot] ={
+            StranglingRoots= {
+                enabled = true,
+                spellId = 204574, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "204574",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "204574"
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.KillAddDebuff] ={
+            StranglingRootsAlive= {
+                enabled = true,
+                spellId = 199063, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "199063",
+                        ignoreSelf = false,
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.KnockCast] ={ -- this is the wrong type needs to be changed
+            ShatteredEarth = {
+                enabled = true,
+                spellId = 204666, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "204666",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastWithTargetAnounce] ={
+            CrushingGrip= {
+                enabled = true,
+                spellId = 204611, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "204611",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            NightmareBreath = {
+                enabled = true,
+                spellId = 204667,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "204667",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            NightmareBreathDot  = {
+                enabled = true,
+                spellId = 204667, -- for spellname etc
+                extraName = " debuff",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "204667",
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            Uproot = {
+                enabled = true,
+                spellId = 212786,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "212786",
+                    }
+                }
+            },
+        },
     }  
 }
 bosses.boss3 = {  -- 	Dresaron
