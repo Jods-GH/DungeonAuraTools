@@ -117,6 +117,8 @@ LocalisationData["GridColumnnSpacingDescription"] = "The space between each Colu
 LocalisationData["GrowOptions"] = "Grow Options"
 LocalisationData["SpecificGrowOptions"] = "grow specific options"
 
+
+
     --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -377,6 +379,8 @@ LocalisationData["ToppableDot"] = "Dot that can be removed by Healing above a ce
 LocalisationData["InteruptableTargetedCastIntoHealingReducedMagicDebuff"] = "Cast that results in a Heal reduced debuff (Interruptable, Magic despellable)"
 LocalisationData["Fixate"] = "Fixate mechanic"
 LocalisationData["StayCloseCast"] = "Cast that requires you to stay close"
+LocalisationData["SwitchCast"] = "Cast that requires you to switch your target"
+LocalisationData["TargetedCastIntoToppableDot"] = "Cast that leaves a Dot that can be removed by Healing above a certain % Health"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -571,6 +575,7 @@ LocalisationData["fixated"] = "fixated"
 LocalisationData["Heal up"] = "Heal up"
 LocalisationData["Stack inc"] = "Stack inc"
 LocalisationData["Stay Close"] = "Stay Close"
+LocalisationData["Switch"] = "Switch"
 --[[
 LocalisationData[""] = ""
 LocalisationData[""] = ""
