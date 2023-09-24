@@ -251,7 +251,229 @@ bosses.boss5 = {  -- Gorak Tul
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
-        
-
+        [JDT.GroupTypes.CastIntoSpreadifDebuffed] = {
+            RunicMark = {
+                enabled = true,
+                spellId = 176025,
+                type = JDT.AuraTypes.curse,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "264105",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "264105",
+                    },
+                }
+            },
+            DreadMark = {
+                enabled = true,
+                spellId = 265880,
+                type = JDT.AuraTypes.curse,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265880",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "265880",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoTrapSpawnSuccess] ={
+            FreezingTraps = {
+                enabled = true,
+                spellId = 274383, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "274383",
+                    },
+                    {
+                        spellId = "274383",
+                        duration = "3.4"
+                    },
+                }
+            },
+            ShrapnelTraps = {
+                enabled = true,
+                spellId = 264525, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "264525",
+                    },
+                    {
+                        spellId = "264525",
+                        duration = "3.4"
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.ShieldCast] ={
+            SpiritedDefense = {
+                enabled = true,
+                spellId = 265368, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265368",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.TargetedCastIntoDmgTakenDebuff] = {
+            DecayingTouch = {
+                enabled = true,
+                spellId = 265881,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "265881",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "265881",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            FragmentSoul = {
+                enabled = true,
+                spellId = 264378, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "264378",
+                    },
+                }
+            },
+            MarkingCleaveDot = {
+                enabled = true,
+                spellId = 263905, -- for spellname etc
+                type = JDT.AuraTypes.curse,
+                extraName = " dot",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "263905",
+                    },
+                }
+            },
+            TearingStrike = {
+                enabled = true,
+                spellId = 264556, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "264556",
+                    },
+                }
+            },
+            ShatterDot = {
+                enabled = true,
+                spellId = 264150, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                extraName = " dot",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "264150",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            BoneSplinter = {
+                enabled = true,
+                spellId = 266035,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "266035",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "266035",
+                    },
+                }
+            },
+            InfectedThorne = {
+                enabled = true,
+                spellId = 264050,
+                type = JDT.AuraTypes.disease,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "264050",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "264050",
+                    },
+                }
+            },
+            SeveringSerpent = {
+                enabled = true,
+                spellId = 264520,
+                type = JDT.AuraTypes.disease,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "264520",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "264520",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            MarkingCleave = {
+                enabled = true,
+                spellId = 263905,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "263905",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.ExplodingCast] = {
+            Shatter = {
+                enabled = true,
+                spellId = 264150,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "264150",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.MinusDmgTakenBuff] = {
+            WardingCandles = {
+                enabled = true,
+                spellId = 264027,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "264027",
+                    }
+                }
+            },
+        },
     }
 }

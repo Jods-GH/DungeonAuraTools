@@ -276,6 +276,8 @@ JDT.GroupTypes.InteruptableTargetedCastIntoHealingReducedMagicDebuff = "Interupt
 JDT.GroupTypes.Fixate = "Fixate"
 JDT.GroupTypes.SwitchCast = "SwitchCast"
 JDT.GroupTypes.TargetedCastIntoToppableDot = "TargetedCastIntoToppableDot"
+JDT.GroupTypes.CastIntoTrapSpawnSuccess = "CastIntoTrapSpawnSuccess"
+JDT.GroupTypes.MinusDmgTakenBuff = "MinusDmgTakenBuff"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -3658,6 +3660,22 @@ JDT.Templates.GroupTypes.BeamCast = {
     doSound = JDT.SoundTypes.beam,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.MinusDmgTakenBuff= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("- dmg"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 JDT.Templates.GroupTypes.MinusDmgTakenCCable = {
     AuraType = "AuraIcon",
     triggers = {
@@ -6995,6 +7013,26 @@ JDT.Templates.GroupTypes.TrapSpawn= {
     triggers = {
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Trap inc"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+JDT.Templates.GroupTypes.CastIntoTrapSpawnSuccess= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_SUCCESS",
         },
     },
     text = {
