@@ -381,6 +381,8 @@ LocalisationData["Fixate"] = "Fixate mechanic"
 LocalisationData["StayCloseCast"] = "Cast that requires you to stay close"
 LocalisationData["SwitchCast"] = "Cast that requires you to switch your target"
 LocalisationData["TargetedCastIntoToppableDot"] = "Cast that leaves a Dot that can be removed by Healing above a certain % Health"
+LocalisationData["CastIntoTrapSpawnSuccess"] = "Mechanic that spawns a trap"
+LocalisationData["MinusDmgTakenBuff"] = "Damage reduction buff"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""

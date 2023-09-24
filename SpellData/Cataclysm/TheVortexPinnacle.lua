@@ -368,9 +368,7 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "411000",
-
                     },
-
                 }
             }
         },
