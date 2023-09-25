@@ -49,6 +49,7 @@ JDT.Templates.Triggers.UnitTypes = {
     boss = "boss",
     nameplate = "nameplate",
     smartGroup = "group",
+    target = "target",
 }
 JDT.Templates.Triggers.CheckUnits =  CopyTable(JDT.Templates.Triggers.UnitTypes)
 setmetatable(JDT.Templates.Triggers.UnitTypes, {

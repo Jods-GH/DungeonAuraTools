@@ -86,16 +86,16 @@ bosses.boss2 = {  -- Vol'kaal
                 spellId = 250190, -- for spellname etc
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        npcID = "125977",
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        npcID = "125977",
-                    },
-                    {
                         spellIdList = {},
                         extraUnit = ""
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.target,
+                        npcID = "125977",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        npcID = "125977",
                     },
                 }
             }
