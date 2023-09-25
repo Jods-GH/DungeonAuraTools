@@ -63,7 +63,6 @@ bosses.boss1 = {  -- Elder Leaxa
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "264603",
                     },
-
                 }
             },
         },
@@ -474,8 +473,6 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
                         spellId = "266107",
                     },
-
-
                 }
             },
         },

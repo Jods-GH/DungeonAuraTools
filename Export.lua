@@ -251,7 +251,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
                                     
     for trigger = 1,#AuraTemplate.triggers, 1 do -- iterate through all triggers and generate them
         assert(v.triggerData and v.triggerData[trigger] , "Error: Triggerinfo for trigger"..trigger.." in Aura "..v.spellId.." in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName.." not found") -- checks if trigger data is set properly
-        local AuraTrigger = JDT.generateTriggerfromGroupType[AuraTemplate.triggers[trigger].triggerType](v.triggerData[trigger],AuraTemplate.triggers[trigger])
+        local AuraTrigger = JDT.generateTriggerfromGroupType[AuraTemplate.triggers[trigger].triggerType](v.triggerData[trigger],AuraTemplate.triggers[trigger],SpellTable)
         tinsert(TriggerTable,AuraTrigger)
     end
     SpellTable.triggers = TriggerTable
@@ -297,6 +297,10 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
             TextTemplate["text_text_format_"..number.."."..unit.."_realm_name"] = "never"
             TextTemplate["text_text_format_"..number.."."..unit.."_color"] = "class"
             TextTemplate["text_text_format_"..number.."."..unit.."_format"] = "Unit"
+        end
+        if textvalue.isNumber then
+            TextTemplate["text_text_format_"..textvalue.isNumber.."_decimal_precision"] = 1
+            TextTemplate["text_text_format_"..textvalue.isNumber.."_format"] = "Number"
         end
         TextTemplate.text_anchorPoint = JDT.Templates.AnchorForTextPriority[SpellTable.regionType].Main                            
         tinsert(SpellTable.subRegions,TextTemplate)
@@ -602,7 +606,7 @@ end
 ---@param triggerData table
 ---@param AuraTemplate table
 ---@return table
-JDT.generateTriggerfromGroupType.TSU= function(triggerData,AuraTemplate)
+JDT.generateTriggerfromGroupType.TSU= function(triggerData,AuraTemplate,SpellTable)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     local Trigger = JDT.Templates.CustomTriggers[AuraTemplate.customPreset](triggerData)
     AuraTrigger.trigger.custom = Trigger.customTrigger
@@ -610,7 +614,14 @@ JDT.generateTriggerfromGroupType.TSU= function(triggerData,AuraTemplate)
     if Trigger.customVariables then
         AuraTrigger.trigger.customVariables = Trigger.customVariables
     end
-
+    if Trigger.customInit then
+        SpellTable.actions.init.do_custom = true
+        SpellTable.actions.init.custom = Trigger.customInit 
+    end
+    if Trigger.customFinish then
+        SpellTable.actions.finish.do_custom = true
+        SpellTable.actions.finish.custom = Trigger.customFinish
+    end
     return AuraTrigger
 end
 ---Creates UnitResource triggers
