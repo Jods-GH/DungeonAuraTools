@@ -83,3 +83,15 @@ JDT.Templates.CustomTriggers.RestlessSoul= function()
     }
     return trigger
 end
+
+JDT.Templates.CustomTriggers.HpCompare = function()
+    local trigger = {
+        customVariables = "{\n    value = true,\n    isLowest = \"bool\",\n    isHighest = \"bool\",\n    lowestDif = \"number\",\n    highestDif = \"number\",\n}",
+        CustomEvents = "TRIGGER:2:3",
+        customTrigger = "function(allstates,event, triggerNum, triggerStates)\n    if event == \"TRIGGER\" and triggerNum then\n        if triggerNum == 2 then\n            if triggerStates[\"\"] then\n                aura_env.TriggerInfo.target = triggerStates[\"\"].percenthealth\n            else\n                allstates[\"\"] = {\n                    show = false,\n                    changed = true,\n                }\n                aura_env.TriggerInfo.target = 0\n                return true\n            end\n            \n        elseif triggerNum == 3 then\n            for k,v in pairs(triggerStates) do\n                if UnitIsUnit(\"target\", k) then\n                    aura_env.TriggerInfo.bosses[k] = nil\n                else\n                    aura_env.TriggerInfo.bosses[k] = v.percenthealth                    \n                end\n            end\n        end\n        if aura_env.TriggerInfo.target and aura_env.TriggerInfo.target> 0 and next(aura_env.TriggerInfo.bosses)then\n            local hplist = {}\n            for k,v in pairs(aura_env.TriggerInfo.bosses) do\n                table.insert(hplist,v)\n            end\n            \n            local lowest = math.min(unpack(hplist))\n            local highest = math.max(unpack(hplist))\n            allstates[\"\"] = {\n                show = true,\n                changed = true,\n                progressType = \"static\",\n                value = aura_env.TriggerInfo.target,\n                total = 100,\n                icon = 538571,\n                autoHide = true,\n                isLowest = aura_env.TriggerInfo.target<lowest,\n                isHighest = aura_env.TriggerInfo.target>highest,\n                lowestDif = lowest-aura_env.TriggerInfo.target,\n                highestDif = highest-aura_env.TriggerInfo.target,\n                DifToHighest = aura_env.TriggerInfo.target-highest\n            }\n            return true\n        end\n    end\nend\n\n\n",
+		customInit = "aura_env.TriggerInfo = {}\naura_env.TriggerInfo.target = 0\naura_env.TriggerInfo.bosses = {}",			
+        customFinish = "aura_env.TriggerInfo = {}\naura_env.TriggerInfo.target = 0\naura_env.TriggerInfo.bosses = {}",	
+    }
+    return trigger
+end
+

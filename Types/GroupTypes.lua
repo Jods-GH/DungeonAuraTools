@@ -125,6 +125,7 @@ JDT.GroupTypes.SoakVoidWithDebuff = "SoakVoidWithDebuff"
 JDT.GroupTypes.OrbSoak = "OrbSoak"
 JDT.GroupTypes.TeleportCast = "TeleportCast"
 JDT.GroupTypes.InteruptableCastIntoMagicDot = "InteruptableCastIntoMagicDot"
+JDT.GroupTypes.InteruptableCastIntoCurseDot = "InteruptableCastIntoCurseDot"
 JDT.GroupTypes.LaserDebuff = "LaserDebuff"
 JDT.GroupTypes.SlowDot = "SlowDot"
 JDT.GroupTypes.BeamCast = "BeamCast"
@@ -278,6 +279,9 @@ JDT.GroupTypes.SwitchCast = "SwitchCast"
 JDT.GroupTypes.TargetedCastIntoToppableDot = "TargetedCastIntoToppableDot"
 JDT.GroupTypes.CastIntoTrapSpawnSuccess = "CastIntoTrapSpawnSuccess"
 JDT.GroupTypes.MinusDmgTakenBuff = "MinusDmgTakenBuff"
+JDT.GroupTypes.CastIntoKillAddAlive = "CastIntoKillAddAlive"
+JDT.GroupTypes.HpCompare = "HpCompare"
+JDT.GroupTypes.HealCast = "HealCast"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -3791,6 +3795,53 @@ JDT.Templates.GroupTypes.KillAddAlive= {
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 
+JDT.Templates.GroupTypes.CastIntoKillAddAlive= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitHealth,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Adds"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Kill add"),
+            isactive = false,
+        }, 
+    },
+    useHealth = 1,
+    doSound = JDT.SoundTypes.add,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                 
+                },
+        },
+    }
+), 
+}
+
 JDT.Templates.GroupTypes.KillAddDebuff= {
     AuraType = "AuraIcon",
     triggers = {
@@ -4863,6 +4914,78 @@ JDT.Templates.GroupTypes.InteruptableCastIntoMagicDot = {
 ), 
 }
 
+JDT.Templates.GroupTypes.InteruptableCastIntoCurseDot = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dot inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Dot"),  
+            isactive = false,
+        },    
+    },
+    type = 
+        {
+            {
+                type = "interrupt",
+                visible = true,
+            },
+            {
+                type = "curse",
+                visible = false,
+            },
+        },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                    {
+                        property = "sub.6.border_visible",
+                        value = false,
+                    },
+                    {
+                        property= "sub.7.text_visible",
+                        value = true
+                    },
+                    {
+                        property = "sub.8.border_visible",
+                        value = true,
+                    },
+                },
+        },
+    }
+), 
+}
+
 
 JDT.Templates.GroupTypes.CastIntoAtackspeedSlow = {
     AuraType = "AuraIcon",
@@ -5630,11 +5753,26 @@ JDT.Templates.GroupTypes.StunableHealCast = {
     type = JDT.AuraTypes.stun,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.HealCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Heal"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 JDT.Templates.GroupTypes.InteruptableBigHealCast = {
     AuraType = "AuraIcon",
     triggers = {
         {
-            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, voidc
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
         },
     },
     text = {
@@ -9917,6 +10055,97 @@ JDT.Templates.GroupTypes.SwarmDebuffAddNeedsToBeKilledWhileActive= {
                     },
                 },
             }, 
+    }
+), 
+}
+
+JDT.Templates.GroupTypes.HpCompare=  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
+            customPreset = "HpCompare"
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitHealth,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitHealth,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("ahead").." %lowestDif",
+            isactive = true,
+            isNumber = "lowestDif",
+        }, 
+        {   
+            value = JDT.getLocalisation("behind").." %highestDif",
+            isNumber = "highestDif",
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("behind").." %DifToHighest",
+            isactive = false,
+            isNumber = "DifToHighest",
+        }, 
+        
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1] end",
+    HideCooldownText = true,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                    type = "And",
+                    checks = {
+                        {
+                            type = "NumberCheck",
+                            trigger= 1,
+                            op = ">",
+                            variable = "isHighest",
+                            value = 1,
+                        },
+                        {
+                            type = "NumberCheck",
+                            trigger= 1,
+                            op = "<",
+                            variable = "isLowest",
+                            value = 0,
+                        },
+                    },
+                },
+                changes = {
+                    {
+                        property= "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                },
+            },
+            {
+                condition={
+                 type = "NumberCheck",
+                 trigger= 1,
+                 op = "<",
+                 variable = "isHighest",
+                 value = 1,
+                    },
+                    changes = {
+                     {
+                         property= "sub.3.text_visible",
+                         value = false
+                     },
+                     {
+                         property= "sub.5.text_visible",
+                         value = true
+                     },
+                    },
+            },
     }
 ), 
 }

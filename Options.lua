@@ -626,6 +626,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
             for k,v in pairs(SpellTypeValue) do -- Generates Spell toggles depending on SPellData.lua
               local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
               local spell = Spell:CreateFromSpellID(SpellID)
+              assert(spell, "Spell is nil for:"..ExpansionKey.." , "..DungeonKey.." , "..BossNameKey.." , "..SpellTypeKey.." , "..v.spellId)
               spell:ContinueOnSpellLoad(function()
                 local desc = spell:GetSpellDescription()
                 JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey].args[SpellTypeKey].args[k]= JDT.createAuraGroup(Spellname,desc,Spellicon,JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k],JDT.Templates.GroupTypes[SpellTypeKey].AuraType)
