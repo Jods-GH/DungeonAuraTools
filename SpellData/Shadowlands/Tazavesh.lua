@@ -638,10 +638,8 @@ bosses.boss6 = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "346980",
                     }
-
                 }
             },
-
         },
         [JDT.GroupTypes.InterruptableTargetedCast] = {
             ValorousBolt = {

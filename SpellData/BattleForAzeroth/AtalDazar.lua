@@ -141,6 +141,7 @@ bosses.boss2 = {  -- Vol'kaal
                 enabled = true,
                 spellId = 267523, -- for spellname etc
                 type = JDT.AuraTypes.disease,
+                showStacks = 1,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
@@ -299,7 +300,271 @@ bosses.boss4 = {  -- Yazma
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
-        
+        [JDT.GroupTypes.TargetedCast] = {
+            FerventStrike = {
+                enabled = true,
+                spellId = 256138,
+                type = JDT.AuraTypes.stun,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "256138",
+                    }
+                }
+            },
+            Soulburn = {
+                enabled = true,
+                spellId = 254959,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "254959",
+                    }
+                }
+            },
+            DeadeyeAim = {
+                enabled = true,
+                spellId = 256846,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "256846",
+                    }
+                }
+            },
+            Quickshot = {
+                enabled = true,
+                spellId = 256864,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "256864",
+                    }
+                }
+            },
+            ShieldBash = {
+                enabled = true,
+                spellId = 273185,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "273185",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            VenomBlast = {
+                enabled = true,
+                spellId = 252923, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "252923",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            FanaticsRage = {
+                enabled = true,
+                spellId = 255824,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "255824",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Charge] = {
+            MercilessAssault = {
+                enabled = true,
+                spellId = 253239,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "253239",
+                    }
+                }
+            },
+            FrenziedCharge = {
+                enabled = true,
+                spellId = 255567,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "255567",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableCCImmunityCast] = {
+            BwonsamdisMantle= {
+                enabled = true,
+                spellId = 253544,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "253544",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            MendingWord = {
+                enabled = true,
+                spellId = 253517,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "253517",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            FieryEnchant = {
+                enabled = true,
+                spellId = 253583,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "253583",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            WildFire = {
+                enabled = true,
+                spellId = 253562,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "253562",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "253562",
+                    },
+                }
+            },
+            RendingMaul = {
+                enabled = true,
+                spellId = 255814,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "255814",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "255814",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoHealingReducedDebuff] = {
+            VenomfangStrike = {
+                enabled = true,
+                spellId = 252687,
+                type = JDT.AuraTypes.poison,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "252687",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "252687",
+                    },
 
+                }
+            },
+        },
+        [JDT.GroupTypes.SoakCastSafeWithDebuff ] ={
+            Transfusion = {
+                enabled = true,
+                spellId = 260666, -- for spellname etc
+                loadInBossfight = false,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "260666",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "255558",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableAoeFear] ={
+            TerrifyingScreech= {
+                enabled = true,
+                spellId = 255041, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "255041",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            WildThrash = {
+                enabled = true,
+                spellId = 256882, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "256882",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.HealCast] = {
+            DinoMight= {
+                enabled = true,
+                spellId = 256849,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "256849",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.MinusDmgTakenCCable] = {
+            BulwarkofJuju = {
+                enabled = true,
+                spellId = 253721,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "253721",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableCastIntoCurseHex] = {
+            UnstableHex = {
+                enabled = true,
+                spellId = 252781,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "252781",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "252781",
+                    }
+                }
+            },
+        },
     }
 }
