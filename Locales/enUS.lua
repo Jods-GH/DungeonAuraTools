@@ -387,6 +387,7 @@ LocalisationData["TargetedCastIntoToppableDot"] = "Cast that leaves a Dot that c
 LocalisationData["CastIntoTrapSpawnSuccess"] = "Mechanic that spawns a trap"
 LocalisationData["MinusDmgTakenBuff"] = "Damage reduction buff"
 LocalisationData["HpCompare"] = "Compares the HP of multiple Units"
+LocalisationData["InteruptableCastIntoCurseHex"] = "Cast that hexes a player (Interuptable, curse despellable)"
 
 --[[ 
     LocalisationData[""] = ""
@@ -585,6 +586,8 @@ LocalisationData["Stay Close"] = "Stay Close"
 LocalisationData["Switch"] = "Switch"
 LocalisationData["ahead"] = "Ahead"
 LocalisationData["behind"] = "Behind"
+LocalisationData["Hexed"] = "Hexed"
+LocalisationData["Hex inc"] = "Hex inc"
 --[[
 LocalisationData[""] = ""
 LocalisationData[""] = ""

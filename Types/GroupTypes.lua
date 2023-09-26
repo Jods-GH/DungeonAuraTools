@@ -282,6 +282,7 @@ JDT.GroupTypes.MinusDmgTakenBuff = "MinusDmgTakenBuff"
 JDT.GroupTypes.CastIntoKillAddAlive = "CastIntoKillAddAlive"
 JDT.GroupTypes.HpCompare = "HpCompare"
 JDT.GroupTypes.HealCast = "HealCast"
+JDT.GroupTypes.InteruptableCastIntoCurseHex = "InteruptableCastIntoCurseHex"
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -10105,7 +10106,7 @@ JDT.Templates.GroupTypes.HpCompare=  {
                             trigger= 1,
                             op = ">",
                             variable = "isHighest",
-                            value = 1,
+                            value = 0,
                         },
                         {
                             type = "NumberCheck",
@@ -10146,6 +10147,79 @@ JDT.Templates.GroupTypes.HpCompare=  {
                      },
                     },
             },
+    }
+), 
+}
+
+JDT.Templates.GroupTypes.InteruptableCastIntoCurseHex = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Hex inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Hexed"),  
+            isactive = false,
+        },    
+    },
+    type = 
+        {
+            {
+                type = "interrupt",
+                visible = true,
+            },
+            {
+                type = "curse",
+                visible = false,
+            },
+        },
+    doSound = JDT.SoundTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                    {
+                        property = "sub.6.border_visible",
+                        value = false,
+                    },
+                    {
+                        property= "sub.7.text_visible",
+                        value = true
+                    },
+                    {
+                        property = "sub.8.border_visible",
+                        value = true,
+                    },
+                },
+        },
     }
 ), 
 }
