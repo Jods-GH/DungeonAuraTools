@@ -69,13 +69,11 @@ bosses.boss1 = {  -- Chronikar
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "401421",
-
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
                         spellId = "401421",
                     },
-
                 }
             }
         },
@@ -846,6 +844,268 @@ bosses.boss8 = {  -- Chrono-Lord Deios
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
-      
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            InfiniteFury = {
+                enabled = true,
+                spellId = 413622, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413622",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.Dance] ={
+            InfiniteShism = {
+                enabled = true,
+                spellId = 419327, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "419327",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.PlayerGroupDebuffSpread ] ={
+            Chronoburst = {
+                enabled = true,
+                spellId = 415554, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "415554",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "415554",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.ShieldCast] ={
+            TitanicBulwark = {
+                enabled = true,
+                spellId = 413024, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413024",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.TargetedCastWithTargetAnounce] ={
+            ShroudingSandstorm= {
+                enabled = true,
+                spellId = 412215, -- for spellname etc
+                type = JDT.AuraTypes.stun,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "412215",
+                    },
+                }
+            },
+            Chronomelt= {
+                enabled = true,
+                spellId = 411994, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411994",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            InfiniteBurn = {
+                enabled = true,
+                spellId = 418200,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "418200",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "418200",
+                    },
+                }
+            },
+            RendingCleave = {
+                enabled = true,
+                spellId = 412505,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "412505",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "412505",
+                    },
+                }
+            },
+            SlobberingBite = {
+                enabled = true,
+                spellId = 411700,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411700",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "411700",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            OrbOfContemplation = {
+                enabled = true,
+                spellId = 412129,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "412129",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Charge] = {
+            BombingRun = {
+                enabled = true,
+                spellId = 412156,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "412156",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            DeployDwarvenBombers = {
+                enabled = true,
+                spellId = 418684,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "418684",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            Temposlice = {
+                enabled = true,
+                spellId = 412044,
+                showStacks = 1,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "412044",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            SunderingSlam = {
+                enabled = true,
+                spellId = 407125,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "407125",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ArmorDeBuff] = {
+            SunderingSlamDebuff = {
+                enabled = true,
+                spellId = 407125,
+                extraName = " debuff",
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "407125",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            TimeBeam = {
+                enabled = true,
+                spellId = 413427, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413427",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "413427",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "413427",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.SlowDebuff] ={
+            CorrodingVolley = {
+                enabled = true,
+                spellId = 413606, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "413606",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.InteruptableMobCastIntoPlayerDebuffSlow] ={
+            SoggyBonk= {
+                enabled = true,
+                spellId = 411644, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411644",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "411644",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.Dot] ={
+            Bloom  = {
+                enabled = true,
+                spellId = 413547, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "413547",
+                    },
+                }
+            }
+        },
     }
 }

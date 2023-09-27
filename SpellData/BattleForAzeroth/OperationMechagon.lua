@@ -320,7 +320,6 @@ bosses.boss6 = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "291973",
                     },
-
                 }
             },
         },
@@ -725,7 +724,6 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "299438",
                     }
-
                 }
             },
         },
@@ -860,12 +858,10 @@ bosses.Trash = {
             enabled = true,
             spellId = 301667, -- for spellname etc
             triggerData = {
-                [1] = {
+                {
                     unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                     spellId = "301667",
-
                 },
-
             }
         },
         RocketBarrage= {
@@ -943,12 +939,10 @@ bosses.Trash = {
             enabled = true,
             spellId = 297128, -- for spellname etc
             triggerData = {
-                [1] = {
+                {
                     unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                     spellId = "297128",
-
                 },
-
             }
         }
     },

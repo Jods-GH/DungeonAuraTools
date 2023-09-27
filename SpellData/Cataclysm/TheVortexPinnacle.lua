@@ -181,9 +181,7 @@ bosses.boss3 = {  -- Asaad
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "87618",
-
                     },
-
                 }
             }
         },
