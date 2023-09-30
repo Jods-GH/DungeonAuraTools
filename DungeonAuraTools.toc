@@ -97,12 +97,14 @@ SpellData/Legion/DarkHearthThicked.lua
 SpellData/WarlordsOfDraenor/ShadowmoonBurialGrounds.lua
 SpellData/WarlordsOfDraenor/GrimrailDepot.lua
 SpellData/WarlordsOfDraenor/Irondocks.lua
+SpellData/WarlordsOfDraenor/Everbloom.lua
 
 #SpellData MistOfPandaria
 SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
 
 #Cataclysm
 SpellData/Cataclysm/TheVortexPinnacle.lua
+SpellData/Cataclysm/ThroneoftheTides.lua
 
 # Core
 Templates/OptionDefaults.lua
