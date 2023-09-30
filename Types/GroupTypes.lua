@@ -283,6 +283,12 @@ JDT.GroupTypes.CastIntoKillAddAlive = "CastIntoKillAddAlive"
 JDT.GroupTypes.HpCompare = "HpCompare"
 JDT.GroupTypes.HealCast = "HealCast"
 JDT.GroupTypes.InteruptableCastIntoCurseHex = "InteruptableCastIntoCurseHex"
+JDT.GroupTypes.InteruptableCastIntoMinusDmgTakenPurgeable = "InteruptableCastIntoMinusDmgTakenPurgeable"
+JDT.GroupTypes.BuffCastWithStackWarning = "BuffCastWithStackWarning"
+JDT.GroupTypes.TargetedKnockCast = "TargetedKnockCast"
+
+
+
 
 setmetatable(JDT.GroupTypes, {
     __index = function(_, key)
@@ -414,6 +420,7 @@ JDT.Templates.GroupTypes.SlowDot = {
             isactive = true,
         }, 
     },
+    type = JDT.AuraTypes.snare,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 JDT.Templates.GroupTypes.StunDot = {
@@ -2637,7 +2644,7 @@ JDT.Templates.GroupTypes.DmgReductionBuffButItsADebuff = {
 
 JDT.Templates.GroupTypes.SlowDebuff = {
     AuraType = "AuraIcon",
-    type = "snare",
+    type = JDT.AuraTypes.snare,
     triggers = {
          {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
@@ -3715,6 +3722,78 @@ JDT.Templates.GroupTypes.MinusDmgTakenPurgeable = {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
+JDT.Templates.GroupTypes.InteruptableCastIntoMinusDmgTakenPurgeable = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("- dmg inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("- dmg"),
+            isactive = false,
+        }, 
+    },
+    type = 
+    {
+        {
+            type = JDT.AuraTypes.interrupt,
+            visible = true,
+        },
+        {
+            type = JDT.AuraTypes.magic,
+            visible = false,
+        },
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.6.border_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.7.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.8.border_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+), 
+}
+
 JDT.Templates.GroupTypes.DmgReductionShoutIntoDebuff = {
     AuraType = "AuraIcon",
     triggers = {
@@ -4546,6 +4625,49 @@ JDT.Templates.GroupTypes.BuffCast= {
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 
+JDT.Templates.GroupTypes.BuffCastWithStackWarning= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Buffing"),
+            isactive = true,
+        }, 
+    },
+    showStacks = 2,
+    glowtype = "Ants",
+    doSound = JDT.SoundTypes.highEnergy,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1] \n end",
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                        type = "NumberCheck",
+                        trigger= 2,
+                        op = ">",
+                        variable = "stacks",
+                        value = "5",
+                    },
+                changes = {
+                    {
+                        property = "sub.4.glow",
+                        value = true,
+                    },
+                },
+            },
+        }
+    ), 
+}
+
 JDT.Templates.GroupTypes.Pulse= {
     AuraType = "AuraIcon",
     triggers = {
@@ -4583,10 +4705,10 @@ JDT.Templates.GroupTypes.InterruptableSlow= {
 JDT.Templates.GroupTypes.InteruptableMobCastIntoPlayerDebuffSlow = {
     AuraType = "AuraIcon",
     triggers = {
-        [1] = {
+        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
         },
-        [2] ={
+        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
             BuffTypes = "debuff",
         }
@@ -6758,6 +6880,23 @@ JDT.Templates.GroupTypes.TargetedCastWithSafeDeBuffDuringCast =  {
         
     }
 ), 
+}
+JDT.Templates.GroupTypes.TargetedKnockCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+            target = JDT.Templates.Triggers.UnitTypes.player,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Knock"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.knock,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 
 
