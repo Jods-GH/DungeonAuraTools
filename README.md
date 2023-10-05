@@ -5,7 +5,6 @@
 [![Release][SVG-Release]][Release]
 [![Curseforge][SVG-Curseforge]][Curseforge]
 
-[![Zap-Hosting](https://zap-hosting.com/interface/download/images.php?type=affiliate&id=337128 "Zap-Hosting")](https://zap-hosting.com/dungeonauratools "Zap-Hosting")
 
 # DungeonAuraTools
 Dungeon Aura Tools dynamically creates Dungeon WeakAuras based on user selections to indicate buffs, debuffs, casts, and other relevant information.
