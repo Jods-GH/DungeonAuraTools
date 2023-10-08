@@ -589,8 +589,14 @@ end
 JDT.generateTriggerfromGroupType.Cast = function(triggerData,AuraTemplate)
     local AuraTrigger = CopyTable(JDT.Templates.Triggers[AuraTemplate.triggerType])
     if triggerData.spellId then
-    AuraTrigger.trigger.use_spellId = true
-    AuraTrigger.trigger.spellId = triggerData.spellId --set spellid for trigger
+        AuraTrigger.trigger.use_spellNames= true
+        if type(triggerData.spellId) ~="table" then
+            local table = {}
+            tinsert(table,triggerData.spellId)
+            AuraTrigger.trigger.spellNames = table --set spellid for trigger
+        else
+            AuraTrigger.trigger.spellNames = triggerData.spellId --set spellid for trigger
+        end
     end
     AuraTrigger.trigger.unit = triggerData.unit
     if AuraTemplate.target then
