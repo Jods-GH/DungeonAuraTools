@@ -69,8 +69,8 @@ JDT.exportCompanion = function(AuraUpdatesTable)
             local slugname, version = exportstuff.d.url:match("wago.io/([^/]+)/([0-9]+)")
             if slugname then
                 WeakaurasData.WeakAuras.slugs[slugname] = slug
-                WeakaurasData.WeakAuras.slugs[slugname].wagoVersion = exportstuff.d.version+1
-                WeakaurasData.WeakAuras.slugs[slugname].wagoSemver = "1.0.0-"..exportstuff.d.version+1
+                WeakaurasData.WeakAuras.slugs[slugname].wagoVersion = exportstuff.d.version
+                WeakaurasData.WeakAuras.slugs[slugname].wagoSemver = "1.0.0-"..exportstuff.d.version
                 WeakaurasData.WeakAuras.slugs[slugname].logo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
                 WeakaurasData.WeakAuras.slugs[slugname].refreshLogo = "Interface\\AddOns\\DungeonAuraTools\\Files\\DungeonAuraTools.tga"
             end
