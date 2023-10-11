@@ -30,3 +30,14 @@ setmetatable(JDT.AuraTypes, {
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
     end,
 })
+
+JDT.WeakAurasTypes = JDT.WeakAurasTypes or {}
+for key in pairs(JDT.Templates.Type) do
+    JDT.WeakAurasTypes[key] = key
+end
+
+setmetatable(JDT.WeakAurasTypes, {
+    __index = function(_, key)
+        error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
+    end,
+})
