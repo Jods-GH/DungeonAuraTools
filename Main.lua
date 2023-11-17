@@ -88,6 +88,7 @@ function DungeonAuraTools:SlashCommand(msg) -- called when slash command is used
     elseif msg == "InternalVersion" then
         print(JDT.InternalWaVersion)    
     else
+        JDT.createOptionsData() 
         JDT.CreateOptionsFrame() 
     end
 end
@@ -100,7 +101,6 @@ function DungeonAuraTools:PLAYER_ENTERING_WORLD(event, isLogin, isReload)
         if isLogin == true and not IsInInstance() then
             JDT.CheckIfAuraUpdates(self)
         end
-        JDT.createOptionsData() 
         C_ChatInfo.RegisterAddonMessagePrefix(VersionCheckPrefix)
         local name,realm = UnitFullName("player")
         JDT.PlayerName = name.."-"..realm

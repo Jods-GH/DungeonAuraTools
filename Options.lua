@@ -572,8 +572,9 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
             EncounterName =  "Trash"
             Encounterdescription = "Trash"
           end
+          local auratogglename = EncounterName or BossNameKey or " "
           JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey] = {
-            name = EncounterName,
+            name = auratogglename,
             desc = Encounterdescription,
             type = "group",
             order = OrderNumber,
@@ -586,9 +587,10 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
             -- more options go here
             },
           }
+         
           JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args["BossToggles"].args[BossNameKey]= {
-            name = EncounterName,
-            desc = JDT.getLocalisation("Toggles all Auras for").." "..EncounterName,
+            name = auratogglename,
+            desc = JDT.getLocalisation("Toggles all Auras for").." "..auratogglename,
             type = "toggle",
             image = iconImage,
             order = OrderNumber,

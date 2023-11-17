@@ -211,7 +211,7 @@ bosses.boss3 = { --	Archmage Sol
         },
     }
 }
-bosses.boss4 = { --	Xeri'tac
+--[[bosses.boss4 = { --	Xeri'tac
     EncounterId = "1752", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = {
@@ -298,7 +298,8 @@ bosses.boss4 = { --	Xeri'tac
         },
     }
 }
-bosses.boss5 = { --	Yalnu 
+--]]
+bosses.boss4 = { --	Yalnu 
     EncounterId = "1756", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 05 ",
     Auras = {
