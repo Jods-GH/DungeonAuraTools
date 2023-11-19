@@ -854,6 +854,16 @@ bosses.Trash = {
                         spellId = "413622",
                     },
                 }
+            },
+            NecroticOutburst = {
+                enabled = true,
+                spellId = 417404, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "417404",
+                    },
+                }
             }
         },
         [JDT.GroupTypes.Dance] ={
@@ -1027,7 +1037,16 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "407125",
                     }
-
+                }
+            },
+            Untwist = {
+                enabled = true,
+                spellId = 413529,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413529",
+                    }
                 }
             },
         },
@@ -1106,6 +1125,131 @@ bosses.Trash = {
                     },
                 }
             }
+        },
+        [JDT.GroupTypes.SpinToWin] = {
+            Timerip = {
+                enabled = true,
+                spellId = 412063,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "412063",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            InfiniteBolt = {
+                enabled = true,
+                spellId = 415435,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "415435",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            TaintedSands = {
+                enabled = true,
+                spellId = 415436, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "415436",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            Enervate = {
+                enabled = true,
+                spellId = 415437,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "415437",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "415437",
+                    },
+                }
+            },
+            Bloom = {
+                enabled = true,
+                spellId = 413544,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413544",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "413544",
+                    },
+                }
+            },
+            Stonebolt = {
+                enabled = true,
+                spellId = 411958,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411958",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "411958",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            InfiniteBoltVolley = {
+                enabled = true,
+                spellId = 415770,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "415770",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            Chronoburst = {
+                enabled = true,
+                spellId = 413219, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413219",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "413219",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "413219",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            BlightSpew = {
+                enabled = true,
+                spellId = 412806,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "412806",
+                    },
+                }
+            },
         },
     }
 }
