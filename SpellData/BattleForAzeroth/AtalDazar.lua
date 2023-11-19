@@ -560,7 +560,7 @@ bosses.Trash = {
                         spellId = "252781",
                     },
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "252781",
                     }
                 }
