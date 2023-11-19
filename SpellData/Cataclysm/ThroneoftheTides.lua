@@ -351,6 +351,254 @@ bosses.boss4 = { --	Ozumat
 bosses.Trash = { 
     additionalName = "TRASH] ",
     Auras = {
+        [JDT.GroupTypes.CastIntoChase] = {
+            RavenousPursuit = {
+                enabled = true,
+                spellId = 426663,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426663",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "426663",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "426663",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            HealingWave = {
+                enabled = true,
+                spellId = 76813,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "76813",
+                    },
 
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableCastIntoCurseHex] = {
+            Hex = {
+                enabled = true,
+                spellId = 76820,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "76820",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "76820",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            WaterBolt = {
+                enabled = true,
+                spellId = 426731, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426731",
+                    },
+                }
+            },
+            MindFlay = {
+                enabled = true,
+                spellId = 426783, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426783",
+                    },
+                }
+            },
+            LightningBolt = {
+                enabled = true,
+                spellId = 426768, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426768",
+                    },
+                }
+            },
+            Frostbolt = {
+                enabled = true,
+                spellId = 428103, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "428103",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            Shellbreaker = {
+                enabled = true,
+                spellId = 426741,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "426741",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.ToppableDot] = {
+            CrushingDepths = {
+                 enabled = true,
+                 spellId = 428542,
+                 triggerData = {
+                     {
+                         unit = JDT.Templates.Triggers.UnitTypes.player,
+                         spellId = "428542",
+                     }
+                 }
+             },
+         },
+         [JDT.GroupTypes.VoidCast] = {
+            VolatileBolt = {
+                enabled = true,
+                spellId = 426684,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426684",
+                    },
+                }
+            },
+            AcidBarrage = {
+                enabled = true,
+                spellId = 426727,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426727",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            ThrowSpear= {
+                enabled = true,
+                spellId = 427384,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427384",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            PoisonedSpear = {
+                enabled = true,
+                spellId = 76516,
+                type = JDT.AuraTypes.poison,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "76516",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "76516",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableCast] = {
+            Aquablast = {
+                enabled = true,
+                spellId = 429176,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "429176",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            ShadowSmash = {
+                enabled = true,
+                spellId = 76590, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "76590",
+                    },
+                }
+            },
+            ClenchingTentacles = {
+                enabled = true,
+                spellId = 428926, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "428926",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            Swell = {
+                enabled = true,
+                spellId = 76634, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "76634",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            WaveofCorruption = {
+                enabled = true,
+                spellId = 76363,
+                showStacks = 1,
+                type = JDT.AuraTypes.disease,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "76363",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            LightningSurge = {
+                enabled = true,
+                spellId = 75992, -- for spellname etc
+                type= JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "75992",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "75992",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "75992",
+                    },
+                }
+            }
+        },
     },
 }
