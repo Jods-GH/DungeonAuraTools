@@ -301,7 +301,7 @@ bosses.boss3 = { --	Archmage Sol
 --]]
 bosses.boss4 = { --	Yalnu 
     EncounterId = "1756", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
-    additionalName = "] 05 ",
+    additionalName = "] 04 ",
     Auras = {
         [JDT.GroupTypes.Frontal] = {
             CollosalBlow = {
@@ -387,6 +387,195 @@ bosses.boss4 = { --	Yalnu
 bosses.Trash = { 
     additionalName = "TRASH] ",
     Auras = {
+        [JDT.GroupTypes.Dot] ={
+            VenomBurst = {
+                enabled = true,
+                spellId = 165123, -- for spellname etc
+                type = JDT.AuraTypes.poison,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "165123",
+                    },
+                }
+            },
+            PoisonousClaws = {
+                enabled = true,
+                spellId = 169657, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "169657",
+                    },
+                }
+            },
+            NoxiousEruption = {
+                enabled = true,
+                spellId = 169445, -- for spellname etc
+                extraName = "dot",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "169445",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            DreadpetalPollen = {
+                enabled = true,
+                spellId = 164886,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "164886",
+                    },
 
+                }
+            },
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            EnragedGrowth = {
+                enabled = true,
+                spellId = 165213,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "165213",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableSuppresion] ={
+            ChokingVines= {
+                enabled = true,
+                spellId = 164965, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "164965",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            DancingThorns = {
+                enabled = true,
+                spellId = 164973, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "164973",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            NoxiousEruption = {
+                enabled = true,
+                spellId = 169445, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "169445",
+                    },
+                }
+            },            
+        },
+        [JDT.GroupTypes.Frontal] = {
+            Gasp = {
+                enabled = true,
+                spellId = 169714,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "169714",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            HealingWaters = {
+                enabled = true,
+                spellId = 164887,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "164887",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.SpinToWin] = {
+            BoundingWhirl = {
+                enabled = true,
+                spellId = 172579,
+                type = JDT.AuraTypes.stun,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "172579",
+                    }
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            CinderboltSalvo = {
+                enabled = true,
+                spellId = 427223, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427223",
+                    },
+                }
+            },
+            ColdFusion = {
+                enabled = true,
+                spellId = 426845, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426845",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableCast] = {
+            Pyroblast = {
+                enabled = true,
+                spellId = 169839,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "169839",
+                    },
+                }
+            },
+            ArcaneBlast = {
+                enabled = true,
+                spellId = 169841,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "169841",
+                    },
+                }
+            },
+            Frostbolt = {
+                enabled = true,
+                spellId = 169840,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "169840",
+                    },
+                }
+            },
+        },
     },
 }
