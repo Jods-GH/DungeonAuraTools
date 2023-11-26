@@ -80,60 +80,6 @@ bosses.boss2 = { --	Ancient Protectors
                 }
             },
         },
-        [JDT.GroupTypes.BuffCast] = {
-            Enlarge = {
-                enabled = true,
-                spellId = 168105,
-                type = JDT.AuraTypes.interrupt,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "168105",
-                    }
-                }
-            },
-        },
-        [JDT.GroupTypes.VoidCast] = {
-            BramblePatch = {
-                enabled = true,
-                spellId = 167966,
-                type = JDT.AuraTypes.snare,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "167966",
-                    },
-                }
-            },
-        },
-        [JDT.GroupTypes.InteruptableCastIntoMinusDmgTakenPurgeable] = {
-            Briarskin = {
-                enabled = true,
-                spellId = 168041,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "168041",
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "168041",
-                    },
-                }
-            },
-        },
-        [JDT.GroupTypes.RunOut] ={
-            NoxiousEruption = {
-                enabled = true,
-                spellId = 175997, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "175997",
-                    },
-                }
-            },
-        },
         [JDT.GroupTypes.Dot] ={
             RendingCharge  = {
                 enabled = true,
@@ -158,13 +104,39 @@ bosses.boss2 = { --	Ancient Protectors
                 }
             },
         },
+        [JDT.GroupTypes.Charge] ={
+            NoxiousCharge= {
+                enabled = true,
+                spellId = 427510, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "427510",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableStunCast] ={
+            ToxicBloom= {
+                enabled = true,
+                spellId = 427459, -- for spellname etc
+                triggerData = {
+                    [1] = {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427459",
+
+                    },
+
+                }
+            },
+        },
     }
 }
 bosses.boss3 = { --	Archmage Sol 
     EncounterId = "1751", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = {
-        [JDT.GroupTypes.InterruptableTargetedCast] ={
+        [JDT.GroupTypes.TargetedCast] ={
             Fireball = {
                 enabled = true,
                 spellId = 166464, -- for spellname etc
