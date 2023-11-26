@@ -719,6 +719,18 @@ bosses.boss7 = {  -- Time-Lost Battlefield
 
                 }
             },
+            CorrodingVolley = {
+                enabled = true,
+                spellId = 413607, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413607s",
+
+                    },
+
+                }
+            },
             
         },
     }
@@ -844,6 +856,32 @@ bosses.boss8 = {  -- Chrono-Lord Deios
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
+        [JDT.GroupTypes.OutrangeCast] ={
+            AncientRadiance = {
+                enabled = true,
+                spellId = 413023, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413023",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            HolyLight = {
+                enabled = true,
+                spellId = 417011,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "417011",
+                    },
+                }
+            },
+        },
         [JDT.GroupTypes.UnavoidableAoe] ={
             InfiniteFury = {
                 enabled = true,
@@ -852,6 +890,16 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "413622",
+                    },
+                }
+            },
+            TemporalStrike = {
+                enabled = true,
+                spellId = 412136, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "412136",
                     },
                 }
             },
@@ -877,6 +925,36 @@ bosses.Trash = {
                     },
                 }
             },
+            TimelessCurse = {
+                enabled = true,
+                spellId = 413621, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413621",
+                    },
+                }
+            },
+            BubblyBarrage = {
+                enabled = true,
+                spellId = 411407, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411407",
+                    },
+                }
+            },
+            VolatileMortar = {
+                enabled = true,
+                spellId = 407205, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "407205",
+                    },
+                }
+            },
         },
         [JDT.GroupTypes.PlayerGroupDebuffSpread ] ={
             Chronoburst = {
@@ -894,6 +972,19 @@ bosses.Trash = {
                 }
             }
         },
+        [JDT.GroupTypes.BuffCast] = {
+            RallyingShout = {
+                enabled = true,
+                spellId = 407124,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "407124",
+                    },
+
+                }
+            },
+        },
         [JDT.GroupTypes.ShieldCast] ={
             TitanicBulwark = {
                 enabled = true,
@@ -907,17 +998,6 @@ bosses.Trash = {
             }
         },
         [JDT.GroupTypes.TargetedCastWithTargetAnounce] ={
-            ShroudingSandstorm= {
-                enabled = true,
-                spellId = 412215, -- for spellname etc
-                type = JDT.AuraTypes.stun,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "412215",
-                    },
-                }
-            },
             Chronomelt= {
                 enabled = true,
                 spellId = 411994, -- for spellname etc
@@ -1084,6 +1164,30 @@ bosses.Trash = {
                 }
             }
         },
+        [JDT.GroupTypes.InterruptableSuppresion] = {
+            TemporalLink = {
+                enabled = true,
+                spellId = 419511,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "419511",
+                    }
+
+                }
+            },
+            ShroudingSandstorm = {
+                enabled = true,
+                spellId = 412215,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "412215",
+                    }
+
+                }
+            },
+        },
         [JDT.GroupTypes.SlowDebuff] ={
             CorrodingVolley = {
                 enabled = true,
@@ -1149,6 +1253,16 @@ bosses.Trash = {
                     }
                 }
             },
+            TemporalWave = {
+                enabled = true,
+                spellId = 418202,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "418202",
+                    }
+                }
+            },
         },
         [JDT.GroupTypes.Dot] ={
             TaintedSands = {
@@ -1206,6 +1320,21 @@ bosses.Trash = {
                     },
                 }
             },
+            SlobberingBite = {
+                enabled = true,
+                spellId = 411700,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411700",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "411700",
+                    },
+                }
+            },
         },
         [JDT.GroupTypes.InteruptableVolley] = {
             InfiniteBoltVolley = {
@@ -1215,6 +1344,16 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "415770",
+                    },
+                }
+            },
+            FishBoltVolley = {
+                enabled = true,
+                spellId = 411300,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411300",
                     },
                 }
             },
@@ -1237,6 +1376,24 @@ bosses.Trash = {
                         spellId = "413219",
                     },
                 }
+            },
+            TimeBeam = {
+                enabled = true,
+                spellId = 413427, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "413427",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "413427",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "413427",
+                    },
+                }
             }
         },
         [JDT.GroupTypes.VoidCast] = {
@@ -1247,6 +1404,26 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "412806",
+                    },
+                }
+            },
+             MillenniumAid = {
+                enabled = true,
+                spellId = 411952,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "411952",
+                    },
+                }
+            },
+            DizzyingSands = {
+                enabled = true,
+                spellId = 412378,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "412378",
                     },
                 }
             },
