@@ -803,7 +803,7 @@ JDT.Templates.GroupTypes.PlayerGroupDebuff =  {
             isactive = true,
         }, 
         {   
-            value = JDT.getLocalisation("on").." %3.unit",
+            value = JDT.getLocalisation("on").." %2.unit",
             isactive = false,
         }, 
     },
@@ -1822,11 +1822,11 @@ JDT.Templates.GroupTypes.CastIntoBreakShield = {
     AuraType = "AuraIcon",
     triggers = {
         {
-            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
-        },
-        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
             BuffTypes = "buff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
         }
     },
     text = {
@@ -1848,7 +1848,7 @@ JDT.Templates.GroupTypes.CastIntoBreakShield = {
                     {
                        condition={
                           type = "simplecheck",
-                          trigger= 1,
+                          trigger= 2,
                           value = true,
                            },
                            changes = {
@@ -2859,7 +2859,7 @@ JDT.Templates.GroupTypes.SoakableTargetedDebuffWithCantSoakDebuff= {
             isactive = false,
         }, 
         {   
-            value = "%1.destUnit",
+            value = JDT.getLocalisation("on").."%3.unit",
             isactive = false,
         }, 
         {   
