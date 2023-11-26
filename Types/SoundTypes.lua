@@ -159,6 +159,12 @@ JDT.SoundTypes.dispell = {
     key = "dispell";
 }
 
+JDT.SoundTypes.drop = {
+    name = "|cFFFF0000Drop|r";
+    sound = "Interface\\AddOns\\SharedMedia_Causese\\sound\\Drop.ogg";
+    key = "drop";
+}
+
 JDT.SoundDefaults = {}
 for k,v in pairs(JDT.SoundTypes) do
     JDT.SoundDefaults[k]=v.name

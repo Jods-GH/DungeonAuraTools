@@ -286,6 +286,7 @@ JDT.GroupTypes.InteruptableCastIntoCurseHex = "InteruptableCastIntoCurseHex"
 JDT.GroupTypes.InteruptableCastIntoMinusDmgTakenPurgeable = "InteruptableCastIntoMinusDmgTakenPurgeable"
 JDT.GroupTypes.BuffCastWithStackWarning = "BuffCastWithStackWarning"
 JDT.GroupTypes.TargetedKnockCast = "TargetedKnockCast"
+JDT.GroupTypes.CastIntoDropVoid = "CastIntoDropVoid"
 
 
 
@@ -7322,6 +7323,30 @@ JDT.Templates.GroupTypes.CastIntoTrapSpawnSuccess= {
     doSound = JDT.SoundTypes.avoid,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+
+
+JDT.Templates.GroupTypes.CastIntoDropVoid =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Drop Void"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.drop,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+
 JDT.Templates.GroupTypes.CastIntoPlayerGroupDropVoid =  {
     AuraType = "AuraIcon",
     triggers = {

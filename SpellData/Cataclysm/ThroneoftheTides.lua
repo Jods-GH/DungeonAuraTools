@@ -19,14 +19,56 @@ bosses.boss1 = { --	Lady Naz'jar
     additionalName = "] 01 ",
     Auras = {
         [JDT.GroupTypes.InterruptableTargetedCast] ={
-            ShockBlast = {
+            Waterblast = {
                 enabled = true,
-                spellId = 76008, -- for spellname etc
+                spellId = 428263, -- for spellname etc
                 triggerData = {
                      {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "76008",
+                        spellId = "428263",
                     },
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            FocusedTempest = {
+                enabled = true,
+                spellId = 428374, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "428374",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.SpreadCastIntoCastSuccessAvoid] ={
+            ShockBlast = {
+                enabled = true,
+                spellId = 428054, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "428054",
+                    },
+                    {
+                        duration = "2",
+                        spellId = "428054",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            Geysers = {
+                enabled = true,
+                spellId = 427771, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "427771",
+
+                    },
+
                 }
             },
         },
@@ -91,51 +133,57 @@ bosses.boss2 = { --	Commander Ulthok, the Festering Prince
     EncounterId = "1044", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 02 ",
     Auras = {
-        [JDT.GroupTypes.TargetedCast] = {
-            Squeeze = {
+
+        [JDT.GroupTypes.KnockCast] ={
+            FesteringShockwave = {
                 enabled = true,
-                spellId = 76026,
+                spellId = 427668, -- for spellname etc
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "76026",
-                    }
-                }
-            },
-        },
-        [JDT.GroupTypes.SlowDebuff] ={
-            CurseOfFatigue = {
-                enabled = true,
-                spellId = 76094, -- for spellname etc
-                type = JDT.AuraTypes.curse,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "76094",
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "427668",
+    
                     },
+    
                 }
             }
         },
-        [JDT.GroupTypes.Frontal] = {
-            DarkFissure = {
+        [JDT.GroupTypes.VoidCast] = {
+            BubblingFissure = {
                 enabled = true,
-                spellId = 76047,
+                spellId = 427672,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "76047",
-                    }
+                        spellId = "427672",
+                    },
                 }
             },
         },
-        [JDT.GroupTypes.RageBuffCast] = {
-            Enrage = {
+        [JDT.GroupTypes.TargetedCastIntoDmgTakenDebuff] = {
+            CrushingClaw = {
                 enabled = true,
-                spellId = 76100,
+                spellId = 427670,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "76100",
+                        spellId = "427670",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "427670",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            AwakenOoze = {
+                enabled = true,
+                spellId = 427456,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "427456",
                     },
                 }
             },
@@ -149,87 +197,40 @@ bosses.boss3 = { --	Mindbender Ghur'sha
         [JDT.GroupTypes.Dot] ={
             Emberstrikes  = {
                 enabled = true,
-                spellId = 76165, -- for spellname etc
+                spellId = 429048, -- for spellname etc
                 type = JDT.AuraTypes.magic,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "76165",
+                        spellId = "429048",
                     },
                 }
             }
         },
-        [JDT.GroupTypes.FrontalIntoDot] = {
-            MagmaSplash = {
+        [JDT.GroupTypes.CastIntoKillAddAlive] = {
+            StormflurryTotem = {
                 enabled = true,
-                spellId = 76170,
-                type = JDT.AuraTypes.magic,
+                spellId = 429037,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "76170",
+                        spellId = "429037",
                     },
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "76170",
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        npcID = "214117",
                     },
                 }
             },
         },
-        [JDT.GroupTypes.TargetedKnockCast] ={
-            LavaBolt  = {
+        [JDT.GroupTypes.Dance] ={
+            Earthfury = {
                 enabled = true,
-                spellId = 76171, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "76171",
-                    },
-                }
-            }
-        },
-        [JDT.GroupTypes.VoidCast] = {
-            EarthShards = {
-                enabled = true,
-                spellId = 84931,
+                spellId = 429057, -- for spellname etc
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "84931",
-                    },
-
-                }
-            },
-        },
-        [JDT.GroupTypes.CastIntoStopAtackingShield] ={
-            AbsorbMagic= {
-                enabled = true,
-                spellId = 76308, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "76308",
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "76308",
-                    },
-                }
-            },
-        },
-        [JDT.GroupTypes.PlayerGroupDebuff] ={
-            Enslave = {
-                enabled = true,
-                spellId = 76207, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "76207",
-
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
-                        spellId = "76207",
+                        spellId = "429057",
                     },
 
                 }
@@ -241,109 +242,72 @@ bosses.boss4 = { --	Ozumat
     EncounterId = "1047", -- https://wowpedia.fandom.com/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = {
-        [JDT.GroupTypes.BuffCast] = {
-            TidalSurge = {
+        [JDT.GroupTypes.CastIntoDot] ={
+            PutridRoar = {
                 enabled = true,
-                spellId = 76133,
+                spellId = 428868, -- for spellname etc
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "76133",
-                    },
-                }
-            },
-        },
-        [JDT.GroupTypes.DmgTakenDebuff] = {
-            AuraOfDread = {
-                enabled = true,
-                spellId = 83971,
-                showStacks = 1,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "83971",
-                    },
-
-                }
-            },
-            BlightOfOzumat= {
-                enabled = true,
-                spellId = 83561,
-                showStacks = 1,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "83561",
-                    },
-
-                }
-            },
-        },
-        --add spells
-        [JDT.GroupTypes.InterruptableTargetedCast] ={
-            ShadowBolt = {
-                enabled = true,
-                spellId = 32860, -- for spellname etc
-                triggerData = {
-                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "32860",
-                    },
-                }
-            },
-        },
-        [JDT.GroupTypes.InteruptableVolley] = {
-            BrainSpike = {
-                enabled = true,
-                spellId = 83915,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "83915",
-                    },
-                }
-            },
-        },
-        [JDT.GroupTypes.TargetedCastIntoHealingReducedDebuff] = {
-            VeilOfShadow = {
-                enabled = true,
-                spellId = 221696,
-                type = JDT.AuraTypes.curse,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "221696",
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "428868",
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "221696",
+                        spellId = "428868",
                     },
                 }
-            },
+            }
         },
         [JDT.GroupTypes.Frontal] = {
-            BlightSpray = {
+            MurkSpew = {
                 enabled = true,
-                spellId = 83985,
+                spellId = 428530,
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "83985",
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "428530",
                     }
                 }
             },
         },
-        [JDT.GroupTypes.Jump] ={
-            ShadowBlast = {
+        --add spells
+        [JDT.GroupTypes.InteruptableVolley] = {
+            BlottingBarrage = {
                 enabled = true,
-                spellId = 83929, -- for spellname etc
+                spellId = 428401,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "83929",
+                        spellId = "428401",
                     },
                 }
             },
+        },
+        [JDT.GroupTypes.GoMeleeCast] = {
+            FoulBolt = {
+                enabled = true,
+                spellId = 428889,
+                showGlow = true,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "428889",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SoakVoidWithDebuff] ={
+            CleansingFlux = {
+                enabled = true,
+                spellId = 428694, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "428694",
+                    },
+                }
+            }
         },
     }
 }
