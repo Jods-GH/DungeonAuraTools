@@ -284,6 +284,18 @@ bosses.boss4 = {  -- 	Shade of Xavius
                 }
             }
         },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            ApocalypticNightmare = {
+                enabled = true,
+                spellId = 200050, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "200050",
+                    },
+                }
+            }
+        },
     }  
 }
 
