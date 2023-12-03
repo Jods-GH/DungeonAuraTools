@@ -236,6 +236,19 @@ bosses.boss3 = { --	Mindbender Ghur'sha
                 }
             }
         },
+        [JDT.GroupTypes.LosCast] ={
+            TerrifyingVision= {
+                enabled = true,
+                spellId = 429172, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "429172",
+                    },
+                }
+            },
+        },
     }
 }
 bosses.boss4 = { --	Ozumat
