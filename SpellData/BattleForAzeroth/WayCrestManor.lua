@@ -475,17 +475,5 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.RunOut] ={
-            DinnerBell = {
-                enabled = true,
-                spellId = 265407, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "265407",
-                    },
-                }
-            },
-        },
     }
 }
