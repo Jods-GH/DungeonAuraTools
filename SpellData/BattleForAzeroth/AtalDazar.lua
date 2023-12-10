@@ -277,7 +277,7 @@ bosses.boss4 = {  -- Yazma
                 }
             },
         },
-        [JDT.GroupTypes.InteruptableCastIntoCurseDot] = {
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
             WrackingPain = {
                 enabled = true,
                 spellId = 250096,
