@@ -39,7 +39,7 @@ JDT.SoundTypes.collect= {
     key = "collect";
 }
 JDT.SoundTypes.move = {
-    name = "|cFFFF0000Dont Move|r";
+    name = "|cFFFF0000Move|r";
     sound = "Interface\\Addons\\SharedMedia_Causese\\sound\\Move.ogg";
     key = "move";
 }
