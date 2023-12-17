@@ -3262,6 +3262,7 @@ JDT.Templates.GroupTypes.InteruptableTargetedCastIntoHealingReducedMagicDebuff= 
     triggers = {
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+            target = JDT.Templates.Triggers.UnitTypes.player,
         },
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
