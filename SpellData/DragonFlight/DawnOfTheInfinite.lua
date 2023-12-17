@@ -956,22 +956,6 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.PlayerGroupDebuffSpread ] ={
-            Chronoburst = {
-                enabled = true,
-                spellId = 415554, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "415554",
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
-                        spellId = "415554",
-                    },
-                }
-            }
-        },
         [JDT.GroupTypes.BuffCast] = {
             RallyingShout = {
                 enabled = true,
