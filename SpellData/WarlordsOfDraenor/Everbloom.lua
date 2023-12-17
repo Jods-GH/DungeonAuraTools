@@ -521,6 +521,7 @@ bosses.Trash = {
             Pyroblast = {
                 enabled = true,
                 spellId = 169839,
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -531,6 +532,7 @@ bosses.Trash = {
             ArcaneBlast = {
                 enabled = true,
                 spellId = 169841,
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -541,6 +543,7 @@ bosses.Trash = {
             Frostbolt = {
                 enabled = true,
                 spellId = 169840,
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
