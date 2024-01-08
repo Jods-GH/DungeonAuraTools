@@ -612,17 +612,7 @@ bosses.Trash = {
                         spellId = "200256",
                     },
                 }
-            },
-            RavensDive = {
-                enabled = true,
-                spellId = 214001, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "214001",
-                    },
-                }
-            },
+            }
         },
         [JDT.GroupTypes.InterruptableTargetedCast] ={
             SpiritBlast = {
@@ -795,6 +785,18 @@ bosses.Trash = {
                 }
             },
         },
+        [JDT.GroupTypes.Jump] ={
+            RavensDive = {
+                enabled = true,
+                spellId = 214001, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "214001",
+                    },
+                }
+            }
+        }
     }
 }
 
