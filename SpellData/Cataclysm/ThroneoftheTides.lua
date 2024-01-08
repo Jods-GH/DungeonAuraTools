@@ -284,7 +284,7 @@ bosses.boss4 = { --	Ozumat
             },
         },
         --add spells
-        [JDT.GroupTypes.InteruptableVolley] = {
+        [JDT.GroupTypes.VoidCast] = {
             BlottingBarrage = {
                 enabled = true,
                 spellId = 428401,
@@ -381,6 +381,7 @@ bosses.Trash = {
             WaterBolt = {
                 enabled = true,
                 spellId = 426731, -- for spellname etc
+                loadInBossfight = false,
                 triggerData = {
                      {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
