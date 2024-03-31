@@ -99,7 +99,12 @@ JDT.Templates.Type.AuraBar = {
         },
     },
     sparkBlendMode = "ADD",
-    useAdjustededMax = false,
+    useAdjustededMax = false, -- new progress stuff
+    useAdjustededMin = false, -- new progress stuff
+    progressSource = { -- new progress stuff
+        -1, -- [1]
+        "", -- [2]
+    },
     anchorFrameType = "SCREEN",
     gradientOrientation = "HORIZONTAL",
     barColor2 = {
@@ -115,7 +120,6 @@ JDT.Templates.Type.AuraBar = {
         0.5, -- [4]
     },
     smoothProgress = false,
-    useAdjustededMin = false,
     regionType = "aurabar",
     sparkOffsetX = 0,
     config = {
@@ -154,6 +158,7 @@ JDT.Templates.Type.AuraBar = {
     },
     information = {
     },
+    
     animation = {
         start = {
             type = "none",
