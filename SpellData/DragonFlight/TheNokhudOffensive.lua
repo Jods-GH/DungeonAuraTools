@@ -55,8 +55,6 @@ bosses.boss1 = {
 
                 }
             },
-        },
-        [JDT.GroupTypes.RunOut] ={
             ShardsofStone = {
                 enabled = true,
                 spellId = 388817, -- for spellname etc
