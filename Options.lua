@@ -441,7 +441,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
           local name, description, filedataid = C_ChallengeMode.GetAffixInfo(v.affixId)
           JDT.options.args.spelloptions.args[ExpansionKey].args[k]= JDT.createAuraGroup(name,description,filedataid, JDT.db.profile.data[ExpansionKey].Auras[typekey][k],JDT.Templates.GroupTypes[typekey].AuraType)     
       else
-          local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
+          local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = JDT.GetSpellInfo(v.spellId) 
           local spell = Spell:CreateFromSpellID(SpellID)
           spell:ContinueOnSpellLoad(function()
             local desc = spell:GetSpellDescription()
@@ -626,7 +626,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
               }
             }
             for k,v in pairs(SpellTypeValue) do -- Generates Spell toggles depending on SPellData.lua
-              local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
+              local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = JDT.GetSpellInfo(v.spellId) 
               local spell = Spell:CreateFromSpellID(SpellID)
               assert(spell, "Spell is nil for:"..ExpansionKey.." , "..DungeonKey.." , "..BossNameKey.." , "..SpellTypeKey.." , "..v.spellId)
               spell:ContinueOnSpellLoad(function()
