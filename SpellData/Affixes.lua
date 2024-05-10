@@ -45,7 +45,7 @@ JDT.SpellList.Affixes = {
             },
 
         },
-        
+   --[[   
         [JDT.GroupTypes.Thundering] = {
             Thundering= {
                 enabled = true,
@@ -73,7 +73,7 @@ JDT.SpellList.Affixes = {
             },
 
         },
-       
+   ]]    
         [JDT.GroupTypes.HealBuff] = {
             Sanguine = {
                 enabled = true,
