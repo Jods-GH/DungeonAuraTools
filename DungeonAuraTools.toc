@@ -84,6 +84,7 @@ SpellData/BattleForAzeroth/Underrot.lua
 SpellData/BattleForAzeroth/Freehold.lua
 SpellData/BattleForAzeroth/AtalDazar.lua
 SpellData/BattleForAzeroth/WayCrestManor.lua
+SpellData/BattleForAzeroth/SiegeOfBoralus.lua
 
 #SpellData Legion
 SpellData/Legion/ReturnToKarazhan.lua
