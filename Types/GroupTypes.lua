@@ -291,8 +291,9 @@ JDT.GroupTypes.CastIntoCastDance = "CastIntoCastDance"
 JDT.GroupTypes.AoeFear = "AoeFear"
 JDT.GroupTypes.KillAddAliveWithDebuff = "KillAddAliveWithDebuff"
 JDT.GroupTypes.CastStartAoeWithStackingBuff = "CastStartAoeWithStackingBuff"
-
-
+JDT.GroupTypes.CastIntoBreakSupressAdd = "CastIntoBreakSupressAdd"
+JDT.GroupTypes.InteruptableCastIntoCurseDmgTakenIncrease = "InteruptableCastIntoCurseDmgTakenIncrease"
+JDT.GroupTypes.VoidCastIntoDot = "VoidCastIntoDot"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -3135,6 +3136,59 @@ JDT.Templates.GroupTypes.TargetedCastIntoDot= {
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     doSound = JDT.SoundTypes.targeted,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = true,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.5.border_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.6.text_visible",
+                        value = false
+                    },
+                },
+        },
+    })
+}
+
+JDT.Templates.GroupTypes.VoidCastIntoDot= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Avoid"),
+            isactive = false,
+        },
+        {   
+            value = JDT.getLocalisation("Dot"),
+            isactive = true,
+        },  
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.avoid,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
         {
          {
@@ -10249,7 +10303,7 @@ JDT.Templates.GroupTypes.SwarmDebuffAddNeedsToBeKilledWhileActive= {
     },
     text = {
         {   
-            value = JDT.getLocalisation("add inc"),
+            value = JDT.getLocalisation("Add"),
             isactive = true,
         },  
         {   
@@ -10461,6 +10515,135 @@ JDT.Templates.GroupTypes.InteruptableCastIntoCurseHex = {
             },
         },
     doSound = JDT.SoundTypes.interrupt,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.5.text_visible",
+                        value = false
+                    },
+                    {
+                        property = "sub.6.border_visible",
+                        value = false,
+                    },
+                    {
+                        property= "sub.7.text_visible",
+                        value = true
+                    },
+                    {
+                        property = "sub.8.border_visible",
+                        value = true,
+                    },
+                },
+        },
+    }
+), 
+}
+
+
+JDT.Templates.GroupTypes.CastIntoBreakSupressAdd = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.unitHealth,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Kill add"),
+            isactive =  true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Add"),
+            isactive = false,
+        }, 
+
+    },
+    useHealth = 4,
+    doSound = JDT.SoundTypes.add,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+                {
+                    {
+                       condition={
+                          type = "simplecheck",
+                          trigger= 3,
+                          value = true,
+                           },
+                           changes = {
+                            {
+                                property = "sub.3.text_visible",
+                                value = false,
+                            },
+                            {
+                                property = "sub.4.text_visible",
+                                value = true,
+                            },
+                           },
+                   },
+               }
+), 
+ 
+}
+
+JDT.Templates.GroupTypes.InteruptableCastIntoCurseDmgTakenIncrease = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("+inc dmg"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("+inc dmg"),  
+            isactive = false,
+        },    
+    },
+    type = 
+        {
+            {
+                type = "interrupt",
+                visible = true,
+            },
+            {
+                type = "curse",
+                visible = false,
+            },
+        },
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
         {
