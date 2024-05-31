@@ -1,0 +1,35 @@
+name: Tag Commit
+
+on:
+  push:
+    branches:
+      - main
+      - '**'  # Matches all branches
+
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Get commit hash
+        id: vars
+        run: echo "::set-output name=commit_hash::$(git rev-parse --short HEAD)"
+
+      - name: Create and push tag for main
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git tag "${{ steps.vars.outputs.commit_hash }}-beta"
+          git push origin "${{ steps.vars.outputs.commit_hash }}-beta"
+
+      - name: Create and push tag for other branches
+        if: github.ref != 'refs/heads/main'
+        run: |
+          git tag "${{ steps.vars.outputs.commit_hash }}-alpha"
+          git push origin "${{ steps.vars.outputs.commit_hash }}-alpha"
