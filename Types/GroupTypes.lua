@@ -10625,7 +10625,7 @@ JDT.Templates.GroupTypes.InteruptableCastIntoCurseDmgTakenIncrease = {
     },
     text = {
         {   
-            value = JDT.getLocalisation("+inc dmg"),
+            value = JDT.getLocalisation("+inc dmg inc"),
             isactive = true,
         }, 
         {   
