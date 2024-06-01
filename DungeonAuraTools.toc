@@ -4,10 +4,11 @@
 ## Title: |cffe5c75fD|r|cffFF657Fungeon|r|cffe5c75fA|r|cffFF657Fura|r|cffe5c75fT|r|cffFF657Fools|r 
 ## IconTexture: Interface\AddOns\DungeonAuraTools\Files\DungeonAuraTools.tga
 ## AddonCompartmentFunc: JDT_AddonCompartmentFunction
-## Notes: Compact Addon to Manage all my Stuff for Dungeons
+## Notes: Compact Addon to Manage Dungeon WeakAuras
 ## Author: Jods
 ## SavedVariables: DungeonAuraTools
-## OptionalDeps: Ace3, WeakAuras, WeakAurasOptions, ViragDevTool, LibSharedMedia-3.0, SharedMedia_Causese
+## requiredDeps: WeakAuras, WeakAurasOptions
+## OptionalDeps: Ace3, ViragDevTool, LibSharedMedia-3.0, SharedMedia_Causese
 ## X-Curse-Project-ID: 662863
 ## X-WoWI-ID: 26384
 ## X-Wago-ID: XrNkX86a
