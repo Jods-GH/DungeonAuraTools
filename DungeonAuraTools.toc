@@ -78,6 +78,7 @@ SpellData/DragonFlight/Uldaman.lua
 #SpellData Shadowlands
 SpellData/Shadowlands/Tazavesh.lua
 SpellData/Shadowlands/MistOfTirnaScithe.lua
+SpellData/Shadowlands/NecroticWake.lua
 
 #SpellData BattleForAzeroth
 SpellData/BattleForAzeroth/OperationMechagon.lua

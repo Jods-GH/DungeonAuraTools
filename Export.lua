@@ -337,6 +337,11 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
         end
         tinsert(SpellTable.subRegions,GlowTemplate)
     end
+    -- hide external glows
+    if(AuraTemplate.hideAllGlows) then
+        SpellTable.hideAllGlows = AuraTemplate.hideAllGlows
+        SpellTable.actions.finish.hide_all_glows = AuraTemplate.hideAllGlows
+    end
     local IconTextPriority = 1
     -- set %tooltip value if needed
     if AuraTemplate.useTooltip then
@@ -409,7 +414,12 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
         local TextTemplate = CopyTable(JDT.Templates.TextRegions.CustomText)
         TextTemplate.text_anchorPoint = JDT.Templates.AnchorForTextPriority[SpellTable.regionType].AuraType
         table.insert(SpellTable.subRegions,TextTemplate)
-        SpellTable.customText = JDT.Templates.CustomTextTemplates[AuraTemplate.customText](v.customTextInfo)
+        local customText, actionOnHide = JDT.Templates.CustomTextTemplates[AuraTemplate.customText](v.customTextInfo)
+        SpellTable.customText = customText
+        if(actionOnHide) then
+            SpellTable.actions.finish.custom = actionOnHide
+            SpellTable.actions.finish.do_custom = true
+        end
         if v.type then
             local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
             if v.AuraType == JDT.WeakAurasTypes.AuraBar then

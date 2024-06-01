@@ -95,3 +95,26 @@ JDT.Templates.CustomTriggers.HpCompare = function()
     return trigger
 end
 
+
+JDT.Templates.CustomTriggers.TargetChangeChecker = function(triggerData)
+    local spellIdList = triggerData.spellIdList
+    local trigger = {
+        customTrigger = "",
+        customEvents = "",
+    }
+    local spellIdTable = "{"
+    for k in pairs(spellIdList) do
+        if k ~= 1 then
+            spellIdTable=spellIdTable.." , "
+        end
+        spellIdTable = spellIdTable..spellIdList[k]
+    end
+    spellIdTable = spellIdTable.."}"
+    
+   trigger.customTrigger = "  function(allstates, event, unit,castGuid,spellId2)     \n if event == \"UNIT_TARGET\" \n and unit \n and UnitExists(unit) \n and not UnitIsUnit(unit..\"target\", \"player\")  \n then  \n    local _,_,_,startMS,endMS,_,_,_,spellId = UnitCastingInfo(unit)  \n    local guid = UnitGUID(unit) \n    local spellIdList = "..spellIdTable.." \n    if spellIdList  \n    and (spellId and spellIdList [spellId] or spellId2 and spellIdList[spellId2])  \n    and guid \n    and not allstates[guid] then \n        allstates[guid] = { \n            show = true,  \n            changed =  true, \n           progressType = \"timed\",  \n            duration = 3, \n            expirationTime = GetTime()+3, \n            unit = unit..\"target\", \n            autoHide = true, \n        } \n        return true \n    end  \n    end \n end"
+   trigger.customEvents = "UNIT_TARGET UNIT_SPELLCAST_START"
+
+    return trigger
+end
+    
+    

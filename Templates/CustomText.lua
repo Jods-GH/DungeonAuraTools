@@ -8,12 +8,22 @@ JDT.Templates.CustomTextGenerator = JDT.Templates.CustomTextGenerator or {}
 
 JDT.Templates.CustomText.DurationStacks = "DurationStacks"
 JDT.Templates.CustomText.StacksPerUnit = "StacksPerUnit"
+JDT.Templates.CustomText.TooltipProgress = "TooltipProgress"
 
 setmetatable(JDT.Templates.CustomText, {
     __index = function(_, key)
         error(string.format("attempted to access invalid key: %s", tostring(key)), 2);
     end,
 })
+
+JDT.Templates.CustomTextTemplates.TooltipProgress = function(tooltipNumber)
+    local onHideCode = "aura_env.maximumValue = 0"
+    return JDT.Templates.CustomTextGenerator.ProgressInfoAutoMax(tooltipNumber), onHideCode
+end
+
+JDT.Templates.CustomTextGenerator.ProgressInfoAutoMax = function(tooltipNumber)
+    return "function() \n if aura_env.state and aura_env.state.tooltip"..tooltipNumber.." then\n        if not aura_env.maximumValue or aura_env.maximumValue == 0 or aura_env.maximumValue < aura_env.state.tooltip"..tooltipNumber.." then \n            aura_env.maximumValue = aura_env.state.tooltip"..tooltipNumber.." \n        end\n        aura_env.region:SetDurationInfo(aura_env.state.tooltip"..tooltipNumber..", aura_env.maximumValue,true)  \n   end \n end"    
+end
 
 JDT.Templates.CustomTextTemplates.DurationStacks = function(maxProgress)
     return JDT.Templates.CustomTextGenerator.ProgressInfo(maxProgress,"aura_env.state.stacks")
