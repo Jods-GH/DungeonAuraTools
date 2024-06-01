@@ -56,6 +56,24 @@ bosses.boss1 = { -- Wise Mari
                 }
             },
         },
+        [JDT.GroupTypes.WashAway] = {
+            WashAway = {
+                enabled = true,
+                spellId = 397797,
+                triggerData = {
+                    {
+                        spellId = "397797",
+                        duration = "3.3"
+                    },
+                    {
+                        spellId = "397783",
+                        initialDelay = "3.3",
+                        RunAmount = "3",
+                        duration = "5",
+                    },
+                },
+            }
+        },
     }
 }
 
@@ -434,24 +452,6 @@ bosses.Trash = {
 
                 }
             },
-        },
-        [JDT.GroupTypes.WashAway] = {
-            WashAway = {
-                enabled = true,
-                spellId = 397783,
-                triggerData = {
-                    {
-                        spellId = "397797",
-                        duration = "3.3"
-                    },
-                    {
-                        spellId = "397783",
-                        initialDelay = "3.3",
-                        RunAmount = "3",
-                        duration = "5",
-                    },
-                },
-            }
         },
         [JDT.GroupTypes.LosCastIntoDot ] = {
             TaintedRipple = {
