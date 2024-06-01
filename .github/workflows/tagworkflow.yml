@@ -2,9 +2,6 @@ name: Tag Commit
 
 on:
   push:
-    branches:
-      - main
-      - '**'  # Matches all branches
 
 jobs:
   create-tag:
