@@ -363,7 +363,7 @@ JDT.createAuraGroup = function(Spellname, desc, Spellicon, SavedVariables, defau
     args = {
       description = {
         type = "description",
-        name = desc,
+        name = desc or " ",
         image = Spellicon,
         order = 0,
       },
