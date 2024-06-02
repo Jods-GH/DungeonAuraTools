@@ -22,7 +22,7 @@ jobs:
       - name: Clone project
         uses: actions/checkout@v3
       - name: Pushes readme to Website repo
-        uses: nkoppel/push-files-to-another-repository@main
+        uses: nkoppel/push-files-to-another-repository@v1.1.3
         env:
           API_TOKEN_GITHUB: ${{secrets.API_TOKEN_GITHUB}} 
         with:
