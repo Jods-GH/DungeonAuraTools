@@ -29,6 +29,7 @@ jobs:
           source_file: 'README.md'
           destination-repository: 'Jodsderechte.github.io'
           destination-directory: 'Addons/DungeonAuraTools/'
+          destination-branch: 'main'
           commit-email: ${{ secrets.USER_MAIL }}
           destination-username: 'Jodsderechte'
           commit-message: 'Update DungeonAuraTools for newest ReadMe version'
