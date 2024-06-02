@@ -7,9 +7,12 @@ name: alpha build
 # other branches or even pullrequests.
 on:
   push:
-    tags-ignore: 
-                 - "!**-alpha**"
-                 - "!**-beta**"
+    paths:
+      - '!.github' 
+    tags:
+      - "*"
+      - "!**-alpha**"
+      - "!**-beta**"
 
 # a workflow is built up as jobs, and within these jobs are steps
 jobs:
@@ -46,7 +49,22 @@ jobs:
         id: readChanglog
         with:
           path: CHANGELOG.md  
+
+      - name: Get commit hash
+        id: vars
+        run: echo "::set-output name=commit_hash::$(git rev-parse --short HEAD)"
+
+      - name: Create and push tag for main
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git tag "${{ steps.vars.outputs.commit_hash }}-beta"
+          git push origin "${{ steps.vars.outputs.commit_hash }}-beta"
+
+      - name: Create and push tag for other branches
+        if: github.ref != 'refs/heads/main'
+        run: |
+          git tag "${{ steps.vars.outputs.commit_hash }}-alpha" 
+          git push origin "${{ steps.vars.outputs.commit_hash }}-alpha"
       # once cloned, we just run the GitHub Action for the packager project
       - name: Package and release
         uses: BigWigsMods/packager@v2
-      
