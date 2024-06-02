@@ -27,8 +27,8 @@ jobs:
           API_TOKEN_GITHUB: ${{secrets.API_TOKEN_GITHUB}} 
         with:
           source_file: 'README.md'
-          destination-repository: 'Jodsderechte/Jodsderechte.github.io'
+          destination-repository: 'Jodsderechte.github.io'
           destination-directory: 'Addons/DungeonAuraTools/'
           commit-email: ${{ secrets.USER_MAIL }}
-          destination-username: ${{ secrets.USER_NAME }}
+          destination-username: 'Jodsderechte'
           commit-message: 'Update DungeonAuraTools for newest ReadMe version'
