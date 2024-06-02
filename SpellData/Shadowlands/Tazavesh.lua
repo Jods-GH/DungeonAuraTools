@@ -1019,16 +1019,15 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 356942, -- for spellname etc
                 triggerData = {
-                    [1] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "356942",
 
                     },
-                    [2] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "356942"
                     },
-
                 }
             }
         },
