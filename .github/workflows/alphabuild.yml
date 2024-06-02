@@ -7,8 +7,8 @@ name: alpha build
 # other branches or even pullrequests.
 on:
   push:
-    paths:
-      - '!.github/' 
+    paths-ignore:
+      - '.github/' 
     tags-ignore:
       - "**"
 
