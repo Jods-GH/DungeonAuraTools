@@ -22,13 +22,13 @@ jobs:
       - name: Clone project
         uses: actions/checkout@v3
       - name: Pushes readme to Website repo
-        uses: dmnemec/copy_file_to_another_repo_action@main
+        uses: nkoppel/push-files-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{secrets.API_TOKEN_GITHUB}} 
         with:
           source_file: 'README.md'
-          destination_repo: 'Jodsderechte/Jodsderechte.github.io'
-          destination_folder: 'Addons/DungeonAuraTools/'
-          user_email: ${{ secrets.USER_MAIL }}
-          user_name: ${{ secrets.USER_NAME }}
-          commit_message: 'Update DungeonAuraTools for newest ReadMe version'
+          destination-repository: 'Jodsderechte/Jodsderechte.github.io'
+          destination-directory: 'Addons/DungeonAuraTools/'
+          commit-email: ${{ secrets.USER_MAIL }}
+          destination-username: ${{ secrets.USER_NAME }}
+          commit-message: 'Update DungeonAuraTools for newest ReadMe version'
