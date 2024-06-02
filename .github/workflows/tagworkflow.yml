@@ -11,6 +11,8 @@ jobs:
         uses: actions/checkout@v4
         with: 
           token: ${{ secrets.WORKFLOW_TOKEN }}
+          fetch-depth: 0  # gets git history for changelogs
+          ref: ${{ github.ref }}
 
       - name: Set up Git user
         run: |
