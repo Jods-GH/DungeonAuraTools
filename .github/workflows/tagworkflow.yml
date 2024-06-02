@@ -2,6 +2,8 @@ name: Tag Commit
 
 on:
   push:
+    tags-ignore:
+      - '**'
 
 jobs:
   create-tag:
