@@ -26,7 +26,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{secrets.API_TOKEN_GITHUB}} 
         with:
-          source_file: 'README.md'
+          source-files: 'README.md'
           destination-repository: 'Jodsderechte.github.io'
           destination-directory: 'Addons/DungeonAuraTools/'
           destination-branch: 'main'
