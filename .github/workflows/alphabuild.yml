@@ -17,7 +17,8 @@ jobs:
 
   # "release" is a job, you can name it anything you want
   release:
-
+    
+    if: github.repository == 'Jods-GH/DungeonAuraTools'
     # we can run our steps on pretty much anything, but the "ubuntu-latest" image is a safe bet
     runs-on: ubuntu-latest
 
