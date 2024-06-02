@@ -8,7 +8,7 @@ name: alpha build
 on:
   push:
     paths:
-      - '!.github' 
+      - '!.github/' 
     tags-ignore:
       - "**"
 
