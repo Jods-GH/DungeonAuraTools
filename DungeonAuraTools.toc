@@ -43,6 +43,7 @@ Templates/DynamicGroup.lua
 Templates/BorderColors.lua
 Templates/CustomTextIcons.lua
 Templates/Glows.lua
+Templates/SubRegions.lua
 #General Templates
 Templates/TextRegions.lua
 Templates/Triggers.lua

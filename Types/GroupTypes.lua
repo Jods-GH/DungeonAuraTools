@@ -299,6 +299,8 @@ JDT.GroupTypes.CastWithDebuffTargetAnounce = "CastWithDebuffTargetAnounce"
 JDT.GroupTypes.DotHighStacksWarning = "DotHighStacksWarning"
 JDT.GroupTypes.SpreadCastWithTargetChangeTracker = "SpreadCastWithTargetChangeTracker"
 JDT.GroupTypes.BreakShieldWithProgressIfNotDebuffed = "BreakShieldWithProgressIfNotDebuffed"
+JDT.GroupTypes.CastIntoTimeLeftDebuffAnnounce = "CastIntoTimeLeftDebuffAnnounce"
+JDT.GroupTypes.CastSuccessDanceWithoutDebuff = "CastSuccessDanceWithoutDebuff"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -354,7 +356,7 @@ JDT.Templates.GroupTypes.Fixate = {
     },
     text = {
         {   
-            value = "-"..JDT.getLocalisation("fixated"),
+            value = JDT.getLocalisation("fixated"),
             isactive = true,
         },  
     },
@@ -372,7 +374,7 @@ JDT.Templates.GroupTypes.HealBuff = {
     },
     text = {
         {   
-            value = "-"..JDT.getLocalisation("Healing"),
+            value = JDT.getLocalisation("Healing"),
             isactive = true,
         },  
     },
@@ -406,7 +408,7 @@ JDT.Templates.GroupTypes.ImportantMoveBuff = {
     },
     text = {
         {   
-            value = "-"..JDT.getLocalisation("Move"),
+            value = JDT.getLocalisation("Move"),
             isactive = true,
         },  
     },
@@ -1166,6 +1168,7 @@ JDT.Templates.GroupTypes.CollectBuff = {
                     value = true
                 },
             },
+            
         },
     }
 ), 
@@ -1389,6 +1392,30 @@ JDT.Templates.GroupTypes.CastIntoCastSuccessDance= {
     },
     doSound = JDT.SoundTypes.dance,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+}
+
+
+JDT.Templates.GroupTypes.CastSuccessDanceWithoutDebuff= {
+    AuraType = "AuraBar",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_SUCCESS",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dance"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.dance,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1]  and not t[2]\n end",
 }
 
 JDT.Templates.GroupTypes.CastIntoCastDance= {
@@ -3846,7 +3873,7 @@ JDT.Templates.GroupTypes.Afflicted= {
             isactive = true,
         }, 
         {   
-            value = JDT.getLocalisation("- haste"),
+            value = JDT.getLocalisation("- Haste"),
             isactive = false,
         }, 
     },
@@ -5459,10 +5486,10 @@ JDT.Templates.GroupTypes.InteruptableCastIntoCurseDot = {
 JDT.Templates.GroupTypes.CastIntoAtackspeedSlow = {
     AuraType = "AuraIcon",
     triggers = {
-        [1] = {
+        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
         },
-        [2] ={
+        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
             BuffTypes = "debuff",
         }
@@ -10951,4 +10978,65 @@ JDT.Templates.GroupTypes.CastWithDebuffTargetAnounce= {
                    },
            },
        })
+}
+
+JDT.Templates.GroupTypes.CastIntoTimeLeftDebuffAnnounce= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("inc"),
+            isactive = true,
+        },  
+        {   
+            value = JDT.getLocalisation("time left"),
+            isactive = false,
+        },  
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    glowtype = "ActionButton",
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+               condition={
+                  type = "simplecheck",
+                  trigger= 2,
+                  value = true,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false,
+                    },
+                    {
+                        property = "sub.4.text_visible",
+                        value = true,
+                    },
+                },
+           },
+           {
+            condition={
+               type = "NumberCheck",
+               trigger= 2,
+               op = "<",
+               variable = "expirationTime",
+               value = "5",
+            },
+            changes = {
+                    {
+                        property = "sub.5.glow",
+                        value = true
+                    },
+            },
+                
+           }
+    })
 }

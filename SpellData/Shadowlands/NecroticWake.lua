@@ -343,6 +343,106 @@ bosses.boss4 = { --	Nalthor the Rimebinder
                 }
             },
         },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            CometStorm = {
+                enabled = true,
+                spellId = 320784,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "320784",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoTimeLeftDebuffAnnounce] = {
+            DarkExile = {
+                enabled = true,
+                spellId = 321894,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "321894",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "321894",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.SlowDebuff] ={
+            FrigidCold = {
+                enabled = true,
+                spellId = 328181, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "328181",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoAtackspeedSlow] ={
+            Enfeeble= {
+                enabled = true,
+                spellId = 320839, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "320839",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "320839"
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.DmgBuff] = {
+            ChampionsBoon = {
+                enabled = true,
+                spellId = 345323,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = 345323,
+                    }
+                }
+            },
+        },
+        
+        [JDT.GroupTypes.CastSuccessDanceWithoutDebuff] = {
+            CometStorm = {
+                enabled = true,
+                spellId = 320772,
+                extraName = " dance",
+                
+                ticks = {
+                    "12.5",
+                    "25",
+                    "37.5",
+                    "50",
+                    "62.5",
+                    "75",
+                    "87.5",
+                },
+                triggerData = {
+                    {
+                        duration = "2",
+                        spellId = "320772",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = 320772,
+                    }
+                }
+            },
+        },
+        
     }
 }
 

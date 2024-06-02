@@ -486,7 +486,12 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
         IconTextPriority = IconTextPriority+1
         table.insert(SpellTable.subRegions,TextTemplate)
     end
-
+    -- add ticks if needed
+    if v.ticks then
+        local TickTemplate = CopyTable(JDT.Templates.SubRegions.Ticks)
+        TickTemplate.tick_placements = v.ticks
+        tinsert(SpellTable.subRegions,TickTemplate)
+    end
         -- set load conditions
     if DungeonValue.zoneId then 
         SpellTable.load.use_zoneIds = true
