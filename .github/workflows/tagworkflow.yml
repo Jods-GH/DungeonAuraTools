@@ -2,8 +2,8 @@ name: Tag Commit
 
 on:
   push:
-    tags-ignore:
-      - '**'
+     tags:
+      - '!'  # Exclude tag pushes from triggering this workflow
 
 jobs:
   create-tag:
