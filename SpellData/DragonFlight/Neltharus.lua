@@ -249,7 +249,6 @@ bosses.boss4 = {  -- Warlord Sargha
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "376780",
                     },
-
                 }
             },
         },

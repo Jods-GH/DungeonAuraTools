@@ -166,7 +166,6 @@ bosses.boss3 = {  -- Raal the Gluttonous
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "264931",
                     },
-
                 }
             },
         },

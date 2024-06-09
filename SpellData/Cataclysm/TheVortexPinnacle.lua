@@ -101,7 +101,6 @@ bosses.boss2 = {  -- 	Altairus
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "88286",
                     }
-
                 }
             },
         },
@@ -271,9 +270,7 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "411910",
-
                     },
-
                 }
             }
         },
@@ -286,7 +283,6 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "410870",
                     }
-
                 }
             },
         },

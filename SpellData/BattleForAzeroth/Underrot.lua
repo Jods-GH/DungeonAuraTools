@@ -372,7 +372,7 @@ bosses.Trash = {
             },
         },
         [JDT.GroupTypes.PurgableImuneCast] = {
-            ["GiftofG'huun"] = {
+            GiftofGhuun = {
                 enabled = true,
                 spellId = 265091,
                 triggerData = {

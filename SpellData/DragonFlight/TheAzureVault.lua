@@ -173,12 +173,9 @@ bosses.boss2 = {  --Azureblade
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "384132",
-    
                     },
-    
                 }
             },
-
         },
     }
 }

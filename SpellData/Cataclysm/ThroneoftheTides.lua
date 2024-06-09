@@ -553,7 +553,6 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "76363",
                     },
-
                 }
             },
         },
