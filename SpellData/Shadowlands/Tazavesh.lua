@@ -1279,12 +1279,12 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 355641, -- for spellname etc
                 triggerData = {
-                    [1] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "355641",
 
                     },
-                    [2] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "355641",
 
@@ -1298,7 +1298,7 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 355642,
                 triggerData = {
-                  [1] =  {
+                  {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "355642",
                     },
@@ -1311,7 +1311,7 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 355782,
                 triggerData = {
-                  [1] =  {
+                  {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "355782",
                     },
@@ -1322,7 +1322,7 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 355057,
                 triggerData = {
-                  [1] =  {
+                   {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "355057",
                     },
@@ -1335,7 +1335,7 @@ bosses.Trash = {
                 glowtype = "Ants",
                 showGlow = true,
                 triggerData = {
-                  [1] =  {
+                  [1] ={
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "356133",
                     },
