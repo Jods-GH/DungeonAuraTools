@@ -42,16 +42,6 @@ jobs:
         with:
           fetch-depth: 0  # gets git history for changelogs
           ref: ${{ github.ref }}
-          
-      - name: Generate Changelog
-        id: Changelog
-        run: .github/generate_changelog.sh
-        
-      - name: save changelog in variable
-        uses: pCYSl5EDgo/cat@master
-        id: readChanglog
-        with:
-          path: CHANGELOG.md  
 
       - name: Get commit hash
         id: vars
@@ -69,6 +59,7 @@ jobs:
           git tag "${{ steps.vars.outputs.commit_hash }}-alpha" 
           git push origin "${{ steps.vars.outputs.commit_hash }}-alpha"
   release:
+    needs: setup
     if: github.repository == 'Jods-GH/DungeonAuraTools'
     # we can run our steps on pretty much anything, but the "ubuntu-latest" image is a safe bet
     runs-on: ubuntu-latest
@@ -81,7 +72,22 @@ jobs:
                                                  # for your own token, the name cannot start with "GITHUB_"
 
     # "steps" holds a list of all the steps needed to package and release our AddOn
-    steps:         
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # gets git history for changelogs
+          ref: ${{ github.ref }}
+          
+      - name: Generate Changelog
+        id: Changelog
+        run: .github/generate_changelog.sh
+        
+      - name: save changelog in variable
+        uses: pCYSl5EDgo/cat@master
+        id: readChanglog
+        with:
+          path: CHANGELOG.md           
       # once cloned, we just run the GitHub Action for the packager project
       - name: Package and release
         uses: BigWigsMods/packager@v2
