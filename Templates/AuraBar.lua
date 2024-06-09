@@ -10,6 +10,7 @@ JDT.Templates.Type.AuraBar = {
     sparkRotation = 0,
     sparkRotationMode= "AUTO",
     icon = true,
+    textureSource = "LSM",
     triggers = {
         {
             
