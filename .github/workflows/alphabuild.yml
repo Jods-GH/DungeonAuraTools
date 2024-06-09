@@ -10,7 +10,9 @@ on:
     paths-ignore:
       - '.github/' 
     tags-ignore:
-      - "**"
+      - "v.**"
+      - "**-beta"
+      - "**--alpha"
 
 # a workflow is built up as jobs, and within these jobs are steps
 jobs:
