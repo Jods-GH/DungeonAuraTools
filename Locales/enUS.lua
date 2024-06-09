@@ -407,6 +407,8 @@ LocalisationData["CastStartAoeWithStackingBuff"] = "Periodic damage that increas
 LocalisationData["BreakShieldWithProgressIfNotDebuffed"] = "Break shield mechanic"
 LocalisationData["CastSuccessDanceWithoutDebuff"] = "Dance Mechanic"
 LocalisationData["CastIntoTimeLeftDebuffAnnounce"] = "Time left anouncement"
+LocalisationData["AbsorbDebuffWithProgress"] = "Debuff that Absorbs Healing"
+LocalisationData["TargetedCastIntoHpReducedDebuff"] = "Cast that leaves a debuff that reduces max HP"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
@@ -610,6 +612,8 @@ LocalisationData["Hex inc"] = "Hex inc"
 LocalisationData["- dmg inc"] = "- dmg inc"
 LocalisationData["inc"] = "inc"
 LocalisationData["time left"] = "time left"
+LocalisationData["Absorb"] = "Absorb"
+LocalisationData["- hp"] = "- hp"
 --[[
 LocalisationData[""] = ""
 LocalisationData[""] = ""

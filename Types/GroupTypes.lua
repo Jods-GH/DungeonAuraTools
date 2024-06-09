@@ -301,6 +301,8 @@ JDT.GroupTypes.SpreadCastWithTargetChangeTracker = "SpreadCastWithTargetChangeTr
 JDT.GroupTypes.BreakShieldWithProgressIfNotDebuffed = "BreakShieldWithProgressIfNotDebuffed"
 JDT.GroupTypes.CastIntoTimeLeftDebuffAnnounce = "CastIntoTimeLeftDebuffAnnounce"
 JDT.GroupTypes.CastSuccessDanceWithoutDebuff = "CastSuccessDanceWithoutDebuff"
+JDT.GroupTypes.AbsorbDebuffWithProgress = "AbsorbDebuffWithProgress"
+JDT.GroupTypes.TargetedCastIntoHpReducedDebuff  ="TargetedCastIntoHpReducedDebuff"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -2053,7 +2055,27 @@ JDT.Templates.GroupTypes.BreakShieldWithProgressIfNotDebuffed = {
     activationType = JDT.Templates.Triggers.ActivationTypes.custom,
     customTriggerLogic = "function(t) \n  return t[1]  and not t[2]\n end",
     customText = JDT.Templates.CustomText.TooltipProgress,  
- 
+}
+
+JDT.Templates.GroupTypes.AbsorbDebuffWithProgress = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Absorb"),
+            isactive =  true,
+        }, 
+
+    },
+    useTooltip = 1,
+    doSound = JDT.SoundTypes.debuff,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    customText = JDT.Templates.CustomText.TooltipProgress,  
 }
 
 JDT.Templates.GroupTypes.CastIntoRemoveShield = {
@@ -3679,7 +3701,51 @@ JDT.Templates.GroupTypes.InteruptableTargetedCastIntoHealingReducedMagicDebuff= 
     }
 ), 
 }
-
+JDT.Templates.GroupTypes.TargetedCastIntoHpReducedDebuff= {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+            target = JDT.Templates.Triggers.UnitTypes.player,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("targeted"),
+            isactive = false,
+        },
+        {   
+            value = "-"..JDT.getLocalisation("- hp"),
+            isactive = true,
+        },  
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.targeted,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = true,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = false
+                    },
+                },
+        },
+    })
+}
 JDT.Templates.GroupTypes.InteruptableTargetedCastIntoDmgTakenDebuff= {
     AuraType = "AuraIcon",
     triggers = {

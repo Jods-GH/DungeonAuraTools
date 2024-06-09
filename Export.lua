@@ -609,6 +609,9 @@ JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
     if triggerData.ignoreSelf then
         AuraTrigger.trigger.ignoreSelf = triggerData.ignoreSelf
     end
+    if(AuraTemplate.useTooltip) then
+        AuraTrigger.trigger.fetchTooltip = true
+    end
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
 end

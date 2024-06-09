@@ -110,6 +110,7 @@ SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
 #Cataclysm
 SpellData/Cataclysm/TheVortexPinnacle.lua
 SpellData/Cataclysm/ThroneoftheTides.lua
+SpellData/Cataclysm/GrimBatol.lua
 
 # Core
 Templates/OptionDefaults.lua

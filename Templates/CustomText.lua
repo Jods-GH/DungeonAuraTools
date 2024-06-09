@@ -16,13 +16,22 @@ setmetatable(JDT.Templates.CustomText, {
     end,
 })
 
-JDT.Templates.CustomTextTemplates.TooltipProgress = function(tooltipNumber)
+JDT.Templates.CustomTextTemplates.TooltipProgress = function(ProgressInfo)
+    local tooltipNumber = ProgressInfo.tooltip;
+    local inverse = ProgressInfo.inverse;
     local onHideCode = "aura_env.maximumValue = 0"
-    return JDT.Templates.CustomTextGenerator.ProgressInfoAutoMax(tooltipNumber), onHideCode
+    return JDT.Templates.CustomTextGenerator.ProgressInfoAutoMax(tooltipNumber,inverse), onHideCode
 end
 
-JDT.Templates.CustomTextGenerator.ProgressInfoAutoMax = function(tooltipNumber)
-    return "function() \n if aura_env.state and aura_env.state.tooltip"..tooltipNumber.." then\n        if not aura_env.maximumValue or aura_env.maximumValue == 0 or aura_env.maximumValue < aura_env.state.tooltip"..tooltipNumber.." then \n            aura_env.maximumValue = aura_env.state.tooltip"..tooltipNumber.." \n        end\n        aura_env.region:SetDurationInfo(aura_env.state.tooltip"..tooltipNumber..", aura_env.maximumValue,true)  \n   end \n end"    
+JDT.Templates.CustomTextGenerator.ProgressInfoAutoMax = function(tooltipNumber,inverse)
+    local durationFunction; 
+    -- special handling incase we want the progress to be inverted
+    if(inverse) then
+        durationFunction = "aura_env.maximumValue - aura_env.state.tooltip"..tooltipNumber..", aura_env.maximumValue,true"
+    else
+        durationFunction= "aura_env.state.tooltip"..tooltipNumber..", aura_env.maximumValue,true"
+    end
+    return "function() \n if aura_env.state and aura_env.state.tooltip"..tooltipNumber.." then\n        if not aura_env.maximumValue or aura_env.maximumValue == 0 or aura_env.maximumValue < aura_env.state.tooltip"..tooltipNumber.." then \n            aura_env.maximumValue = aura_env.state.tooltip"..tooltipNumber.." \n        end\n        aura_env.region:SetDurationInfo("..durationFunction..")  \n   end \n end"    
 end
 
 JDT.Templates.CustomTextTemplates.DurationStacks = function(maxProgress)
