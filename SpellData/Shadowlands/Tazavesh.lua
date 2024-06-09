@@ -1237,7 +1237,7 @@ bosses.Trash = {
                 spellId = 355048, -- for spellname etc
                 RoleLoad =  "TANK",
                 triggerData = {
-                    [1] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "355048",
 
@@ -1251,7 +1251,7 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 355637, -- for spellname etc
                 triggerData = {
-                    [1] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "355637",
 
@@ -1265,7 +1265,7 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 355640, -- for spellname etc
                 triggerData = {
-                    [1] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "355640",
 
