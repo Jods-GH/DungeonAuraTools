@@ -1,6 +1,7 @@
 local _, JDT = ...
 
 JDT.ExpansionValues = JDT.ExpansionValues or {}
+JDT.ExpansionValues.TheWarWithin = { [1] = "https://wago.io/DungeonAuras_TheWarWithin", [2] = LE_EXPANSION_WAR_WITHIN, [3] = "The War Within",[4]="TWW-Dungeons"}
 JDT.ExpansionValues.Dragonflight = { [1] = "https://wago.io/DungeonAuras_Dragonflight", [2] = LE_EXPANSION_DRAGONFLIGHT, [3] = "Dragonflight",[4]="DF-Dungeons"}
 JDT.ExpansionValues.Shadowlands = { [1] = "https://wago.io/DungeonAuras_Shadowlands", [2] = 	LE_EXPANSION_SHADOWLANDS, [3] = "Shadowlands",[4]="SL-Dungeons"}
 JDT.ExpansionValues.BattleForAzeroth = { [1] = "https://wago.io/DungeonAuras_BattleForAzeroth", [2] = LE_EXPANSION_BATTLE_FOR_AZEROTH, [3] = "Battle for Azeroth",[4]="BFA-Dungeons"}

@@ -2758,7 +2758,7 @@ JDT.Templates.GroupTypes.Dispose=  {
         },
         [2] = {
             triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
-            customPreset = "TazaveshDispose"
+            customPreset = "Dispose"
         },
     },
     text = {

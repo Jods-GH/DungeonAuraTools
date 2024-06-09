@@ -343,17 +343,15 @@ bosses.boss3 = {
                 spellId = 346947, -- for spellname etc
                 showStacks = 2,
                 triggerData = {
-                    [1] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "346947",
-
                     },
-                    [2] = {
-                        spellIdList = {},
-                        extraUnit = ""
-
+                    {
+                        summonID = 346381,
+                        duration = 30,
+                        removeID = 346296
                     },
-
                 }
             }
         },
@@ -1350,15 +1348,14 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 355479,
                 triggerData = {
-                  [1] =  {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "355479",
                     },
-                    [2] =  {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "355479",
                     },        
-
                 }
             },
         },
