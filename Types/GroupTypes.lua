@@ -242,7 +242,7 @@ JDT.GroupTypes.NoSoakDebuff =  "NoSoakDebuff"
 JDT.GroupTypes.ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn = "ChainCastIntoSoakChainOrWaitWithDebuffIntoBurn"
 JDT.GroupTypes.CastIntoDanceWhileDebuffed = "CastIntoDanceWhileDebuffed"
 JDT.GroupTypes.HasteBuffButItsADebuff = "HasteBuffButItsADebuff"
-JDT.GroupTypes.VolleyIntoDisease = "VolleyIntoDisease"
+JDT.GroupTypes.VolleyIntoDebuff = "VolleyIntoDebuff"
 JDT.GroupTypes.UnavoidableAoeBigAoeIfDebuff = "UnavoidableAoeBigAoeIfDebuff"
 JDT.GroupTypes.TargetedCastWithSafeDeBuffDuringCast = "TargetedCastWithSafeDeBuffDuringCast"
 JDT.GroupTypes.FirstHitAuraApplied = "FirstHitAuraApplied"
@@ -303,6 +303,8 @@ JDT.GroupTypes.CastIntoTimeLeftDebuffAnnounce = "CastIntoTimeLeftDebuffAnnounce"
 JDT.GroupTypes.CastSuccessDanceWithoutDebuff = "CastSuccessDanceWithoutDebuff"
 JDT.GroupTypes.AbsorbDebuffWithProgress = "AbsorbDebuffWithProgress"
 JDT.GroupTypes.TargetedCastIntoHpReducedDebuff  ="TargetedCastIntoHpReducedDebuff"
+JDT.GroupTypes.DanceWithNextTick = "DanceWithNextTick"
+JDT.GroupTypes.VolleyIntoDot = "VolleyIntoDot"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -4985,7 +4987,7 @@ JDT.Templates.GroupTypes.StunableVolleyIntoDmgReduce= {
 ), 
 }
 
-JDT.Templates.GroupTypes.VolleyIntoDisease= {
+JDT.Templates.GroupTypes.VolleyIntoDebuff= {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -5001,13 +5003,83 @@ JDT.Templates.GroupTypes.VolleyIntoDisease= {
             value = JDT.getLocalisation("Volley"),
             isactive = true,
         }, 
+        {   
+            value = JDT.getLocalisation("Debuffed"),
+            isactive = true,
+        }, 
         
     },
     doSound = JDT.SoundTypes.debuff,
-    type = JDT.AuraTypes.disease,
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+), 
 }
 
+JDT.Templates.GroupTypes.VolleyIntoDot= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Volley"),
+            isactive = true,
+        },
+        {   
+            value = JDT.getLocalisation("Dot"),  
+            isactive = false,
+        },     
+        
+    },
+    doSound = JDT.SoundTypes.debuff,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+), 
+}
 JDT.Templates.GroupTypes.CollapsingStar= {
     AuraType = "AuraIcon",
     triggers = {
@@ -8808,7 +8880,53 @@ JDT.Templates.GroupTypes.CastIntoAoeBuff =  {
     }
 ), 
 }
-
+JDT.Templates.GroupTypes.DanceWithNextTick =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+            
+        },
+        {   
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_SUCCESS",
+        },
+        
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dance inc"),
+            isactive = false,
+        }, 
+        {   
+            value = JDT.getLocalisation("next Dance"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    doSound = JDT.SoundTypes.dance,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+                condition={
+                   type = "simplecheck",
+                   trigger= 1,
+                   value = true,
+                    },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = false
+                    },
+                },
+            }, 
+    }
+), 
+}
 JDT.Templates.GroupTypes.ChannelDmgWithNextTick =  {
     AuraType = "AuraIcon",
     triggers = {

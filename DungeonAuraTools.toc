@@ -67,7 +67,9 @@ Types/ExpansionValues.lua
 SpellData/Affixes.lua
 
 #SpellData TheWarWithin
-
+SpellData/TheWarWithin/AraKara.lua
+SpellData/TheWarWithin/TheStonevault.lua
+SpellData/TheWarWithin/CityOfThreads.lua
 SpellData/TheWarWithin/TheDawnbreaker.lua
 
 #SpellData DragonFlight
