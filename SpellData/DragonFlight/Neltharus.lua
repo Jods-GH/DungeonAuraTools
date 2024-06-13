@@ -101,10 +101,8 @@ bosses.boss1 = {  -- 	Chargath, Bane of Scales
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "373742",
                     }
-
                 }
             },
-
         },
 
     }

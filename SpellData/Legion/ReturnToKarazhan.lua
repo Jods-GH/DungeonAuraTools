@@ -924,9 +924,7 @@ bosses.boss9 = { -- Mana Wyrm
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "227297",
-
                     },
-
                 }
             }
         },
@@ -1144,7 +1142,6 @@ bosses.Trash= {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "232115",
                     }
-
                 }
             },
         },

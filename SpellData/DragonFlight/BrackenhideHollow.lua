@@ -768,9 +768,7 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "385046",
-
                     },
-
                 }
             },
             InfectiousBite = {
@@ -843,10 +841,11 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.VolleyIntoDisease] = {
+        [JDT.GroupTypes.VolleyIntoDebuff] = {
             WitheringContagion = {
                 enabled = true,
                 spellId = 382802,
+                type = JDT.AuraTypes.disease,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,

@@ -95,9 +95,7 @@ bosses.boss2 = {  -- Cragmaw the Infested
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "260333",
-
                     },
-
                 }
             }
         },

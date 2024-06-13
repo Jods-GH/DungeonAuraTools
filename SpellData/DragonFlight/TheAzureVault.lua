@@ -261,10 +261,8 @@ bosses.boss4 = {  --Umbrelskul
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "385331",
                     }
-
                 }
             },
-
         },
         [JDT.GroupTypes.KnockCast] ={
             UnleashedDestruction = {

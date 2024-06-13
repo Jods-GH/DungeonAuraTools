@@ -151,10 +151,8 @@ bosses.boss2 = {
                         spellId = "372860",
                         ignoreSelf = false,
                     }
-
                 }
             },
-
         },
         [JDT.GroupTypes.InteruptableBigAoeCast] = {
             RoaringBlaze = {
