@@ -410,10 +410,8 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "265377",
                     }
-
                 }
             },
-
         }, 
         [JDT.GroupTypes.TargetedCast] = {
             BarbedSpear = {
