@@ -664,6 +664,7 @@ bosses.Trash = {
             KnifeDance = {
                 enabled = true,
                 spellId = 200291, -- for spellname etc
+                type = JDT.AuraTypes.stun,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,

@@ -283,6 +283,232 @@ bosses.boss3 = { --	Ki'katal the Harvester
 bosses.Trash = { 
     additionalName = "TRASH] ",
     Auras = {
+        [JDT.GroupTypes.Dance] ={
+            EruptingWebs = {
+                enabled = true,
+                spellId = 433845, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "433845",
+                    },
+                }
+            },
+        },
         
+        [JDT.GroupTypes.InteruptableVolleyIntoPoisonDot] = {
+            VenomVolley = {
+                enabled = true,
+                spellId = 433841,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "433841",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "433841",
+                    },
+                }
+            },
+            RevoltingVolley = {
+                enabled = true,
+                spellId = 448248,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "448248",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "448248",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            WebBolt = {
+                enabled = true,
+                spellId = 434786, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "434786",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            VenomousSpit = {
+                enabled = true,
+                spellId = 438618,
+                type = JDT.AuraTypes.poison,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "438618",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "438618",
+                    }
+                }
+            },
+            PoisonBolt = {
+                enabled = true,
+                spellId = 436322,
+                type = JDT.AuraTypes.poison,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "436322",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "436322",
+                    }
+                }
+            },
+        }, 
+        [JDT.GroupTypes.ExplodingCast] = {
+            ToxicRupture = {
+                enabled = true,
+                spellId = 438622,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "438622",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            BleedingJab  = {
+                enabled = true,
+                spellId = 438599, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "438599",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoAoeBuff] ={
+            ResonantBarrage = {
+                enabled = true,
+                spellId = 434793, -- for spellname etc
+                type = JDT.AuraTypes.stun,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "434793",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "434793",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.SlowDebuffHighStacksWarning] ={
+            VileWebbing = {
+                enabled = true,
+                spellId = 434830, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "434830",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            WebSpray = {
+                enabled = true,
+                spellId = 434824,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "434824",
+                    }
+                }
+            },
+            Impale = {
+                enabled = true,
+                spellId = 453161,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "453161",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            PoisonousCloud = {
+                enabled = true,
+                spellId = 438826,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "438826",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            MassiveSlam = {
+                enabled = true,
+                spellId = 434252, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "434252",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.SlowDebuff] ={
+            GraspingSlash = {
+                enabled = true,
+                spellId = 433785, -- for spellname etc
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "433785",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.InteruptableAoeFear] ={
+            HorrifyingShrill= {
+                enabled = true,
+                spellId = 434802, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "434802",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            CallOfTheBrood = {
+                enabled = true,
+                spellId = 438877, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "438877",
+                    },
+                }
+            }
+        },
     },
 }
