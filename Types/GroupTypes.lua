@@ -305,6 +305,7 @@ JDT.GroupTypes.AbsorbDebuffWithProgress = "AbsorbDebuffWithProgress"
 JDT.GroupTypes.TargetedCastIntoHpReducedDebuff  ="TargetedCastIntoHpReducedDebuff"
 JDT.GroupTypes.DanceWithNextTick = "DanceWithNextTick"
 JDT.GroupTypes.VolleyIntoDot = "VolleyIntoDot"
+JDT.GroupTypes.InteruptableVolleyIntoPoisonDot = "InteruptableVolleyIntoPoisonDot"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -4760,6 +4761,78 @@ JDT.Templates.GroupTypes.InteruptableVolleyIntoDiseaseDot= {
             },
             {
                 type = JDT.AuraTypes.disease,
+                visible = false,
+            },
+        },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.6.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.7.border_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.8.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.9.border_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+), 
+}
+JDT.Templates.GroupTypes.InteruptableVolleyIntoPoisonDot= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        }
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Volley"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("dot"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.interrupt,
+    type = 
+        {
+            {
+                type = JDT.AuraTypes.interrupt,
+                visible = true,
+            },
+            {
+                type = JDT.AuraTypes.poison,
                 visible = false,
             },
         },
