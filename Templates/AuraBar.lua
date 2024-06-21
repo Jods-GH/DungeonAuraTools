@@ -101,6 +101,8 @@ JDT.Templates.Type.AuraBar = {
     sparkBlendMode = "ADD",
     useAdjustededMax = false, -- new progress stuff
     useAdjustededMin = false, -- new progress stuff
+	adjustedMax = "", -- new progress stuff
+	adjustedMin = "", -- new progress stuff
     progressSource = { -- new progress stuff
         -1, -- [1]
         "", -- [2]
