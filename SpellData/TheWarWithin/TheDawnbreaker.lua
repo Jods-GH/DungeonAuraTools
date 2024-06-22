@@ -249,6 +249,331 @@ bosses.boss3 = { --	Rasha'nan
 bosses.Trash = { 
     additionalName = "TRASH] ",
     Auras = {
-        
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            TormentingBeam = {
+                enabled = true,
+                spellId = 431333,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "431333",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "431333",
+                    }
+                }
+            },
+            AbyssalBlast = {
+                enabled = true,
+                spellId = 451119,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451119",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "451119",
+                    }
+                }
+            },
+            AbyssalRot = {
+                enabled = true,
+                spellId = 453345,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "453345",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "453345",
+                    }
+                }
+            },
+            -- this might be a tank only ability
+            TaintedSlash = {
+                enabled = true,
+                spellId = 431491,
+                type = JDT.AuraTypes.bleed,
+                showStacks = 2,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "431491",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "431491",
+                    },
+                }
+            },
+        }, 
+        [JDT.GroupTypes.CastIntoBreakShield] = {
+            UmbralBarrier = {
+                enabled = true,
+                spellId = 432520,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "432520",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "432520",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            UmbralRush = {
+                enabled = true,
+                spellId = 431637,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "431637",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            NightBolt = {
+                enabled = true,
+                spellId = 431303, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "431303",
+                    },
+                }
+            },
+            WebBolt = {
+                enabled = true,
+                spellId = 451113, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451113",
+                    },
+                }
+            },
+            TormentingRay = {
+                enabled = true,
+                spellId = 431364, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "431364",
+                    },
+                }
+            },
+            CongealedShadow = {
+                enabled = true,
+                spellId = 451114, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451114",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableMobCastIntoPlayerDebuffSlow] ={
+            EnsnaringShadows= {
+                enabled = true,
+                spellId = 431309, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "431309",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "431309",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.RunOut] ={
+            BlackEdge = {
+                enabled = true,
+                spellId = 431494, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "431494",
+                    },
+                }
+            },
+            ShadowyDecay = {
+                enabled = true,
+                spellId = 451102, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451102",
+                    },
+                }
+            },
+            TackyNova = {
+                enabled = true,
+                spellId = 451098, -- for spellname etc
+                type = JDT.AuraTypes.root,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451098",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBombCastIntoSpread] ={
+            BurstingCocoon= {
+                enabled = true,
+                spellId = 451107, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "451107",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "451107",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "451107",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            StygianSeed = {
+                enabled = true,
+                spellId = 432448, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "432448",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "432448",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "432448",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoChase] = {
+            DarkOrb = {
+                enabled = true,
+                spellId = 450854,
+                loadInBossfight = false,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "450854",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "450854",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "450854",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            BlackHail = {
+                enabled = true,
+                spellId = 432565, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "432565",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            TormentingEruption = {
+                enabled = true,
+                spellId = 431349, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "431349",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "431349",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "431349",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            UsherReinforcements = {
+                enabled = true,
+                spellId = 446615,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "446615",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+             -- this is a fear and might need a changed type. Needs testing
+            TerrifyingSlam = {
+                enabled = true,
+                spellId = 451117,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451117",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Hooking] = {
+            EntwiningThreads = {
+                enabled = true,
+                spellId = 451099,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451099",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.ShieldCast] ={
+            SilkenShell = {
+                enabled = true,
+                spellId = 451097, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451097",
+                    },
+                }
+            }
+        },
     },
 }
