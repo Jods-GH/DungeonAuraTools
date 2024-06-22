@@ -740,7 +740,6 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "384847",
                     },
-
                 }
             },
         },
@@ -819,7 +818,6 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "385827",
                     },
-
                 }
             },
         },

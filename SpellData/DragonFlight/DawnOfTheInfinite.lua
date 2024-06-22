@@ -491,18 +491,15 @@ bosses.boss5 = {  -- Tyr, the Infinite Keeper
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "400649",
-
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "400649",
-
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
                         spellId = "400649",
                     },
-
                 }
             }
         },
