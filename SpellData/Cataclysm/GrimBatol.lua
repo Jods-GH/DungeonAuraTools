@@ -227,6 +227,281 @@ bosses.boss4 = { --	Erudax
 bosses.Trash = { 
     additionalName = "TRASH] ",
     Auras = {
-        
+        [JDT.GroupTypes.Dance] ={
+            ObsidianStomp = {
+                enabled = true,
+                spellId = 456696, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "456696",
+                    },
+                }
+            },
+            MindPiercer = {
+                enabled = true,
+                spellId = 451391, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451391",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TankBusterCast] = {
+            BrutalStrike = {
+                enabled = true,
+                spellId = 451364,
+                RoleLoad = {
+                    HEALER = true,
+					TANK = true,
+                },
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451364",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            Corrupt = {
+                enabled = true,
+                spellId = 451395, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451395",
+                    },
+                }
+            },
+            ShadowflameBolt = {
+                enabled = true,
+                spellId = 76369, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "76369",
+                    },
+                }
+            },
+            EarthBolt = {
+                enabled = true,
+                spellId = 451261, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451261",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            ShadowlavaBlast = {
+                enabled = true,
+                spellId = 456711,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "456711",
+                    },
+                }
+            },
+            DarkEruption = {
+                enabled = true,
+                spellId = 456713,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "456713",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoAoeDebuffWithNextTick] ={
+            Ascension = {
+                enabled = true,
+                spellId = 451387, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451387",
+                    },
+                    {
+                        duration = "5.2",
+                        spellId = "451387",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451387",
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            TwilightFlame = {
+                enabled = true,
+                spellId = 451612,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451612",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "451612",
+                    }
+                }
+            },
+            ShadowflameSlash = {
+                enabled = true,
+                spellId = 451241,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451241",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "451241",
+                    }
+                }
+            },
+        }, 
+        [JDT.GroupTypes.KnockCast] ={
+            UmbralWind = {
+                enabled = true,
+                spellId = 451939, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451939",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.InterruptableSuppresion] ={ 
+            SearMind = {
+                enabled = true,
+                spellId = 76711, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "76711",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.TargetedCastIntoDmgTakenDebuff] = {
+            Rive = {
+                enabled = true,
+                spellId = 451378,
+                showStacks = 2,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451378",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "451378",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            RecklessTactic = {
+                enabled = true,
+                spellId = 451379,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451379",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Charge] = {
+            Decapitate = {
+                enabled = true,
+                spellId = 451067,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451067",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableMobCastIntoPlayerDebuffSlow] ={
+            MassTremor= {
+                enabled = true,
+                spellId = 451871, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451871",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "451871",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.AbsorbDebuffWithProgress] ={
+            EnvelopingShadowflame = {
+                enabled = true,
+                spellId = 451224, -- for spellname etc
+                customTextInfo = { tooltip = 1, inverse = true},
+                type = JDT.AuraTypes.curse,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "451224",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.BigStackingAoeWithCD] = {
+            MoltenWake = {
+                enabled = true,
+                spellId = 451965,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451965",
+                    },
+                    {
+                        spellId = "451965",
+                        duration = "23"
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451965",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TankBusterCast] = {
+            LavaFist = {
+                enabled = true,
+                spellId = 451971,
+                RoleLoad = {
+                    HEALER = true,
+					TANK = true,
+                },
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451971",
+                    },
+                }
+            },
+        },
     },
 }
