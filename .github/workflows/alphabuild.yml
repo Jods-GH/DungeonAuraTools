@@ -12,7 +12,7 @@ on:
     paths-ignore:
       - '.github/' 
     tags-ignore:
-      - "v.**"
+      - "v**"
       - "**-beta"
       - "**--alpha"
 
