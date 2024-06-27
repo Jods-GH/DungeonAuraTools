@@ -6,7 +6,7 @@ JDT.SpellList.BattleForAzeroth.Dungeons = JDT.SpellList.BattleForAzeroth.Dungeon
 
 
 JDT.SpellList.BattleForAzeroth.Dungeons.SiegeOfBoralus= {
-    groupName = "[UR",
+    groupName = "[SOB",
     zoneId = "g163", -- https://warcraft.wiki.gg/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 1023, -- https://wago.tools/db2/JournalEncounter
     Bosses = {}
@@ -320,6 +320,328 @@ bosses.boss4 = {  -- Viq'Goth
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
-        
+        [JDT.GroupTypes.VoidCast] = {
+            FireBomb = {
+                enabled = true,
+                spellId = 256639,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "256639",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            Shoot = {
+                enabled = true,
+                spellId = 272528,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272528",
+                    }
+                }
+            },
+            MoltenSlug = {
+                enabled = true,
+                spellId = 257641,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "257641",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            BrackishBolt = {
+                enabled = true,
+                spellId = 257063, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "257063",
+                    },
+                }
+            },
+            WaterBolt = {
+                enabled = true,
+                spellId = 272581, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272581",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.SpreadCast] = {
+            Ricochet = {
+                enabled = true,
+                spellId = 272542,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272542",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.Charge] ={
+            AzeriteCharge= {
+                enabled = true,
+                spellId = 454438, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "454438",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.ShieldCast] ={
+            BolsteringShout = {
+                enabled = true,
+                spellId = 275826, -- for spellname etc
+                type = JDT.AuraTypes.purge,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "275826",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.Hooking] = {
+            IronHook = {
+                enabled = true,
+                spellId = 272662,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272662",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.SpinToWin] = {
+            SavageTempest = {
+                enabled = true,
+                spellId = 257170,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "257170",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.HasteDeBuff] = {
+            ToothBreaker = {
+                enabled = true,
+                spellId = 256616,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "256616",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoExplodingOnExpireBuff] ={
+            WatertightShell = {
+                enabled = true,
+                spellId = 256957, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "256957",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "256957",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            CrushingSlam = {
+                enabled = true,
+                spellId = 272711, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272711",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.InteruptableAoeFear] ={
+            TerrifyingRoar= {
+                enabled = true,
+                spellId = 257169, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "257169",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            BananaRampage = {
+                enabled = true,
+                spellId = 272546, -- for spellname etct
+                type = JDT.AuraTypes.stun,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "272546",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.InterruptableCastIntoSilence] ={
+            ChokingWaters = {
+                enabled = true,
+                spellId = 272571, -- for spellname etct
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272571",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272571",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            StinkyVomit = {
+                enabled = true,
+                spellId = 454440,
+                type = JDT.AuraTypes.poison,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "454440",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "454440",
+                    },
+                }
+            },
+            RottingWounds = {
+                enabled = true,
+                spellId = 272588,
+                type = JDT.AuraTypes.disease,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272588",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "272588",
+                    },
+                }
+            },
+            SingingSteel = {
+                enabled = true,
+                spellId = 256709,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "256709",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "256709",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            StingingVenomCoating  = {
+                enabled = true,
+                spellId = 275835, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "275835",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            CursedSlash = {
+                enabled = true,
+                spellId = 257168,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "257168",
+                    },
+                }
+            },
+            CrimsonSwipe = {
+                enabled = true,
+                spellId = 268230,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "268230",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Frontal] = {
+            SlobberKnocker = {
+                enabled = true,
+                spellId = 256627,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "256627",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoKeepMovingWithDebuff] = {
+            SightedArtillery = {
+                enabled = true,
+                spellId = 272422,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272422",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "272422",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.BuffCast] = {
+            Ferocity = {
+                enabled = true,
+                spellId = 272888,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272888",
+                    }
+                }
+            },
+        },
     }
 }
