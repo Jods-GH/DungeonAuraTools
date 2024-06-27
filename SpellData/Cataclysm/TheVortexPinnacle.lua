@@ -153,7 +153,6 @@ bosses.boss3 = {  -- Asaad
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "87622",
                     },
-
                 }
             },
         },
@@ -391,10 +390,8 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "88055",
                     }
-
                 }
             },
-
         },
         [JDT.GroupTypes.TargetedCast] = {
             LightningBolt = {

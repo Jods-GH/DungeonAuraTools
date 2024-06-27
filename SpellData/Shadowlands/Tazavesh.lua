@@ -77,16 +77,15 @@ bosses.boss1 = {
 					TANK = true,
                 },
                 triggerData = {
-                    [1] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "348128",
 
                     },
-                    [2] = {
+                    {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "348128",
                     },
-
                 }
             }
         },
