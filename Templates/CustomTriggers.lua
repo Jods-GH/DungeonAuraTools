@@ -116,5 +116,16 @@ JDT.Templates.CustomTriggers.TargetChangeChecker = function(triggerData)
 
     return trigger
 end
-    
+   
+
+JDT.Templates.CustomTriggers.AmountOfCasts = function (triggerData)
+    local triggerNum = triggerData.triggerNum
+    local trigger = {
+        customTrigger = "",
+        customEvents = "",
+    }
+    trigger.customEvents = "TRIGGER:"..triggerNum
+    trigger.customTrigger = "function(allstates, event, triggerNum, triggerStates)\n if event == \"TRIGGER\" and triggerNum ==2 then\n    local lastExpiration = GetTime()\n    local firststate\n   local stacks = 0 \n    for _, state in pairs(triggerStates) do  \n       if state.expirationTime > lastExpiration  then \n           lastExpiration = state.expirationTime \n       end \n       if not firststate then  \n            firststate = state  \n         end  \n         stacks = stacks+1 \n      end \n     if not allstates[\"\"] then \n        if firststate then \n         allstates[\"\"] = {\n               show = true, \n           changed = true,\n           progressType = \"timed\",\n           duration = firststate.duration , \n     expirationTime = lastExpiration,\n          autoHide = true,\n          name = firststate.name, \n           icon = firststate.icon, \n           stacks = stacks, \n              index = firststate.index, \n           } \n      end \n     elseif stacks == 0 then \n     allstates[\"\"].show = false\n         allstates[\"\"].changed = true\n       else\n          allstates[\"\"].changed = true \n        allstates[\"\"].exprationTime = lastExpiration\n        allstates[\"\"].stacks =  stacks\n     end\n      return true\n   end\n end"
+    return trigger
+end
     
