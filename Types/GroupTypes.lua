@@ -11066,15 +11066,16 @@ JDT.Templates.GroupTypes.CastIntoBreakSupressAdd = {
     AuraType = "AuraIcon",
     triggers = {
         {
-            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
-            BuffTypes = "buff",
-        },
-        {
-            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
-            BuffTypes = "buff",
-        },
-        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+            ignoreSelf = false,
         },
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.unitHealth,
@@ -11099,7 +11100,7 @@ JDT.Templates.GroupTypes.CastIntoBreakSupressAdd = {
                     {
                        condition={
                           type = "simplecheck",
-                          trigger= 3,
+                          trigger= 1,
                           value = true,
                            },
                            changes = {

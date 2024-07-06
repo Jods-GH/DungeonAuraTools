@@ -342,12 +342,14 @@ bosses.Trash = {
                         spellId = "322486",
                     },
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
                         spellId = "322486",
+                        exactSpellId = "true", 
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
-                        spellId = "322486",
+                        spellId = "322487",
+                        exactSpellId = "true", 
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
