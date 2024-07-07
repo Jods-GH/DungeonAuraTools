@@ -27,6 +27,20 @@ JDT.CheckIfAuraUpdates = function(self)
                         end
                     end
                 end
+            elseif ExpansionKey == "Seasons" then
+
+                for _, value in pairs(ExpansionValue.current.dungeons) do
+                    local DungeonValue = JDT.db.profile.data[value.expansion].Dungeons[value.dungeon] 
+                    for _, BossNameValue in pairs(DungeonValue.Bosses) do
+                        for _, TypeValue in pairs(BossNameValue.Auras) do
+                            for _, v in pairs(TypeValue) do
+                                if v.enabled == true then
+                                    AuraCount = AuraCount + 1
+                                end
+                            end
+                        end
+                    end
+                end
             end
         else
             local ExportTable  = CopyTable(JDT.DataToExport)
