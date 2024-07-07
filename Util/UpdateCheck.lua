@@ -9,6 +9,7 @@ JDT.CheckIfAuraUpdates = function(self)
         if not (WeakAuras.GetData("DungeonAuras_" .. ExpansionKey)) then
             if ExpansionKey ~= "Affixes" and ExpansionKey ~= "Seasons" then
                 for DungeonKey, DungeonValue in pairs(ExpansionValue.Dungeons) do
+                    if not JDT.db.profile.data.Seasons.current or not JDT.SpellList.Seasons.current.dungeons[DungeonKey] then
                     for BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do
                         for TypeKey, TypeValue in pairs(BossNameValue.Auras) do
                             for k, v in pairs(TypeValue) do
@@ -19,6 +20,7 @@ JDT.CheckIfAuraUpdates = function(self)
                         end
                     end
                 end
+            end
             elseif ExpansionKey == "Affixes" then
                 for TypeKey, TypeValue in pairs(ExpansionValue.Auras) do
                     for k, v in pairs(TypeValue) do
