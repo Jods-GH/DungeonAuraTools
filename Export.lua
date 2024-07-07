@@ -95,16 +95,31 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
                 end
             end 
         end
+    elseif ExpansionKey == "Seasons" then
+            for _,value in pairs(ExpansionValue.current.dungeons) do
+                for BossNameKey, BossNameValue in pairs(JDT.db.profile.data[value.expansion].Dungeons[value.dungeon].Bosses) do  
+                    for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
+                        for k,v in pairs(TypeValue) do 
+                            if v.enabled == true then
+                                JDT.buildAura(ExportTable,JDT.db.profile.data[value.expansion].Dungeons[value.dungeon],BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)       
+                            end
+                        end
+                    end
+                end
+            end    
     else
         for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
-            for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
+
+            if not JDT.db.profile.data.Seasons.current or not JDT.SpellList.Seasons.current.dungeons[DungeonKey] then
+                for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
                     for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
                         for k,v in pairs(TypeValue) do 
                             if v.enabled == true then
                                 JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)       
                             end
                         end
-                end
+                    end
+                end 
             end
         end
     end

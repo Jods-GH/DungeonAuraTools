@@ -63,6 +63,7 @@ LocalisationData["SoundOption"] = "Sound Option"
 LocalisationData["SoundOptionDescription"] = "Sets the Sound of all the auras using this sound queue"
 LocalisationData["SoundToggle"] = "Toggle Sound type"
 LocalisationData["SoundToggleDescription"] = "Toggle the Sound of a given Type"
+LocalisationData["SeasonToggleDescription"] = "Toggles the Export of a Season Group"
 
     --[[ 
     LocalisationData[""] = ""

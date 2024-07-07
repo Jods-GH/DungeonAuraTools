@@ -63,9 +63,6 @@ Types/SoundTypes.lua
 Types/GroupTypes.lua
 Types/ExpansionValues.lua
 
-#Affixes
-SpellData/Affixes.lua
-
 #SpellData TheWarWithin
 SpellData/TheWarWithin/AraKara.lua
 SpellData/TheWarWithin/TheStonevault.lua
@@ -117,6 +114,13 @@ SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
 SpellData/Cataclysm/TheVortexPinnacle.lua
 SpellData/Cataclysm/ThroneoftheTides.lua
 SpellData/Cataclysm/GrimBatol.lua
+
+#Affixes
+SpellData/Affixes.lua
+
+#Seasons
+
+SpellData/Seasons.lua
 
 # Core
 Templates/OptionDefaults.lua

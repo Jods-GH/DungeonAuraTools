@@ -451,7 +451,29 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
       end
     end
 
-    else
+    
+  elseif ExpansionKey == "Seasons"then
+    JDT.options.args.spelloptions.args.Seasons = {
+      name = ExpansionKey,
+      type = "group",
+      order =  0,
+      args={
+      
+      -- more options go here
+      }
+    }
+    for season,seasonValue in pairs(JDT.SpellList.Seasons) do
+      JDT.options.args.spelloptions.args.Seasons.args[season] = {
+        name = seasonValue.groupName,
+        desc = JDT.getLocalisation("SeasonToggleDescription"),
+        type = "toggle",
+        set = function(info,val)  JDT.db.profile.data.Seasons[season] = val end, --Sets value of SavedVariables depending on toggles
+        get = function(info)
+            return  JDT.db.profile.data.Seasons[season]  --Sets value of toggles depending on SavedVariables 
+        end
+      }
+    end
+  else
       JDT.options.args.spelloptions.args[ExpansionKey] = {
         name = JDT.ExpansionValues[ExpansionKey][3],
         type = "group",
