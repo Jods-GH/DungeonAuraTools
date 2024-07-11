@@ -54,7 +54,7 @@ Simply fork the repo and make any changes to the appropriate section, submit a p
 [//]: # (Images)
 [SVG-Curseforge]: https://cf.way2muchnoise.eu/short_662863.svg
 [SVG-Discord]: https://img.shields.io/badge/Discord-7289da?logo=discord&logoColor=fff&style=flat-square
-[SVG-PayPal]: https://custom-icon-badges.demolab.com/badge/-Donate-lightgrey?style=flat-square&logo=paypal&color=007CB1
+[SVG-PayPal]: https://custom-icon-badges.demolab.com/badge/-Support-lightgrey?style=flat-square&logo=kofi&color=222222
 [SVG-Wago]: https://custom-icon-badges.demolab.com/badge/-WeakAuras-lightgrey?style=flat-square&logo=weakauras&color=22283D
 [SVG-Release]: https://badgen.net/github/release/Jodsderechte/DungeonAuraTools/stable?style=flat-square
 [SVG-Translate]: https://custom-icon-badges.demolab.com/badge/-Help_Translate-lightgrey?style=flat-square&logo=translate&color=ffbda3
