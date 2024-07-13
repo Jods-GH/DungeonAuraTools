@@ -7,7 +7,7 @@ JDT.SpellList.BattleForAzeroth.Dungeons = JDT.SpellList.BattleForAzeroth.Dungeon
 
 JDT.SpellList.BattleForAzeroth.Dungeons.SiegeOfBoralus= {
     groupName = "[SOB",
-    zoneId = "g163", -- https://warcraft.wiki.gg/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
+    zoneId = "1162", -- https://warcraft.wiki.gg/wiki/UiMapID   C_Map.GetMapGroupID(dungeonAreaMapID)
     EncounterJournalID = 1023, -- https://wago.tools/db2/JournalEncounter
     Bosses = {}
 }
@@ -320,19 +320,6 @@ bosses.boss4 = {  -- Viq'Goth
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
-        [JDT.GroupTypes.VoidCast] = {
-            FireBomb = {
-                enabled = true,
-                spellId = 256639,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "256639",
-                    },
-
-                }
-            },
-        },
         [JDT.GroupTypes.TargetedCast] = {
             Shoot = {
                 enabled = true,
