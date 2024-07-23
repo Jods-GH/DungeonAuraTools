@@ -159,9 +159,9 @@
 				cooldownTextDisabled = false, -- if cooldown text should be enabled or disabled
 				displayIcon = "1111", -- Fallback icon of the Aura
 				useAdjustededMax = false, -- new progress stuff
-			    useAdjustededMin = false, -- new progress stuff
+			  useAdjustededMin = false, -- new progress stuff
 				adjustedMin = "", -- new progress stuff
-    			adjustedMax = "", -- new progress stuff
+    		adjustedMax = "", -- new progress stuff
 				progressSource = { -- new progress stuff
 					-1, -- [1]
 					"", -- [2]
