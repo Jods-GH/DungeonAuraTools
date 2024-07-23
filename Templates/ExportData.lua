@@ -6,7 +6,7 @@ JDT.DataToExport = {
   c = {
   },
   m = "d",
-  s = "JodsDungeonTools",
+  s = "DungeonAuraTools",
   v = 1421
 }
  

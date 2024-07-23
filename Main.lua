@@ -120,7 +120,7 @@ end
 
 local mapidToZone = {}
 for expansion in pairs(JDT.SpellList) do
-    if expansion ~= "Affixes" then
+    if expansion ~= "Affixes" and expansion ~= "Seasons" then
         for dungeon in pairs(JDT.SpellList[expansion].Dungeons) do
             mapidToZone[JDT.SpellList[expansion].Dungeons[dungeon].zoneId] = {
                     expansion = expansion,

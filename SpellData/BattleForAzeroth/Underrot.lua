@@ -95,9 +95,7 @@ bosses.boss2 = {  -- Cragmaw the Infested
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "260333",
-
                     },
-
                 }
             }
         },
@@ -372,7 +370,7 @@ bosses.Trash = {
             },
         },
         [JDT.GroupTypes.PurgableImuneCast] = {
-            ["GiftofG'huun"] = {
+            GiftofGhuun = {
                 enabled = true,
                 spellId = 265091,
                 triggerData = {
@@ -412,10 +410,8 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "265377",
                     }
-
                 }
             },
-
         }, 
         [JDT.GroupTypes.TargetedCast] = {
             BarbedSpear = {

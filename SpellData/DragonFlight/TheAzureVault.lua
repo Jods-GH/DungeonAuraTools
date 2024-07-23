@@ -173,12 +173,9 @@ bosses.boss2 = {  --Azureblade
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "384132",
-    
                     },
-    
                 }
             },
-
         },
     }
 }
@@ -264,10 +261,8 @@ bosses.boss4 = {  --Umbrelskul
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "385331",
                     }
-
                 }
             },
-
         },
         [JDT.GroupTypes.KnockCast] ={
             UnleashedDestruction = {

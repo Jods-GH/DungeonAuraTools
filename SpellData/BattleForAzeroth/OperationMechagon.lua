@@ -149,10 +149,8 @@ bosses.boss3 = {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "298940",
                     }
-
                 }
             },
-
         }, 
     }
     }
@@ -844,12 +842,10 @@ bosses.Trash = {
             enabled = true,
             spellId = 294061, -- for spellname etc
             triggerData = {
-                [1] = {
+                {
                     unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                     spellId = "294061",
-
                 },
-
             }
         },
     },

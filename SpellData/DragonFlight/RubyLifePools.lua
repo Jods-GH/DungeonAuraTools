@@ -151,10 +151,8 @@ bosses.boss2 = {
                         spellId = "372860",
                         ignoreSelf = false,
                     }
-
                 }
             },
-
         },
         [JDT.GroupTypes.InteruptableBigAoeCast] = {
             RoaringBlaze = {
@@ -512,9 +510,7 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "373589",
-
                     },
-
                 }
             },
         },

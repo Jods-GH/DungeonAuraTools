@@ -313,9 +313,7 @@ bosses.boss4 = {  -- Primal Tsunami
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "387504",
-    
                     },
-    
                 }
             }
         },
@@ -535,9 +533,7 @@ bosses.Trash = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
                         spellId = "391610",
-
                     },
-
                 }
             }
         },
@@ -737,7 +733,6 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "391613",
                     },
-
                 }
             },
         },

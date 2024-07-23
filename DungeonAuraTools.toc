@@ -1,13 +1,14 @@
-## Interface: 100207
+## Interface: 110000
 ## Version: @project-version@
 ## Plain Title: DungeonAuraTools
 ## Title: |cffe5c75fD|r|cffFF657Fungeon|r|cffe5c75fA|r|cffFF657Fura|r|cffe5c75fT|r|cffFF657Fools|r 
 ## IconTexture: Interface\AddOns\DungeonAuraTools\Files\DungeonAuraTools.tga
 ## AddonCompartmentFunc: JDT_AddonCompartmentFunction
-## Notes: Compact Addon to Manage all my Stuff for Dungeons
+## Notes: Compact Addon to Manage Dungeon WeakAuras
 ## Author: Jods
 ## SavedVariables: DungeonAuraTools
-## OptionalDeps: Ace3, WeakAuras, WeakAurasOptions, ViragDevTool, LibSharedMedia-3.0, SharedMedia_Causese
+## requiredDeps: WeakAuras, WeakAurasOptions
+## OptionalDeps: Ace3, ViragDevTool, LibSharedMedia-3.0, SharedMedia_Causese
 ## X-Curse-Project-ID: 662863
 ## X-WoWI-ID: 26384
 ## X-Wago-ID: XrNkX86a
@@ -42,6 +43,7 @@ Templates/DynamicGroup.lua
 Templates/BorderColors.lua
 Templates/CustomTextIcons.lua
 Templates/Glows.lua
+Templates/SubRegions.lua
 #General Templates
 Templates/TextRegions.lua
 Templates/Triggers.lua
@@ -61,8 +63,11 @@ Types/SoundTypes.lua
 Types/GroupTypes.lua
 Types/ExpansionValues.lua
 
-#Affixes
-SpellData/Affixes.lua
+#SpellData TheWarWithin
+SpellData/TheWarWithin/AraKara.lua
+SpellData/TheWarWithin/TheStonevault.lua
+SpellData/TheWarWithin/CityOfThreads.lua
+SpellData/TheWarWithin/TheDawnbreaker.lua
 
 #SpellData DragonFlight
 SpellData/DragonFlight/DawnOfTheInfinite.lua
@@ -77,6 +82,8 @@ SpellData/DragonFlight/Uldaman.lua
 
 #SpellData Shadowlands
 SpellData/Shadowlands/Tazavesh.lua
+SpellData/Shadowlands/MistOfTirnaScithe.lua
+SpellData/Shadowlands/NecroticWake.lua
 
 #SpellData BattleForAzeroth
 SpellData/BattleForAzeroth/OperationMechagon.lua
@@ -84,6 +91,7 @@ SpellData/BattleForAzeroth/Underrot.lua
 SpellData/BattleForAzeroth/Freehold.lua
 SpellData/BattleForAzeroth/AtalDazar.lua
 SpellData/BattleForAzeroth/WayCrestManor.lua
+SpellData/BattleForAzeroth/SiegeOfBoralus.lua
 
 #SpellData Legion
 SpellData/Legion/ReturnToKarazhan.lua
@@ -105,6 +113,14 @@ SpellData/MistOfPandaria/TempleOfTheJadeSerpent.lua
 #Cataclysm
 SpellData/Cataclysm/TheVortexPinnacle.lua
 SpellData/Cataclysm/ThroneoftheTides.lua
+SpellData/Cataclysm/GrimBatol.lua
+
+#Affixes
+SpellData/Affixes.lua
+
+#Seasons
+
+SpellData/Seasons.lua
 
 # Core
 Templates/OptionDefaults.lua

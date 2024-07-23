@@ -109,6 +109,7 @@ JDT.Templates.Conditions.ConditionGenerator.advanced = function(ConditionTable)
     local GeneratedCondition = {}
     for ConditionKey,Conditionvalue in pairs(ConditionTable) do -- iterate through  provided table
         local ConditionTemplate = CopyTable(JDT.Templates.Conditions.ConditionsTemplate) -- copy conditions template
+        assert(Conditionvalue.condition and Conditionvalue.condition.type,"Condition "..ConditionKey.." does not have the required information") -- check if condition type is supported
         ConditionTemplate.check = JDT.Templates.Conditions.ConditionGenerator[Conditionvalue.condition.type](Conditionvalue.condition) -- generate checks based on condition type 
         if Conditionvalue.linked == true then
             ConditionTemplate.linked = true

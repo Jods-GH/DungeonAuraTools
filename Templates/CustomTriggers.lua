@@ -26,10 +26,10 @@ JDT.Templates.CustomTriggers.EnergyTrackSoonCast = function(triggerData)
     return trigger
 end
 
-
-JDT.Templates.CustomTriggers.TazaveshDispose = function()
+JDT.Templates.CustomTriggers.Dispose = function(triggerData)
+    local summonID,duration,removeID = triggerData.summonID,triggerData.duration,triggerData.removeID
     local trigger = {
-        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_SUMMON\" and spellID == 346381 then\n        if not s[\"\"] then\n            \n            s[\"\"] = {\n                duration = 30,\n                expirationTime = GetTime()+30,\n                stacks = 1,\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+1\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+30\n        end\n        \n        return true\n        \n        \n    elseif subevent == \"SPELL_AURA_REMOVED\" and spellID == 346296 then\n        \n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
+        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_SUMMON\" and spellID == "..summonID.." then\n        if not s[\"\"] then\n            \n            s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = 1,\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+1\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        \n        return true\n        \n        \n    elseif subevent == \"SPELL_AURA_REMOVED\" and spellID == "..removeID.." then\n        \n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
         customEvents = "COMBAT_LOG_EVENT_UNFILTERED:Spell_Summon,COMBAT_LOG_EVENT_UNFILTERED:Spell_Aura_Removed",
         customVariables = "{\n    expirationTime = true,\n    duration = true,\n    stacks = true,\n}",
     }
@@ -95,3 +95,37 @@ JDT.Templates.CustomTriggers.HpCompare = function()
     return trigger
 end
 
+
+JDT.Templates.CustomTriggers.TargetChangeChecker = function(triggerData)
+    local spellIdList = triggerData.spellIdList
+    local trigger = {
+        customTrigger = "",
+        customEvents = "",
+    }
+    local spellIdTable = "{"
+    for k in pairs(spellIdList) do
+        if k ~= 1 then
+            spellIdTable=spellIdTable.." , "
+        end
+        spellIdTable = spellIdTable..spellIdList[k]
+    end
+    spellIdTable = spellIdTable.."}"
+    
+   trigger.customTrigger = "  function(allstates, event, unit,castGuid,spellId2)     \n if event == \"UNIT_TARGET\" \n and unit \n and UnitExists(unit) \n and not UnitIsUnit(unit..\"target\", \"player\")  \n then  \n    local _,_,_,startMS,endMS,_,_,_,spellId = UnitCastingInfo(unit)  \n    local guid = UnitGUID(unit) \n    local spellIdList = "..spellIdTable.." \n    if spellIdList  \n    and (spellId and spellIdList [spellId] or spellId2 and spellIdList[spellId2])  \n    and guid \n    and not allstates[guid] then \n        allstates[guid] = { \n            show = true,  \n            changed =  true, \n           progressType = \"timed\",  \n            duration = 3, \n            expirationTime = GetTime()+3, \n            unit = unit..\"target\", \n            autoHide = true, \n        } \n        return true \n    end  \n    end \n end"
+   trigger.customEvents = "UNIT_TARGET UNIT_SPELLCAST_START"
+
+    return trigger
+end
+   
+
+JDT.Templates.CustomTriggers.AmountOfCasts = function (triggerData)
+    local triggerNum = triggerData.triggerNum
+    local trigger = {
+        customTrigger = "",
+        customEvents = "",
+    }
+    trigger.customEvents = "TRIGGER:"..triggerNum
+    trigger.customTrigger = "function(allstates, event, triggerNum, triggerStates)\n    if event == \"TRIGGER\" and triggerNum ==2 then\n        local lastExpiration = GetTime()\n        local firststate\n        local stacks = 0 \n        for _, state in pairs(triggerStates) do  \n            if state.expirationTime > lastExpiration  then \n                lastExpiration = state.expirationTime \n            end \n            if not firststate then  \n                firststate = state  \n            end  \n            stacks = stacks+1 \n        end \n        if not allstates[\"\"] then \n            if firststate then \n                allstates[\"\"] = {\n                    show = true, \n                    changed = true,\n                    progressType = \"timed\",\n                    duration = firststate.duration , \n                    expirationTime = lastExpiration,\n                    autoHide = true,\n                    name = firststate.name, \n                    icon = firststate.icon, \n                    stacks = stacks, \n                    index = firststate.index, \n                } \n            end \n        elseif stacks == 0 then \n            allstates[\"\"].show = false\n            allstates[\"\"].changed = true\n        else\n            allstates[\"\"].changed = true \n            allstates[\"\"].exprationTime = lastExpiration\n            allstates[\"\"].stacks =  stacks\n        end\n        return true\n    end\nend"
+    return trigger
+end
+    

@@ -166,7 +166,6 @@ bosses.boss3 = {  -- Raal the Gluttonous
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "264931",
                     },
-
                 }
             },
         },
@@ -185,18 +184,15 @@ bosses.boss4 = {  -- Lord and Lady Waycrest
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "261440",
-
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "261440",
-
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
                         spellId = "261440",
                     },
-
                 }
             }
         },

@@ -363,7 +363,7 @@ JDT.createAuraGroup = function(Spellname, desc, Spellicon, SavedVariables, defau
     args = {
       description = {
         type = "description",
-        name = desc,
+        name = desc or " ",
         image = Spellicon,
         order = 0,
       },
@@ -441,7 +441,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
           local name, description, filedataid = C_ChallengeMode.GetAffixInfo(v.affixId)
           JDT.options.args.spelloptions.args[ExpansionKey].args[k]= JDT.createAuraGroup(name,description,filedataid, JDT.db.profile.data[ExpansionKey].Auras[typekey][k],JDT.Templates.GroupTypes[typekey].AuraType)     
       else
-          local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
+          local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = JDT.GetSpellInfo(v.spellId) 
           local spell = Spell:CreateFromSpellID(SpellID)
           spell:ContinueOnSpellLoad(function()
             local desc = spell:GetSpellDescription()
@@ -451,7 +451,29 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
       end
     end
 
-    else
+    
+  elseif ExpansionKey == "Seasons"then
+    JDT.options.args.spelloptions.args.Seasons = {
+      name = ExpansionKey,
+      type = "group",
+      order =  0,
+      args={
+      
+      -- more options go here
+      }
+    }
+    for season,seasonValue in pairs(JDT.SpellList.Seasons) do
+      JDT.options.args.spelloptions.args.Seasons.args[season] = {
+        name = seasonValue.groupName,
+        desc = JDT.getLocalisation("SeasonToggleDescription"),
+        type = "toggle",
+        set = function(info,val)  JDT.db.profile.data.Seasons[season] = val end, --Sets value of SavedVariables depending on toggles
+        get = function(info)
+            return  JDT.db.profile.data.Seasons[season]  --Sets value of toggles depending on SavedVariables 
+        end
+      }
+    end
+  else
       JDT.options.args.spelloptions.args[ExpansionKey] = {
         name = JDT.ExpansionValues[ExpansionKey][3],
         type = "group",
@@ -626,11 +648,12 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
               }
             }
             for k,v in pairs(SpellTypeValue) do -- Generates Spell toggles depending on SPellData.lua
-              local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = GetSpellInfo(v.spellId) 
+              local Spellname, Spellrank, Spellicon, SpellcastTime, SpellminRange, SpellmaxRange, SpellID = JDT.GetSpellInfo(v.spellId) 
               local spell = Spell:CreateFromSpellID(SpellID)
               assert(spell, "Spell is nil for:"..ExpansionKey.." , "..DungeonKey.." , "..BossNameKey.." , "..SpellTypeKey.." , "..v.spellId)
               spell:ContinueOnSpellLoad(function()
                 local desc = spell:GetSpellDescription()
+                assert(Spellname and Spellicon and JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k] and JDT.Templates.GroupTypes[SpellTypeKey].AuraType, "Spell is missing data for"..ExpansionKey.." , "..DungeonKey.." , "..BossNameKey.." , "..SpellTypeKey.." , "..v.spellId)
                 JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey].args[SpellTypeKey].args[k]= JDT.createAuraGroup(Spellname,desc,Spellicon,JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k],JDT.Templates.GroupTypes[SpellTypeKey].AuraType)
               end)           
             end

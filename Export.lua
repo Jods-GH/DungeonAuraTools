@@ -95,16 +95,31 @@ JDT.buildDataToExport = function(ExpansionKey,ExpansionValue,shouldIncrimentVers
                 end
             end 
         end
+    elseif ExpansionKey == "Seasons" then
+            for _,value in pairs(ExpansionValue.current.dungeons) do
+                for BossNameKey, BossNameValue in pairs(JDT.db.profile.data[value.expansion].Dungeons[value.dungeon].Bosses) do  
+                    for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
+                        for k,v in pairs(TypeValue) do 
+                            if v.enabled == true then
+                                JDT.buildAura(ExportTable,JDT.db.profile.data[value.expansion].Dungeons[value.dungeon],BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)       
+                            end
+                        end
+                    end
+                end
+            end    
     else
         for DungeonKey,DungeonValue in pairs(ExpansionValue.Dungeons) do 
-            for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
+
+            if not JDT.db.profile.data.Seasons.current or not JDT.SpellList.Seasons.current.dungeons[DungeonKey] then
+                for  BossNameKey, BossNameValue in pairs(DungeonValue.Bosses) do  
                     for TypeKey,TypeValue in pairs(BossNameValue.Auras) do -- iterate through all selected spells and generate table accordingly
                         for k,v in pairs(TypeValue) do 
                             if v.enabled == true then
                                 JDT.buildAura(ExportTable,DungeonValue,BossNameValue,TypeKey,v,ExpansionValue,ExpansionKey)       
                             end
                         end
-                end
+                    end
+                end 
             end
         end
     end
@@ -235,7 +250,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
     
     -- set Fallback icon and display name
     assert(v.spellId, "Error: Spellid not found in Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName) -- checks if spellid is set properly
-    local Spellname, _, Spellicon, _, _, _, SpellID = GetSpellInfo(v.spellId) 
+    local Spellname, _, Spellicon, _, _, _, SpellID = JDT.GetSpellInfo(v.spellId) 
     SpellTable.displayIcon = Spellicon
     SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname.." ["..SpellID.."]"-- set AuraName
     if v.extraName then -- add extra stuff if needed to not have duplicate id's
@@ -337,6 +352,11 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
         end
         tinsert(SpellTable.subRegions,GlowTemplate)
     end
+    -- hide external glows
+    if(AuraTemplate.hideAllGlows) then
+        SpellTable.hideAllGlows = AuraTemplate.hideAllGlows
+        SpellTable.actions.finish.hide_all_glows = AuraTemplate.hideAllGlows
+    end
     local IconTextPriority = 1
     -- set %tooltip value if needed
     if AuraTemplate.useTooltip then
@@ -409,7 +429,12 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
         local TextTemplate = CopyTable(JDT.Templates.TextRegions.CustomText)
         TextTemplate.text_anchorPoint = JDT.Templates.AnchorForTextPriority[SpellTable.regionType].AuraType
         table.insert(SpellTable.subRegions,TextTemplate)
-        SpellTable.customText = JDT.Templates.CustomTextTemplates[AuraTemplate.customText](v.customTextInfo)
+        local customText, actionOnHide = JDT.Templates.CustomTextTemplates[AuraTemplate.customText](v.customTextInfo)
+        SpellTable.customText = customText
+        if(actionOnHide) then
+            SpellTable.actions.finish.custom = actionOnHide
+            SpellTable.actions.finish.do_custom = true
+        end
         if v.type then
             local BorderTable = CopyTable(JDT.Templates.Borders.BorderTemplate)
             if v.AuraType == JDT.WeakAurasTypes.AuraBar then
@@ -476,7 +501,12 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
         IconTextPriority = IconTextPriority+1
         table.insert(SpellTable.subRegions,TextTemplate)
     end
-
+    -- add ticks if needed
+    if v.ticks then
+        local TickTemplate = CopyTable(JDT.Templates.SubRegions.Ticks)
+        TickTemplate.tick_placements = v.ticks
+        tinsert(SpellTable.subRegions,TickTemplate)
+    end
         -- set load conditions
     if DungeonValue.zoneId then 
         SpellTable.load.use_zoneIds = true
@@ -593,6 +623,9 @@ JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
     end
     if triggerData.ignoreSelf then
         AuraTrigger.trigger.ignoreSelf = triggerData.ignoreSelf
+    end
+    if(AuraTemplate.useTooltip) then
+        AuraTrigger.trigger.fetchTooltip = true
     end
     AuraTrigger.trigger.unit = triggerData.unit
     return AuraTrigger
