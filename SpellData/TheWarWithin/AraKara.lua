@@ -7,7 +7,7 @@ JDT.SpellList.TheWarWithin.Dungeons = JDT.SpellList.TheWarWithin.Dungeons or {}
 
 JDT.SpellList.TheWarWithin.Dungeons.AraKara = {
     groupName = "[AK",
-    zoneId = "15093", -- https://warcraft.wiki.gg/wiki/UiMapID   C_Map.GetMapGroupID(14971)
+    zoneId = "g450", -- https://warcraft.wiki.gg/wiki/UiMapID   C_Map.GetMapGroupID(14971)
     EncounterJournalID = 1271, -- https://wago.tools/db2/JournalEncounter
     Bosses = {}
 }

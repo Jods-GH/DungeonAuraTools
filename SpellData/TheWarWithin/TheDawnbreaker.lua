@@ -7,7 +7,7 @@ JDT.SpellList.TheWarWithin.Dungeons = JDT.SpellList.TheWarWithin.Dungeons or {}
 
 JDT.SpellList.TheWarWithin.Dungeons.TheDawnbreaker = {
     groupName = "[TDB",
-    zoneId = "14971", -- https://warcraft.wiki.gg/wiki/UiMapID   C_Map.GetMapGroupID(14971)
+    zoneId = "2359", -- https://warcraft.wiki.gg/wiki/UiMapID   C_Map.GetMapGroupID(14971)
     EncounterJournalID = 1270, -- https://wago.tools/db2/JournalEncounter
     Bosses = {}
 }
@@ -82,7 +82,7 @@ bosses.boss1 = { --	Speaker Shadowcrown
                 }
             }
         },
-        [JDT.GroupTypes.TargetedCast] = {
+        [JDT.GroupTypes.InterruptableTargetedCast] = {
             ShadowBolt = {
                 enabled = true,
                 spellId = 428086,
@@ -134,7 +134,7 @@ bosses.boss2 = { --	Anub'ikkaj
             },
         },
         [JDT.GroupTypes.UnavoidableAoe] ={
-            RadiantDecay = {
+            ShadowyDecay = {
                 enabled = true,
                 spellId = 426787, -- for spellname etc
                 triggerData = {
@@ -412,6 +412,7 @@ bosses.Trash = {
             ShadowyDecay = {
                 enabled = true,
                 spellId = 451102, -- for spellname etc
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -537,11 +538,12 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.VoidCast] = {
+        [JDT.GroupTypes.SpreadCast] = {
              -- this is a fear and might need a changed type. Needs testing
             TerrifyingSlam = {
                 enabled = true,
                 spellId = 451117,
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
