@@ -162,7 +162,7 @@ JDT.checkAurasForDungeon = function(self, ExportTable, ExpansionKey, ExpansionVa
                 if not v.triggerData then -- check if aura was moved to a different grouptype
                     AuraUpdatesCount = AuraUpdatesCount + 1
                     AuraUpdatesTable[ExpansionKey] = true
-                    JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[TypeKey][k] = nil
+                    DungeonValue.Bosses[BossNameKey].Auras[TypeKey][k] = nil
                     self:Print("Removed Aura " ..
                     k ..
                     " from " ..
