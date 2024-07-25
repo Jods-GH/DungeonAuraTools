@@ -295,7 +295,19 @@ bosses.Trash = {
                 }
             },
         },
-        
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            AlertingShrill = {
+                enabled = true,
+                spellId = 438476, -- for spellname etc
+                loadInBossfight = false,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "438476",
+                    },
+                }
+            }
+        },
         [JDT.GroupTypes.InteruptableVolleyIntoPoisonDot] = {
             VenomVolley = {
                 enabled = true,
