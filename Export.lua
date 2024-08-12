@@ -559,7 +559,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
     if v.loadInBossfight ~= nil then
         SpellTable.load.use_encounter = v.loadInBossfight
     end
-
+    if JDT.db.profile.zoom then
+        SpellTable.zoom = JDT.db.profile.zoom/100
+    end
 
 
     -- generates uID's for Children and Links ParentGroup to Children and vice versa

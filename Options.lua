@@ -195,11 +195,27 @@ JDT.options = {
                     return  JDT.db.profile.IconHeight  --Sets value of toggles depending on SavedVariables    
                 end
               },
+              zoom= {
+                name = JDT.getLocalisation("zoom"),
+                desc = JDT.getLocalisation("zoomDescription"),
+                order = 53,
+                type = "range",
+                width = 2.5,
+                softMin = 0,
+                softMax = 100,
+                bigStep = 1,
+                set = function(info,val)  
+                  JDT.db.profile.zoom = val
+                 end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    return  JDT.db.profile.zoom --Sets value of toggles depending on SavedVariables 
+                end  
+              },
               ShowTimer = {
                 name = JDT.getLocalisation("ShowTimer"),
                 desc = JDT.getLocalisation("ShowTimerDescription"),
                 type = "toggle",
-                order = 53,
+                order = 54,
                 width = 2.5/3,
                 set = function(info,val)  JDT.db.profile.ShowTimer = val 
                   JDT.DummyCooldownText() end, --Sets value of SavedVariables depending on toggles
@@ -210,7 +226,7 @@ JDT.options = {
               HideCooldownText = { -- "text" is misleading here it's the whole cd widget
                 name = JDT.getLocalisation("HideCooldownText"),
                 desc = JDT.getLocalisation("HideCooldownTextDescription"),
-                order = 54,
+                order = 55,
                 width = 2.5/3,
                 type = "toggle",
                 set = function(info,val)  JDT.db.profile.HideCooldownText = val 
@@ -222,7 +238,7 @@ JDT.options = {
               CooldownTextFontSize= {
                 name = JDT.getLocalisation("CooldownTextFontSize"),
                 desc = JDT.getLocalisation("CooldownTextFontSizeDescription"),
-                order = 55,
+                order = 56,
                 width = 2.5/3,
                 type = "range",
                 softMin = 6,
@@ -239,7 +255,7 @@ JDT.options = {
               FontOptions= {
                 name = JDT.getLocalisation("FontOption"),
                 desc = JDT.getLocalisation("FontOptionDescription"),
-                order = 56,
+                order = 57,
                 type = "select",
                 width = 1.25,
                 values = JDT.Sharedmedia.font,
@@ -253,7 +269,7 @@ JDT.options = {
                 name = JDT.getLocalisation("TextFontSize"),
                 desc = JDT.getLocalisation("TextFontSizeDescription"),
                 type = "range",
-                order = 57,
+                order = 58,
                 width = 1.25,
                 softMin = 6,
                 softMax = 72,
