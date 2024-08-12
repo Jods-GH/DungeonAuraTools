@@ -15,7 +15,8 @@ JDT.OptionDefaults = {
 	  SoundKey = {},
 	  SoundOptions = JDT.SoundDefaults,
 	  ExportOnDungeonEntry = false,
-	  AlignDirection = "CENTER"
+	  AlignDirection = "CENTER",
+	  zoom = 0,
 	}
   }
 
