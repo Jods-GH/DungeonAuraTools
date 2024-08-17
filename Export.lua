@@ -251,6 +251,7 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
     -- set Fallback icon and display name
     assert(v.spellId, "Error: Spellid not found in Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName) -- checks if spellid is set properly
     local Spellname, _, Spellicon, _, _, _, SpellID = JDT.GetSpellInfo(v.spellId) 
+    assert(SpellID, "Error: Spellid..".. v.spellId.." exists but is not valid in Aura in "..DungeonValue.groupName.." boss: "..BossNameValue.additionalName) -- checks if spellid is set properly
     SpellTable.displayIcon = Spellicon
     SpellTable.id = DungeonValue.groupName..BossNameValue.additionalName..Spellname.." ["..SpellID.."]"-- set AuraName
     if v.extraName then -- add extra stuff if needed to not have duplicate id's

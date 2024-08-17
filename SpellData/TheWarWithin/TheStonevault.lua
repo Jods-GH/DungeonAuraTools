@@ -164,18 +164,6 @@ bosses.boss3 = { --	Master Machinists Brokk and Dorlita
                 }
             }
         },
-        [JDT.GroupTypes.ShockWave] ={
-            ScrapSong = {
-                enabled = true,
-                spellId = 428202, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "428202",
-                    },
-                }
-            },
-        },
         [JDT.GroupTypes.TankBusterCast] = {
             MoltenHammer = {
                 enabled = true,
@@ -203,6 +191,30 @@ bosses.boss3 = { --	Master Machinists Brokk and Dorlita
                     },
                 }
             }
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            ExhausVents = {
+                enabled = true,
+                spellId = 445541,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "445541",
+                    },
+
+                }
+            },
+            ScrapCube = {
+                enabled = true,
+                spellId = 428202,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "428202",
+                    },
+
+                }
+            },
         },
     }
 }
@@ -245,6 +257,16 @@ bosses.boss4 = { --	Void Speaker Eirich
                         spellId = "427869",
                     }
 
+                }
+            },
+            SeismicWave = {
+                enabled = true,
+                spellId = 425027,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "425027",
+                    }
                 }
             },
         },
@@ -325,6 +347,18 @@ bosses.Trash = {
                 }
             },
         },
+        [JDT.GroupTypes.InteruptableAoeFear] ={
+            HowlingFear= {
+                enabled = true,
+                spellId = 449455, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "449455",
+                    },
+                }
+            },
+        },
         [JDT.GroupTypes.VoidCast] = {
             GraniteEruption = {
                 enabled = true,
@@ -402,6 +436,7 @@ bosses.Trash = {
             ArcingVoid = {
                 enabled = true,
                 spellId = 426283,
+                type = JDT.AuraTypes.interrupt,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -454,16 +489,7 @@ bosses.Trash = {
                     }
                 }
             },
-            SeismicWave = {
-                enabled = true,
-                spellId = 425027,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "425027",
-                    }
-                }
-            },
+
         },
         [JDT.GroupTypes.CastIntoDot] ={
             IcyBuffet = {
