@@ -332,32 +332,6 @@ bosses.boss3 = { --Tred'ova
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = {  
-        [JDT.GroupTypes.CastIntoBreakSupressAdd] = {
-            Overgrowth = {
-                enabled = true,
-                spellId = 322486,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "322486",
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
-                        spellId = "322486",
-                        exactSpellId = "true", 
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
-                        spellId = "322487",
-                        exactSpellId = "true", 
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        npcID = "164929",
-                    },
-                }
-            },
-        },
         [JDT.GroupTypes.Frontal] = {
             BewilderingPollen = {
                 enabled = true,
