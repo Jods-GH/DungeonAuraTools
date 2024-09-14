@@ -332,8 +332,8 @@ bosses.Trash = {
                         spellId = "451387",
                     },
                     {
-                        duration = "5.2",
-                        spellId = "451387",
+                        duration = "2",
+                        spellId = "451898",
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
