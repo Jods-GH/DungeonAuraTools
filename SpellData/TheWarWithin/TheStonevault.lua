@@ -414,7 +414,6 @@ bosses.Trash = {
             PiercingWail = {
                 enabled = true,
                 spellId = 445207,
-                type = JDT.AuraTypes.interrupt,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
