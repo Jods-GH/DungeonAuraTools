@@ -287,6 +287,7 @@ bosses.Trash = {
             EruptingWebs = {
                 enabled = true,
                 spellId = 433845, -- for spellname etc
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -312,6 +313,7 @@ bosses.Trash = {
             VenomVolley = {
                 enabled = true,
                 spellId = 433841,
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
