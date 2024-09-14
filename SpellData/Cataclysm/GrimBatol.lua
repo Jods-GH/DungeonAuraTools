@@ -227,6 +227,18 @@ bosses.boss4 = { --	Erudax
 bosses.Trash = { 
     additionalName = "TRASH] ",
     Auras = {
+        [JDT.GroupTypes.TargetedCast] = {
+            Corrupt = {
+                enabled = true,
+                spellId = 451395, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451395",
+                    },
+                }
+            },
+        },
         [JDT.GroupTypes.Dance] ={
             ObsidianStomp = {
                 enabled = true,
@@ -266,16 +278,7 @@ bosses.Trash = {
             },
         },
         [JDT.GroupTypes.InterruptableTargetedCast] ={
-            Corrupt = {
-                enabled = true,
-                spellId = 451395, -- for spellname etc
-                triggerData = {
-                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "451395",
-                    },
-                }
-            },
+
             ShadowflameBolt = {
                 enabled = true,
                 spellId = 76369, -- for spellname etc
