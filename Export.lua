@@ -730,6 +730,11 @@ JDT.generateTriggerfromGroupType.CombatLog = function(triggerData,AuraTemplate)
         AuraTrigger.trigger.destUnit= triggerData.destUnit
 		AuraTrigger.trigger.use_destUnit = true
     end
+    if AuraTemplate.sourceUnit then
+        AuraTrigger.trigger.sourceUnit= AuraTemplate.sourceUnit
+        AuraTrigger.trigger.use_sourceUnit = true
+        
+    end
     
     return AuraTrigger
 end
