@@ -467,7 +467,7 @@ bosses.Trash = {
                 }
             }
         },
-        [JDT.GroupTypes.InteruptableAoeFear] ={
+        [JDT.GroupTypes.RunOut] ={
             TerrifyingRoar= {
                 enabled = true,
                 spellId = 257169, -- for spellname etc
