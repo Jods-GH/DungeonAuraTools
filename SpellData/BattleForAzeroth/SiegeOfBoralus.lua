@@ -302,7 +302,7 @@ bosses.boss4 = {  -- Viq'Goth
                 }
             }
         },
-        [JDT.GroupTypes.Frontal] = {
+        [JDT.GroupTypes.KnockCast] = {
             Slam = {
                 enabled = true,
                 spellId = 269266,
