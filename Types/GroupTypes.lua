@@ -8862,7 +8862,7 @@ JDT.Templates.GroupTypes.CastIntoAoeDebuffWithNextTick =  {
         {   
             triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
             subeventSuffix = "_DAMAGE",
-            sourceUnit = JDT.Templates.Triggers.UnitTypes.player,
+            destUnit = JDT.Templates.Triggers.UnitTypes.player,
         },
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
