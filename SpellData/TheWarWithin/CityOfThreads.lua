@@ -670,6 +670,7 @@ bosses.Trash = {
         [JDT.GroupTypes.CastWithDebuffTargetAnounce] ={
             ShadowsOfDoubt= {
                 enabled = true,
+                loadInBossfight = false,
                 spellId = 443436, -- for spellname etc
                 triggerData = {
                     {
