@@ -453,6 +453,7 @@ bosses.Trash = {
             },
             Impale = {
                 enabled = true,
+                loadInBossfight = false,
                 spellId = 453161,
                 triggerData = {
                     {
