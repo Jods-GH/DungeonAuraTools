@@ -130,7 +130,7 @@ bosses.boss2 = { --Mistcaller
                 triggerData = {
                     {
                         duration = "3",
-                        spellId = "321725",
+                        spellId = "321669",
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
