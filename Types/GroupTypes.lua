@@ -309,6 +309,7 @@ JDT.GroupTypes.InteruptableVolleyIntoPoisonDot = "InteruptableVolleyIntoPoisonDo
 JDT.GroupTypes.CastIntoExplodingOnExpireBuff = "CastIntoExplodingOnExpireBuff"
 JDT.GroupTypes.InterruptableCastIntoSilence = "InterruptableCastIntoSilence"
 JDT.GroupTypes.BargainAscendant = "BargainAscendant"
+JDT.GroupTypes.CastIntoKiteEnemyBuffed = "CastIntoKiteEnemyBuffed"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -8272,6 +8273,25 @@ JDT.Templates.GroupTypes.CastIntoKeepMovingWithDebuff =  {
             }, 
     }
 ), 
+}
+JDT.Templates.GroupTypes.CastIntoKiteEnemyBuffed =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("kite"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 JDT.Templates.GroupTypes.DontMoveCastWithDebuff =  {
     AuraType = "AuraIcon",

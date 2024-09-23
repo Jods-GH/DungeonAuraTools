@@ -332,6 +332,25 @@ bosses.boss3 = { --Tred'ova
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = {  
+        
+        [JDT.GroupTypes.CastIntoKiteEnemyBuffed] = {
+            HandofThros = {
+                enabled = true,
+                spellId = 322569,
+                RoleLoad =  "TANK",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "322569",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "322569",
+                    }
+                }
+            },
+            
+        },
         [JDT.GroupTypes.Frontal] = {
             BewilderingPollen = {
                 enabled = true,
@@ -434,18 +453,6 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "340208",
                     },
-                }
-            },
-        },
-        [JDT.GroupTypes.BuffCast] = {
-            HandOfThros = {
-                enabled = true,
-                spellId = 322569,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "322569",
-                    }
                 }
             },
         },
