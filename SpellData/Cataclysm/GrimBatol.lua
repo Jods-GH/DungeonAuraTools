@@ -113,6 +113,23 @@ bosses.boss2 = { --	Forgemaster Throngus
                 }
             }
         },
+        [JDT.GroupTypes.CastIntoKiteEnemyWhenBuffed] ={
+            MoltenMace = {
+                enabled = true,
+                spellId = 449687, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "449687",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "449687",
+                    },
+                }
+            }
+        },
+        
     }
 }
 bosses.boss3 = { --	Drahga Shadowburner

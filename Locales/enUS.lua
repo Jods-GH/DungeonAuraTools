@@ -418,6 +418,7 @@ LocalisationData["TargetedCastIntoHpReducedDebuff"] = "Cast that leaves a debuff
 LocalisationData["CastIntoExplodingOnExpireBuff"] = "Cast that leaves a debuff that explodes on expiration (Interuptable, Purgeable)"
 LocalisationData["InterruptableCastIntoSilence"] = "Cast that silences a player (Interuptable, Magic despellable)"
 LocalisationData["CastIntoKiteEnemyBuffed"] = "Kite mechanic"
+LocalisationData["CastIntoKiteEnemyWhenBuffed"] = "Kite mechanic"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
