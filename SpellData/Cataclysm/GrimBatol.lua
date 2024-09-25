@@ -83,6 +83,23 @@ bosses.boss1 = { --	General Umbriss
                 }
             }
         },
+        [JDT.GroupTypes.VoidCastWithSuccess] = {
+            CommandingRoar = {
+                enabled = true,
+                spellId = 448847,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "448847",
+                    },
+                    {
+                        spellId = "448847",
+                        duration = "8"
+                    },
+
+                }
+            },
+        },
     }
 }
 bosses.boss2 = { --	Forgemaster Throngus
