@@ -302,7 +302,7 @@ bosses.boss4 = {  -- Viq'Goth
                 }
             }
         },
-        [JDT.GroupTypes.KnockCast] = {
+        [JDT.GroupTypes.UnavoidableAoe] = {
             Slam = {
                 enabled = true,
                 spellId = 269266,
