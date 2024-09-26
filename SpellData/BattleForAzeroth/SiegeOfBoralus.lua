@@ -320,6 +320,20 @@ bosses.boss4 = {  -- Viq'Goth
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = { 
+        [JDT.GroupTypes.LosCast] ={
+            ShatteringBellow = {
+                enabled = true,
+                spellId = 257732, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "257732",
+    
+                    },
+    
+                }
+            },
+        },
         [JDT.GroupTypes.TargetedCast] = {
             Shoot = {
                 enabled = true,
