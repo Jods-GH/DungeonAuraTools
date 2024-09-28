@@ -332,6 +332,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
             SpellTable.actions.start.sound = AuraTemplate.doSound.sound
         end
         SpellTable.actions.start.do_sound = true
+        if JDT.db.profile.SoundChannel and JDT.db.profile.SoundChannel~=JDT.SoundChannels.Master then
+            SpellTable.actions.start.sound_channel= JDT.db.profile.SoundChannel
+        end
     end
     -- set glow
     if AuraTemplate.glowtype then -- add glow

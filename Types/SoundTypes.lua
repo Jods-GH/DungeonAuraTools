@@ -2,6 +2,14 @@ local _, JDT = ...
 
 JDT.SoundTypes= JDT.SoundTypes or {}
 
+JDT.SoundChannels = JDT.SoundChannels or {}
+
+JDT.SoundChannels.Master = "Master"
+JDT.SoundChannels.SFX = "SFX"
+JDT.SoundChannels.Music = "Music"
+JDT.SoundChannels.Ambience = "Ambience"
+JDT.SoundChannels.Dialog = "Dialog"
+
 JDT.SoundTypes.debuff = {
     name = "|cFFFF0000Debuff|r";
     sound = "Interface\\Addons\\SharedMedia_Causese\\sound\\Debuff.ogg";

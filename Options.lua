@@ -282,18 +282,37 @@ JDT.options = {
                     return  JDT.db.profile.TextFontSize --Sets value of toggles depending on SavedVariables 
                 end    
               },
+              GrowOptionsSeperator={
+                name = "SoundOptions",
+                type = "header",
+                order = 60,
+              },  
               PlaySound = {
                 name = JDT.getLocalisation("PlaySound"),
                 desc = JDT.getLocalisation("PlaySoundDescription"),
+                order = 61,
                 type = "toggle",
                 set = function(info,val)  JDT.db.profile.PlaySound = val end, --Sets value of SavedVariables depending on toggles
                 get = function(info)
                     return  JDT.db.profile.PlaySound --Sets value of toggles depending on SavedVariables 
                 end
               },
+              SoundChannel= {
+                name = JDT.getLocalisation("SoundChannel"),
+                desc = JDT.getLocalisation("SoundChannelDescription"),
+                order = 62,
+                type = "select",
+                values = JDT.SoundChannels,
+                set = function(info,val)  JDT.db.profile.SoundChannel = val end, --Sets value of SavedVariables depending on toggles
+                get = function(info)
+                    JDT.db.profile.SoundChannel = JDT.db.profile.SoundChannel
+                    return  JDT.db.profile.SoundChannel--Sets value of toggles depending on SavedVariables 
+                end
+              },  
               SoundOptions={
                 name = JDT.getLocalisation("SoundOptions"),
                 type = "group",
+                order = 69,
                 --inline = true,
                 args={
                       GroupOptionsSeperator={
@@ -302,7 +321,8 @@ JDT.options = {
                         order = 1,
                       },
                     },
-              },     
+              },
+                 
               ComingSoon = {
                 name = "More options coming soon",
                 order = -1,

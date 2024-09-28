@@ -194,7 +194,9 @@ JDT.checkAurasForDungeon = function(self, ExportTable, ExpansionKey, ExpansionVa
                                 local difference, difference2 = JDT
                                 .findOutDifferenceBetweenTwoTables(AuraToCheck, InstalledAura)
                                 JDT.DebugPrint(AuraToCheck.id)
+                                JDT.DebugPrint("IncomingAura")
                                 JDT.DebugDump(difference)
+                                JDT.DebugPrint("InstalledAura")
                                 JDT.DebugDump(difference2)
                             end
                             AuraUpdatesCount = AuraUpdatesCount + 1

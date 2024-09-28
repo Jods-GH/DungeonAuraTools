@@ -66,7 +66,8 @@ LocalisationData["SoundToggleDescription"] = "Toggle the Sound of a given Type"
 LocalisationData["SeasonToggleDescription"] = "Toggles the Export of a Season Group"
 LocalisationData["zoom"] = "Zoom"
 LocalisationData["zoomDescription"] = "Sets the Zoom on all auras. Can be used to 'skin' auras but i would recommend using icon packs like 'Clean icons - Mechagnome edition' or Masque instead"
-
+LocalisationData["SoundChannel"] = "Sound Channel"
+LocalisationData["SoundChannelDescription"] = "Sets the Sound Channel of all the auras"
     --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""

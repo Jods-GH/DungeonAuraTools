@@ -17,6 +17,7 @@ JDT.OptionDefaults = {
 	  ExportOnDungeonEntry = false,
 	  AlignDirection = "CENTER",
 	  zoom = 0,
+	  SoundChannel = "Master",
 	}
   }
 
