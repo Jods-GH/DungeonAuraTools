@@ -519,16 +519,6 @@ bosses.Trash = {
             },
         },
         [JDT.GroupTypes.Frontal] = {
-            NullSlam = {
-                enabled = true,
-                spellId = 451543,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "451543",
-                    }
-                }
-            },
             Earthshatter = {
                 enabled = true,
                 spellId = 443500,
@@ -540,6 +530,23 @@ bosses.Trash = {
                 }
             },
         },
+        [JDT.GroupTypes.FrontalWithSuccess] = {
+            NullSlam = {
+                enabled = true,
+                spellId = 451543,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451543",
+                    },
+                    {
+                        duration = "3",
+                        spellId = "451543",
+                    },
+                }
+            },
+        },
+        
         [JDT.GroupTypes.RunOut] ={
             VoidWave = {
                 enabled = true,
