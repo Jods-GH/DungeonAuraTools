@@ -18,72 +18,23 @@ bosses.boss1 = { --	General Umbriss
     EncounterId = "1051", -- https://warcraft.wiki.gg/wiki/DungeonEncounterID
     additionalName = "] 01 ",
     Auras = {
-        [JDT.GroupTypes.ToppableDot] = {
+        [JDT.GroupTypes.Dot] = {
             BleedingWound = {
                  enabled = true,
-                 spellId = 74846,
+                 spellId = 447261,
+                 showStacks = 1,
                  type = JDT.AuraTypes.bleed,
                  triggerData = {
                      {
                          unit = JDT.Templates.Triggers.UnitTypes.player,
-                         spellId = "74846",
+                         spellId = "447261",
                      }
                  }
              },
          },
-         [JDT.GroupTypes.Charge] = {
-            Blitz = {
-                enabled = true,
-                spellId = 74670,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "74670",
-                    }
 
-                }
-            },
-        },
-        [JDT.GroupTypes.VoidCast] = {
-            GroundSiege = {
-                enabled = true,
-                spellId = 74634,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "74634",
-                    },
-                }
-            },
-        },
-        [JDT.GroupTypes.SlowDot] = {
-            ModgudsMalady = {
-                enabled = true,
-                spellId = 74837,
-                type = JDT.AuraTypes.magic,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "74837",
-                    }
 
-                }
-            },
-        },
-        [JDT.GroupTypes.Dot] ={
-            ClawPuncture  = {
-                enabled = true,
-                spellId = 76507, -- for spellname etc
-                type = JDT.AuraTypes.bleed,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "76507",
-                    },
-                }
-            }
-        },
-        [JDT.GroupTypes.VoidCastWithSuccess] = {
+        [JDT.GroupTypes.VoidCastWithDoubleSuccess] = {
             CommandingRoar = {
                 enabled = true,
                 spellId = 448847,
@@ -96,9 +47,37 @@ bosses.boss1 = { --	General Umbriss
                         spellId = "448847",
                         duration = "8"
                     },
+                    {
+                        spellId = "448847",
+                        delay = "12",
+                        duration = "8"
+                    },
 
                 }
             },
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDropVoid] ={
+            ManaBombs= {
+                enabled = true,
+                spellId = 448877, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "448877",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "448877",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "448877",
+                    },
+
+                }
+            }
         },
     }
 }
@@ -118,6 +97,9 @@ bosses.boss2 = { --	Forgemaster Throngus
                 }
             },
         },
+
+
+
         [JDT.GroupTypes.ShieldCast] ={
             PersonalPhalanx = {
                 enabled = true,
@@ -143,6 +125,29 @@ bosses.boss2 = { --	Forgemaster Throngus
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "449687",
                     },
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDropVoid] ={
+            MoltenSpark= {
+                enabled = true,
+                spellId = 449474, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "449474",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "449474",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "449474",
+                    },
+
                 }
             }
         },
@@ -261,6 +266,19 @@ bosses.boss4 = { --	Erudax
 bosses.Trash = { 
     additionalName = "TRASH] ",
     Auras = {
+        [JDT.GroupTypes.ShockWave] = {
+            BlazingShadowflame = {
+                enabled = true,
+                spellId = 462216,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "462216",
+                    }
+                }
+            },
+        },
+
         [JDT.GroupTypes.TargetedCast] = {
             Corrupt = {
                 enabled = true,

@@ -311,6 +311,8 @@ JDT.GroupTypes.InterruptableCastIntoSilence = "InterruptableCastIntoSilence"
 JDT.GroupTypes.BargainAscendant = "BargainAscendant"
 JDT.GroupTypes.CastIntoKiteEnemyBuffed = "CastIntoKiteEnemyBuffed"
 JDT.GroupTypes.CastIntoKiteEnemyWhenBuffed = "CastIntoKiteEnemyWhenBuffed"
+JDT.GroupTypes.VoidCastWithDoubleSuccess = "VoidCastWithDoubleSuccess"
+JDT.GroupTypes.FrontalWithSuccess = "FrontalWithSuccess"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -8490,6 +8492,57 @@ JDT.Templates.GroupTypes.VoidCastWithSuccess = {
         }
     })
 }
+
+JDT.Templates.GroupTypes.VoidCastWithDoubleSuccess = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_SUCCESS",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
+            subeventSuffix = "_CAST_SUCCESS",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Avoid inc"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Avoid"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.avoid,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = true
+                },
+             },
+        },
+    })
+}
+
+
 
 JDT.Templates.GroupTypes.BreathMonsterYell = {
     AuraType = "AuraIcon",
