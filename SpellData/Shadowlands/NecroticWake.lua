@@ -432,7 +432,7 @@ bosses.boss4 = { --	Nalthor the Rimebinder
                 },
                 triggerData = {
                     {
-                        duration = "2",
+                        duration = "4",
                         spellId = "320772",
                     },
                     {
