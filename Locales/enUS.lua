@@ -420,7 +420,7 @@ LocalisationData["CastIntoExplodingOnExpireBuff"] = "Cast that leaves a debuff t
 LocalisationData["InterruptableCastIntoSilence"] = "Cast that silences a player (Interuptable, Magic despellable)"
 LocalisationData["CastIntoKiteEnemyBuffed"] = "Kite mechanic"
 LocalisationData["CastIntoKiteEnemyWhenBuffed"] = "Kite mechanic"
-LocalisationData["FrontalWithSuccess"] = "Frontal mechanic"
+LocalisationData["FrontalWithStart"] = "Frontal mechanic"
 LocalisationData["VoidCastWithDoubleSuccess"] = "Avoid mechanic"
 
 --[[ 

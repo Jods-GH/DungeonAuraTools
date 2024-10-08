@@ -312,7 +312,7 @@ JDT.GroupTypes.BargainAscendant = "BargainAscendant"
 JDT.GroupTypes.CastIntoKiteEnemyBuffed = "CastIntoKiteEnemyBuffed"
 JDT.GroupTypes.CastIntoKiteEnemyWhenBuffed = "CastIntoKiteEnemyWhenBuffed"
 JDT.GroupTypes.VoidCastWithDoubleSuccess = "VoidCastWithDoubleSuccess"
-JDT.GroupTypes.FrontalWithSuccess = "FrontalWithSuccess"
+JDT.GroupTypes.FrontalWithStart = "FrontalWithStart"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -500,7 +500,7 @@ JDT.Templates.GroupTypes.Frontal = {
     doSound = JDT.SoundTypes.frontal,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
-JDT.Templates.GroupTypes.FrontalWithSuccess = {
+JDT.Templates.GroupTypes.FrontalWithStart = {
     AuraType = "AuraIcon",
     triggers = {
         {
@@ -508,7 +508,7 @@ JDT.Templates.GroupTypes.FrontalWithSuccess = {
         },
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.combatlog, 
-            subeventSuffix = "_CAST_SUCCESS",
+            subeventSuffix = "_CAST_START",
         },
     },
     text = {
@@ -8275,7 +8275,7 @@ JDT.Templates.GroupTypes.InteruptableFreezeCast= {
     type = JDT.AuraTypes.interrupt,
 }
 JDT.Templates.GroupTypes.CastIntoKeepMovingWithDebuff =  {
-    AuraType = "AuraIcon",
+    AuraType = "AuraBar",
     triggers = {
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
