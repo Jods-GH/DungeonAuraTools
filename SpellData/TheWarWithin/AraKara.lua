@@ -475,7 +475,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.RunOut] ={
+        [JDT.GroupTypes.StunCast] ={
             MassiveSlam = {
                 enabled = true,
                 spellId = 434252, -- for spellname etc
