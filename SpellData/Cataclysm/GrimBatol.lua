@@ -49,15 +49,15 @@ bosses.boss1 = { --	General Umbriss
                     },
                     {
                         spellId = "448847",
-                        delay = "12",
-                        duration = "8"
+                        delay = 12,
+                        duration = 8
                     },
 
                 }
             },
         },
         [JDT.GroupTypes.CastIntoPlayerGroupDropVoid] ={
-            ManaBombs= {
+            RockSpike= {
                 enabled = true,
                 spellId = 448877, -- for spellname etc
                 triggerData = {
@@ -85,33 +85,6 @@ bosses.boss2 = { --	Forgemaster Throngus
     EncounterId = "1050", -- https://warcraft.wiki.gg/wiki/DungeonEncounterID
     additionalName = "] 02 ",
     Auras = {
-        [JDT.GroupTypes.RunOut] ={
-            MightyStomp = {
-                enabled = true,
-                spellId = 382832, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "382832",
-                    },
-                }
-            },
-        },
-
-
-
-        [JDT.GroupTypes.ShieldCast] ={
-            PersonalPhalanx = {
-                enabled = true,
-                spellId = 74908, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "74908",
-                    },
-                }
-            }
-        },
         [JDT.GroupTypes.CastIntoKiteEnemyWhenBuffed] ={
             MoltenMace = {
                 enabled = true,
@@ -151,21 +124,49 @@ bosses.boss2 = { --	Forgemaster Throngus
                 }
             }
         },
-        
+        [JDT.GroupTypes.TankBusterCast] = {
+            MoltenFlurry = {
+                enabled = true,
+                spellId = 449444,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "449444",
+                    },
+                }
+            },
+        },
     }
 }
 bosses.boss3 = { --	Drahga Shadowburner
     EncounterId = "1048", -- https://warcraft.wiki.gg/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = {
-        [JDT.GroupTypes.TargetedCast] = {
-            BurningShadowbolt = {
+        [JDT.GroupTypes.CastIntoDot] ={
+            CurseofEntropy = {
                 enabled = true,
-                spellId = 75245,
+                spellId = 450095, -- for spellname etc
+                type = JDT.AuraTypes.curse,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "75245",
+                        spellId = "450095",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "450095",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            InvocationOfShadowflame = {
+                enabled = true,
+                spellId = 448013,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "448013",
                     }
                 }
             },
@@ -177,7 +178,7 @@ bosses.boss3 = { --	Drahga Shadowburner
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        npcID = "40355",
+                        npcID = "40357",
                     },
                 }
             },
@@ -185,14 +186,26 @@ bosses.boss3 = { --	Drahga Shadowburner
         [JDT.GroupTypes.Frontal] = {
             DevouringFlames = {
                 enabled = true,
-                spellId = 86840,
+                spellId = 448105,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "86840",
+                        spellId = "448105",
                     }
                 }
             },
+        },
+        [JDT.GroupTypes.KnockCast] ={
+            TwilightBuffet = {
+                enabled = true,
+                spellId = 456751, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "456751",
+                    },
+                }
+            }
         },
     }
 }
@@ -200,62 +213,87 @@ bosses.boss4 = { --	Erudax
     EncounterId = "1049", -- https://warcraft.wiki.gg/wiki/DungeonEncounterID
     additionalName = "] 04 ",
     Auras = {
-        [JDT.GroupTypes.VoidCast] = {
-            BindingShadows = {
+        [JDT.GroupTypes.Dance] ={
+            ShadowGale = {
                 enabled = true,
-                spellId = 79466,
-                type = JDT.AuraTypes.root,
+                spellId = 449939, -- for spellname etct
                 triggerData = {
                     {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "79466",
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "449939",
                     },
-
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            AbyssalCorruption = {
+                enabled = true,
+                spellId = 448057, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "448057",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "448057",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "448057",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            VoidSurge = {
+                enabled = true,
+                spellId = 450077, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "450077",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.TankBusterCast] = {
+            Crush = {
+                enabled = true,
+                spellId = 450100,
+                RoleLoad = {
+                    HEALER = true,
+					TANK = true,
+                },
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "450100",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.AddSummonCast] = {
+            VoidInfusion = {
+                enabled = true,
+                spellId = 450088,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "450088",
+                    }
                 }
             },
         },
         [JDT.GroupTypes.DmgTakenDebuff] = {
-            FeebleBody = {
+            ShadowWound = {
                 enabled = true,
-                spellId = 75792,
+                spellId = 456719,
+                showStacks = 1,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "75792",
-                    },
-                }
-            },
-        },
-        [JDT.GroupTypes.KillAddChanneling] = {
-            TwilightCorruption = {
-                enabled = true,
-                spellId = 75520, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "75520",
-                    },
-                }
-            },
-        },
-        [JDT.GroupTypes.InteruptableBigHealCast] = {
-            UmbralMending = {
-                enabled = true,
-                spellId = 75763,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "75763",
-                    },
-                }
-            },
-            SiphonEssence = {
-                enabled = true,
-                spellId = 75755,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "75755",
+                        spellId = "456719",
                     },
                 }
             },

@@ -67,9 +67,9 @@ bosses.boss1 = { -- Wise Mari
                     },
                     {
                         spellId = "397783",
-                        initialDelay = "3.3",
-                        RunAmount = "3",
-                        duration = "5",
+                        initialDelay = 3.3,
+                        RunAmount = 3,
+                        duration = 5,
                     },
                 },
             }
