@@ -530,7 +530,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.FrontalWithSuccess] = {
+        [JDT.GroupTypes.FrontalWithStart] = {
             NullSlam = {
                 enabled = true,
                 spellId = 451543,
