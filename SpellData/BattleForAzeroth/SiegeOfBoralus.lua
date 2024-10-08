@@ -390,18 +390,6 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.Charge] ={
-            AzeriteCharge= {
-                enabled = true,
-                spellId = 454438, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "454438",
-                    },
-                }
-            },
-        },
         [JDT.GroupTypes.ShieldCast] ={
             BolsteringShout = {
                 enabled = true,
@@ -538,6 +526,20 @@ bosses.Trash = {
                     },
                 }
             },
+            AzeriteCharge  = {
+                enabled = true,
+                spellId = 454438, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "454438",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "454438",
+                    },
+                }
+            },
             RottingWounds = {
                 enabled = true,
                 spellId = 272588,
@@ -619,6 +621,12 @@ bosses.Trash = {
             SightedArtillery = {
                 enabled = true,
                 spellId = 272422,
+                ticks = {
+                    "20",
+                    "40",
+                    "60",
+                    "80",
+                    },
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,

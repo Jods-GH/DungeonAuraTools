@@ -75,8 +75,8 @@ bosses.boss1 = {  -- Scycaptain Kragg
                 triggerData = {
                     {
                         spellId = "256052",
-                        duration = "4",
-                        delay = "13",
+                        duration = 4,
+                        delay = 13,
                         unit = "boss1"
                     },
 
@@ -362,8 +362,8 @@ bosses.Trash = {
                 triggerData = {
                     {
                         spellId = "257272",
-                        duration = "4",
-                        delay = "12",
+                        duration = 4,
+                        delay = 12,
 
                     },
 
