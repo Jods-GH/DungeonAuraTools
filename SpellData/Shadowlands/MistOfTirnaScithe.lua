@@ -203,23 +203,6 @@ bosses.boss3 = { --Tred'ova
                 }
             },
         },
-        [JDT.GroupTypes.KickOrDie] ={
-            ParasiticPacification = {
-                enabled = true,
-                spellId = 337235, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = {
-							"337235", -- [1]
-							"337249", -- [2]
-							"337255", -- [3]
-						},
-                    },
-
-                }
-            }
-        },
         [JDT.GroupTypes.SwarmDebuffAddNeedsToBeKilledWhileActive] ={
             StingingSwarm = {
                 enabled = true,
@@ -333,7 +316,7 @@ bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = {  
         
-        [JDT.GroupTypes.CastIntoKiteEnemyBuffed] = {
+        [JDT.GroupTypes.CastIntoKiteEnemyWhenBuffed] = {
             HandofThros = {
                 enabled = true,
                 spellId = 322569,
