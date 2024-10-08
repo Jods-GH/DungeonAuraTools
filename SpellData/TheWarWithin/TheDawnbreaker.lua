@@ -94,6 +94,18 @@ bosses.boss1 = { --	Speaker Shadowcrown
                 }
             },
         },
+        [JDT.GroupTypes.Dance] ={
+            ObsidianBeam = {
+                enabled = true,
+                spellId = 453212, -- for spellname etct
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "453212",
+                    },
+                }
+            }
+        },
     }
 }
 bosses.boss2 = { --	Anub'ikkaj
