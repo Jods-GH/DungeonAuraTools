@@ -42,6 +42,20 @@ JDT.SpellList.Affixes = {
                 }
             },
         },
+        [JDT.GroupTypes.ToppableDot] = {
+            VoidRift = {
+                 enabled = true,
+                 affixId = 160,
+                 spellId = 440313,
+                 type = JDT.AuraTypes.magic,
+                 triggerData = {
+                     {
+                         unit = JDT.Templates.Triggers.UnitTypes.player,
+                         spellId = "440313",
+                     }
+                 }
+             },
+         },
         
          
 

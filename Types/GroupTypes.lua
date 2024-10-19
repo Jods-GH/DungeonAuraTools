@@ -313,6 +313,7 @@ JDT.GroupTypes.CastIntoKiteEnemyBuffed = "CastIntoKiteEnemyBuffed"
 JDT.GroupTypes.CastIntoKiteEnemyWhenBuffed = "CastIntoKiteEnemyWhenBuffed"
 JDT.GroupTypes.VoidCastWithDoubleSuccess = "VoidCastWithDoubleSuccess"
 JDT.GroupTypes.FrontalWithStart = "FrontalWithStart"
+JDT.GroupTypes.KeepMovingWithDebuff = "KeepMovingWithDebuff"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -8322,6 +8323,22 @@ JDT.Templates.GroupTypes.CastIntoKeepMovingWithDebuff =  {
             }, 
     }
 ), 
+}
+JDT.Templates.GroupTypes.KeepMovingWithDebuff =  {
+    AuraType = "AuraBar",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("keep moving"),
+            isactive = false,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 JDT.Templates.GroupTypes.CastIntoKiteEnemyBuffed =  {
     AuraType = "AuraIcon",
