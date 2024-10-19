@@ -191,7 +191,7 @@ bosses.boss3 = { --Tred'ova
     EncounterId = "2393",-- https://warcraft.wiki.gg/wiki/DungeonEncounterID
     additionalName = "] 03 ",
     Auras = {
-        [JDT.GroupTypes.Dance] ={
+        [JDT.GroupTypes.CastIntoCastSuccessDance] ={
             AcidExpulsion = {
                 enabled = true,
                 spellId = 322651, -- for spellname etc
@@ -200,45 +200,12 @@ bosses.boss3 = { --Tred'ova
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "322651",
                     },
+                    {
+                        duration = "4",
+                        spellId = "322651",
+                    },
                 }
             },
-        },
-        [JDT.GroupTypes.SwarmDebuffAddNeedsToBeKilledWhileActive] ={
-            StingingSwarm = {
-                enabled = true,
-                spellId = 337253, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = {
-							"337235", -- [1]
-							"337249", -- [2]
-							"337255", -- [3]
-						},
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = {
-							"337235", -- [1]
-							"337249", -- [2]
-							"337255", -- [3]
-						},
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
-                        spellId = {
-							"337235", -- [1]
-							"337249", -- [2]
-							"337255", -- [3]
-						},
-                    },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        npcID = "172647",
-                    }
-
-                }
-            }
         },
         [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
             MindLink = {
@@ -272,7 +239,7 @@ bosses.boss3 = { --Tred'ova
                 }
             },
         },
-        [JDT.GroupTypes.CastIntoBreakShield] = {
+        [JDT.GroupTypes.Dance] = {
             Consumption = {
                 enabled = true,
                 spellId = 322450,
@@ -281,11 +248,6 @@ bosses.boss3 = { --Tred'ova
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "322450",
                     },
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "322527",
-                    },
-
                 }
             },
         },
@@ -420,6 +382,18 @@ bosses.Trash = {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "322557",
                     },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            Expel = {
+                enabled = true,
+                spellId = 463248,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "463248",
+                    }
                 }
             },
         },
