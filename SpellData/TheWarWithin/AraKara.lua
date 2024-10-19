@@ -500,6 +500,19 @@ bosses.Trash = {
                 }
             }
         },
+        [JDT.GroupTypes.AddSummonCast] = {
+            AlarmShrill = {
+                enabled = true,
+                spellId = 432967,
+                type = JDT.AuraTypes.stun,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "255365",
+                    },
+                }
+            },
+        },
         [JDT.GroupTypes.InteruptableAoeFear] ={
             HorrifyingShrill= {
                 enabled = true,
