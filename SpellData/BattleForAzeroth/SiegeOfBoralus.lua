@@ -492,7 +492,18 @@ bosses.Trash = {
                         spellId = "272546",
                     },
                 }
-            }
+            },
+            SightedArtillery = {
+                enabled = true,
+                spellId = 272422,
+                extraName = " inc",
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "272422",
+                    }
+                }
+            },
         },
         [JDT.GroupTypes.InterruptableCastIntoSilence] ={
             ChokingWaters = {
@@ -617,7 +628,7 @@ bosses.Trash = {
                 }
             },
         },
-        [JDT.GroupTypes.CastIntoKeepMovingWithDebuff] = {
+        [JDT.GroupTypes.KeepMovingWithDebuff] = {
             SightedArtillery = {
                 enabled = true,
                 spellId = 272422,
@@ -628,10 +639,6 @@ bosses.Trash = {
                     "80",
                     },
                 triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "272422",
-                    },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "272422",
