@@ -1,4 +1,4 @@
-## Interface: 110005
+## Interface: 110007
 ## Version: @project-version@
 ## Plain Title: DungeonAuraTools
 ## Title: |cffe5c75fD|r|cffFF657Fungeon|r|cffe5c75fA|r|cffFF657Fura|r|cffe5c75fT|r|cffFF657Fools|r 
