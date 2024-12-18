@@ -497,11 +497,11 @@ bosses.Trash = {
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "450854",
+                        spellId = "450855",
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
-                        spellId = "450854",
+                        spellId = "450855",
                     },
                 }
             },
