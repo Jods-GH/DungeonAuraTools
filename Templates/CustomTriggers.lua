@@ -36,6 +36,16 @@ JDT.Templates.CustomTriggers.Dispose = function(triggerData)
     return trigger
 end
 
+JDT.Templates.CustomTriggers.DisposeSpellAura = function(triggerData)
+    local summonID,duration,removeID,stacks  = triggerData.summonID,triggerData.duration,triggerData.removeID, triggerData.stacks
+    local trigger = {
+        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_CAST_SUCCESS\" and spellID == "..summonID.." then\n        if not s[\"\"] then\n            \n            s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = "..stacks..",\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+"..stacks.."\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        \n        return true\n        \n        \n    elseif (subevent == \"SPELL_AURA_APPLIED\" or subevent == \"SPELL_AURA_APPLIED_DOSE\") and spellID == "..removeID.." then\n        \n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
+        customEvents = "COMBAT_LOG_EVENT_UNFILTERED:SPELL_CAST_SUCCESS,COMBAT_LOG_EVENT_UNFILTERED:SPELL_AURA_APPLIED, COMBAT_LOG_EVENT_UNFILTERED:SPELL_AURA_APPLIED_DOSE",
+        customVariables = "{\n    expirationTime = true,\n    duration = true,\n    stacks = true,\n}",
+    }
+    return trigger
+end
+
 JDT.Templates.CustomTriggers.CollapsingStar = function()
     local trigger = {
         customTrigger = "function(allstates, event, ...)\n    if event == \"COMBAT_LOG_EVENT_UNFILTERED\" then\n        local timestamp, subEvent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellID, _,_, auraType = ...\n        if (subEvent == \"SPELL_AURA_APPLIED\" or subEvent == \"SPELL_AURA_APPLIED_DOSE\")\n        and spellID == 350804\n        and destGUID == WeakAuras.myGUID\n        then\n            local state = allstates[\"star\"]\n            if state then\n                state.count = state.count - 1 \n                state.changed = true\n                if state.count <= 0 then\n                    state.show = false\n                end\n                return true\n            end\n        elseif subEvent == \"SPELL_CAST_SUCCESS\" and spellID == 353635 then\n            allstates[\"star\"] = {\n                show = true,\n                changed = true,\n                progressType = \"timed\",\n                duration = 25,\n                expirationTime = 25 + GetTime(),\n                autoHide = true,\n                count = 4,\n            }\n            return true\n        end\n    end\nend",				

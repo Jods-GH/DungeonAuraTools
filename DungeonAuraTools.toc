@@ -92,6 +92,7 @@ SpellData/BattleForAzeroth/Freehold.lua
 SpellData/BattleForAzeroth/AtalDazar.lua
 SpellData/BattleForAzeroth/WayCrestManor.lua
 SpellData/BattleForAzeroth/SiegeOfBoralus.lua
+SpellData/BattleForAzeroth/Motherlode.lua
 
 #SpellData Legion
 SpellData/Legion/ReturnToKarazhan.lua
