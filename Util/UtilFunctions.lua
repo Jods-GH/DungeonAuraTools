@@ -25,6 +25,9 @@ end
 
 JDT.DebugDump =  function(table)
     if JDT.db and JDT.db.profile.DebugMode == true then
+        if DevTool then 
+            DevTool:AddData(table, "JDT Debug Dump")
+        end
         DevTools_Dump(table)
     end
 end

@@ -77,7 +77,7 @@
 						text_shadowYOffset = 0,
 						text_wordWrap = "WordWrap",
 						text_fontType = "OUTLINE",
-						text_anchorPoint = "CENTER",
+						anchor_point = "CENTER",
 						text_visible = false,
 						text_fontSize = 17,
 						anchorXOffset = 0,
