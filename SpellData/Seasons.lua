@@ -7,40 +7,78 @@ JDT.SpellList.Seasons = JDT.SpellList.Seasons or {}
 local seasons = JDT.SpellList.Seasons
 
 seasons.current = {
-    groupName = "The War Within Season 1",
+    groupName = "The War Within Season 2",
     dungeons = {
-      MistOfTirnaScithe = {
-            expansion = "Shadowlands",
-            dungeon = "MistOfTirnaScithe",
-         },
-         NecroticWake = {
-            expansion = "Shadowlands",
-            dungeon = "NecroticWake",
-         },
-         SiegeOfBoralus= {
+         Motherlode= {
             expansion = "BattleForAzeroth",
-            dungeon = "SiegeOfBoralus",   
+            dungeon = "Motherlode",   
          },
-         GrimBatol={
-            expansion = "Cataclysm",
-            dungeon = "GrimBatol",   
+         OperationMechagon={
+            expansion = "BattleForAzeroth",
+            dungeon = "OperationMechagon",   
          },
-         AraKara={
+         TheaterOfPain = {
+            expansion = "Shadowlands",
+            dungeon = "TheaterOfPain",
+         },
+         OperationFloodgate = {
             expansion = "TheWarWithin",
-            dungeon = "AraKara",   
+            dungeon = "OperationFloodgate",
          },
-         CityOfThreads={
+         DarkflameCleft={
             expansion = "TheWarWithin",
-            dungeon = "CityOfThreads",   
+            dungeon = "DarkflameCleft",   
          },
-         TheDawnbreaker={
+         CinderbrewMeadery={
             expansion = "TheWarWithin",
-            dungeon = "TheDawnbreaker",   
+            dungeon = "CinderbrewMeadery",   
          },
-         TheStonevault={
+         TheRookery={
             expansion = "TheWarWithin",
-            dungeon = "TheStonevault",   
+            dungeon = "TheRookery",   
+         },
+         PrioryOfTheSacredFlame={
+            expansion = "TheWarWithin",
+            dungeon = "PrioryOfTheSacredFlame",   
          },
     }
+}
+
+seasons.previous = {
+   groupName = "The War Within Season 1",
+   dungeons = {
+     MistOfTirnaScithe = {
+           expansion = "Shadowlands",
+           dungeon = "MistOfTirnaScithe",
+        },
+        NecroticWake = {
+           expansion = "Shadowlands",
+           dungeon = "NecroticWake",
+        },
+        SiegeOfBoralus= {
+           expansion = "BattleForAzeroth",
+           dungeon = "SiegeOfBoralus",   
+        },
+        GrimBatol={
+           expansion = "Cataclysm",
+           dungeon = "GrimBatol",   
+        },
+        AraKara={
+           expansion = "TheWarWithin",
+           dungeon = "AraKara",   
+        },
+        CityOfThreads={
+           expansion = "TheWarWithin",
+           dungeon = "CityOfThreads",   
+        },
+        TheDawnbreaker={
+           expansion = "TheWarWithin",
+           dungeon = "TheDawnbreaker",   
+        },
+        TheStonevault={
+           expansion = "TheWarWithin",
+           dungeon = "TheStonevault",   
+        },
+   }
 }
 

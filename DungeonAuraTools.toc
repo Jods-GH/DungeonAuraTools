@@ -68,6 +68,11 @@ SpellData/TheWarWithin/AraKara.lua
 SpellData/TheWarWithin/TheStonevault.lua
 SpellData/TheWarWithin/CityOfThreads.lua
 SpellData/TheWarWithin/TheDawnbreaker.lua
+SpellData/TheWarWithin/TheRookery.lua
+SpellData/TheWarWithin/CinderbrewMeadery.lua
+SpellData/TheWarWithin/DarkflameCleft.lua
+SpellData/TheWarWithin/PrioryOfTheSacredFlame.lua
+SpellData/TheWarWithin/OperationFloodgate.lua
 
 #SpellData DragonFlight
 SpellData/DragonFlight/DawnOfTheInfinite.lua
@@ -84,6 +89,7 @@ SpellData/DragonFlight/Uldaman.lua
 SpellData/Shadowlands/Tazavesh.lua
 SpellData/Shadowlands/MistOfTirnaScithe.lua
 SpellData/Shadowlands/NecroticWake.lua
+SpellData/Shadowlands/TheaterOfPain.lua
 
 #SpellData BattleForAzeroth
 SpellData/BattleForAzeroth/OperationMechagon.lua
