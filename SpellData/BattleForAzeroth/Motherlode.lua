@@ -28,7 +28,7 @@ bosses.boss1 = {  -- Coin-Operated Crowd Pummeler
                         spellId = "269493",
                     },
                     {
-                        stacks = 5,
+                        stacks = 6,
                         summonID = 269493,
                         duration = 15,
                         removeID = 256493
