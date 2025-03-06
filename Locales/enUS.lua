@@ -636,6 +636,7 @@ LocalisationData["Silence inc"] = "Silence inc"
 LocalisationData["Silenced"] = "Silenced"
 LocalisationData["CC/Purge"] = "CC/Purge"
 LocalisationData["kite"] = "Kite"
+LocalisationData["Useless"] = "Useless"
 --[[
 LocalisationData[""] = ""
 LocalisationData[""] = ""

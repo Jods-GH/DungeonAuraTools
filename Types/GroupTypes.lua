@@ -315,6 +315,7 @@ JDT.GroupTypes.VoidCastWithDoubleSuccess = "VoidCastWithDoubleSuccess"
 JDT.GroupTypes.FrontalWithStart = "FrontalWithStart"
 JDT.GroupTypes.KeepMovingWithDebuff = "KeepMovingWithDebuff"
 JDT.GroupTypes.DisposeSpellAura = "DisposeSpellAura"
+JDT.GroupTypes.Useless = "Useless"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -3285,6 +3286,8 @@ JDT.Templates.GroupTypes.TargetedCastWithTargetAnounce= {
             },
     })
 }
+
+
 
 JDT.Templates.GroupTypes.SoakableTargetedDebuffWithCantSoakDebuff= {
     AuraType = "AuraIcon",
@@ -11676,4 +11679,21 @@ JDT.Templates.GroupTypes.BargainAscendant=  {
     doSound = JDT.SoundTypes.cc,
     activationType = JDT.Templates.Triggers.ActivationTypes.custom,
     customTriggerLogic = "function(t) \n  return t[1] \n end",
+}
+
+JDT.Templates.GroupTypes.Useless = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Useless"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
