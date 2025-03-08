@@ -20,46 +20,46 @@ on:
 jobs:
 
   # "release" is a job, you can name it anything you want
-  setup:
+  #setup:
     
-    if: github.repository == 'Jods-GH/DungeonAuraTools'
+  #  if: github.repository == 'Jods-GH/DungeonAuraTools'
     # we can run our steps on pretty much anything, but the "ubuntu-latest" image is a safe bet
-    runs-on: ubuntu-latest
+  #  runs-on: ubuntu-latest
 
     # specify the environment variables used by the packager, matching the secrets from the project on GitHub
-    env:
-      CF_API_KEY: ${{ secrets.CF_API_KEY }}
-      WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
-      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}  # "GITHUB_TOKEN" is a secret always provided to the workflow
+  #  env:
+  #    CF_API_KEY: ${{ secrets.CF_API_KEY }}
+   #   WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
+   #   GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}  # "GITHUB_TOKEN" is a secret always provided to the workflow
                                                  # for your own token, the name cannot start with "GITHUB_"
 
     # "steps" holds a list of all the steps needed to package and release our AddOn
-    steps:
+   # steps:
 
       # we first have to clone the AddOn project, this is a required step
-      - name: Clone project
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # gets git history for changelogs
-          ref: ${{ github.ref }}
+    #  - name: Clone project
+     #   uses: actions/checkout@v4
+     #   with:
+    #      fetch-depth: 0  # gets git history for changelogs
+    #      ref: ${{ github.ref }}
 
-      - name: Get commit hash
-        id: vars
-        run: echo "::set-output name=commit_hash::$(git rev-parse --short HEAD)"
+   #   - name: Get commit hash
+     #   id: vars
+   #     run: echo "::set-output name=commit_hash::$(git rev-parse --short HEAD)"
 
-      - name: Create and push tag for main
-        if: github.ref == 'refs/heads/main'
-        run: |
-          git tag "${{ steps.vars.outputs.commit_hash }}-beta"
-          git push origin "${{ steps.vars.outputs.commit_hash }}-beta"
+  #    - name: Create and push tag for main
+  #      if: github.ref == 'refs/heads/main'
+  #      run: |
+ #         git tag "${{ steps.vars.outputs.commit_hash }}-beta"
+ #         git push origin "${{ steps.vars.outputs.commit_hash }}-beta"
 
-      - name: Create and push tag for other branches
-        if: github.ref != 'refs/heads/main'
-        run: |
-          git tag "${{ steps.vars.outputs.commit_hash }}-alpha" 
-          git push origin "${{ steps.vars.outputs.commit_hash }}-alpha"
+#      - name: Create and push tag for other branches
+ #       if: github.ref != 'refs/heads/main'
+#        run: |
+ #         git tag "${{ steps.vars.outputs.commit_hash }}-alpha" 
+ #         git push origin "${{ steps.vars.outputs.commit_hash }}-alpha"
   release:
-    needs: setup
+  #  needs: setup
     if: github.repository == 'Jods-GH/DungeonAuraTools'
     # we can run our steps on pretty much anything, but the "ubuntu-latest" image is a safe bet
     runs-on: ubuntu-latest
