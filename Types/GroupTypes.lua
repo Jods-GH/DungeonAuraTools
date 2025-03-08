@@ -319,6 +319,7 @@ JDT.GroupTypes.Useless = "Useless"
 JDT.GroupTypes.DisposeUnitDied = "DisposeUnitDied"
 JDT.GroupTypes.DisposeApplied = "DisposeApplied"
 JDT.GroupTypes.DisposeSuccessWithStacks = "DisposeSuccessWithStacks"
+JDT.GroupTypes.DisposeSpellAuraAppliedRemoved = "DisposeSpellAuraAppliedRemoved"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -3038,6 +3039,77 @@ JDT.Templates.GroupTypes.DisposeSpellAura=  {
         [2] = {
             triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
             customPreset = "DisposeSpellAura"
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dispose"),
+            isactive = true,
+        }, 
+    },
+    glowtype = "Ants",
+    doSound = JDT.SoundTypes.dance,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+               condition={
+                type = "NumberCheck",
+                trigger= 2,
+                op = "<",
+                variable = "expirationTime",
+                value = "5",
+                   },
+                   changes = {
+                    {
+                        property = "sub.4.glow",
+                        value = true,
+                    },
+                    {
+                        property = "sub.4.glowType",
+                        value = "buttonOverlay",
+                    },
+                   },
+           },
+           {
+            condition={
+                type = "And",
+                checks = {
+                    {
+                        type = "NumberCheck",
+                        trigger= 2,
+                        op = ">",
+                        variable = "expirationTime",
+                        value = "5",
+                    },
+                    {
+                        type = "NumberCheck",
+                        trigger= 2,
+                        op = "<",
+                        variable = "expirationTime",
+                        value = "10",
+                    },
+                },
+            },
+            changes = {
+                {
+                    property = "sub.4.glow",
+                    value = true
+                },
+            },
+        },
+}
+), 
+}
+JDT.Templates.GroupTypes.DisposeSpellAuraAppliedRemoved=  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
+            customPreset = "DisposeSpellAuraAppliedRemoved"
         },
     },
     text = {
