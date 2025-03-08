@@ -424,6 +424,9 @@ LocalisationData["CastIntoKiteEnemyWhenBuffed"] = "Kite mechanic"
 LocalisationData["FrontalWithStart"] = "Frontal mechanic"
 LocalisationData["VoidCastWithDoubleSuccess"] = "Avoid mechanic"
 LocalisationData["DisposeSpellAura"] = "Dispose mechanic"
+LocalisationData["DisposeUnitDied"] = "Dispose mechanic"
+LocalisationData["DisposeSuccessWithStacks"] = "Dispose mechanic"
+LocalisationData["DisposeApplied"] = "Dispose mechanic"
 
 --[[ 
     LocalisationData[""] = ""
