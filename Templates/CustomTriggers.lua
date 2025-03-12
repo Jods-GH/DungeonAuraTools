@@ -36,11 +36,23 @@ JDT.Templates.CustomTriggers.Dispose = function(triggerData)
     return trigger
 end
 
+JDT.Templates.CustomTriggers.DisposeSuccessRemove = function(triggerData)
+    local summonID,duration,removeID = triggerData.summonID,triggerData.duration,triggerData.removeID
+    local trigger = {
+        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_SUMMON\" and spellID == "..summonID.." and not aura_env.GuidList[destGUID] then\n   aura_env.GuidList[destGUID] = true     if not s[\"\"] then\n            \n            s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = 1,\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+1\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        \n        return true\n        \n        \n    elseif subevent == \"SPELL_CAST_SUCCESS\" and spellID == "..removeID.." and aura_env.GuidList[destGUID] then\n    aura_env.GuidList[destGUID] = false    \n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
+        customEvents = "COMBAT_LOG_EVENT_UNFILTERED:Spell_Summon,COMBAT_LOG_EVENT_UNFILTERED:SPELL_CAST_SUCCESS",
+        customVariables = "{\n    expirationTime = true,\n    duration = true,\n    stacks = true,\n}",
+        customInit = "aura_env.GuidList = {}",			
+        customFinish = "aura_env.GuidList = {}",	
+    }
+    return trigger
+end
+
 JDT.Templates.CustomTriggers.DisposeApplied = function(triggerData)
     local summonID,duration,removeID = triggerData.summonID,triggerData.duration,triggerData.removeID
     local trigger = {
-        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_SUMMON\" and spellID == "..summonID.." then\n        if not s[\"\"] then\n            \n            s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = 1,\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+1\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        \n        return true\n        \n        \n    elseif subevent == \"SPELL_AURA_APPLIED\" and spellID == "..removeID.." then\n        \n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
-        customEvents = "COMBAT_LOG_EVENT_UNFILTERED:Spell_Summon,COMBAT_LOG_EVENT_UNFILTERED:Spell_Aura_Applied:player",
+        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_SUMMON\" and spellID == "..summonID.." then\n        if not s[\"\"] then\n            \n            s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = 1,\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+1\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        \n        return true\n        \n        \n    elseif subevent == \"SPELL_AURA_APPLIED\" and spellID == "..removeID.." and UnitGUID(\"player\") == destGUID then\n        \n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
+        customEvents = "COMBAT_LOG_EVENT_UNFILTERED:Spell_Summon,COMBAT_LOG_EVENT_UNFILTERED:Spell_Aura_Applied",
         customVariables = "{\n    expirationTime = true,\n    duration = true,\n    stacks = true,\n}",
     }
     return trigger
@@ -69,9 +81,11 @@ end
 JDT.Templates.CustomTriggers.DisposeSpellAuraAppliedRemoved = function(triggerData)
     local summonID,duration,removeID  = triggerData.summonID,triggerData.duration,triggerData.removeID
     local trigger = {
-        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_AURA_APPLIED\" and spellID == "..summonID.." then\n        if not s[\"\"] then\n            \n            s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = 1,\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+1\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        \n        return true\n        \n        \n    elseif subevent == \"SPELL_AURA_REMOVED\" and spellID == "..removeID.." then\n        \n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
+        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_AURA_APPLIED\" and spellID == "..summonID.." and not aura_env.GuidList[destGUID] then\n   aura_env.GuidList[destGUID]=true \n     if not s[\"\"] then\n            \n            s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = 1,\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+1\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        \n        return true\n        \n        \n    elseif subevent == \"SPELL_AURA_REMOVED\" and spellID == "..removeID.." and aura_env.GuidList[destGUID] then\n        aura_env.GuidList[destGUID]=false\n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
         customEvents = "COMBAT_LOG_EVENT_UNFILTERED:SPELL_AURA_APPLIED,COMBAT_LOG_EVENT_UNFILTERED:SPELL_AURA_REMOVED",
         customVariables = "{\n    expirationTime = true,\n    duration = true,\n    stacks = true,\n}",
+        customInit = "aura_env.GuidList = {}",			
+        customFinish = "aura_env.GuidList = {}",	
     }
     return trigger
 end

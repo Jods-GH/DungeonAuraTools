@@ -43,7 +43,7 @@ seasons.current = {
          },
     }
 }
-
+--[[
 seasons.previous = {
    groupName = "The War Within Season 1",
    dungeons = {
@@ -81,4 +81,4 @@ seasons.previous = {
         },
    }
 }
-
+]]

@@ -320,6 +320,9 @@ JDT.GroupTypes.DisposeUnitDied = "DisposeUnitDied"
 JDT.GroupTypes.DisposeApplied = "DisposeApplied"
 JDT.GroupTypes.DisposeSuccessWithStacks = "DisposeSuccessWithStacks"
 JDT.GroupTypes.DisposeSpellAuraAppliedRemoved = "DisposeSpellAuraAppliedRemoved"
+JDT.GroupTypes.DisposeSuccessRemove = "DisposeSuccessRemove"
+JDT.GroupTypes.PvPCast = "PvPCast"
+JDT.GroupTypes.DmgDebuff = "DmgDebuff"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -2884,6 +2887,78 @@ JDT.Templates.GroupTypes.Dispose=  {
 }
 ), 
 }
+JDT.Templates.GroupTypes.DisposeSuccessRemove=  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
+            customPreset = "DisposeSuccessRemove"
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dispose"),
+            isactive = true,
+        }, 
+    },
+    glowtype = "Ants",
+    doSound = JDT.SoundTypes.dance,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+               condition={
+                type = "NumberCheck",
+                trigger= 2,
+                op = "<",
+                variable = "expirationTime",
+                value = "5",
+                   },
+                   changes = {
+                    {
+                        property = "sub.4.glow",
+                        value = true,
+                    },
+                    {
+                        property = "sub.4.glowType",
+                        value = "buttonOverlay",
+                    },
+                   },
+           },
+           {
+            condition={
+                type = "And",
+                checks = {
+                    {
+                        type = "NumberCheck",
+                        trigger= 2,
+                        op = ">",
+                        variable = "expirationTime",
+                        value = "5",
+                    },
+                    {
+                        type = "NumberCheck",
+                        trigger= 2,
+                        op = "<",
+                        variable = "expirationTime",
+                        value = "10",
+                    },
+                },
+            },
+            changes = {
+                {
+                    property = "sub.4.glow",
+                    value = true
+                },
+            },
+        },
+}
+), 
+}
+
 JDT.Templates.GroupTypes.DisposeApplied=  {
     AuraType = "AuraIcon",
     triggers = {
@@ -7692,6 +7767,22 @@ JDT.Templates.GroupTypes.DmgBuffButItsAdebuff = {
     },
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
+JDT.Templates.GroupTypes.DmgDebuff = {
+    AuraType = "AuraIcon",
+    triggers = {
+         {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Debuffed"),
+            isactive = true,
+        }, 
+    },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
 
 JDT.Templates.GroupTypes.ArmorBuff = {
     AuraType = "AuraIcon",
@@ -11987,5 +12078,22 @@ JDT.Templates.GroupTypes.Useless = {
             isactive = true,
         }, 
     },
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+JDT.Templates.GroupTypes.PvPCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("PvP"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soon,
     activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
