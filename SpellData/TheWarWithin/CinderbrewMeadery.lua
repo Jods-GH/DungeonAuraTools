@@ -230,7 +230,7 @@ bosses.boss4 = { --	Goldie Baronbottom
     additionalName = "] 04 ",
     Auras = {
         -- add spells
-        [JDT.GroupTypes.DisposeApplied] ={
+        [JDT.GroupTypes.DisposeSuccessRemove] ={
             SpreadtheLove = {
                 enabled = true,
                 spellId = 435560, -- for spellname etc
@@ -243,7 +243,7 @@ bosses.boss4 = { --	Goldie Baronbottom
                     {
                         summonID = 452705,
                         duration = 45,
-                        removeID = 219005
+                        removeID = 435797
                     },
                 }
             }
