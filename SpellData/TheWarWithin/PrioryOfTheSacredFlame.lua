@@ -212,14 +212,14 @@ bosses.boss3 = { --	Prioress Murrpray
             },
         },
         [JDT.GroupTypes.LaserCast] ={
-            HolyFlame= {
+            InnerFire= {
                 enabled = true,
-                spellId = 451605, -- for spellname etc
+                spellId = 444608, -- for spellname etc
                 extraName = " cast",
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "451605",
+                        spellId = "444608",
 
                     },
 
@@ -227,13 +227,13 @@ bosses.boss3 = { --	Prioress Murrpray
             }
         },
         [JDT.GroupTypes.LaserCombatlogSuccess ] = {
-            HolyFlame = {
+            InnerFire = {
                 enabled = true,
-                spellId = 451605,
+                spellId = 444608,
                 triggerData = {
                     {
                         duration = "5",
-                        spellId = "451605",
+                        spellId = "444608",
                     }
 
                 }
@@ -241,13 +241,13 @@ bosses.boss3 = { --	Prioress Murrpray
 
         },
         [JDT.GroupTypes.UnavoidableAoe] ={
-            InnerFire = {
+            HolyFlame = {
                 enabled = true,
-                spellId = 444608, -- for spellname etc
+                spellId = 451605, -- for spellname etc 
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "444608",
+                        spellId = "451605",
                     },
                 }
             }
@@ -276,6 +276,21 @@ bosses.boss3 = { --	Prioress Murrpray
 bosses.Trash = { 
     additionalName = "TRASH] ",
     Auras = {
-        
+        [JDT.GroupTypes.InteruptShout] = {
+            DisruptingShout = {
+                enabled = true,
+                spellId = 427609,
+                triggerData = {
+                {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427609",
+                    },
+                {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                },
+
+                }
+            },
+        },
     },
 }
