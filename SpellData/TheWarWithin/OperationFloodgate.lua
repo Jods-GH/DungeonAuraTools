@@ -6,7 +6,7 @@ JDT.SpellList.TheWarWithin.Dungeons = JDT.SpellList.TheWarWithin.Dungeons or {}
 
 
 JDT.SpellList.TheWarWithin.Dungeons.OperationFloodgate = {
-    groupName = "[AK",
+    groupName = "[OFG",
     zoneId = "g459", -- https://warcraft.wiki.gg/wiki/UiMapID   C_Map.GetMapGroupID(14971)
     EncounterJournalID = 1298, -- https://wago.tools/db2/JournalEncounter
     Bosses = {}
@@ -269,18 +269,6 @@ bosses.boss4 = { --	Geezle Gigazap
     additionalName = "] 04 ",
     Auras = {
         -- add spells
-        [JDT.GroupTypes.UnavoidableAoe] = {
-            TurboCharge = {
-                enabled = true,
-                spellId = 465463,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "465463",
-                    }
-                }
-            },
-        },
         [JDT.GroupTypes.Dance] ={
             Dam = {
                 enabled = true,
@@ -290,6 +278,16 @@ bosses.boss4 = { --	Geezle Gigazap
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "468276",
                     },
+                }
+            },
+            TurboCharge = {
+                enabled = true,
+                spellId = 465463,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "465463",
+                    }
                 }
             },
         },
