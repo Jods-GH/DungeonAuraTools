@@ -502,6 +502,446 @@ bosses.boss5 = { --	Mordretha, the Endless Empress
 bosses.Trash = {
     additionalName = "TRASH] ",
     Auras = {  
-        
+        [JDT.GroupTypes.UnavoidableAoe] = {
+            RagingTantrum = {
+                enabled = true,
+                spellId = 333241,
+                type= JDT.AuraTypes.enrage,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "333241",
+                    },
+                }
+            },
+            Soulstorm = {
+                enabled = true,
+                spellId = 330716,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "330716",
+                    },
+                }
+            },
+            SeismicStomp = {
+                enabled = true,
+                spellId = 333827,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "333827",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            UnholyFervor = {
+                enabled = true,
+                spellId = 341902,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "341902",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            DeathWish = {
+                enabled = true,
+                spellId = 331510,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "331510",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.SlowDebuff] ={
+            Charge = {
+                enabled = true,
+                spellId = 320679, -- for spellname etc
+                type = JDT.AuraTypes.snare,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "320679",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.FrontAndBack] ={
+            VileEruption = {
+                enabled = true,
+                spellId = 330614, -- for spellname etc
+                type = JDT.AuraTypes.disease,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "330614",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.HealCast] = {
+            DevourFlesh= {
+                enabled = true,
+                spellId = 330586,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "330586",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Dot] ={
+            DecayingBlight  = {
+                enabled = true,
+                spellId = 330700, -- for spellname etc
+                type = JDT.AuraTypes.disease,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "330700",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] = {
+            NecroticBolt = {
+                enabled = true,
+                spellId = 1217138, -- for spellname etc
+                loadInBossfight = false,
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "1217138",
+
+                    },
+
+                }
+            },
+            DecayingFilth = {
+                enabled = true,
+                spellId = 330703,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "330703",
+                    }
+
+                }
+            },
+            BindSoul = {
+                enabled = true,
+                spellId = 330810,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "330810",
+                    }
+
+                }
+            },
+            BoneSpear = {
+                enabled = true,
+                spellId = 342675,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "342675",
+                    }
+
+                }
+            },
+            SpiritFrost = {
+                enabled = true,
+                spellId = 330875,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "330875",
+                    }
+
+                }
+            },
+
+        },
+        [JDT.GroupTypes.InteruptableVolleyIntoDiseaseDot] = {
+            WitheringDischarge = {
+                enabled = true,
+                spellId = 341969,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "341969",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "341969",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            ShadowVulnerability = {
+                enabled = true,
+                spellId = 330725,
+                type = JDT.AuraTypes.curse,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "330725",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            NecroticBoltVolley = {
+                enabled = true,
+                spellId = 330868,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "330868",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            GraveSpike = {
+                enabled = true,
+                spellId = 341771,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "341771",
+                    }
+                }
+            },
+            Shoot = {
+                enabled = true,
+                spellId = 319997,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "319997",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            JaggedQuarrel = {
+                enabled = true,
+                spellId = 330532,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "330532",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "330532",
+                    }
+                }
+            },
+        }, 
+        [JDT.GroupTypes.ShockWave] = {
+            DeathWinds = {
+                enabled = true,
+                spellId = 333294,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "333294",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.KeepMovingWithDebuff] = {
+            CurseOfDesolation = {
+                enabled = true,
+                spellId = 272422,
+                ticks = {
+                    "20",
+                    "40",
+                    "60",
+                    "80",
+                    },
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "272422",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            Bonestorm = {
+                enabled = true,
+                spellId = 331223, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "331223",
+                    },
+                }
+            },
+            Whirlwind = {
+                enabled = true,
+                spellId = 317605, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "317605",
+                    },
+                }
+            },
+            GroundSmash = {
+                enabled = true,
+                spellId = 332708, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "332708",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            BoneSpikes = {
+                enabled = true,
+                spellId = 331237, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "331237",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.DmgTakenDebuff] = {
+            ColossusSmash = {
+                enabled = true,
+                spellId = 331288,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "331288",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.AvoidCombatLogSuccess] ={
+            WhirlingBlade = {
+                enabled = true,
+                spellId = 336995, -- for spellname etc
+                triggerData = {
+                    {
+                        spellId = "336995",
+                        duration = 3,
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.InteruptShout] = {
+            InterruptingRoar = {
+                enabled = true,
+                spellId = 342135,
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "342135",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                   },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TankBusterCast] = {
+            SavageFlurry = {
+                enabled = true,
+                spellId = 331316,
+                RoleLoad = {
+					TANK = true,
+                },
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "331316",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoCastSuccessDance] ={
+            Earthcrusher= {
+                enabled = true,
+                spellId = 1215850, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "1215850",
+
+                    },
+                    {
+                        spellId = "1215850",
+                        duration = "3"
+
+                    },
+
+                }
+            }
+        },
+        [JDT.GroupTypes.SpreadCast] = {
+            RicochetingBlade = {
+                enabled = true,
+                spellId = 333861,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "333861",
+                    },
+
+                }
+            },
+            BloodthirstyCharge = {
+                enabled = true,
+                spellId = 334025,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "334023",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.DmgReductionShoutIntoDebuff] = {
+            DemoralizingShout = {
+                enabled = true,
+                spellId = 330562,
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "330562",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "330562",
+                    }
+
+                }
+            },
+        },
     }    
 }

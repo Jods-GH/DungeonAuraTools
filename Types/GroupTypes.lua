@@ -323,6 +323,7 @@ JDT.GroupTypes.DisposeSpellAuraAppliedRemoved = "DisposeSpellAuraAppliedRemoved"
 JDT.GroupTypes.DisposeSuccessRemove = "DisposeSuccessRemove"
 JDT.GroupTypes.PvPCast = "PvPCast"
 JDT.GroupTypes.DmgDebuff = "DmgDebuff"
+JDT.GroupTypes.FrontAndBack = "FrontAndBack"
 
 
 setmetatable(JDT.GroupTypes, {
@@ -706,6 +707,22 @@ JDT.Templates.GroupTypes.FrontalSoakWithDebuff = {
         },
     }
 ), 
+}
+JDT.Templates.GroupTypes.FrontAndBack = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("FrontAndBack"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.frontal,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
 }
 JDT.Templates.GroupTypes.CCCast = {
     AuraType = "AuraIcon",

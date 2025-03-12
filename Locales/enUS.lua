@@ -641,6 +641,8 @@ LocalisationData["CC/Purge"] = "CC/Purge"
 LocalisationData["kite"] = "Kite"
 LocalisationData["Useless"] = "Useless"
 LocalisationData["PvP"] = "PvP"
+LocalisationData["FrontAndBack"] = "Front+Back"
+
 --[[
 LocalisationData[""] = ""
 LocalisationData[""] = ""
