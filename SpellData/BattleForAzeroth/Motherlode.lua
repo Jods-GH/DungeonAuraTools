@@ -153,16 +153,7 @@ bosses.boss3 = {  -- Rixxa Fluxflame
     additionalName = "] 03 ",
     Auras = { 
         [JDT.GroupTypes.Frontal] = {
-            AzeriteCatalyst = {
-                enabled = true,
-                spellId = 259022,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "259022",
-                    }
-                }
-            },
+            
             PropellantBlast= {
                 enabled = true,
                 spellId = 259940,
@@ -184,6 +175,29 @@ bosses.boss3 = {  -- Rixxa Fluxflame
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "259853",
                     },
+                }
+            }
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDropVoid] ={
+            AzeriteCatalyst= {
+                enabled = true,
+                spellId = 259022, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "259022",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "259022",
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "259022",
+                    },
+
                 }
             }
         },
