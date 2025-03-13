@@ -186,6 +186,215 @@ bosses.boss3 = { --	Voidstone Monstrosity
 bosses.Trash = { 
     additionalName = "TRASH] ",
     Auras = {
-        
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            LightningBolt = {
+                enabled = true,
+                spellId = 430109, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "430109",
+                    },
+                }
+            },
+            VoidBolt = {
+                enabled = true,
+                spellId = 430238, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "430238",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoe] = {
+            LocalizedStorm = {
+                enabled = true,
+                spellId = 427404,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427404",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            WildLightning = {
+                enabled = true,
+                spellId = 474018, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "474018",
+                    },
+                }
+            },
+            UnleashDarkness = {
+                enabled = true,
+                spellId = 1214628, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "1214628",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Orbs] = {
+            BoundingVoid = {
+                enabled = true,
+                spellId = 426893,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "426893",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.ShieldCast] ={
+            EntropyShield = {
+                enabled = true,
+                spellId = 450628, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "450628",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            LightningSurge = {
+                enabled = true,
+                spellId = 427260,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427260",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            EnergizedBarrage = {
+                enabled = true,
+                spellId = 427616,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427616",
+                    }
+                }
+            },
+            SeepingCorruption = {
+                enabled = true,
+                spellId = 430179,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "430179",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.SpreadCast] = {
+            VoidCrush = {
+                enabled = true,
+                spellId = 474031,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "474031",
+                    },
+
+                }
+            },
+            ArcingVoid = {
+                enabled = true,
+                spellId = 430805,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "430805",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            FeastingVoid = {
+                enabled = true,
+                spellId = 1214523,
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "1214523",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "1214523",
+                    }
+                }
+            },
+        }, 
+        [JDT.GroupTypes.RunOut] ={
+            UmbralWave = {
+                enabled = true,
+                spellId = 1214546, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "1214546",
+                    },
+                }
+            },
+            AttractingShadows = {
+                enabled = true,
+                spellId = 430812, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "430812",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.KeepMovingWithDebuff] = {
+            SeepingCorruption = {
+                enabled = true,
+                spellId = 430179,
+                extraName = " active",
+                ticks = {
+                    "20",
+                    "40",
+                    "60",
+                    "80",
+                    },
+                type = JDT.AuraTypes.curse,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "430179",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.BuffCast] = {
+            VoidExtraction = {
+                enabled = true,
+                spellId = 472764,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "472764",
+                    }
+                }
+            },
+        },
     },
 }
