@@ -56,7 +56,34 @@ JDT.SpellList.Affixes = {
                  }
              },
          },
-        
+        [JDT.GroupTypes.SoaksRemainingWithDebuff] = {
+            XalatathsBargainPulsar = {
+                enabled = true,
+                affixId = 162,
+                spellId = 1216858,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "1216858",
+                        exactSpellId = true,
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "1216943",
+                        exactSpellId = true,
+                        stacksOperator = "<",
+                        stacks = "5",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "1216943",
+                        exactSpellId = true,
+                        showOn = JDT.Templates.Triggers.ShowTypes.missing,
+                    },
+                }
+            },
+        },
+         
          
 
     }
