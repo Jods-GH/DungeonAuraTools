@@ -212,14 +212,14 @@ bosses.boss3 = { --	Prioress Murrpray
             },
         },
         [JDT.GroupTypes.LaserCast] ={
-            InnerFire= {
+            Purify= {
                 enabled = true,
-                spellId = 444608, -- for spellname etc
+                spellId = 444546, -- for spellname etc
                 extraName = " cast",
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
-                        spellId = "444608",
+                        spellId = "444546",
 
                     },
 
@@ -227,20 +227,32 @@ bosses.boss3 = { --	Prioress Murrpray
             }
         },
         [JDT.GroupTypes.LaserCombatlogSuccess ] = {
-            InnerFire = {
+            Purify = {
                 enabled = true,
-                spellId = 444608,
+                spellId = 444546,
                 triggerData = {
                     {
                         duration = "5",
-                        spellId = "444608",
+                        spellId = "444546",
                     }
 
                 }
             },
 
         },
-        [JDT.GroupTypes.UnavoidableAoe] ={
+        [JDT.GroupTypes.BuffCast] = {
+            InnerFire = {
+                enabled = true,
+                spellId = 444608,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "444608",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] ={
             HolyFlame = {
                 enabled = true,
                 spellId = 451605, -- for spellname etc 
