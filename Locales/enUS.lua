@@ -427,6 +427,12 @@ LocalisationData["DisposeSpellAura"] = "Dispose mechanic"
 LocalisationData["DisposeUnitDied"] = "Dispose mechanic"
 LocalisationData["DisposeSuccessWithStacks"] = "Dispose mechanic"
 LocalisationData["DisposeApplied"] = "Dispose mechanic"
+LocalisationData["DisposeSuccessRemove"] = "Dispose mechanic"
+LocalisationData["DisposeSpellAuraAppliedRemoved"] = "Dispose mechanic"
+LocalisationData["PvPCast"] = "Cast that forces you to PvP"
+LocalisationData["DmgDebuff"] = "Debuff that reduces dmg done"
+LocalisationData["ActivatingCast"] = "Cast that activates something"
+LocalisationData["UnavoidableAoeBigAoeIfBuffed"] = "Aoe mechanic that deals increased damage something has a buff"
 
 --[[ 
     LocalisationData[""] = ""
@@ -642,6 +648,8 @@ LocalisationData["kite"] = "Kite"
 LocalisationData["Useless"] = "Useless"
 LocalisationData["PvP"] = "PvP"
 LocalisationData["FrontAndBack"] = "Front+Back"
+LocalisationData["Remaining"] = "Remaining"
+LocalisationData["Activating"] = "Activating"
 
 --[[
 LocalisationData[""] = ""
