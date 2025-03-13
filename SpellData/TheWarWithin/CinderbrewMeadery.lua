@@ -64,6 +64,7 @@ bosses.boss1 = { --	Brew Master Aldryr
                 enabled = true,
                 spellId = 442525, -- for spellname etc
                 showStacks = 2,
+                HideCooldownText = true,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.boss,

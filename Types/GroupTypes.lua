@@ -324,6 +324,11 @@ JDT.GroupTypes.DisposeSuccessRemove = "DisposeSuccessRemove"
 JDT.GroupTypes.PvPCast = "PvPCast"
 JDT.GroupTypes.DmgDebuff = "DmgDebuff"
 JDT.GroupTypes.FrontAndBack = "FrontAndBack"
+JDT.GroupTypes.PlayerGroupDebuffSoak = "PlayerGroupDebuffSoak"
+JDT.GroupTypes.SoaksRemainingWithDebuff = "SoaksRemainingWithDebuff"
+JDT.GroupTypes.ActivatingCast = "ActivatingCast"
+JDT.GroupTypes.UnavoidableAoeBigAoeIfBuffed = "UnavoidableAoeBigAoeIfBuffed"
+
 
 
 setmetatable(JDT.GroupTypes, {
@@ -882,6 +887,54 @@ JDT.Templates.GroupTypes.PlayerGroupDebuffSpread =  {
     }
 ), 
 }
+
+JDT.Templates.GroupTypes.PlayerGroupDebuffSoak =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("on").." %3.unit",
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soak,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 1,
+               value = false,
+                },
+            changes = {
+                {
+                    property = "sub.3.text_visible",
+                    value = false
+                },
+                {
+                    property= "sub.4.text_visible",
+                    value = true
+                },
+            },
+        },
+    }
+), 
+}
+
 
 JDT.Templates.GroupTypes.PlayerGroupDebuff =  {
     AuraType = "AuraIcon",
@@ -2454,6 +2507,60 @@ JDT.Templates.GroupTypes.UnavoidableAoeBigAoeIfDebuff = {
         {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
             BuffTypes = "debuff",
+            
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("AoE"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Big Aoe"),
+            isactive = false,
+        }, 
+    },
+    doSound = JDT.SoundTypes.selfcd,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1]\n end",
+    glowtype = "Ants",
+    showGlow = false,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+                {
+                    {
+                       condition={
+                          type = "simplecheck",
+                          trigger= 2,
+                          value = true,
+                           },
+                           changes = {
+                            {
+                                property = "sub.3.text_visible",
+                                value = false,
+                            },
+                            {
+                                property = "sub.4.text_visible",
+                                value = true,
+                            },
+                            {
+                                property = "sub.5.glow",
+                                value = true,
+                            },
+                           },
+                   },
+                  
+    }
+), 
+}
+JDT.Templates.GroupTypes.UnavoidableAoeBigAoeIfBuffed = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "buff",
             
         },
     },
@@ -12108,6 +12215,76 @@ JDT.Templates.GroupTypes.PvPCast = {
     text = {
         {   
             value = JDT.getLocalisation("PvP"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soon,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
+
+JDT.Templates.GroupTypes.SoaksRemainingWithDebuff =  {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Soak"),
+            isactive = false,
+        }, 
+        {   
+            value = "%2.s" .. JDT.getLocalisation("Remaining"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.soak,
+    activationType = JDT.Templates.Triggers.ActivationTypes.custom,
+    customTriggerLogic = "function(t) \n  return t[1] and (t[2] or t[3]) \n end",
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 2,
+               value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = true
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = false
+                    },
+                },
+        },
+    }
+), 
+}
+
+JDT.Templates.GroupTypes.ActivatingCast= {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Activating"),
             isactive = true,
         }, 
     },

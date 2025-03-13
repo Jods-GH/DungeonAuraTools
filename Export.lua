@@ -283,6 +283,8 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
     end
     if AuraTemplate.HideCooldownText then
         SpellTable.cooldownTextDisabled = AuraTemplate.HideCooldownText
+    elseif v.HideCooldownText then
+        SpellTable.cooldownTextDisabled = v.HideCooldownText
     elseif JDT.db.profile.HideCooldownText then
         SpellTable.cooldownTextDisabled = JDT.db.profile.HideCooldownText 
     end
@@ -629,6 +631,18 @@ JDT.generateTriggerfromGroupType.Buffs = function(triggerData,AuraTemplate)
     end
     if triggerData.ignoreSelf then
         AuraTrigger.trigger.ignoreSelf = triggerData.ignoreSelf
+    end
+    if triggerData.stacks then
+        if triggerData.stacksOperator then
+            AuraTrigger.trigger.stacksOperator = triggerData.stacksOperator
+        else
+            AuraTrigger.trigger.stacksOperator = ">"
+        end
+        AuraTrigger.trigger.useStacks = true
+        AuraTrigger.trigger.stacks = triggerData.stacks 
+    end
+    if triggerData.showOn then
+        AuraTrigger.trigger.matchesShowOn = triggerData.showOn
     end
     if(AuraTemplate.useTooltip) then
         AuraTrigger.trigger.fetchTooltip = true

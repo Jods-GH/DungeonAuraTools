@@ -58,6 +58,12 @@ setmetatable(JDT.Templates.Triggers.UnitTypes, {
     end,
 })
 
+JDT.Templates.Triggers.ShowTypes = {
+    missing = "showOnMissing",
+    active = "showOnActive",
+    always = "showAlways",
+    matches = "showOnMatches",
+}
 
 
 JDT.Templates.Triggers.CombatLogTypes = {
