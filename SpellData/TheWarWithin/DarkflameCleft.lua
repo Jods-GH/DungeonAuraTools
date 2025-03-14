@@ -298,6 +298,225 @@ bosses.boss4 = { --	The Darkness
 bosses.Trash = { 
     additionalName = "TRASH] ",
     Auras = {
-        
+        [JDT.GroupTypes.Dot] ={
+            CrudeWeapons  = {
+                enabled = true,
+                spellId = 425565, -- for spellname etc
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "425565",
+                    },
+                }
+            },
+            Flashpoint  = {
+                enabled = true,
+                spellId = 428019, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "428019",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            WildWallop = {
+                enabled = true,
+                spellId = 423501, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "423501",
+
+                    },
+
+                }
+            },
+            SurgingFlame = {
+                enabled = true,
+                spellId = 440652, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "440652",
+
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.BuffCast] = {
+            OverpoweringRoar = {
+                enabled = true,
+                spellId = 428066,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "428066",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            WicklighterBolt = {
+                enabled = true,
+                spellId = 423479, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "423479",
+                    },
+                }
+            },
+            FlameBolt = {
+                enabled = true,
+                spellId = 428563, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "428563",
+                    },
+                }
+            },
+            CandleflameBolt = {
+                enabled = true,
+                spellId = 426677, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426677",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.GoMeleeCast ] ={
+            ThrowRock = {
+                enabled = true,
+                spellId = 428089, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "428089",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            MoleFrenzy = {
+                enabled = true,
+                spellId = 425536,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "425536",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedStunCast] = {
+            Bonk = {
+                enabled = true,
+                spellId = 426883,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426883",
+                    },
+                }
+            },
+            OneHandHeadlock = {
+                enabled = true,
+                spellId = 426619,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426619",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.BigStackingAoeWithCD] = {
+            ExplosiveFlame = {
+                enabled = true,
+                spellId = 424322,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "424322",
+                    },
+                    {
+                        spellId = "424322",
+                        duration = "0"
+
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "424322",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            QuenchingBlast = {
+                enabled = true,
+                spellId = 430171, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "430171",
+                    },
+                }
+            },
+            DrainLight = {
+                enabled = true,
+                spellId = 422541, -- for spellname etc
+                type = JDT.AuraTypes.interrupt,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "422541",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.Frontal] = {
+            CeaselessFlame = {
+                enabled = true,
+                spellId = 426261,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426261",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableSuppresion] ={ 
+            FlamingTether = {
+                enabled = true,
+                spellId = 426295, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "426295",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.KnockCast] ={
+            MassiveStomp = {
+                enabled = true,
+                spellId = 1218117, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "1218117",
+                    },
+                }
+            }
+        },
     },
 }
