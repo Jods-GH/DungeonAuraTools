@@ -323,6 +323,302 @@ bosses.boss4 = { --	Goldie Baronbottom
 bosses.Trash = { 
     additionalName = "TRASH] ",
     Auras = {
-        
+        [JDT.GroupTypes.Dot] ={
+            MeanMug  = {
+                enabled = true,
+                spellId = 434773, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "434773",
+                    },
+                }
+            },
+            BeeVenom  = {
+                enabled = true,
+                spellId = 441397, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "441397",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            BoilingFlames = {
+                enabled = true,
+                spellId = 437721, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "437721",
+                    },
+                }
+            },
+            FreeSamples = {
+                enabled = true,
+                spellId = 441242, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "441242",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoPlayerGroupDebuffSpread ] ={
+            EruptingInferno = {
+                enabled = true,
+                spellId = 437956, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "437956",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "437956",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
+                        spellId = "437956",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            CinderbrewToss = {
+                enabled = true,
+                spellId = 434706,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "434706",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCast] = {
+            ThrowChair = {
+                enabled = true,
+                spellId = 434756,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "434756",
+                    }
+                }
+            },
+            BeeZooka = {
+                enabled = true,
+                spellId = 441119,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "441119",
+                    }
+                }
+            },
+            Shoot = {
+                enabled = true,
+                spellId = 456891,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "456891",
+                    }
+                }
+            },
+            FinalSting = {
+                enabled = true,
+                spellId = 443487,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "443487",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.VolleyIntoDot] ={
+            VolatileKeg = {
+                enabled = true,
+                spellId = 463218, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "463218",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "463218",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            HighSteaks = {
+                enabled = true,
+                spellId = 435004, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "435004",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.KnockCast] ={
+            Tenderize = {
+                enabled = true,
+                spellId = 463206, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "463206",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.ExplodingCast] = {
+            ExplosiveBrew = {
+                enabled = true,
+                spellId = 441518,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "441518",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            RejuvenatingHoney = {
+                enabled = true,
+                spellId = 441627,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "441627",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.Charge] ={
+            RecklessDelivery= {
+                enabled = true,
+                spellId = 448619, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "448619",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.RageBuffCast] = {
+            SpillDrink = {
+                enabled = true,
+                spellId = 441214,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "441214",
+                    },
+                }
+            },
+            BeeStialWrath = {
+                enabled = true,
+                spellId = 441351,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "441351",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            ShreddingSting = {
+                enabled = true,
+                spellId = 441410,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "441410",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "441410",
+                    },
+
+                }
+            },
+        },
+        [JDT.GroupTypes.RunOut] ={
+            Beeswax = {
+                enabled = true,
+                spellId = 442589, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "442589",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.BigStackingAoeWithCD] = {
+            SwarmingSurprise = {
+                enabled = true,
+                spellId = 442995,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "442995",
+                    },
+                    {
+                        spellId = "442995",
+                        duration = "0"
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "442995",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            HoneyVolley = {
+                enabled = true,
+                spellId = 440687, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "440687",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Jump] ={
+            DownwardTrend = {
+                enabled = true,
+                spellId = 439467, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "439467",
+                    },
+                }
+            },
+        },
     },
 }
