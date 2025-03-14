@@ -432,9 +432,13 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
     end
     -- set Border and %c depending on JDT.Auratype
     if AuraTemplate.customText then
-        local TextTemplate = CopyTable(JDT.Templates.TextRegions.CustomText)
-        TextTemplate.anchor_point = JDT.Templates.AnchorForTextPriority[SpellTable.regionType].AuraType
-        table.insert(SpellTable.subRegions,TextTemplate)
+        if AuraTemplate.customTextNoAdd then
+            --skipping the insertion of a textbody
+        else
+            local TextTemplate = CopyTable(JDT.Templates.TextRegions.CustomText)
+            TextTemplate.anchor_point = JDT.Templates.AnchorForTextPriority[SpellTable.regionType].AuraType
+            table.insert(SpellTable.subRegions,TextTemplate)
+        end
         local customText, actionOnHide = JDT.Templates.CustomTextTemplates[AuraTemplate.customText](v.customTextInfo)
         SpellTable.customText = customText
         if(actionOnHide) then

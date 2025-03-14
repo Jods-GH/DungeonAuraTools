@@ -328,6 +328,8 @@ JDT.GroupTypes.PlayerGroupDebuffSoak = "PlayerGroupDebuffSoak"
 JDT.GroupTypes.SoaksRemainingWithDebuff = "SoaksRemainingWithDebuff"
 JDT.GroupTypes.ActivatingCast = "ActivatingCast"
 JDT.GroupTypes.UnavoidableAoeBigAoeIfBuffed = "UnavoidableAoeBigAoeIfBuffed"
+JDT.GroupTypes.TargetedStunCast  = "TargetedStunCast"
+JDT.GroupTypes.DisposeSpellDamage = "DisposeSpellDamage"
 
 
 
@@ -3228,7 +3230,77 @@ JDT.Templates.GroupTypes.DisposeSuccessWithStacks=  {
 }
 ), 
 }
-
+JDT.Templates.GroupTypes.DisposeSpellDamage=  {
+    AuraType = "AuraIcon",
+    triggers = {
+        [1] ={
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        [2] = {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
+            customPreset = "DisposeSpellDamage"
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Dispose"),
+            isactive = true,
+        }, 
+    },
+    glowtype = "Ants",
+    doSound = JDT.SoundTypes.dance,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+            {
+               condition={
+                type = "NumberCheck",
+                trigger= 2,
+                op = "<",
+                variable = "expirationTime",
+                value = "5",
+                   },
+                   changes = {
+                    {
+                        property = "sub.4.glow",
+                        value = true,
+                    },
+                    {
+                        property = "sub.4.glowType",
+                        value = "buttonOverlay",
+                    },
+                   },
+           },
+           {
+            condition={
+                type = "And",
+                checks = {
+                    {
+                        type = "NumberCheck",
+                        trigger= 2,
+                        op = ">",
+                        variable = "expirationTime",
+                        value = "5",
+                    },
+                    {
+                        type = "NumberCheck",
+                        trigger= 2,
+                        op = "<",
+                        variable = "expirationTime",
+                        value = "10",
+                    },
+                },
+            },
+            changes = {
+                {
+                    property = "sub.4.glow",
+                    value = true
+                },
+            },
+        },
+}
+), 
+}
 JDT.Templates.GroupTypes.DisposeSpellAura=  {
     AuraType = "AuraIcon",
     triggers = {
@@ -8138,6 +8210,24 @@ JDT.Templates.GroupTypes.TargetedKnockCast = {
     activationType = JDT.Templates.Triggers.ActivationTypes.oder,
 }
 
+JDT.Templates.GroupTypes.TargetedStunCast = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast, 
+            target = JDT.Templates.Triggers.UnitTypes.player,
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Stun inc"),
+            isactive = true,
+        }, 
+    },
+    doSound = JDT.SoundTypes.cc,
+    activationType = JDT.Templates.Triggers.ActivationTypes.und,
+}
+
 
 JDT.Templates.GroupTypes.StayAwayCast = {
     AuraType = "AuraIcon",
@@ -12245,13 +12335,15 @@ JDT.Templates.GroupTypes.SoaksRemainingWithDebuff =  {
             isactive = false,
         }, 
         {   
-            value = "%2.s" .. JDT.getLocalisation("Remaining"),
+            value = "%c " .. JDT.getLocalisation("Remaining"),
             isactive = true,
         }, 
     },
     doSound = JDT.SoundTypes.soak,
     activationType = JDT.Templates.Triggers.ActivationTypes.custom,
     customTriggerLogic = "function(t) \n  return t[1] and (t[2] or t[3]) \n end",
+    customText = JDT.Templates.CustomText.CalculateRemaining,  
+    customTextNoAdd = true,
     conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
         {
          {

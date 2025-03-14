@@ -61,6 +61,7 @@ JDT.SpellList.Affixes = {
                 enabled = true,
                 affixId = 162,
                 spellId = 1216858,
+                customTextInfo = {trigger = 2 , maximumValue=5},
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,

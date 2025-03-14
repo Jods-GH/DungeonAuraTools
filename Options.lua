@@ -689,6 +689,7 @@ JDT.createOptionsData = function() -- Generates Type Groups depending on SPellDa
               assert(spell, "Spell is nil for:"..ExpansionKey.." , "..DungeonKey.." , "..BossNameKey.." , "..SpellTypeKey.." , "..v.spellId)
               spell:ContinueOnSpellLoad(function()
                 local desc = spell:GetSpellDescription()
+                assert(desc and ExpansionKey and DungeonKey and BossNameKey and SpellTypeKey and k and JDT.Templates.GroupTypes[SpellTypeKey].AuraType, "Spelldata missing for: ".. v.spellId)
                 assert(Spellname and Spellicon and JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k] and JDT.Templates.GroupTypes[SpellTypeKey].AuraType, "Spell is missing data for"..ExpansionKey.." , "..DungeonKey.." , "..BossNameKey.." , "..SpellTypeKey.." , "..v.spellId)
                 JDT.options.args.spelloptions.args[ExpansionKey].args[DungeonKey].args[BossNameKey].args[SpellTypeKey].args[k]= JDT.createAuraGroup(Spellname,desc,Spellicon,JDT.db.profile.data[ExpansionKey].Dungeons[DungeonKey].Bosses[BossNameKey].Auras[SpellTypeKey][k],JDT.Templates.GroupTypes[SpellTypeKey].AuraType)
               end)           

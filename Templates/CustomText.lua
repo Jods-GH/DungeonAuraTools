@@ -9,6 +9,7 @@ JDT.Templates.CustomTextGenerator = JDT.Templates.CustomTextGenerator or {}
 JDT.Templates.CustomText.DurationStacks = "DurationStacks"
 JDT.Templates.CustomText.StacksPerUnit = "StacksPerUnit"
 JDT.Templates.CustomText.TooltipProgress = "TooltipProgress"
+JDT.Templates.CustomText.CalculateRemaining = "CalculateRemaining"
 
 setmetatable(JDT.Templates.CustomText, {
     __index = function(_, key)
@@ -47,4 +48,13 @@ JDT.Templates.CustomTextTemplates.StacksPerUnit = function(trigger)
 end
 JDT.Templates.CustomTextGenerator.UnitStackInfo = function(trigger)
     return "function()\n if aura_env.states["..trigger.."] and aura_env.states["..trigger.."].totalStacks and aura_env.states["..trigger.."].unitCount then \n return Round(aura_env.states[2].totalStacks/aura_env.states[2].unitCount)\n end\nend"
+end
+
+JDT.Templates.CustomTextTemplates.CalculateRemaining = function(info)
+    local trigger = info.trigger
+    local maximumValue = info.maximumValue
+    return JDT.Templates.CustomTextGenerator.CalculateRemaining(trigger,maximumValue)
+end
+JDT.Templates.CustomTextGenerator.CalculateRemaining = function(trigger,maximumValue)
+    return "function()\n if aura_env.states["..trigger.."] and aura_env.states["..trigger.."].stacks then \n return "..maximumValue.."-aura_env.states["..trigger.."].stacks\n end\nend"
 end

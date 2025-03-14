@@ -78,6 +78,16 @@ JDT.Templates.CustomTriggers.DisposeSpellAura = function(triggerData)
     return trigger
 end
 
+JDT.Templates.CustomTriggers.DisposeSpellDamage = function(triggerData)
+    local summonID,duration,removeID,stacks  = triggerData.summonID,triggerData.duration,triggerData.removeID, triggerData.stacks
+    local trigger = {
+        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_CAST_SUCCESS\" and spellID == "..summonID.." then\n        if not s[\"\"] then\n            \n            s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = "..stacks..",\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+"..stacks.."\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        \n        return true\n        \n        \n    elseif (subevent == \"SPELL_DAMAGE\" or subevent == \"SPELL_MISSED\") and spellID == "..removeID.." and destGUID == UnitGUID(\"player\") then\n        \n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
+        customEvents = "COMBAT_LOG_EVENT_UNFILTERED:SPELL_CAST_SUCCESS,COMBAT_LOG_EVENT_UNFILTERED:SPELL_DAMAGE, COMBAT_LOG_EVENT_UNFILTERED:SPELL_MISSED",
+        customVariables = "{\n    expirationTime = true,\n    duration = true,\n    stacks = true,\n}",
+    }
+    return trigger
+end
+
 JDT.Templates.CustomTriggers.DisposeSpellAuraAppliedRemoved = function(triggerData)
     local summonID,duration,removeID  = triggerData.summonID,triggerData.duration,triggerData.removeID
     local trigger = {
@@ -93,7 +103,7 @@ end
 JDT.Templates.CustomTriggers.DisposeUnitDied = function(triggerData)
     local summonID,duration,removeID = triggerData.summonID,triggerData.duration,triggerData.removeID
     local trigger = {
-        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    if subevent == \"SPELL_SUMMON\" and spellID == "..summonID.." then\n        if not s[\"\"] then\n            s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = 1,\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+1\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        return true\n    elseif subevent == \"UNIT_DIED\" then \n        local type, zero, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit(\"-\",destGUID) \n        if npc_id == "..removeID.." then\n            if s[\"\"] then\n                \n                s[\"\"].stacks = s[\"\"].stacks-1\n                if s[\"\"].stacks == 0 then                \n                    s[\"\"].show = false      \n                end\n                s[\"\"].changed = true\n                return true \n            end\n        end\n        \n    end\n    \nend",
+        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    if subevent == \"SPELL_SUMMON\" and spellID == "..summonID.." then\n        if not s[\"\"] then\n            s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = 1,\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+1\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        return true\n    elseif subevent == \"UNIT_DIED\" then \n        local type, zero, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit(\"-\",destGUID) \n        if npc_id == \""..removeID.."\" then\n            if s[\"\"] then\n                \n                s[\"\"].stacks = s[\"\"].stacks-1\n                if s[\"\"].stacks == 0 then                \n                    s[\"\"].show = false      \n                end\n                s[\"\"].changed = true\n                return true \n            end\n        end\n        \n    end\n    \nend",
         customEvents = "COMBAT_LOG_EVENT_UNFILTERED:Spell_Summon,COMBAT_LOG_EVENT_UNFILTERED:UNIT_DIED",
         customVariables = "{\n    expirationTime = true,\n    duration = true,\n    stacks = true,\n}",
     }

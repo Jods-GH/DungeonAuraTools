@@ -433,7 +433,8 @@ LocalisationData["PvPCast"] = "Cast that forces you to PvP"
 LocalisationData["DmgDebuff"] = "Debuff that reduces dmg done"
 LocalisationData["ActivatingCast"] = "Cast that activates something"
 LocalisationData["UnavoidableAoeBigAoeIfBuffed"] = "Aoe mechanic that deals increased damage something has a buff"
-
+LocalisationData["DisposeSpellDamage"] = "Dispose mechanic"
+LocalisationData["TargetedStunCast"] = "Targeted cast that stuns"
 --[[ 
     LocalisationData[""] = ""
     LocalisationData[""] = ""
