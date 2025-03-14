@@ -133,7 +133,7 @@ bosses.boss2 = { --	Baron Braunpyke
                 }
             },
         },
-        [JDT.GroupTypes.DisposeSpellAura] ={
+        [JDT.GroupTypes.DisposeSpellDamage] ={
             SacrificialPyre = {
                 enabled = true,
                 spellId = 446368, -- for spellname etc
@@ -303,6 +303,362 @@ bosses.Trash = {
 
                 }
             },
+        },
+        [JDT.GroupTypes.ShieldCast] ={
+            Defend = {
+                enabled = true,
+                spellId = 427342, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427342",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.TargetedCastIntoDot] = {
+            Impale = {
+                enabled = true,
+                spellId = 427621,
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "427621",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "427621",
+                    }
+                }
+            },
+            BlazingStrike = {
+                enabled = true,
+                spellId = 435165,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "435165",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "435165",
+                    }
+                }
+            },
+        }, 
+        [JDT.GroupTypes.TargetedCast] = {
+            Shoot = {
+                enabled = true,
+                spellId = 427629,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427629",
+                    }
+                }
+            },
+            PotShot = {
+                enabled = true,
+                spellId = 462859,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "462859",
+                    }
+                }
+            },
+            Purification = {
+                enabled = true,
+                spellId = 448787,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "448787",
+                    }
+                }
+            },
+            Fireball = {
+                enabled = true,
+                spellId = 424421,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "424421",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.TrapSpawn] ={
+            Caltrops = {
+                enabled = true,
+                spellId = 453461, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "453461",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedCastIntoToppableDot] ={
+            Pounce = {
+                enabled = true,
+                spellId = 446776, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "446776",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "427635",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.InteruptableBigHealCast] = {
+            GreaterHeal = {
+                enabled = true,
+                spellId = 427356,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427356",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InterruptableTargetedCast] ={
+            HolySmite = {
+                enabled = true,
+                spellId = 427357, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427357",
+                    },
+                }
+            },
+            Fireball = {
+                enabled = true,
+                spellId = 427469, -- for spellname etc
+                triggerData = {
+                     {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427469",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.BuffCast] = {
+            InnerFire = {
+                enabled = true,
+                spellId = 428916,
+                type = JDT.AuraTypes.purge,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "428916",
+                    }
+                }
+            },
+            SealOfFlame = {
+                enabled = true,
+                spellId = 427950,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427950",
+                    }
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCast] = {
+            Flamestrike = {
+                enabled = true,
+                spellId = 427484,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427484",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedKnockCast] ={
+            ShieldSlam = {
+                enabled = true,
+                spellId = 448485, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "448485",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.UnavoidableAoe] ={
+            Thunderclap = {
+                enabled = true,
+                spellId = 448492, -- for spellname etc
+                type = JDT.AuraTypes.snare,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "448492",
+                    },
+                }
+            },
+            FanTheForge = {
+                enabled = true,
+                spellId = 427894, -- for spellname etc
+                type = JDT.AuraTypes.snare,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427894",
+                    },
+                }
+            },
+            HeatWave = {
+                enabled = true,
+                spellId = 427897, -- for spellname etc
+                type = JDT.AuraTypes.snare,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427897",
+                    },
+                }
+            },
+            HolyRadiance = {
+                enabled = true,
+                spellId = 424431, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "424431",
+                    },
+                }
+            },
+            SacredToll = {
+                enabled = true,
+                spellId = 448791, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "448791",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.RunOut] ={
+            BurstOfLight = {
+                enabled = true,
+                spellId = 427601, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "427601",
+                    },
+                }
+            },
+            BrutalSmash = {
+                enabled = true,
+                spellId = 424621, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "424621",
+                    },
+                }
+            },
+            Consecration = {
+                enabled = true,
+                spellId = 424429, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "424429",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.VoidCastIntoDot] ={
+            LungingStrike = {
+                enabled = true,
+                spellId = 424423, -- for spellname etc
+                type = JDT.AuraTypes.bleed,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "424423",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "424426",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.TargetedStunCast] = {
+            Cinderblast = {
+                enabled = true,
+                spellId = 424420,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "424420",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.Dance] ={
+            EmberStorm = {
+                enabled = true,
+                spellId = 424462, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "424462",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.InteruptableVolley] = {
+            FireballVolley = {
+                enabled = true,
+                spellId = 444743,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "444743",
+                    },
+                }
+            },
+        },
+        [JDT.GroupTypes.CastIntoAoeDebuffWithNextTick] ={
+            RadiantFlame = {
+                enabled = true,
+                spellId = 451763, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451763",
+                    },
+                    {
+                        duration = "0.5",
+                        spellId = "451763",
+                    },
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "451763",
+                    },
+
+                }
+            }
         },
     },
 }
