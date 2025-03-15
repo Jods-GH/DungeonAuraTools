@@ -457,6 +457,7 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 428916,
                 type = JDT.AuraTypes.purge,
+                loadInBossfight = true,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
