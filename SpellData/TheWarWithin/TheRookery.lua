@@ -30,7 +30,7 @@ bosses.boss1 = { --	Kyrioss
                 }
             },
         },
-        [JDT.GroupTypes.Dance] ={
+        [JDT.GroupTypes.DanceWithNextTick] ={
             LightningTorrent = {
                 enabled = true,
                 spellId = 444034, -- for spellname etc
@@ -39,8 +39,26 @@ bosses.boss1 = { --	Kyrioss
                         unit = JDT.Templates.Triggers.UnitTypes.boss,
                         spellId = "444034",
                     },
+                    {
+                        duration = "3",
+                        spellId = "1214318",
+                    },
+                }
+            }
+        },
+        [JDT.GroupTypes.SpreadCast] = {
+            CrashingThunder = {
+                enabled = true,
+                spellId = 1214325,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "1214325",
+                    }
+
                 }
             },
+
         },
     
     }
@@ -52,24 +70,21 @@ bosses.boss2 = { --	Stormguard Gorren
         [JDT.GroupTypes.SoakableTargetedDebuffWithCantSoakDebuff] ={
             ChaoticCorruption = {
                 enabled = true,
-                spellId = 424737, -- for spellname etc
+                spellId = 424739, -- for spellname etc
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "424737",
-                        exactSpellId = "true", 
+                        spellId = "424739",
 
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
-                        spellId = "424739",
-                        exactSpellId = "true", 
+                        spellId = "424797",
 
                     },
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.smartGroup,
-                        spellId = "424737",
-                        exactSpellId = "true", 
+                        spellId = "424739",
                     },
 
                 }
@@ -224,6 +239,7 @@ bosses.Trash = {
             WildLightning = {
                 enabled = true,
                 spellId = 474018, -- for spellname etc
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
