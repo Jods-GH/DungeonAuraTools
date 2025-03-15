@@ -234,6 +234,7 @@ JDT.Templates.TextRegions.TextToDisplay = { ------------------------------------
 						text_automaticWidth = "Auto",
 						text_fixedWidth = 64,
 						text_text_format_p_time_legacy_floor = false,
+						text_text_format_c_format="none", 
 						text_justify = "CENTER",
 						rotateText = "NONE",
 						anchorYOffset = 0,

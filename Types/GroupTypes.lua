@@ -330,6 +330,7 @@ JDT.GroupTypes.ActivatingCast = "ActivatingCast"
 JDT.GroupTypes.UnavoidableAoeBigAoeIfBuffed = "UnavoidableAoeBigAoeIfBuffed"
 JDT.GroupTypes.TargetedStunCast  = "TargetedStunCast"
 JDT.GroupTypes.DisposeSpellDamage = "DisposeSpellDamage"
+JDT.GroupTypes.CastIntoTransferableDebuffWithCantSoak = "CastIntoTransferableDebuffWithCantSoak"
 
 
 
@@ -3957,7 +3958,7 @@ JDT.Templates.GroupTypes.SoakableTargetedDebuffWithCantSoakDebuff= {
                     {
                         property = "chat",
                         value = {
-                            message = "can soak",
+                            message = "{rt4} can soak {rt4}",
                             message_type = "SAY",
                         },
                     }, 
@@ -4013,7 +4014,7 @@ JDT.Templates.GroupTypes.SoakableTargetedDebuffWithCantSoakDebuff= {
                     {
                         property = "chat",
                         value = {
-                            message = "can't soak",
+                            message = "{rt7} can't soak {rt7}",
                             message_type = "YELL",
                         },
                     }, 
