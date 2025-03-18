@@ -232,7 +232,7 @@ bosses.boss3 = { --	Prioress Murrpray
                 spellId = 444546,
                 triggerData = {
                     {
-                        duration = "5",
+                        duration = "10",
                         spellId = "444546",
                     }
 
@@ -377,17 +377,7 @@ bosses.Trash = {
                         spellId = "448787",
                     }
                 }
-            },
-            Fireball = {
-                enabled = true,
-                spellId = 424421,
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "424421",
-                    }
-                }
-            },
+            }
         },
         [JDT.GroupTypes.TrapSpawn] ={
             Caltrops = {
@@ -457,7 +447,7 @@ bosses.Trash = {
                 enabled = true,
                 spellId = 428916,
                 type = JDT.AuraTypes.purge,
-                loadInBossfight = true,
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
@@ -537,6 +527,7 @@ bosses.Trash = {
             HolyRadiance = {
                 enabled = true,
                 spellId = 424431, -- for spellname etc
+                loadInBossfight = false,
                 triggerData = {
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.nameplate,
