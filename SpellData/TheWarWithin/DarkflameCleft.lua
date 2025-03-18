@@ -321,6 +321,18 @@ bosses.Trash = {
                     },
                 }
             },
+            CreepingShadow  = {
+                enabled = true,
+                spellId = 469620, -- for spellname etc
+                type = JDT.AuraTypes.magic,
+                showStacks = 1,
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.player,
+                        spellId = "469620",
+                    },
+                }
+            },
         },
         [JDT.GroupTypes.RunOut] ={
             WildWallop = {
