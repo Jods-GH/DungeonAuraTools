@@ -147,7 +147,10 @@ bosses.boss2 = { --	Baron Braunpyke
                         stacks = 3,
                         summonID = 446368,
                         duration = 30,
-                        removeID = 446403
+                        removeID = 1218149,
+                        additionalSpellID = 422969,
+                        additionalStacks = 2,
+                        additionalUnit = "boss1"
                     },
                 }
             }

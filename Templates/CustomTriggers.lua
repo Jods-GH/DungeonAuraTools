@@ -79,9 +79,27 @@ JDT.Templates.CustomTriggers.DisposeSpellAura = function(triggerData)
 end
 
 JDT.Templates.CustomTriggers.DisposeSpellDamage = function(triggerData)
+    if triggerData.additionalSpellID and triggerData.additionalStacks and triggerData.additionalUnit then
+        return JDT.Templates.CustomTriggers.DisposeSpellDamageBonusStacksIfBuffed(triggerData)
+    else
+        return JDT.Templates.CustomTriggers.DisposeSpellDamageNoBonus(triggerData)
+    end
+end
+
+JDT.Templates.CustomTriggers.DisposeSpellDamageNoBonus = function(triggerData)
     local summonID,duration,removeID,stacks  = triggerData.summonID,triggerData.duration,triggerData.removeID, triggerData.stacks
     local trigger = {
         customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_CAST_SUCCESS\" and spellID == "..summonID.." then\n        if not s[\"\"] then\n            \n            s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = "..stacks..",\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+"..stacks.."\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        \n        return true\n        \n        \n    elseif (subevent == \"SPELL_DAMAGE\" or subevent == \"SPELL_MISSED\") and spellID == "..removeID.." and destGUID == UnitGUID(\"player\") then\n        \n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
+        customEvents = "COMBAT_LOG_EVENT_UNFILTERED:SPELL_CAST_SUCCESS,COMBAT_LOG_EVENT_UNFILTERED:SPELL_DAMAGE, COMBAT_LOG_EVENT_UNFILTERED:SPELL_MISSED",
+        customVariables = "{\n    expirationTime = true,\n    duration = true,\n    stacks = true,\n}",
+    }
+    return trigger
+end
+
+JDT.Templates.CustomTriggers.DisposeSpellDamageBonusStacksIfBuffed = function(triggerData)
+    local summonID,duration,removeID,stacks, additionalSpellID, additionalStacks, additionalUnit  = triggerData.summonID,triggerData.duration,triggerData.removeID, triggerData.stacks, triggerData.additionalSpellID, triggerData.additionalStacks, triggerData.additionalUnit
+    local trigger = {
+        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    \n    if subevent == \"SPELL_CAST_SUCCESS\" and spellID == "..summonID.." then\n        if not s[\"\"] then\n            \n  local stacksToApply= "..stacks.."   if WA_GetUnitAura(\""..additionalUnit.."\", "..additionalSpellID..", \"\") then \n stacksToApply = stacksToApply+"..additionalStacks.."\n end\n    s[\"\"] = {\n                duration = "..duration..",\n                expirationTime = GetTime()+"..duration..",\n                stacks = stacksToApply,\n                progressType = \"timed\",\n                autoHide = true,\n                changed = true,\n                show = true,\n            }\n        else\n            s[\"\"].stacks = s[\"\"].stacks+stacksToApply\n            s[\"\"].changed = true\n            s[\"\"].expirationTime = GetTime()+"..duration.."\n        end\n        \n        return true\n        \n        \n    elseif (subevent == \"SPELL_DAMAGE\" or subevent == \"SPELL_MISSED\") and spellID == "..removeID.." and destGUID == UnitGUID(\"player\") then\n        \n        if s[\"\"] then\n            \n            s[\"\"].stacks = s[\"\"].stacks-1\n            if s[\"\"].stacks == 0 then\n                s[\"\"].show = false\n            end\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
         customEvents = "COMBAT_LOG_EVENT_UNFILTERED:SPELL_CAST_SUCCESS,COMBAT_LOG_EVENT_UNFILTERED:SPELL_DAMAGE, COMBAT_LOG_EVENT_UNFILTERED:SPELL_MISSED",
         customVariables = "{\n    expirationTime = true,\n    duration = true,\n    stacks = true,\n}",
     }
