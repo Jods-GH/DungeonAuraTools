@@ -331,6 +331,7 @@ JDT.GroupTypes.UnavoidableAoeBigAoeIfBuffed = "UnavoidableAoeBigAoeIfBuffed"
 JDT.GroupTypes.TargetedStunCast  = "TargetedStunCast"
 JDT.GroupTypes.DisposeSpellDamage = "DisposeSpellDamage"
 JDT.GroupTypes.CastIntoTransferableDebuffWithCantSoak = "CastIntoTransferableDebuffWithCantSoak"
+JDT.GroupTypes.CastIntoLinkAppliedCheck = "CastIntoLinkAppliedCheck"
 
 
 
@@ -6894,10 +6895,10 @@ JDT.Templates.GroupTypes.RageBuff = {
 JDT.Templates.GroupTypes.CastIntoLink = {
     AuraType = "AuraIcon",
     triggers = {
-        [1] = {
+        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
         },
-        [2] ={
+        {
             triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
             BuffTypes = "debuff",
         }
@@ -6921,6 +6922,56 @@ JDT.Templates.GroupTypes.CastIntoLink = {
                type = "simplecheck",
                trigger= 1,
                value = false,
+                },
+                changes = {
+                    {
+                        property = "sub.3.text_visible",
+                        value = false
+                    },
+                    {
+                        property= "sub.4.text_visible",
+                        value = true
+                    },
+                },
+        },
+    }
+), 
+}
+
+JDT.Templates.GroupTypes.CastIntoLinkAppliedCheck = {
+    AuraType = "AuraIcon",
+    triggers = {
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.cast,
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.buffs,
+            BuffTypes = "debuff",
+        },
+        {
+            triggerType = JDT.Templates.Triggers.TriggerTypes.tsu,
+            customPreset = "SpellAuraAppliedLink"
+        },
+    },
+    text = {
+        {   
+            value = JDT.getLocalisation("Stack"),
+            isactive = true,
+        }, 
+        {   
+            value = JDT.getLocalisation("Link").." %3.unit",  
+            isactive = false,
+        },    
+    },
+    doSound = JDT.SoundTypes.stack,
+    activationType = JDT.Templates.Triggers.ActivationTypes.oder,
+    conditions = JDT.Templates.Conditions.ConditionGenerator.advanced(
+        {
+         {
+            condition={
+               type = "simplecheck",
+               trigger= 3,
+               value = true,
                 },
                 changes = {
                     {
