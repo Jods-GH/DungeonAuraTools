@@ -201,7 +201,7 @@ bosses.boss3 = { --	Swampface
     additionalName = "] 03 ",
     Auras = {
         -- add spells
-        [JDT.GroupTypes.CastIntoLink] = {
+        [JDT.GroupTypes.CastIntoLinkAppliedCheck] = {
             RazorchokeVines = {
                 enabled = true,
                 spellId = 355479,
@@ -213,7 +213,10 @@ bosses.boss3 = { --	Swampface
                     {
                         unit = JDT.Templates.Triggers.UnitTypes.player,
                         spellId = "470039",
-                    },        
+                    },    
+                    {
+                        spellId = "472819",
+                    },  
                 }
             },
         },

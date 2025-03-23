@@ -190,6 +190,19 @@ JDT.Templates.CustomTriggers.HpCompare = function()
 end
 
 
+JDT.Templates.CustomTriggers.SpellAuraAppliedLink = function(triggerData)
+    local spellID = triggerData.spellId
+    local trigger = {
+        customTrigger = "function(s,event,_,subevent,_,_,_,_,_,destGUID,_,_,_,spellID)\n    if subevent == \"SPELL_AURA_APPLIED\" and spellID == "..spellID.." and not aura_env.GuidList[destGUID] then\n        aura_env.Count=aura_env.Count+1\n        aura_env.GuidList[destGUID]=aura_env.Count  \n        \n        if not s[\"\"] and aura_env.Count == 4 then\n            local myNumber = aura_env.GuidList[WeakAuras.myGUID]\n            local otherNumber\n        if myNumber ~== 1 then \n otherNumber =2 \n elseif myNumber%2 then\n                otherNumber = myNumber-1\n            else\n                otherNumber = myNumber+1\n            end\n            \n            for unit in WA_IterateGroupMembers() do\n                local guid = UnitGUID(unit)\n                if aura_env.GuidList[guid] == otherNumber then\n                    s[\"\"] = {                \n                        total  = 1,\n                        value  = 1,\n                        progressType = \"static\",\n                        autoHide = false,\n                        changed = true,\n                        show = true,\n                        unit = unit,\n                        guid = guid\n                    }\n                    return true\n                end\n                \n            end\n            \n            \n            \n        end\n        \n        \n        \n        \n    elseif subevent == \"SPELL_AURA_REMOVED\" and spellID == "..spellID.." and aura_env.GuidList[destGUID] then\n        aura_env.GuidList[destGUID]=false     \n        if s[\"\"] and destGUID == WeakAuras.myGUID then\n            s[\"\"].show = false\n            s[\"\"].changed = true\n            return true \n        end\n        \n    end\nend",
+        customEvents = "COMBAT_LOG_EVENT_UNFILTERED:SPELL_AURA_APPLIED,COMBAT_LOG_EVENT_UNFILTERED:SPELL_AURA_REMOVED",
+        customVariables = "{\n    unit = true}",
+        customInit = "aura_env.GuidList = {} \n aura_env.Count = 0",			
+        customFinish = "aura_env.GuidList = {} \n aura_env.Count = 0",	
+    }
+    return trigger
+end
+
+
 JDT.Templates.CustomTriggers.TargetChangeChecker = function(triggerData)
     local spellIdList = triggerData.spellIdList
     local trigger = {
