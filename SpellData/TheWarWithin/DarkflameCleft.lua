@@ -118,10 +118,11 @@ bosses.boss2 = { --	Blazikon
                 enabled = true,
                 spellId = 421817,
                 ticks = {
-                    "20",
-                    "40",
-                    "60",
-                    "80",
+                    "16.6",
+                    "33.3",
+                    "50",
+                    "66.6",
+                    "83.3",
                     },
                 triggerData = {
                     {
