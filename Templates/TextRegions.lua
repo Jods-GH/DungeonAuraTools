@@ -180,7 +180,7 @@ JDT.Templates.TextRegions.destUnit = { ------------------------------------ TEXT
 					["text_text_format_1.unit_abbreviate"] = true,
 					["text_text_format_1.unit_realm_name"] = "never",
 					["text_text_format_1.unit_color"] = "class",
-					["text_text_format_1.unit_format"] = "Unit",
+					["text_text_format_1.unit_format"] = "Unit"
 				} 
 
 JDT.Templates.TextRegions.unitCaster = { ------------------------------------ TEXT 2 TEXT TO DISPLAY
@@ -223,7 +223,7 @@ JDT.Templates.TextRegions.unitCaster = { ------------------------------------ TE
 				["text_text_format_1.unit_abbreviate"] = true,
 				["text_text_format_1.unit_realm_name"] = "never",
 				["text_text_format_1.unit_color"] = "class",
-				["text_text_format_1.unit_format"] = "Unit",
+				["text_text_format_1.unit_format"] = "Unit"
 			} 
 
 JDT.Templates.TextRegions.TextToDisplay = { ------------------------------------ TEXT 2 TEXT TO DISPLAY
@@ -267,7 +267,7 @@ JDT.Templates.TextRegions.TextToDisplay = { ------------------------------------
 						["text_text_format_1.unit_abbreviate"] = true,
 						["text_text_format_1.unit_realm_name"] = "never",
 						["text_text_format_1.unit_color"] = "class",
-						["text_text_format_1.unit_format"] = "Unit",
+						["text_text_format_1.unit_format"] = "Unit"
 					} 
 
 JDT.Templates.TextRegions.TooltipDisplay =	{

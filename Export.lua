@@ -315,6 +315,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
             TextTemplate["text_text_format_"..number.."."..unit.."_realm_name"] = "never"
             TextTemplate["text_text_format_"..number.."."..unit.."_color"] = "class"
             TextTemplate["text_text_format_"..number.."."..unit.."_format"] = "Unit"
+            TextTemplate["text_text_format_"..number.."."..unit.."_pad_max"]=8 
+            TextTemplate["text_text_format_"..number.."."..unit.."_pad_mode"]="left" 
+            TextTemplate["text_text_format_"..number.."."..unit.."_pad"]=false 
         end
         if textvalue.isNumber then
             TextTemplate["text_text_format_"..textvalue.isNumber.."_decimal_precision"] = 1
@@ -370,6 +373,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
         TextTemplate.text_text = "%"..AuraTemplate.useTooltip..".tooltip1"
         TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_format"] = "BigNumber"
         TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_big_number_format"] = "AbbreviateNumbers"
+        TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_pad_max"]=8 
+        TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_pad_mode"]="left" 
+        TextTemplate["text_text_format_"..AuraTemplate.useTooltip..".tooltip1_pad"]=false 
         TextTemplate.anchor_point = JDT.Templates.AnchorForTextPriority[SpellTable.regionType][IconTextPriority]
         IconTextPriority = IconTextPriority+1
         tinsert(SpellTable.subRegions,TextTemplate)
@@ -380,6 +386,9 @@ JDT.buildAura = function(ExportTable,DungeonValue,BossNameValue,TypeKey,v,Expans
         TextTemplate.text_text = "%"..AuraTemplate.useHealth..".health"
         TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_format"] = "BigNumber"
         TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_big_number_format"] = "AbbreviateNumbers"
+        TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_pad_max"]=8 
+        TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_pad_mode"]="left" 
+        TextTemplate["text_text_format_"..AuraTemplate.useHealth..".health_pad"]=false 
         TextTemplate.anchor_point = JDT.Templates.AnchorForTextPriority[SpellTable.regionType][IconTextPriority]
         IconTextPriority = IconTextPriority+1
         tinsert(SpellTable.subRegions,TextTemplate)
