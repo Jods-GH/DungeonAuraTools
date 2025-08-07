@@ -9,33 +9,29 @@ local seasons = JDT.SpellList.Seasons
 seasons.current = {
     groupName = "The War Within Season 2",
     dungeons = {
-         Motherlode= {
-            expansion = "BattleForAzeroth",
-            dungeon = "Motherlode",   
-         },
-         OperationMechagon={
-            expansion = "BattleForAzeroth",
-            dungeon = "OperationMechagon",   
-         },
-         TheaterOfPain = {
+         HallsOfAtonement= {
             expansion = "Shadowlands",
-            dungeon = "TheaterOfPain",
+            dungeon = "HallsOfAtonement",   
+         },
+         Tazavesh = {
+            expansion = "Shadowlands",
+            dungeon = "Tazavesh",
          },
          OperationFloodgate = {
             expansion = "TheWarWithin",
             dungeon = "OperationFloodgate",
          },
-         DarkflameCleft={
+         EcoDomeAldani={
             expansion = "TheWarWithin",
-            dungeon = "DarkflameCleft",   
+            dungeon = "EcoDomeAldani",
          },
-         CinderbrewMeadery={
+         TheDawnbreaker={
             expansion = "TheWarWithin",
-            dungeon = "CinderbrewMeadery",   
+            dungeon = "TheDawnbreaker",   
          },
-         TheRookery={
+         AraKara={
             expansion = "TheWarWithin",
-            dungeon = "TheRookery",   
+            dungeon = "AraKara",   
          },
          PrioryOfTheSacredFlame={
             expansion = "TheWarWithin",

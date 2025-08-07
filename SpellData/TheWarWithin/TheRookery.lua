@@ -29,6 +29,16 @@ bosses.boss1 = { --	Kyrioss
                     },
                 }
             },
+            LightningDash = {
+                enabled = true,
+                spellId = 419870,
+                triggerData = {
+                {
+                        unit = JDT.Templates.Triggers.UnitTypes.boss,
+                        spellId = "474018",
+                    },
+                }
+            },
         },
         [JDT.GroupTypes.DanceWithNextTick] ={
             LightningTorrent = {
@@ -270,6 +280,16 @@ bosses.Trash = {
 
                 }
             },
+            UmbralWave = {
+                enabled = true,
+                spellId = 1214546, -- for spellname etc
+                triggerData = {
+                    {
+                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
+                        spellId = "1214546",
+                    },
+                }
+            },
         },
         [JDT.GroupTypes.ShieldCast] ={
             EntropyShield = {
@@ -359,16 +379,6 @@ bosses.Trash = {
             },
         }, 
         [JDT.GroupTypes.RunOut] ={
-            UmbralWave = {
-                enabled = true,
-                spellId = 1214546, -- for spellname etc
-                triggerData = {
-                    {
-                        unit = JDT.Templates.Triggers.UnitTypes.nameplate,
-                        spellId = "1214546",
-                    },
-                }
-            },
             AttractingShadows = {
                 enabled = true,
                 spellId = 430812, -- for spellname etc
