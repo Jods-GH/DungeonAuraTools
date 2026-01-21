@@ -5,6 +5,7 @@
 [![Release][SVG-Release]][Release]
 [![Curseforge][SVG-Curseforge]][Curseforge]
 
+# With the Start of WoW Midnight. This addon is now Obsolete.
 
 # DungeonAuraTools
 Dungeon Aura Tools dynamically creates Dungeon WeakAuras based on user selections to indicate buffs, debuffs, casts, and other relevant information.
